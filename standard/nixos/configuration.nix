@@ -75,9 +75,17 @@
 
   # TODO: Set your hostname
   networking.hostName = "unraid-nix";
+  networking.networkmanager.enable = true;
+  networking.firewall.enable = true;
+  programs.mtr.enable = true;
 
   # TODO: This is just an example, be sure to use whatever bootloader you prefer
   boot.loader.systemd-boot.enable = true;
+  boot.loader.efi.canTouchEfiVariables = true;
+
+  time.timeZone="America/Los_Angeles";
+  i18n.defaultLocale = "en_US.UTF-8";
+  console.keyMap="us";
 
   # TODO: Configure your system-wide user settings (groups, etc), add more users as needed.
   users.users = {
@@ -96,6 +104,18 @@
     };
   };
 
+  environment.systemPackages = with pkgs; [
+    curl
+    firefox
+    git
+    mtr
+    nano
+    tree
+    vim
+    wget
+  ];
+
+
   # This setups a SSH server. Very important if you're setting up a headless system.
   # Feel free to remove if you don't need it.
   # services.openssh = {
@@ -109,5 +129,6 @@
   # };
 
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
+  system.copySystemConfiguration = true;
   system.stateVersion = "23.11";
 }
