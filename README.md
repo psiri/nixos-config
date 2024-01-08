@@ -7,7 +7,7 @@ export NIX_CONFIG="experimental-features = nix-command flakes"
 - Pull down the template:
 ```bash
 # For standard version
-nix flake init -t github:psiri/nix-config#standard
+nix flake init -t github:psiri/nixos-config#standard
 ```
 - Update any settings you currently have on `/etc/nixos/` to
   `nixos` (typically `configuration.nix` and `hardware-configuration.nix`).
