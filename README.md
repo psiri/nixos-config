@@ -1,39 +1,27 @@
 ## Instructions
 
 0. (If running from the installer) Clone the configuration:
-   1. `sudo git clone [--branch <YOURBRANCH>] https://github.com/psiri/nixos-config /etc/dotfiles`
-   2. Set the required variables:
-      1. ```
-          nix-shell -p git nixFlakes
-          # Set HOST to the desired hostname of this system
-          HOST=...
-          # Set USER to your desired username
-          USER=...
-         ```
-1. Change directory to the cloned repo
-   1. `cd /etc/dotfiles/`
+    1. `sudo git clone [--branch <YOURBRANCH>] https://github.com/psiri/nixos-config /etc/dotfiles`
+    2. Change into the target tempalte subdirectory of the cloned dotfiles directory. 
+        1.  Ex (`standard` template): `cd /etc/dotfiles/standard`
 
 ```
 - Requirements: Nix 2.4+, and the experimental `flakes` and `nix-command` features:
 ```bash
 export NIX_CONFIG="experimental-features = nix-command flakes"
 ```
-- Pull down the template:
-```bash
-# For vm version
-nix flake init -t github:psiri/nixos-config#vm
-```
-- Update any settings you currently have on `/etc/nixos/` to
+
+1.  Update any settings you currently have on `/etc/nixos/` to
   `nixos` (typically `configuration.nix` and `hardware-configuration.nix`).
     - The included file has some options you might want, specially if you don't
       have a configuration ready. Make sure you have generated your own
       `hardware-configuration.nix`; if not, just mount your partitions to
       `/mnt` and run: `nixos-generate-config --root /mnt`.
-- If you want to use home-manager: add your stuff from `~/.config/nixpkgs`
+1. If you want to use home-manager: add your stuff from `~/.config/nixpkgs`
   to `home-manager` (probably `home.nix`).
   - The included file is also a good starting point if you don't have a config
     yet.
-- Take a look at `flake.nix`, making sure to fill out anything marked with
+1. Take a look at `flake.nix`, making sure to fill out anything marked with
   FIXME (required) or TODO (usually tips or optional stuff you might want)
 
 ## Usage
