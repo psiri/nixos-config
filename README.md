@@ -1,5 +1,18 @@
 ## Instructions
 
+0. (If running from the installer) Clone the configuration:
+   1. `sudo git clone [--branch <YOURBRANCH>] https://github.com/psiri/nixos-config /etc/dotfiles`
+   2. Set the required variables:
+      1. ```
+          nix-shell -p git nixFlakes
+          # Set HOST to the desired hostname of this system
+          HOST=...
+          # Set USER to your desired username
+          USER=...
+         ```
+1. Change directory to the cloned repo
+   1. `cd /etc/dotfiles/`
+
 ```
 - Requirements: Nix 2.4+, and the experimental `flakes` and `nix-command` features:
 ```bash
@@ -7,8 +20,8 @@ export NIX_CONFIG="experimental-features = nix-command flakes"
 ```
 - Pull down the template:
 ```bash
-# For standard version
-nix flake init -t github:psiri/nixos-config#standard
+# For vm version
+nix flake init -t github:psiri/nixos-config#vm
 ```
 - Update any settings you currently have on `/etc/nixos/` to
   `nixos` (typically `configuration.nix` and `hardware-configuration.nix`).

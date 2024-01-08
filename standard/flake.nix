@@ -1,5 +1,5 @@
 {
-  description = "standard nix config flake";
+  description = "vm nix config flake";
 
   inputs = {
     # Nixpkgs
@@ -56,7 +56,7 @@
     # Available through 'nixos-rebuild --flake .#your-hostname'
     nixosConfigurations = {
       # FIXME replace with your hostname
-      lin-nix = nixpkgs.lib.nixosSystem {
+      unraid-nix = nixpkgs.lib.nixosSystem {
         specialArgs = {inherit inputs outputs;};
         modules = [
           # > Our main nixos configuration file <
@@ -69,7 +69,7 @@
     # Available through 'home-manager --flake .#your-username@your-hostname'
     homeConfigurations = {
       # FIXME replace with your username@hostname
-      "psiri@lin-nix" = home-manager.lib.homeManagerConfiguration {
+      "psiri@unraid-nix" = home-manager.lib.homeManagerConfiguration {
         pkgs = nixpkgs.legacyPackages.x86_64-linux; # Home-manager requires 'pkgs' instance
         extraSpecialArgs = {inherit inputs outputs;};
         modules = [
