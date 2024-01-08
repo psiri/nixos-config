@@ -15,13 +15,13 @@
     ];
   in {
     templates = {
-      minimal = {
-        description = ''
-          Minimal flake - contains only the configs.
-          Contains the bare minimum to migrate your existing legacy configs to flakes.
-        '';
-        path = ./minimal;
-      };
+      # minimal = {
+      #   description = ''
+      #     Minimal flake - contains only the configs.
+      #     Contains the bare minimum to migrate your existing legacy configs to flakes.
+      #   '';
+      #   path = ./minimal;
+      # };
       standard = {
         description = ''
           Standard flake - augmented with boilerplate for custom packages, overlays, and reusable modules.
