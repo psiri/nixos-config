@@ -32,14 +32,14 @@ export NIX_CONFIG="experimental-features = nix-command flakes"
           1. `cp /mnt/etc/nixos/hardware-configuration.nix /tmp/dotfiles/<TEMPLATE-NAME>/nixos/hardware-configuration.nix`
     3. Change into the mounted `nixos` location containing your generated `hardware-configuration.nix` (default = `/mnt/etc/nixos`). 
         1.  Ex (`standard` template): `cd /mnt/etc/nixos`
-    4.  run `sudo nixos-install --flake /tmp/dotfiles/<TEMPLATE-NAME>.#hostname` and reboot when the installation is complete
+    4.  run `sudo nixos-install --flake /tmp/dotfiles/<TEMPLATE-NAME>.#<HOSTNAME>` and reboot when the installation is complete
    
 
 ### Install or customize from running NixOS installation
 
-- Run `sudo nixos-rebuild switch --flake .#hostname` to apply your system
+- Run `sudo nixos-rebuild switch --flake .#<HOSTNAME>` to apply your system
   configuration.
-- Run `home-manager switch --flake .#username@hostname` to apply your home
+- Run `home-manager switch --flake .#username@<HOSTNAME>` to apply your home
   configuration.
   - If you don't have home-manager installed, try `nix shell nixpkgs#home-manager`.
 
