@@ -105,14 +105,27 @@
   };
 
   environment.systemPackages = with pkgs; [
+    ansible
     curl
     firefox
+    flameshot
     git
+    htop
     mtr
     nano
+    neofetch
+    netcat
+    nmap
+    oh-my-zsh
+    openssl
+    python3
+    tar
+    terraform
     tree
     vim
+    vscode
     wget
+    zsh
   ];
 
 
