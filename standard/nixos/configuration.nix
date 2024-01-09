@@ -212,7 +212,7 @@
   services.pipewire = {
     enable = true;
     alsa.enable = true;
-    alsa.suppoty32bit = true;
+    alsa.support32bit = true;
     audio.enable = true;
     # jack.enable = true;
     pulse.enable = true;
