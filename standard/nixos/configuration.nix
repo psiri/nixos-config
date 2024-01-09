@@ -110,6 +110,7 @@
     firefox
     flameshot
     git
+    gnutar
     htop
     mtr
     nano
@@ -119,7 +120,6 @@
     oh-my-zsh
     openssl
     python3
-    tar
     terraform
     tree
     vim
