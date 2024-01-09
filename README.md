@@ -8,6 +8,7 @@
 | Shell                | zsh                |
 | Text Editor          | Neovim             |
 | IDE                  | Visual Studio Code |
+| Screenshot Utility   | Flameshot          |
 | Status Bar           | Waybar             |
 
 ## Instructions

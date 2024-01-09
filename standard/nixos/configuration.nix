@@ -104,6 +104,27 @@
       ];
       # TODO: Be sure to add any other groups you need (such as networkmanager, audio, docker, etc)
       extraGroups = ["wheel" "networkmanager" "docker"];
+      packages = [
+        # docker
+        # etcher # Belena Etcher
+        flameshot
+        # gimme-aws-creds # CLI wrapper for Okta/ SAML2.0 IDPs and AWS
+        github-desktop
+        google-chrome
+        joplin-desktop
+        obs-studio
+        # openconnect # Open-source multi-VPN client supporting Cisco Anyconnect, Pulse Secure, GlobalProtect, etc
+        # opensnitch # Open-source application firewall
+        remmina # Open-source remote desktop client
+        slack
+        spotify
+        # teams-for-linux # UNOFFICIAL MS Teams client
+        # teamviewer
+        vlc
+        vscode
+        zoom-us
+        # TODO script SecureCRT install
+      ];
     };
   };
 
@@ -117,7 +138,6 @@
     fira-code-symbols
     fira-code-nerdfont
     firefox
-    flameshot
     git
     gnutar # tar
     hack-font
@@ -133,13 +153,15 @@
     oh-my-zsh
     openssl
     python3
+    python311Packages.boto3
+    python311Packages.pip
+    python311Packages.xmltodict
     rofi
     ssm-session-manager-plugin # AWS Systems Manager Session Manager plugin
     terraform
     tree
     unzip
     neovim
-    vscode
     waybar
     wget
     wireshark
