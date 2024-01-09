@@ -1,8 +1,9 @@
 ## Instructions
 
 ### Prerequisites
-```
-- Requirements: Nix 2.4+, and the experimental `flakes` and `nix-command` features:
+- Requirements: Nix 2.4+
+- The experimental `flakes` and `nix-command` features
+
 ```bash
 export NIX_CONFIG="experimental-features = nix-command flakes"
 ```
