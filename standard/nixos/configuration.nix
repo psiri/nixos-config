@@ -128,6 +128,7 @@
     nano
     neofetch
     netcat
+    nix-zsh-completions
     nmap
     oh-my-zsh
     openssl
@@ -143,6 +144,10 @@
     wget
     wireshark
     zsh
+    zsh-autocomplete
+    zsh-history-substring-search
+    zsh-nix-shell
+    zsh-powerlevel10k
   ];
 
   programs.zsh.enable = true;
