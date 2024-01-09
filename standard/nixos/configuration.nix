@@ -78,6 +78,7 @@
   networking.networkmanager.enable = true;
   networking.firewall.enable = true;
   programs.mtr.enable = true;
+  services.ntp.enable = true; # Enable NTP
 
   # TODO: This is just an example, be sure to use whatever bootloader you prefer
   boot.loader.systemd-boot.enable = true;
@@ -88,6 +89,7 @@
   # console.keyMap="us";
 
   # TODO: Configure your system-wide user settings (groups, etc), add more users as needed.
+  users.defaultUserShell = pkgs.zsh; # Set ZSH as the default shell for all users
   users.users = {
     # FIXME: Replace with your username
     psiri = {
@@ -96,6 +98,7 @@
       # Be sure to change it (using passwd) after rebooting!
       initialPassword = "Coat-Wharf4-Pulverize";
       isNormalUser = true;
+      shell = pkgs.zsh;
       openssh.authorizedKeys.keys = [
         # TODO: Add your SSH public key(s) here, if you plan on using SSH to connect
       ];
@@ -112,6 +115,7 @@
     git
     gnutar
     htop
+    kitty
     mtr
     nano
     neofetch
@@ -120,13 +124,23 @@
     oh-my-zsh
     openssl
     python3
+    rofi
     terraform
     tree
-    vim
+    unzip
+    neovim
     vscode
     wget
     zsh
   ];
+
+  programs.zsh.enable = true;
+  programs.kitty.enable = true;
+
+  home.sessionVariables = {
+    TERMINAL = "kitty";
+    BROWSER = "firefox";
+  };
 
 
   # This setups a SSH server. Very important if you're setting up a headless system.

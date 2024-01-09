@@ -1,3 +1,14 @@
+## Applications
+| Function             | App                |
+| -------------------- | ------------------ |
+| Window Manager       | Hyprland           |
+| Terminal             | Kitty              |
+| Display Server       | Wayland            |
+| Application Launcher | Rofi               |
+| Shell                | zsh                |
+| Text Editor          | Neovim             |
+| IDE                  | Visual Studio Code |
+
 ## Instructions
 
 ### Prerequisites

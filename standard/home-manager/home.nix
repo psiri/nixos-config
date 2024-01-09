@@ -55,6 +55,7 @@
 
   # Add stuff for your user as you see fit:
   programs.neovim.enable = true;
+  programs.hyprland.enable = true; # Enable Hyprland window manager
   # home.packages = with pkgs; [ steam ];
 
   # Enable home-manager and git
