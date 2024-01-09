@@ -107,7 +107,7 @@
       packages = [
         # docker
         # etcher # Belena Etcher
-        flameshot
+        # flameshot
         # gimme-aws-creds # CLI wrapper for Okta/ SAML2.0 IDPs and AWS
         github-desktop
         google-chrome
