@@ -134,6 +134,7 @@
     curl
     dig
     dnsutils
+    dunst
     fira-code
     fira-code-symbols
     fira-code-nerdfont
@@ -147,6 +148,7 @@
     mtr
     nano
     neofetch
+    neovim
     netcat
     nix-zsh-completions
     nmap
@@ -158,11 +160,13 @@
     python311Packages.xmltodict
     rofi
     ssm-session-manager-plugin # AWS Systems Manager Session Manager plugin
+    swayidle
+    swaylock
     terraform
     tree
     unzip
-    neovim
     waybar
+    wlogout
     wget
     wireshark
     zsh

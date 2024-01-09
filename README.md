@@ -1,15 +1,19 @@
 ## Applications
-| Function             | App                |
-| -------------------- | ------------------ |
-| Window Manager       | Hyprland           |
-| Terminal             | Kitty              |
-| Display Server       | Wayland            |
-| Application Launcher | Rofi               |
-| Shell                | zsh                |
-| Text Editor          | Neovim             |
-| IDE                  | Visual Studio Code |
-| Screenshot Utility   | Flameshot          |
-| Status Bar           | Waybar             |
+| Function             | App                 |
+| -------------------- | ------------------- |
+| Window Manager       | Hyprland            |
+| Terminal             | Kitty               |
+| Display Server       | Wayland             |
+| Application Launcher | Rofi                |
+| Shell                | zsh                 |
+| Text Editor          | Neovim              |
+| IDE                  | Visual Studio Code  |
+| Screen Lock          | swaylock & swayidle |
+| Screen Recording     | OBS Studio          |
+| Screenshots          | Flameshot           |
+| Session Management   | wlogout             |
+| Status Bar           | Waybar              |
+| Notifications        | dunst               |
 
 ## Instructions
 
