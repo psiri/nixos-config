@@ -110,11 +110,14 @@
   environment.systemPackages = with pkgs; [
     ansible
     curl
+    dig
+    dnsutils
     firefox
     flameshot
     git
     gnutar
     htop
+    iputils
     kitty
     mtr
     nano
@@ -131,6 +134,7 @@
     neovim
     vscode
     wget
+    wireshark
     zsh
   ];
 
@@ -151,6 +155,5 @@
   # };
 
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
-  system.copySystemConfiguration = true;
   system.stateVersion = "23.11";
 }
