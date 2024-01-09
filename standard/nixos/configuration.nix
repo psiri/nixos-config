@@ -109,13 +109,14 @@
 
   environment.systemPackages = with pkgs; [
     ansible
+    awscli2 # AWS CLI v2
     curl
     dig
     dnsutils
     firefox
     flameshot
     git
-    gnutar
+    gnutar # tar
     htop
     iputils
     kitty
@@ -128,6 +129,7 @@
     openssl
     python3
     rofi
+    ssm-session-manager-plugin # AWS Systems Manager Session Manager plugin
     terraform
     tree
     unzip
