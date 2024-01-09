@@ -1,19 +1,20 @@
 ## Applications
 | Function             | App                 |
 | -------------------- | ------------------- |
-| Window Manager       | Hyprland            |
-| Terminal             | Kitty               |
-| Display Server       | Wayland             |
 | Application Launcher | Rofi                |
-| Shell                | zsh                 |
-| Text Editor          | Neovim              |
+| Audio                | Pipewire            |
+| Display Server       | Wayland             |
 | IDE                  | Visual Studio Code  |
+| Notifications        | dunst               |
 | Screen Lock          | swaylock & swayidle |
 | Screen Recording     | OBS Studio          |
 | Screenshots          | Flameshot           |
 | Session Management   | wlogout             |
+| Shell                | zsh                 |
 | Status Bar           | Waybar              |
-| Notifications        | dunst               |
+| Terminal             | Kitty               |
+| Text Editor          | Neovim              |
+| Window Manager       | Hyprland            |
 
 ## Instructions
 
@@ -48,16 +49,15 @@ export NIX_CONFIG="experimental-features = nix-command flakes"
     1. `cp /mnt/etc/nixos/hardware-configuration.nix /tmp/dotfiles/<TEMPLATE-NAME>/nixos/hardware-configuration.nix`
 3. Change into the mounted `nixos` location containing your generated `hardware-configuration.nix` (default = `/mnt/etc/nixos`). 
     1.  Ex (`standard` template): `cd /mnt/etc/nixos`
-4.  run `sudo nixos-install --flake /tmp/dotfiles/<TEMPLATE-NAME>.#<HOSTNAME>` and reboot when the installation is complete
+4.  run `sudo nixos-install --flake /tmp/dotfiles/<TEMPLATE-NAME>/.#<HOSTNAME>` and reboot when the installation is complete
    
 
 ### Install or customize from running NixOS installation
 
-1. Change into the mounted `nixos` location containing your generated `hardware-configuration.nix` (default = `/mnt/etc/nixos`).
-2. Run `sudo nixos-rebuild switch --flake /tmp/dotfiles/<TEMPLATE-NAME>/.#<HOSTNAME>` to apply your system
+1. Run `sudo nixos-rebuild switch --flake /tmp/dotfiles/<TEMPLATE-NAME>/.#<HOSTNAME>` to apply your system
   configuration.
     - Note: If you encounter an error, you may need to pass the `--impure` flag
-3. (OPTIONAL) Run `home-manager switch --flake /tmp/dotfiles/<TEMPLATE-NAME>/.#USERNAME@<HOSTNAME>` to apply your home
+1. (OPTIONAL) Run `home-manager switch --flake /tmp/dotfiles/<TEMPLATE-NAME>/.#USERNAME@<HOSTNAME>` to apply your home
   configuration.
     - If you don't have home-manager installed, try `nix shell nixpkgs#home-manager`.
 

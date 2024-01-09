@@ -61,9 +61,19 @@
   };
   boot.kernelModules = [ "tcp_bbr" ];
 
-  # Change me later!
-  user.initialPassword = "nixos";
-  users.users.root.initialPassword = "nixos";
+  hardware.bluetooth.enable = false;
+  hardware.bluetooth.powerOnBoot = false;
+  hardware.sane.openFirewall = false;
+  # programs.ssh.cipers = null; # TODO - harden SSH cipher suite
+  # programs.ssh.hostKeyAlgorithms = null; # TODO - harden SSH host key algorithms
+  # programs.ssh.kexAlgorithms = null; # TODO - harden SSH key exchange algorithms
+  # programs.ssh.macs = null; # TODO - harden available SSH message authentication codes
+  # programs.ssh.pubkeyAcceptedKeyTypes = null; # TODO - harden acceptable SSH key types
+  # security.apparmor.enable = true;
+  # security.audit.enable = true; # Enable the Linux audit system
+  # security.auditd.enable = true; # Enable the Linux audit daemon
+  # services.clamav.daemon.enable = true;
+  # services.clamav.updater.enable = true;
 
   # So we don't have to do this later...
   security.acme.acceptTerms = true;

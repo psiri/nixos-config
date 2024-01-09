@@ -154,6 +154,7 @@
     nmap
     oh-my-zsh
     openssl
+    pipewire
     python3
     python311Packages.boto3
     python311Packages.pip
@@ -176,8 +177,49 @@
     zsh-powerlevel10k
   ];
 
+  programs.firefox.enable = true;
+  # programs.firefox.policies # TODO - automatically install Firefox extensions
+  programs.git.enable = true;
+  # programs.git.config = [] # TODO - automatically configure gitconfig
+  programs.htop.enable = true;
+  # programs.htop.settings = {} # TODO - automatically configure htop
+  programs.neovim.enable = true;
+  # programs.neovim.configure = [] # TODO - automatically configure neovim
+  # programs.virt-manager.enable
+  programs.waybar.enable = true;
+  programs.wireshark.enable = true;
   programs.zsh.enable = true;
-  #programs.kitty.enable = true;
+  programs.zsh.enableBashCompletion = true;
+  programs.zsh.enableCompletion = true;
+  programs.zsh.ohMyZsh.enable = true;
+  # programs.zsh.ohMyZsh.plugins = [ ];  # TODO - add zsh plugins
+  # programs.zsh.ohMyZsh.theme = [ ];  # TODO - add zsh theme
+  programs.zsh.syntaxHighlighting.enable = true;
+  # programs.zsh.syntaxHighlighting.highlighters = [ "main" ];
+  # programs.zsh.syntaxHighlighting.patterns = [ "main" ];
+
+  # services.opensnitch = {
+  #   enable = false;
+  #   # rules = {}
+  #   settings = {
+  #     DefaultAction = "allow";
+  #     DefaultDuration = "until restart";
+  #     Firewall = "iptables";
+  #     ProcMonitorMethod = "ebpf"; # Set Opensnitch in EBPF mode
+  #   };
+  # };
+
+  services.pipewire = {
+    enable = true;
+    alsa.enable = true;
+    alsa.suppoty32bit = true;
+    audio.enable = true;
+    # jack.enable = true;
+    pulse.enable = true;
+    wireplumber.enable = true;
+  };
+
+  services.teamviewer.enable = false;
 
 
   # This setups a SSH server. Very important if you're setting up a headless system.
