@@ -15,11 +15,9 @@ export NIX_CONFIG="experimental-features = nix-command flakes"
       `/mnt` and run: `nixos-generate-config --root /mnt`.
 2. If you want to use home-manager: add your stuff from `~/.config/nixpkgs`
   to `home-manager` (probably `home.nix`).
-  - The included file is also a good starting point if you don't have a config
-    yet.
-3. Take a look at `flake.nix`, making sure to fill out anything marked with
+2. Take a look at `flake.nix`, making sure to fill out anything marked with
   FIXME (required) or TODO (usually tips or optional stuff you might want)
-4. Clone the nixos configuration:
+3. Clone the nixos configuration:
     1. `sudo git clone [--branch <YOURBRANCH>] https://github.com/psiri/nixos-config /tmp/dotfiles`
        1. Note: `--branch <YOURBRANCH>` is optional but useful when testing new configurations that haven't been merged into main/master
 
@@ -37,11 +35,11 @@ export NIX_CONFIG="experimental-features = nix-command flakes"
 ### Install or customize from running NixOS installation
 
 1. Change into the mounted `nixos` location containing your generated `hardware-configuration.nix` (default = `/mnt/etc/nixos`).
-- Run `sudo nixos-rebuild switch --flake /tmp/dotfiles/<TEMPLATE-NAME>/.#<HOSTNAME>` to apply your system
+2. Run `sudo nixos-rebuild switch --flake /tmp/dotfiles/<TEMPLATE-NAME>/.#<HOSTNAME>` to apply your system
   configuration.
     - Note: If you encounter an error, you may need to pass the `--impure` flag
-- Run `home-manager switch --flake /tmp/dotfiles/<TEMPLATE-NAME>/.#USERNAME@<HOSTNAME>` to apply your home
+3. (OPTIONAL) Run `home-manager switch --flake /tmp/dotfiles/<TEMPLATE-NAME>/.#USERNAME@<HOSTNAME>` to apply your home
   configuration.
-  - If you don't have home-manager installed, try `nix shell nixpkgs#home-manager`.
+    - If you don't have home-manager installed, try `nix shell nixpkgs#home-manager`.
 
 
