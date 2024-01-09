@@ -10,10 +10,12 @@
 
   # tmpfs = /tmp is mounted in ram. Doing so makes temp file management speedy
   # on ssd systems, and volatile! Because it's wiped on reboot.
-  boot.tmpOnTmpfs = lib.mkDefault true;
+  # boot.tmpOnTmpfs = lib.mkDefault true; # This option is obsolete ans renamed to boot.tmp.useTmpfs
+  boot.tmp.useTmpfs = lib.mkDefault true;
   # If not using tmpfs, which is naturally purged on reboot, we must clean it
   # /tmp ourselves. /tmp should be volatile storage!
-  boot.cleanTmpDir = lib.mkDefault (!config.boot.tmpOnTmpfs);
+  # boot.cleanTmpDir = lib.mkDefault (!config.boot.tmpOnTmpfs); # This option is obsolete ans renamed to boot.tmp.cleanOnBoot
+  boot.tmp.cleanOnBoot = lib.mkDefault (!config.boot.tmpOnTmpfs);
 
   # Fix a security hole in place for backwards compatibility. See desc in
   # nixpkgs/nixos/modules/system/boot/loader/systemd-boot/systemd-boot.nix
