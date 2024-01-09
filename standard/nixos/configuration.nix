@@ -135,7 +135,7 @@
   ];
 
   programs.zsh.enable = true;
-  programs.kitty.enable = true;
+  #programs.kitty.enable = true;
 
 
   # This setups a SSH server. Very important if you're setting up a headless system.
