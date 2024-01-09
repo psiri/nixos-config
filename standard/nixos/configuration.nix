@@ -104,10 +104,10 @@
       ];
       # TODO: Be sure to add any other groups you need (such as networkmanager, audio, docker, etc)
       extraGroups = ["wheel" "networkmanager" "docker"];
-      packages = [
+      packages = with pkgs; [
         # docker
         # etcher # Belena Etcher
-        # flameshot
+        flameshot
         # gimme-aws-creds # CLI wrapper for Okta/ SAML2.0 IDPs and AWS
         github-desktop
         google-chrome
