@@ -113,10 +113,14 @@
     curl
     dig
     dnsutils
+    fira-code
+    fira-code-symbols
+    fira-code-nerdfont
     firefox
     flameshot
     git
     gnutar # tar
+    hack-font
     htop
     iputils
     kitty
@@ -135,6 +139,7 @@
     unzip
     neovim
     vscode
+    waybar
     wget
     wireshark
     zsh

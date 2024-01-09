@@ -8,6 +8,7 @@
 | Shell                | zsh                |
 | Text Editor          | Neovim             |
 | IDE                  | Visual Studio Code |
+| Status Bar           | Waybar             |
 
 ## Instructions
 
