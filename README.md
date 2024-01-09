@@ -26,11 +26,12 @@ export NIX_CONFIG="experimental-features = nix-command flakes"
 
 ### Install from minimal boot ISO
 
-1. Copy the generated hardware configuration to your template directory:
+1. Run through the [official NixOS install guide](https://nixos.wiki/wiki/NixOS_Installation_Guide), STOPPING after completing the `NixOs Config` step
+2. Copy the generated hardware configuration to your template directory:
     1. `cp /mnt/etc/nixos/hardware-configuration.nix /tmp/dotfiles/<TEMPLATE-NAME>/nixos/hardware-configuration.nix`
-2. Change into the mounted `nixos` location containing your generated `hardware-configuration.nix` (default = `/mnt/etc/nixos`). 
+3. Change into the mounted `nixos` location containing your generated `hardware-configuration.nix` (default = `/mnt/etc/nixos`). 
     1.  Ex (`standard` template): `cd /mnt/etc/nixos`
-3.  run `sudo nixos-install --flake /tmp/dotfiles/<TEMPLATE-NAME>.#<HOSTNAME>` and reboot when the installation is complete
+4.  run `sudo nixos-install --flake /tmp/dotfiles/<TEMPLATE-NAME>.#<HOSTNAME>` and reboot when the installation is complete
    
 
 ### Install or customize from running NixOS installation
