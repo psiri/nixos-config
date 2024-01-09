@@ -61,6 +61,7 @@
         modules = [
           # > Our main nixos configuration file <
           ./nixos/configuration.nix
+          ./modules/security.nix
         ];
       };
     };
