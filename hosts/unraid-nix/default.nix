@@ -50,6 +50,7 @@ in
     networking = {
       hostName = "unraid-nix";
       firewall.enable = true;
+      networkmanager.enable = true;
     };
 
     # services = {

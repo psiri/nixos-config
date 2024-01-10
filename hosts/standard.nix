@@ -71,11 +71,7 @@
     auto-optimise-store = true;
   };
 
-  # FIXME: Add the rest of your current configuration
-
-  # TODO: Set your hostname
-  networking.hostName = "unraid-nix";
-  networking.networkmanager.enable = true;
+  # FIXME: Add the rest of the configuration that should be common across all hosts
   networking.firewall.enable = true;
   programs.mtr.enable = true;
   services.ntp.enable = true; # Enable NTP
