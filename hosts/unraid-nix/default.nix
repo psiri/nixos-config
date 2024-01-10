@@ -17,9 +17,9 @@ in
 
       #./hardware-configuration.nix # machine hardware config
       /etc/nixos/hardware-configuration.nix
-      ../standard.nix # standard or minimal configs
+      ../standard.nix # standard or server configs
 
-      #../../hardware/audio # change to pipewire, move to home or change to av, prefer the latter
+      #../../hardware/audio # change to pipewire, move to home
       #../../hardware/bluetooth
       #../../hardware/nvidia
       #../../hardware/rgb

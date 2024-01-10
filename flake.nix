@@ -28,6 +28,7 @@
   } @ inputs: let
     user = "psiri"; # FIXME set your username
     plymouth_theme = "deus_ex"; # device specific?
+
     inherit (self) outputs;
     # Supported systems for your flake packages, shell, etc.
     systems = [
