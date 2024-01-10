@@ -81,8 +81,36 @@
   boot.loader.efi.canTouchEfiVariables = true;
 
   time.timeZone="America/Los_Angeles";
-  i18n.defaultLocale = "en_US.UTF-8";
-  # console.keyMap="us";
+  i18n = {
+    defaultLocale = "en_US.UTF-8";
+    extraLocaleSettings = {
+      LC_ADDRESS = "en_US.UTF-8";
+      LC_IDENTIFICATION = "en_US.UTF-8";
+      LC_MEASUREMENT = "en_US.UTF-8";
+      LC_MONETARY = "en_US.UTF-8";
+      LC_NAME = "en_US.UTF-8";
+      LC_NUMERIC = "en_US.UTF-8";
+      LC_PAPER = "en_US.UTF-8";
+      LC_TELEPHONE = "en_US.UTF-8";
+      LC_TIME = "en_US.UTF-8";
+    };
+  };
+
+  fonts = {
+    fontconfig.defaultFonts.monospace = ["Hack Nerd Font Mono"];
+    fontDir.enable = true;
+    packages = with pkgs; [
+      fira-code
+      fira-code-symbols
+      fira-code-nerdfont
+      hack-font
+      material-design-icons
+      material-symbols
+      nerdfonts
+      (nerdfonts.override {fonts = ["FiraCode" "JetBrainsMono"];})
+    ];
+  };
+
 
   # TODO: Configure your system-wide user settings (groups, etc), add more users as needed.
   users.defaultUserShell = pkgs.zsh; # Set ZSH as the default shell for all users
