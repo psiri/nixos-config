@@ -176,7 +176,7 @@
     #promptInit = "info='n host cpu os wm sh n' fet.sh";
     ohMyZsh = {
       enable = true;
-      theme = "powerlevel10k"; # robbyrussel jnrowe muse obraun ys
+      theme = "ys"; # robbyrussel jnrowe muse obraun ys
       plugins = ["sudo" "terraform" "systemadmin" "vi-mode" "colorize"];
     };
   };
@@ -192,6 +192,9 @@
       XDG_DATA_HOME = "$HOME/.local/share";
       XDG_STATE_HOME = "$HOME/.local/state";
       NIXOS_OZONE_WL = "1"; # fixes electron apps in Wayland?
+      # TRYING THE BELOW!
+      MOZ_ENABLE_WAYLAND=1;
+      XDG_SESSION_TYPE = "wayland";
     };
     shells = with pkgs; [zsh]; # default shell to zsh
     systemPackages = with pkgs; [

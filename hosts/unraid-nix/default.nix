@@ -51,6 +51,8 @@ in
       networkmanager.enable = true;
     };
 
+    hardware.opengl.enable = true;
+
     # services = {
     #   xserver = {
     #     enable = true;
