@@ -115,8 +115,7 @@
   # TODO: Configure your system-wide user settings (groups, etc), add more users as needed.
   users.defaultUserShell = pkgs.zsh; # Set ZSH as the default shell for all users
   users.users = {
-    # FIXME: Replace with your username
-    psiri = {
+    ${user} = {
       # TODO: You can set an initial password for your user.
       # If you do, you can skip setting a root password by passing '--no-root-passwd' to nixos-install.
       # Be sure to change it (using passwd) after rebooting!
@@ -152,55 +151,6 @@
     };
   };
 
-  environment.systemPackages = with pkgs; [
-    ansible
-    awscli2 # AWS CLI v2
-    curl
-    dig
-    dnsutils
-    dunst
-    fira-code
-    fira-code-symbols
-    fira-code-nerdfont
-    firefox
-    git
-    gnutar # tar
-    hack-font
-    htop
-    iputils
-    kitty
-    mtr
-    nano
-    neofetch
-    neovim
-    netcat
-    nix-zsh-completions
-    nmap
-    oh-my-zsh
-    openssl
-    pipewire
-    python3
-    python311Packages.boto3
-    python311Packages.pip
-    python311Packages.xmltodict
-    rofi
-    ssm-session-manager-plugin # AWS Systems Manager Session Manager plugin
-    swayidle
-    swaylock
-    terraform
-    tree
-    unzip
-    waybar
-    wlogout
-    wget
-    wireshark
-    zsh
-    zsh-autocomplete
-    zsh-history-substring-search
-    zsh-nix-shell
-    zsh-powerlevel10k
-  ];
-
   programs.firefox.enable = true;
   # programs.firefox.policies # TODO - automatically install Firefox extensions
   programs.git.enable = true;
@@ -228,6 +178,72 @@
       theme = "ys"; # robbyrussel jnrowe muse obraun ys
       plugins = ["sudo" "terraform" "systemadmin" "vi-mode" "colorize"];
     };
+  };
+
+  environment = {
+    sessionVariables = rec
+    {
+      QT_QPA_PLATFORM = "wayland";
+      QT_QPA_PLATFORMTHEME = "qt5ct";
+      GTK_THEME = "${config.colorscheme.slug}"; # sets default gtk theme the package built by nix-colors
+      XDG_CACHE_HOME = "$HOME/.cache";
+      XDG_CONFIG_HOME = "$HOME/.config";
+      XDG_DATA_HOME = "$HOME/.local/share";
+      XDG_STATE_HOME = "$HOME/.local/state";
+      NIXOS_OZONE_WL = "1"; # fixes electron apps in Wayland?
+    };
+    shells = with pkgs; [zsh]; # default shell to zsh
+    systemPackages = with pkgs; [
+      ansible
+      awscli2 # AWS CLI v2
+      curl
+      dig
+      dnsutils
+      dunst
+      fira-code
+      fira-code-symbols
+      fira-code-nerdfont
+      firefox
+      git
+      gnutar # tar
+      hack-font
+      htop
+      iputils
+      kitty
+      lshw # list hardware
+      mtr
+      nano
+      neofetch
+      neovim
+      netcat
+      nix-zsh-completions
+      nmap
+      oh-my-zsh
+      openssl
+      pipewire
+      polkit_gnome
+      python3
+      python311Packages.boto3
+      python311Packages.pip
+      python311Packages.xmltodict
+      rofi
+      ssm-session-manager-plugin # AWS Systems Manager Session Manager plugin
+      swayidle
+      swaylock
+      terraform
+      tree
+      unzip
+      usbutils # usb thing
+      waybar
+      wlogout
+      wget
+      wireshark
+      zsh
+      zsh-autocomplete
+      zsh-history-substring-search
+      zsh-nix-shell
+      zsh-powerlevel10k
+    ];
   };
 
   # services.opensnitch = {
