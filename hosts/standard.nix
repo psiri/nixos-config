@@ -6,6 +6,7 @@
   lib,
   config,
   pkgs,
+  user,
   ...
 }: {
   # You can import other NixOS modules here
