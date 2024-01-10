@@ -225,7 +225,7 @@
     promptInit = "info='n host cpu os wm sh n' fet.sh";
     ohMyZsh = {
       enable = true;
-      theme = "fino-time";
+      theme = "ys"; # robbyrussel jnrowe muse obraun ys
       plugins = ["sudo" "terraform" "systemadmin" "vi-mode" "colorize"];
     };
   };
