@@ -79,6 +79,22 @@
           }
         ];
       };
+      server-nix = nixpkgs.lib.nixosSystem {
+        specialArgs = {inherit nix-colors user plymouth_theme inputs outputs;};
+        modules = [
+          ./hosts/server-nix                        # > Our host-specific nixos configuration file <
+          ./modules/security-hardening/default.nix  # Security hardening module
+
+          home-manager.nixosModules.home-manager {
+            home-manager = {
+              useGlobalPkgs = true;
+              useUserPackages = true;
+              extraSpecialArgs = {inherit nix-colors inputs;};
+              users.${user}.imports = [];
+            };
+          }
+        ];
+      };
     };
 
     # Standalone home-manager configuration entrypoint
