@@ -78,7 +78,7 @@
       # FIXME replace with your username@hostname
       "${user}@unraid-nix" = home-manager.lib.homeManagerConfiguration {
         pkgs = nixpkgs.legacyPackages.x86_64-linux; # Home-manager requires 'pkgs' instance
-        extraSpecialArgs = {inherit inputs outputs;};
+        extraSpecialArgs = {inherit inputs outputs user;};
         modules = [
           # > Our main home-manager configuration file <
           ./modules/home-manager/default.nix
