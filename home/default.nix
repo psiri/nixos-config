@@ -19,7 +19,7 @@
     # inputs.nix-colors.homeManagerModules.default
 
     # You can also split up your configuration and import pieces of it here:
-    inputs.ags.homeManagerModules.default # imports from root flake.nix then builds the package which is nice :)
+    # inputs.ags.homeManagerModules.default # imports from root flake.nix then builds the package which is nice :)
     inputs.nix-colors.homeManagerModules.default
   ];
 
