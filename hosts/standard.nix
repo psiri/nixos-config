@@ -193,7 +193,6 @@
       XDG_STATE_HOME = "$HOME/.local/state";
       NIXOS_OZONE_WL = "1"; # fixes electron apps in Wayland?
       # TRYING THE BELOW!
-      MOZ_ENABLE_WAYLAND=1;
       XDG_SESSION_TYPE = "wayland";
     };
     shells = with pkgs; [zsh]; # default shell to zsh
