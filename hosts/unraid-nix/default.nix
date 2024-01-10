@@ -29,7 +29,7 @@ in
       ../../home/bottom
       #../../home/codium
       #../../home/copyq
-      #../../home/dunst
+      ../../home/dunst
       #../../home/firefox
       ../../home/git
       ../../home/hypr
@@ -37,11 +37,11 @@ in
       #../../home/kitty
       #../../home/ulauncher
       #../../home/virt
-      #../../home/waybar
+      ../../home/waybar
       ../../home/gtk
       #../../home/syncthing
       #../../home/tailscale
-      #../../home/wlogout
+      ../../home/wlogout
     ];
 
     colorscheme = inputs.nix-colors.colorSchemes.${scheme};
