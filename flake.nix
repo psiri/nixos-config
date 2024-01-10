@@ -69,7 +69,6 @@
 
           home-manager.nixosModules.home-manager {
             home-manager = {
-              pkgs = nixpkgs.legacyPackages.x86_64-linux; # Home-manager requires 'pkgs' instance
               useGlobalPkgs = true;
               useUserPackages = true;
               extraSpecialArgs = {inherit nix-colors inputs;};
