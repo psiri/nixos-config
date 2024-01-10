@@ -87,11 +87,11 @@
       }
 
       general {
-          gaps_in = 5
-          gaps_out = 10
-          border_size = 5
+          gaps_in = 2
+          gaps_out = 5
+          border_size = 3
           resize_on_border = true
-          layout = dwindle
+          layout = master
           col.active_border = $c0 $ca $c3 $c2 $c1 $c0 90deg
           col.inactive_border = $c0 $c1 90deg
       }
@@ -155,12 +155,12 @@
 
       # move to gscreenshot under home, TODO #
       ## take fullscreen screenshot and send to /user/screenshots/
-      bind = ,Print, exec, gscreenshot -f '/home/${user}/screenshots/screenshot_$hx$w_%Y-%m-%d.png' -n
+      #bind = ,Print, exec, gscreenshot -f '/home/${user}/screenshots/screenshot_$hx$w_%Y-%m-%d.png' -n
       ## open screenshot selection tool with overlay, once region selected send to /user/screenshots/
-      bind = shift ,Print, exec, gscreenshot -f '/home/${user}/screenshots/screenshot_$hx$w_%Y-%m-%d.png' -n -s
+      #bind = shift ,Print, exec, gscreenshot -f '/home/${user}/screenshots/screenshot_$hx$w_%Y-%m-%d.png' -n -s
 
 
-      bind = $mainMod, S, exec, bash ~/nixos/scripts/dunst/hyprpicker.sh
+      #bind = $mainMod, S, exec, bash ~/nixos/scripts/dunst/hyprpicker.sh
       ## not working, check script TODO
 
       bind = $mainMod, C, killactive,
@@ -171,17 +171,17 @@
       bind = $mainMod, J, togglesplit, # dwindle
 
       # sound
-      binde = , xf86audioraisevolume, exec, ~/nixos/scripts/dunst/pipewire.sh up
-      binde = , xf86audiolowervolume, exec, ~/nixos/scripts/dunst/pipewire.sh down
+      #binde = , xf86audioraisevolume, exec, ~/nixos/scripts/dunst/pipewire.sh up
+      #binde = , xf86audiolowervolume, exec, ~/nixos/scripts/dunst/pipewire.sh down
 
       # brightness
       ## screen
-      binde = , XF86MonBrightnessUp, exec, ~/nixos/scripts/dunst/brightnessctl.sh up
-      binde = , XF86MonBrightnessDown, exec, ~/nixos/scripts/dunst/brightnessctl.sh down
+      #binde = , XF86MonBrightnessUp, exec, ~/nixos/scripts/dunst/brightnessctl.sh up
+      #binde = , XF86MonBrightnessDown, exec, ~/nixos/scripts/dunst/brightnessctl.sh down
 
       ## keyboard
-      binde = , XF86KbdBrightnessUp, exec, ~/nixos/scripts/dunst/asusctl.sh up
-      binde = , XF86KbdBrightnessDown, exec, ~/nixos/scripts/dunst/asusctl.sh down
+      #binde = , XF86KbdBrightnessUp, exec, ~/nixos/scripts/dunst/asusctl.sh up
+      #binde = , XF86KbdBrightnessDown, exec, ~/nixos/scripts/dunst/asusctl.sh down
 
       # Move focus with mainMod + arrow keys
       bind = $mainMod, left, movefocus, l
