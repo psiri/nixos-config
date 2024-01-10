@@ -16,6 +16,7 @@ in
       ./per-device.nix # per device hypr configuration
 
       #./hardware-configuration.nix # machine hardware config
+      /etc/nixos/hardware-configuration.nix
       ../standard.nix # standard or minimal configs
 
       #../../hardware/audio # change to pipewire, move to home or change to av, prefer the latter
@@ -48,6 +49,7 @@ in
 
     networking = {
       hostName = "unraid-nix";
+      firewall.enable = true;
     };
 
     # services = {
