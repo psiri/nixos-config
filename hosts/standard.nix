@@ -212,15 +212,23 @@
   # programs.virt-manager.enable
   programs.waybar.enable = true;
   programs.wireshark.enable = true;
-  programs.zsh.enable = true;
-  programs.zsh.enableBashCompletion = true;
-  programs.zsh.enableCompletion = true;
-  programs.zsh.ohMyZsh.enable = true;
-  # programs.zsh.ohMyZsh.plugins = [ ];  # TODO - add zsh plugins
-  # programs.zsh.ohMyZsh.theme = [ ];  # TODO - add zsh theme
-  programs.zsh.syntaxHighlighting.enable = true;
-  # programs.zsh.syntaxHighlighting.highlighters = [ "main" ];
-  # programs.zsh.syntaxHighlighting.patterns = [ "main" ];
+
+  programs.zsh = {
+    enable = true;
+    enableBashCompletion = true;
+    enableCompletion = true;
+    autosuggestions.enable = true;
+    syntaxHighlighting.enable = true;
+    syntaxHighlighting.highlighters = ["main" "brackets" "pattern" "cursor" "line"];
+    syntaxHighlighting.patterns = {};
+    syntaxHighlighting.styles = {"globbing" = "none";};
+    promptInit = "info='n host cpu os wm sh n' fet.sh";
+    ohMyZsh = {
+      enable = true;
+      theme = "fino-time";
+      plugins = ["sudo" "terraform" "systemadmin" "vi-mode" "colorize"];
+    };
+  }
 
   # services.opensnitch = {
   #   enable = false;
