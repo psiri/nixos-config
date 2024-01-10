@@ -64,26 +64,34 @@
       unraid-nix = nixpkgs.lib.nixosSystem {
         specialArgs = {inherit nix-colors user plymouth_theme inputs outputs;};
         modules = [
-          # > Our main nixos configuration file <
-          ./hosts/standard.nix
-          ./modules/security-hardening/default.nix
-          
+          ./hosts/standard.nix                      # > Our main nixos configuration file <
+          ./modules/security-hardening/default.nix  # Security hardening module
+
+          home-manager.nixosModules.home-manager {
+            home-manager = {
+              pkgs = nixpkgs.legacyPackages.x86_64-linux; # Home-manager requires 'pkgs' instance
+              useGlobalPkgs = true;
+              useUserPackages = true;
+              extraSpecialArgs = {inherit nix-colors inputs;}
+              users.${user}.imports = {};
+            };
+          }
         ];
       };
     };
 
     # Standalone home-manager configuration entrypoint
     # Available through 'home-manager --flake .#your-username@your-hostname'
-    homeConfigurations = {
-      # FIXME replace with your username@hostname
-      "${user}@unraid-nix" = home-manager.lib.homeManagerConfiguration {
-        pkgs = nixpkgs.legacyPackages.x86_64-linux; # Home-manager requires 'pkgs' instance
-        extraSpecialArgs = {inherit inputs outputs user nix-colors plymouth_theme;};
-        modules = [
-          # > Our main home-manager configuration file <
-          ./home/default.nix
-        ];
-      };
-    };
+    # homeConfigurations = {
+    #   # FIXME replace with your username@hostname
+    #   "${user}@unraid-nix" = home-manager.lib.homeManagerConfiguration {
+    #     pkgs = nixpkgs.legacyPackages.x86_64-linux; # Home-manager requires 'pkgs' instance
+    #     extraSpecialArgs = {inherit inputs outputs user nix-colors plymouth_theme;};
+    #     modules = [
+    #       # > Our main home-manager configuration file <
+    #       ./home/default.nix
+    #     ];
+    #   };
+    # };
   };
 }

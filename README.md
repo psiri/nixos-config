@@ -55,6 +55,6 @@ export NIX_CONFIG="experimental-features = nix-command flakes"
 1. Run `sudo nixos-rebuild switch --flake /tmp/dotfiles/.#<HOSTNAME>` to apply your system configuration.
     - Note: If you encounter an error, you may need to append the `--impure` flag
 2. (OPTIONAL) If you don't have home-manager installed, run `nix shell '<home-manager>' -A install` to install using nix-shell
-3. Run `home-manager switch --flake /tmp/dotfiles/.#USERNAME@<HOSTNAME>` to apply your home configuration via home-manager.
+3. Run `sudo home-manager switch --flake /tmp/dotfiles/.#USERNAME@<HOSTNAME>` to apply your home configuration via home-manager.
 
 
