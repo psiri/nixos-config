@@ -16,6 +16,7 @@
 
     # TODO: Add any other flake you might need
     hardware.url = "github:nixos/nixos-hardware";
+    nixos-hardware.url = "github:nixos/nixos-hardware";
   };
 
   outputs = {
@@ -44,13 +45,13 @@
   in {
     # Your custom packages
     # Accessible through 'nix build', 'nix shell', etc
-    packages = forAllSystems (system: import ./pkgs nixpkgs.legacyPackages.${system});
+    # packages = forAllSystems (system: import ./pkgs nixpkgs.legacyPackages.${system});
     # Formatter for your nix files, available through 'nix fmt'
     # Other options beside 'alejandra' include 'nixpkgs-fmt'
     formatter = forAllSystems (system: nixpkgs.legacyPackages.${system}.alejandra);
 
     # Your custom packages and modifications, exported as overlays
-    overlays = import ./overlays {inherit inputs;};
+    #overlays = import ./overlays {inherit inputs;};
     # Reusable nixos modules you might want to export
     # These are usually stuff you would upstream into nixpkgs
     #nixosModules = import ./modules/nixos;
@@ -63,7 +64,7 @@
     nixosConfigurations = {
       # FIXME replace with your hostname
       unraid-nix = nixpkgs.lib.nixosSystem {
-        specialArgs = {inherit nix-colors user plymouth_theme inputs;};
+        specialArgs = {inherit nix-colors user plymouth_theme inputs outputs;};
         modules = [
           ./hosts/unraid-nix                        # > Our host-specific nixos configuration file <
           ./modules/security-hardening/default.nix  # Security hardening module
