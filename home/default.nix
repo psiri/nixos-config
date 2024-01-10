@@ -6,7 +6,6 @@
     outputs,
     lib,
     config,
-    user,
     pkgs,
     nix-colors,
     ...
