@@ -26,7 +26,7 @@
     nix-colors,
     ...
   } @ inputs: let
-    user = "psiri"; # global default username
+    user = "psiri"; # FIXME set your username
     plymouth_theme = "deus_ex"; # device specific?
     inherit (self) outputs;
     # Supported systems for your flake packages, shell, etc.
@@ -76,12 +76,12 @@
     # Available through 'home-manager --flake .#your-username@your-hostname'
     homeConfigurations = {
       # FIXME replace with your username@hostname
-      "psiri@unraid-nix" = home-manager.lib.homeManagerConfiguration {
+      "${user}@unraid-nix" = home-manager.lib.homeManagerConfiguration {
         pkgs = nixpkgs.legacyPackages.x86_64-linux; # Home-manager requires 'pkgs' instance
         extraSpecialArgs = {inherit inputs outputs;};
         modules = [
           # > Our main home-manager configuration file <
-          ./modules/home-manager/$user.nix
+          ./modules/home-manager/default.nix
         ];
       };
     };

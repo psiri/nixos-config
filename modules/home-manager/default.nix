@@ -5,6 +5,7 @@
   outputs,
   lib,
   config,
+  user,
   pkgs,
   ...
 }: {
@@ -47,10 +48,9 @@
     };
   };
 
-  # TODO: Set your username
   home = {
-    username = "psiri";
-    homeDirectory = "/home/psiri";
+    username = "${user}";
+    homeDirectory = "/home/${user}";
   };
 
   # Add stuff for your user as you see fit:
