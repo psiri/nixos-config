@@ -67,14 +67,14 @@
           ./hosts/unraid-nix                        # > Our host-specific nixos configuration file <
           ./modules/security-hardening/default.nix  # Security hardening module
 
-          # home-manager.nixosModules.home-manager {
-          #   home-manager = {
-          #     useGlobalPkgs = true;
-          #     useUserPackages = true;
-          #     extraSpecialArgs = {inherit nix-colors inputs;};
-          #     users.${user}.imports = [];
-          #   };
-          # }
+          home-manager.nixosModules.home-manager {
+            home-manager = {
+              useGlobalPkgs = true;
+              useUserPackages = true;
+              extraSpecialArgs = {inherit nix-colors inputs;};
+              users.${user}.imports = [];
+            };
+          }
         ];
       };
     };
