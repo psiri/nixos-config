@@ -39,8 +39,6 @@ in
       #../../home/virt
       ../../home/waybar
       ../../home/gtk
-      #../../home/syncthing
-      #../../home/tailscale
       ../../home/wlogout
     ];
 
