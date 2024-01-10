@@ -31,14 +31,14 @@ in
       #../../home/copyq
       #../../home/dunst
       #../../home/firefox
-      #../../home/git
-      #../../home/hypr
+      ../../home/git
+      ../../home/hypr
       #../../home/kde
       #../../home/kitty
       #../../home/ulauncher
       #../../home/virt
       #../../home/waybar
-      #../../home/gtk
+      ../../home/gtk
       #../../home/syncthing
       #../../home/tailscale
       #../../home/wlogout
