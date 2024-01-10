@@ -228,7 +228,7 @@
       theme = "fino-time";
       plugins = ["sudo" "terraform" "systemadmin" "vi-mode" "colorize"];
     };
-  }
+  };
 
   # services.opensnitch = {
   #   enable = false;
