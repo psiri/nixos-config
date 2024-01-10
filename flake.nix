@@ -73,7 +73,7 @@
               useGlobalPkgs = true;
               useUserPackages = true;
               extraSpecialArgs = {inherit nix-colors inputs;}
-              users.${user}.imports = {};
+              users.${user}.imports = [];
             };
           }
         ];
