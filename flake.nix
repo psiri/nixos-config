@@ -78,7 +78,7 @@
       # FIXME replace with your username@hostname
       "${user}@unraid-nix" = home-manager.lib.homeManagerConfiguration {
         pkgs = nixpkgs.legacyPackages.x86_64-linux; # Home-manager requires 'pkgs' instance
-        extraSpecialArgs = {inherit inputs outputs user;};
+        extraSpecialArgs = {inherit inputs outputs user nix-colors plymouth_theme;};
         modules = [
           # > Our main home-manager configuration file <
           ./home/default.nix
