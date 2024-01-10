@@ -7,235 +7,191 @@
 }: {
   home-manager.users.${user}.home.file.".config/hypr/hyprland.conf" = {
     text = ''
-      ############################################# spaghetti starts here #############################################
-      $mainMod = SUPER
+# This is an example Hyprland config file.
+#
+# Refer to the wiki for more information.
 
-      # TODO add colours here, move all nix-colors to that file then import
-      ## source = ~/.config/hypr/colours.conf
+#
+# Please note not all available settings / options are set here.
+# For a full list, see the wiki
+#
 
-      ############################################# hyprpaper #############################################
-
-      # move to wallpaper per device and import
-      ## source = ~/.config/hypr/wallpaper.conf
-
-      ## might want a function that pulls a wallpaper at random rather than having specific per desktop
-      #$w1 = hyprctl hyprpaper wallpaper "eDP-1,~/nixos/wallpaper/1.jpg"
-      #$w2 = hyprctl hyprpaper wallpaper "eDP-1,~/nixos/wallpaper/2.jpg"
-      #$w3 = hyprctl hyprpaper wallpaper "eDP-1,~/nixos/wallpaper/3.jpg"
-      #$w4 = hyprctl hyprpaper wallpaper "eDP-1,~/nixos/wallpaper/4.jpg"
-      #$w5 = hyprctl hyprpaper wallpaper "eDP-1,~/nixos/wallpaper/5.jpg"
-      #$w6 = hyprctl hyprpaper wallpaper "eDP-1,~/nixos/wallpaper/6.jpg"
-      #$w7 = hyprctl hyprpaper wallpaper "eDP-1,~/nixos/wallpaper/7.jpg"
-      #$w8 = hyprctl hyprpaper wallpaper "eDP-1,~/nixos/wallpaper/8.jpg"
-
-      #$c0 = rgba(${config.colorscheme.colors.base00}FF)
-      #$c1 = rgba(${config.colorscheme.colors.base01}FF)
-      #$c2 = rgba(${config.colorscheme.colors.base02}FF)
-      #$c3 = rgba(${config.colorscheme.colors.base03}FF)
-      #$c4 = rgba(${config.colorscheme.colors.base04}FF)
-      #$c5 = rgba(${config.colorscheme.colors.base05}FF)
-      #$c6 = rgba(${config.colorscheme.colors.base06}FF)
-      #$c7 = rgba(${config.colorscheme.colors.base07}FF)
-      #$c8 = rgba(${config.colorscheme.colors.base08}FF)
-      #$c9 = rgba(${config.colorscheme.colors.base09}FF)
-      #$ca = rgba(${config.colorscheme.colors.base0A}FF)
-      #$cb = rgba(${config.colorscheme.colors.base0B}FF)
-      #$cc = rgba(${config.colorscheme.colors.base0C}FF)
-      #$cd = rgba(${config.colorscheme.colors.base0D}FF)
-      #$ce = rgba(${config.colorscheme.colors.base0E}FF)
-      #$cf = rgba(${config.colorscheme.colors.base0F}FF)
-
-      ## exec-once ##
-
-      ## TODO move to /home/
-      #exec-once = hyprpaper
+# See https://wiki.hyprland.org/Configuring/Monitors/
+# monitor=,preferred,auto,auto
 
 
-      #exec-once = sleep 4 && gnome-keyring-daemon --start --components = pkcs11, secrets, ssh
-      # move above to seahorse below /home or /services/ unsure about below as its not really machine or software specific yet :)
-      #exec-once = sleep 6 && dbus-update-activation-environment --all
-      #exec-once = lxqt-policykit-agent & udiskie
+# See https://wiki.hyprland.org/Configuring/Keywords/ for more
 
-      ## per-device config, from ./hosts/hostname/per-device.nix ##
-      source = ~/.config/hypr/per-device.conf
+# Execute your favorite apps at launch
+# exec-once = waybar & hyprpaper & firefox
 
-      env = XCURSOR_SIZE,20
-      env = WLR_NO_HARDWARE_CURSORS,1
+# Source a file (multi-file configs)
+# source = ~/.config/hypr/myColors.conf
 
-      misc {
-          disable_hyprland_logo = true
-          disable_splash_rendering = true
-          mouse_move_enables_dpms = true
-          key_press_enables_dpms = true
-      }
+# Set programs that you use
+$terminal = kitty
+$fileManager = dolphin
+$menu = rofi --show drun
 
-      input {
-          kb_layout = us
-          kb_variant =
-          kb_model =
-          kb_options =
-          kb_rules =
-          follow_mouse = 1
-          repeat_delay = 300
-          repeat_rate = 50
-          sensitivity = 0
-          # fixed touchpad, needed indentation to work correctly :)
-          touchpad {
-              natural_scroll = yes
-              disable_while_typing = true
-          }
-      }
+# Some default env vars.
+env = XCURSOR_SIZE,20
+env = QT_QPA_PLATFORMTHEME,qt5ct # change to qt6ct if you have that
 
-      general {
-          gaps_in = 2
-          gaps_out = 5
-          border_size = 3
-          resize_on_border = true
-          layout = master
-          col.active_border = $c0 $ca $c3 $c2 $c1 $c0 90deg
-          col.inactive_border = $c0 $c1 90deg
-      }
+# For all categories, see https://wiki.hyprland.org/Configuring/Variables/
+input {
+    kb_layout = us
+    kb_variant =
+    kb_model =
+    kb_options =
+    kb_rules =
 
-      decoration {
-          rounding = 10
-          drop_shadow = 1
-          shadow_range = 30
-          shadow_render_power = 3
-          col.shadow = $ca
-          col.shadow_inactive= $c0
-          active_opacity = 1
-          inactive_opacity = .90
-          dim_inactive = true
-          dim_strength = 0.4
-          blur {
-              enabled = true
-              size = 5
-              passes = 1
-              noise = 0
-              brightness = 0.5
-              new_optimizations = true
-          }
-      }
+    follow_mouse = 1
 
-      ############################################ animations ############################################
+    touchpad {
+        natural_scroll = false
+    }
 
-      animations {
-          enabled = true
-          bezier = overshot, 0.34, 1.56, 0.64, 1
-          bezier = smoothOut, 0.36, 0, 0.66, -0.56
-          bezier = smoothIn, 0.25, 1, 0.5, 1
-          bezier = liner, 1, 1, 1, 1
-          bezier = cubic, 0.785, 0.135, 0.15, 0.86
-          bezier = snappy, 0.51, 0.93, 0, 1
-          animation = windows, 1, 5, overshot, slide
-          animation = windowsOut, 1, 5, smoothOut, slide
-          animation = windowsMove, 1, 5, snappy
-          animation = fade, 1, 5, smoothIn
-          animation = fadeDim, 1, 5, smoothIn
-          animation = workspaces, 1, 5, snappy, slide
-          animation = border, 1, 5, liner
-          animation = borderangle, 1, 360, liner, loop
-      }
+    sensitivity = 0 # -1.0 - 1.0, 0 means no modification.
+}
 
-      ############################################ Layouts ###################################################
+general {
+    # See https://wiki.hyprland.org/Configuring/Variables/ for more
 
-      dwindle {
-          no_gaps_when_only = false
-          pseudotile = true # master switch for pseudotiling. Enabling is bound to mainMod + P in the keybinds section below
-          preserve_split = true # you probably want this
-          smart_resizing = true
-          force_split = 2
-      }
+    gaps_in = 2
+    gaps_out = 5
+    border_size = 2
+    col.active_border = rgba(33ccffee) rgba(00ff99ee) 45deg
+    col.inactive_border = rgba(595959aa)
 
-      master {
-          new_is_master = false
-      }
+    layout = master
 
-      ############################################ binds ############################################
+    # Please see https://wiki.hyprland.org/Configuring/Tearing/ before you turn this on
+    allow_tearing = false
+}
 
-      # move to gscreenshot under home, TODO #
-      ## take fullscreen screenshot and send to /user/screenshots/
-      #bind = ,Print, exec, gscreenshot -f '/home/${user}/screenshots/screenshot_$hx$w_%Y-%m-%d.png' -n
-      ## open screenshot selection tool with overlay, once region selected send to /user/screenshots/
-      #bind = shift ,Print, exec, gscreenshot -f '/home/${user}/screenshots/screenshot_$hx$w_%Y-%m-%d.png' -n -s
+decoration {
+    # See https://wiki.hyprland.org/Configuring/Variables/ for more
+
+    rounding = 10
+
+    blur {
+        enabled = true
+        size = 3
+        passes = 1
+        
+        vibrancy = 0.1696
+    }
+
+    drop_shadow = true
+    shadow_range = 4
+    shadow_render_power = 3
+    col.shadow = rgba(1a1a1aee)
+}
+
+animations {
+    enabled = true
+
+    # Some default animations, see https://wiki.hyprland.org/Configuring/Animations/ for more
+
+    bezier = myBezier, 0.05, 0.9, 0.1, 1.05
+
+    animation = windows, 1, 7, myBezier
+    animation = windowsOut, 1, 7, default, popin 80%
+    animation = border, 1, 10, default
+    animation = borderangle, 1, 8, default
+    animation = fade, 1, 7, default
+    animation = workspaces, 1, 6, default
+}
+
+dwindle {
+    # See https://wiki.hyprland.org/Configuring/Dwindle-Layout/ for more
+    pseudotile = true # master switch for pseudotiling. Enabling is bound to mainMod + P in the keybinds section below
+    preserve_split = true # you probably want this
+}
+
+master {
+    # See https://wiki.hyprland.org/Configuring/Master-Layout/ for more
+    new_is_master = true
+}
+
+gestures {
+    # See https://wiki.hyprland.org/Configuring/Variables/ for more
+    workspace_swipe = false
+}
+
+misc {
+    # See https://wiki.hyprland.org/Configuring/Variables/ for more
+    force_default_wallpaper = -1 # Set to 0 to disable the anime mascot wallpapers
+}
+
+# Example per-device config
+# See https://wiki.hyprland.org/Configuring/Keywords/#per-device-input-configs for more
+device:epic-mouse-v1 {
+    sensitivity = -0.5
+}
+
+# Example windowrule v1
+# windowrule = float, ^(kitty)$
+# Example windowrule v2
+# windowrulev2 = float,class:^(kitty)$,title:^(kitty)$
+# See https://wiki.hyprland.org/Configuring/Window-Rules/ for more
+windowrulev2 = nomaximizerequest, class:.* # You'll probably like this.
 
 
-      #bind = $mainMod, S, exec, bash ~/nixos/scripts/dunst/hyprpicker.sh
-      ## not working, check script TODO
+# See https://wiki.hyprland.org/Configuring/Keywords/ for more
+$mainMod = SUPER
 
-      bind = $mainMod, C, killactive,
-      bind = $mainMod, M, exit,
-      #bind = $mainMod, E, exec, nemo
-      bind = $mainMod, V, togglefloating,
-      bind = $mainMod, P, pseudo, dwindle
-      bind = $mainMod, J, togglesplit, # dwindle
+# Example binds, see https://wiki.hyprland.org/Configuring/Binds/ for more
+bind = $mainMod, Q, exec, $terminal
+bind = $mainMod, C, killactive,
+bind = $mainMod, M, exit,
+bind = $mainMod, E, exec, $fileManager
+bind = $mainMod, V, togglefloating,
+bind = $mainMod, R, exec, $menu
+bind = $mainMod, P, pseudo, # dwindle
+bind = $mainMod, J, togglesplit, # dwindle
 
-      # sound
-      #binde = , xf86audioraisevolume, exec, ~/nixos/scripts/dunst/pipewire.sh up
-      #binde = , xf86audiolowervolume, exec, ~/nixos/scripts/dunst/pipewire.sh down
+# Move focus with mainMod + arrow keys
+bind = $mainMod, left, movefocus, l
+bind = $mainMod, right, movefocus, r
+bind = $mainMod, up, movefocus, u
+bind = $mainMod, down, movefocus, d
 
-      # brightness
-      ## screen
-      #binde = , XF86MonBrightnessUp, exec, ~/nixos/scripts/dunst/brightnessctl.sh up
-      #binde = , XF86MonBrightnessDown, exec, ~/nixos/scripts/dunst/brightnessctl.sh down
+# Switch workspaces with mainMod + [0-9]
+bind = $mainMod, 1, workspace, 1
+bind = $mainMod, 2, workspace, 2
+bind = $mainMod, 3, workspace, 3
+bind = $mainMod, 4, workspace, 4
+bind = $mainMod, 5, workspace, 5
+bind = $mainMod, 6, workspace, 6
+bind = $mainMod, 7, workspace, 7
+bind = $mainMod, 8, workspace, 8
+bind = $mainMod, 9, workspace, 9
+bind = $mainMod, 0, workspace, 10
 
-      ## keyboard
-      #binde = , XF86KbdBrightnessUp, exec, ~/nixos/scripts/dunst/asusctl.sh up
-      #binde = , XF86KbdBrightnessDown, exec, ~/nixos/scripts/dunst/asusctl.sh down
+# Move active window to a workspace with mainMod + SHIFT + [0-9]
+bind = $mainMod SHIFT, 1, movetoworkspace, 1
+bind = $mainMod SHIFT, 2, movetoworkspace, 2
+bind = $mainMod SHIFT, 3, movetoworkspace, 3
+bind = $mainMod SHIFT, 4, movetoworkspace, 4
+bind = $mainMod SHIFT, 5, movetoworkspace, 5
+bind = $mainMod SHIFT, 6, movetoworkspace, 6
+bind = $mainMod SHIFT, 7, movetoworkspace, 7
+bind = $mainMod SHIFT, 8, movetoworkspace, 8
+bind = $mainMod SHIFT, 9, movetoworkspace, 9
+bind = $mainMod SHIFT, 0, movetoworkspace, 10
 
-      # Move focus with mainMod + arrow keys
-      bind = $mainMod, left, movefocus, l
-      bind = $mainMod, right, movefocus, r
-      bind = $mainMod, up, movefocus, u
-      bind = $mainMod, down, movefocus, d
+# Example special workspace (scratchpad)
+bind = $mainMod, S, togglespecialworkspace, magic
+bind = $mainMod SHIFT, S, movetoworkspace, special:magic
 
-      # Switch workspaces with mainMod + [0-9]
-      ## added switching wallpapers on workspace switch
-      bind = $mainMod, 1, workspace, 1
-      bind = $mainMod, 1, exec, $w1
+# Scroll through existing workspaces with mainMod + scroll
+bind = $mainMod, mouse_down, workspace, e+1
+bind = $mainMod, mouse_up, workspace, e-1
 
-      bind = $mainMod, 2, workspace, 2
-      bind = $mainMod, 2, exec, $w2
-
-      bind = $mainMod, 3, workspace, 3
-      bind = $mainMod, 3, exec, $w3
-
-      bind = $mainMod, 4, workspace, 4
-      bind = $mainMod, 4, exec, $w4
-
-      bind = $mainMod, 5, workspace, 5
-      bind = $mainMod, 5, exec, $w5
-
-      bind = $mainMod, 6, workspace, 6
-      bind = $mainMod, 6, exec, $w6
-
-      bind = $mainMod, 7, workspace, 7
-      bind = $mainMod, 7, exec, $w7
-
-      bind = $mainMod, 8, workspace, 8
-      bind = $mainMod, 8, exec, $w8
-
-      # Move active window to a workspace with mainMod + SHIFT + [0-9]
-      ## should add a hyprpaper workspace wallpaper switch here too :)
-      bind = $mainMod SHIFT, 1, movetoworkspace, 1
-      bind = $mainMod SHIFT, 2, movetoworkspace, 2
-      bind = $mainMod SHIFT, 3, movetoworkspace, 3
-      bind = $mainMod SHIFT, 4, movetoworkspace, 4
-      bind = $mainMod SHIFT, 5, movetoworkspace, 5
-      bind = $mainMod SHIFT, 6, movetoworkspace, 6
-      bind = $mainMod SHIFT, 7, movetoworkspace, 7
-      bind = $mainMod SHIFT, 8, movetoworkspace, 8
-
-      # Scroll through existing workspaces with mainMod + scroll
-      bind = $mainMod, mouse_down, workspace, e+1
-      bind = $mainMod, mouse_up, workspace, e-1
-
-      # Move/resize windows with mainMod + LMB/RMB and dragging
-      bindm = $mainMod, mouse:272, movewindow
-      bindm = $mainMod, mouse:273, resizewindow
-
-      ## wildcard per-app enabled in each ./home/app*/*.nix ##
-      source = ~/.config/hypr/per-app/*.conf
+# Move/resize windows with mainMod + LMB/RMB and dragging
+bindm = $mainMod, mouse:272, movewindow
+bindm = $mainMod, mouse:273, resizewindow
     '';
   };
 }
