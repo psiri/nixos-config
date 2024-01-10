@@ -61,6 +61,6 @@ in
 
     environment = {
       #systemPackages = with pkgs; [pciutils];
-      shellAliases.rebuild = "sudo rm -rf /tmp/dotfiles && sudo git clone --branch 0.1 https://github.com/psiri/nixos-config /tmp/dotfiles && nixos-rebuild switch --flake /tmp/dotfiles/.#unraid-nix --impure";
+      shellAliases.rebuild = "sudo rm -rf /tmp/dotfiles && sudo git clone --branch 0.1 https://github.com/psiri/nixos-config /tmp/dotfiles && sudo nixos-rebuild switch --flake /tmp/dotfiles/.#unraid-nix --impure";
     };
   }
