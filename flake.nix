@@ -63,7 +63,7 @@
     nixosConfigurations = {
       # FIXME replace with your hostname
       unraid-nix = nixpkgs.lib.nixosSystem {
-        specialArgs = {inherit nix-colors user plymouth_theme inputs outputs;};
+        specialArgs = {inherit nix-colors user plymouth_theme inputs;};
         modules = [
           ./hosts/unraid-nix                        # > Our host-specific nixos configuration file <
           ./modules/security-hardening/default.nix  # Security hardening module
