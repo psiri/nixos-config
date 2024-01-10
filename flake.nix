@@ -22,7 +22,7 @@
     self,
     nixpkgs,
     home-manager,
-    hyprland,
+    #hyprland,
     nix-colors,
     ...
   } @ inputs: let
