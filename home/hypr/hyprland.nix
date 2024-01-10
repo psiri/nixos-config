@@ -19,14 +19,14 @@
       ## source = ~/.config/hypr/wallpaper.conf
 
       ## might want a function that pulls a wallpaper at random rather than having specific per desktop
-      $w1 = hyprctl hyprpaper wallpaper "eDP-1,~/nixos/wallpaper/1.jpg"
-      $w2 = hyprctl hyprpaper wallpaper "eDP-1,~/nixos/wallpaper/2.jpg"
-      $w3 = hyprctl hyprpaper wallpaper "eDP-1,~/nixos/wallpaper/3.jpg"
-      $w4 = hyprctl hyprpaper wallpaper "eDP-1,~/nixos/wallpaper/4.jpg"
-      $w5 = hyprctl hyprpaper wallpaper "eDP-1,~/nixos/wallpaper/5.jpg"
-      $w6 = hyprctl hyprpaper wallpaper "eDP-1,~/nixos/wallpaper/6.jpg"
-      $w7 = hyprctl hyprpaper wallpaper "eDP-1,~/nixos/wallpaper/7.jpg"
-      $w8 = hyprctl hyprpaper wallpaper "eDP-1,~/nixos/wallpaper/8.jpg"
+      #$w1 = hyprctl hyprpaper wallpaper "eDP-1,~/nixos/wallpaper/1.jpg"
+      #$w2 = hyprctl hyprpaper wallpaper "eDP-1,~/nixos/wallpaper/2.jpg"
+      #$w3 = hyprctl hyprpaper wallpaper "eDP-1,~/nixos/wallpaper/3.jpg"
+      #$w4 = hyprctl hyprpaper wallpaper "eDP-1,~/nixos/wallpaper/4.jpg"
+      #$w5 = hyprctl hyprpaper wallpaper "eDP-1,~/nixos/wallpaper/5.jpg"
+      #$w6 = hyprctl hyprpaper wallpaper "eDP-1,~/nixos/wallpaper/6.jpg"
+      #$w7 = hyprctl hyprpaper wallpaper "eDP-1,~/nixos/wallpaper/7.jpg"
+      #$w8 = hyprctl hyprpaper wallpaper "eDP-1,~/nixos/wallpaper/8.jpg"
 
       $c0 = rgba(${config.colorscheme.colors.base00}FF)
       $c1 = rgba(${config.colorscheme.colors.base01}FF)
@@ -165,23 +165,23 @@
 
       bind = $mainMod, C, killactive,
       bind = $mainMod, M, exit,
-      bind = $mainMod, E, exec, nemo
+      #bind = $mainMod, E, exec, nemo
       bind = $mainMod, V, togglefloating,
       bind = $mainMod, P, pseudo, dwindle
       bind = $mainMod, J, togglesplit, # dwindle
 
       # sound
-      binde = , xf86audioraisevolume, exec, ~/nixos/scripts/dunst/pipewire.sh up
-      binde = , xf86audiolowervolume, exec, ~/nixos/scripts/dunst/pipewire.sh down
+      #binde = , xf86audioraisevolume, exec, ~/nixos/scripts/dunst/pipewire.sh up
+      #binde = , xf86audiolowervolume, exec, ~/nixos/scripts/dunst/pipewire.sh down
 
       # brightness
       ## screen
-      binde = , XF86MonBrightnessUp, exec, ~/nixos/scripts/dunst/brightnessctl.sh up
-      binde = , XF86MonBrightnessDown, exec, ~/nixos/scripts/dunst/brightnessctl.sh down
+      #binde = , XF86MonBrightnessUp, exec, ~/nixos/scripts/dunst/brightnessctl.sh up
+      #binde = , XF86MonBrightnessDown, exec, ~/nixos/scripts/dunst/brightnessctl.sh down
 
       ## keyboard
-      binde = , XF86KbdBrightnessUp, exec, ~/nixos/scripts/dunst/asusctl.sh up
-      binde = , XF86KbdBrightnessDown, exec, ~/nixos/scripts/dunst/asusctl.sh down
+      #binde = , XF86KbdBrightnessUp, exec, ~/nixos/scripts/dunst/asusctl.sh up
+      #binde = , XF86KbdBrightnessDown, exec, ~/nixos/scripts/dunst/asusctl.sh down
 
       # Move focus with mainMod + arrow keys
       bind = $mainMod, left, movefocus, l
