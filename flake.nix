@@ -72,7 +72,7 @@
               pkgs = nixpkgs.legacyPackages.x86_64-linux; # Home-manager requires 'pkgs' instance
               useGlobalPkgs = true;
               useUserPackages = true;
-              extraSpecialArgs = {inherit nix-colors inputs;}
+              extraSpecialArgs = {inherit nix-colors inputs;};
               users.${user}.imports = [];
             };
           }
