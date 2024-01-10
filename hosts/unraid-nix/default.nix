@@ -34,7 +34,7 @@ in
       ../../home/git
       ../../home/hypr
       #../../home/kde
-      #../../home/kitty
+      ../../home/kitty
       #../../home/ulauncher
       #../../home/virt
       ../../home/waybar

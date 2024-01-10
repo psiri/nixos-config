@@ -1,5 +1,4 @@
-# This is your system's configuration file.
-# Use this to configure your system environment (it replaces /etc/nixos/configuration.nix)
+# The defaut server configuration file.
 {
   inputs,
   outputs,
@@ -9,43 +8,11 @@
   user,
   ...
 }: {
-  # You can import other NixOS modules here
-  imports = [
-    # If you want to use modules your own flake exports (from modules/nixos):
-    # outputs.nixosModules.example
-
-    # Or modules from other flakes (such as nixos-hardware):
-    # inputs.hardware.nixosModules.common-cpu-amd
-    # inputs.hardware.nixosModules.common-ssd
-
-    # You can also split up your configuration and import pieces of it here:
-    # ./users.nix
-
-    # Import your generated (nixos-generate-config) hardware configuration
-    # /etc/nixos/hardware-configuration.nix
-  ];
+  imports = [];
 
   nixpkgs = {
-    # You can add overlays here
-    overlays = [
-      # Add overlays your own flake exports (from overlays and pkgs dir):
-      # outputs.overlays.additions
-      # outputs.overlays.modifications
-      # outputs.overlays.unstable-packages
-
-      # You can also add overlays exported from other flakes:
-      # neovim-nightly-overlay.overlays.default
-
-      # Or define it inline, for example:
-      # (final: prev: {
-      #   hi = final.hello.overrideAttrs (oldAttrs: {
-      #     patches = [ ./change-hello-to-hi.patch ];
-      #   });
-      # })
-    ];
-    # Configure your nixpkgs instance
+    overlays = [];
     config = {
-      # Disable if you don't want unfree packages
       allowUnfree = true;
     };
   };
@@ -55,7 +22,7 @@
   nix.registry = (lib.mapAttrs (_: flake: {inherit flake;})) ((lib.filterAttrs (_: lib.isType "flake")) inputs);
 
   # This will additionally add your inputs to the system's legacy channels
-  # Making legacy nix commands consistent as well, awesome!
+  # Making legacy nix commands consistent as well
   nix.nixPath = ["/etc/nix/path"];
   environment.etc =
     lib.mapAttrs'
@@ -120,40 +87,20 @@
       # TODO: You can set an initial password for your user.
       # If you do, you can skip setting a root password by passing '--no-root-passwd' to nixos-install.
       # Be sure to change it (using passwd) after rebooting!
-      initialPassword = "Coat-Wharf4-Pulverize";
+      initialPassword = "nixserver";
       isNormalUser = true;
       shell = pkgs.zsh;
       openssh.authorizedKeys.keys = [
         # TODO: Add your SSH public key(s) here, if you plan on using SSH to connect
       ];
       # TODO: Be sure to add any other groups you need (such as networkmanager, audio, docker, etc)
-      extraGroups = ["wheel" "networkmanager" "docker"];
+      extraGroups = ["wheel" "docker"];
       packages = with pkgs; [
         # docker
-        # etcher # Belena Etcher
-        flameshot
-        # gimme-aws-creds # CLI wrapper for Okta/ SAML2.0 IDPs and AWS
-        github-desktop
-        google-chrome
-        joplin-desktop
-        obs-studio
-        # openconnect # Open-source multi-VPN client supporting Cisco Anyconnect, Pulse Secure, GlobalProtect, etc
-        # opensnitch # Open-source application firewall
-        remmina # Open-source remote desktop client
-        slack
-        spotify
-        # teams-for-linux # UNOFFICIAL MS Teams client
-        # teamviewer
-        vlc
-        vscode
-        zoom-us
-        # TODO script SecureCRT install
       ];
     };
   };
 
-  programs.firefox.enable = true;
-  # programs.firefox.policies # TODO - automatically install Firefox extensions
   programs.git.enable = true;
   # programs.git.config = [] # TODO - automatically configure gitconfig
   programs.htop.enable = true;
@@ -161,7 +108,6 @@
   programs.neovim.enable = true;
   # programs.neovim.configure = [] # TODO - automatically configure neovim
   # programs.virt-manager.enable
-  programs.waybar.enable = true;
   programs.wireshark.enable = true;
 
   programs.zsh = {
@@ -184,14 +130,10 @@
   environment = {
     sessionVariables = rec
     {
-      QT_QPA_PLATFORM = "wayland";
-      QT_QPA_PLATFORMTHEME = "qt5ct";
-      GTK_THEME = "${config.colorscheme.slug}"; # sets default gtk theme the package built by nix-colors
       XDG_CACHE_HOME = "$HOME/.cache";
       XDG_CONFIG_HOME = "$HOME/.config";
       XDG_DATA_HOME = "$HOME/.local/share";
       XDG_STATE_HOME = "$HOME/.local/state";
-      NIXOS_OZONE_WL = "1"; # fixes electron apps in Wayland?
     };
     shells = with pkgs; [zsh]; # default shell to zsh
     systemPackages = with pkgs; [
@@ -204,13 +146,11 @@
       fira-code
       fira-code-symbols
       fira-code-nerdfont
-      firefox
       git
       gnutar # tar
       hack-font
       htop
       iputils
-      kitty
       libsecret
       lshw # list hardware
       mtr
@@ -228,16 +168,11 @@
       python311Packages.boto3
       python311Packages.pip
       python311Packages.xmltodict
-      rofi
       ssm-session-manager-plugin # AWS Systems Manager Session Manager plugin
-      swayidle
-      swaylock
       terraform
       tree
       unzip
       usbutils # usb thing
-      waybar
-      wlogout
       wget
       wireshark
       zsh
@@ -248,41 +183,18 @@
     ];
   };
 
-  # services.opensnitch = {
-  #   enable = false;
-  #   # rules = {}
-  #   settings = {
-  #     DefaultAction = "allow";
-  #     DefaultDuration = "until restart";
-  #     Firewall = "iptables";
-  #     ProcMonitorMethod = "ebpf"; # Set Opensnitch in EBPF mode
-  #   };
-  # };
-
-  services.pipewire = {
-    enable = true;
-    alsa.enable = true;
-    alsa.support32Bit = true;
-    audio.enable = true;
-    # jack.enable = true;
-    pulse.enable = true;
-    wireplumber.enable = true;
-  };
-
-  services.teamviewer.enable = false;
-
 
   # This setups a SSH server. Very important if you're setting up a headless system.
   # Feel free to remove if you don't need it.
-  # services.openssh = {
-  #   enable = false;
-  #   settings = {
-  #     # Forbid root login through SSH.
-  #     PermitRootLogin = "no";
-  #     # Use keys only. Remove if you want to SSH using password (not recommended)
-  #     PasswordAuthentication = false;
-  #   };
-  # };
+  services.openssh = {
+    enable = true;
+    settings = {
+      # Forbid root login through SSH.
+      PermitRootLogin = "no";
+      # Use keys only. Remove if you want to SSH using password (not recommended)
+      PasswordAuthentication = false;
+    };
+  };
 
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
   system.stateVersion = "23.11";
