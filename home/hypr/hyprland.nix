@@ -51,10 +51,10 @@
       exec-once = hyprpaper
 
 
-      exec-once = sleep 4 && gnome-keyring-daemon --start --components = pkcs11, secrets, ssh
+      #exec-once = sleep 4 && gnome-keyring-daemon --start --components = pkcs11, secrets, ssh
       # move above to seahorse below /home or /services/ unsure about below as its not really machine or software specific yet :)
-      exec-once = sleep 6 && dbus-update-activation-environment --all
-      exec-once = lxqt-policykit-agent & udiskie
+      #exec-once = sleep 6 && dbus-update-activation-environment --all
+      #exec-once = lxqt-policykit-agent & udiskie
 
       ## per-device config, from ./hosts/hostname/per-device.nix ##
       source = ~/.config/hypr/per-device.conf
@@ -171,17 +171,17 @@
       bind = $mainMod, J, togglesplit, # dwindle
 
       # sound
-      #binde = , xf86audioraisevolume, exec, ~/nixos/scripts/dunst/pipewire.sh up
-      #binde = , xf86audiolowervolume, exec, ~/nixos/scripts/dunst/pipewire.sh down
+      binde = , xf86audioraisevolume, exec, ~/nixos/scripts/dunst/pipewire.sh up
+      binde = , xf86audiolowervolume, exec, ~/nixos/scripts/dunst/pipewire.sh down
 
       # brightness
       ## screen
-      #binde = , XF86MonBrightnessUp, exec, ~/nixos/scripts/dunst/brightnessctl.sh up
-      #binde = , XF86MonBrightnessDown, exec, ~/nixos/scripts/dunst/brightnessctl.sh down
+      binde = , XF86MonBrightnessUp, exec, ~/nixos/scripts/dunst/brightnessctl.sh up
+      binde = , XF86MonBrightnessDown, exec, ~/nixos/scripts/dunst/brightnessctl.sh down
 
       ## keyboard
-      #binde = , XF86KbdBrightnessUp, exec, ~/nixos/scripts/dunst/asusctl.sh up
-      #binde = , XF86KbdBrightnessDown, exec, ~/nixos/scripts/dunst/asusctl.sh down
+      binde = , XF86KbdBrightnessUp, exec, ~/nixos/scripts/dunst/asusctl.sh up
+      binde = , XF86KbdBrightnessDown, exec, ~/nixos/scripts/dunst/asusctl.sh down
 
       # Move focus with mainMod + arrow keys
       bind = $mainMod, left, movefocus, l
