@@ -152,10 +152,6 @@
     };
   };
 
-  programs.firefox.enable = true;
-  # programs.firefox.policies # TODO - automatically install Firefox extensions
-  programs.git.enable = true;
-  # programs.git.config = [] # TODO - automatically configure gitconfig
   programs.htop.enable = true;
   # programs.htop.settings = {} # TODO - automatically configure htop
   programs.neovim.enable = true;
@@ -206,7 +202,6 @@
       fira-code
       fira-code-symbols
       fira-code-nerdfont
-      firefox
       git
       gnutar # tar
       hack-font

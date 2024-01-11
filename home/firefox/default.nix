@@ -7,7 +7,6 @@
   home-manager.users.${user}.home.file.".config/hypr/per-app/firefox.conf" = {
     text = ''
       bind = $mainMod, F, exec, firefox
-      bind = $mainMod, W, exec, firefox -p work
     '';
   };
 
@@ -40,5 +39,6 @@
         };
       };
     };
+    # policies # TODO - automatically install Firefox extensions
   };
 }

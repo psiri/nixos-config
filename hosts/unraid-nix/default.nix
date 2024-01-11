@@ -30,7 +30,7 @@ in
       #../../home/codium
       #../../home/copyq
       ../../home/dunst
-      #../../home/firefox
+      ../../home/firefox
       ../../home/git
       ../../home/hypr
       #../../home/kde
