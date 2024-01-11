@@ -36,7 +36,7 @@
         name = "checkov";
         publisher = "bridgecrew";
         version = "1.0.98";
-        sha256 = "ccdbf452f6db69e515d1cc2af053b4d5e7a8773328faac756ca455c0810ad311"; #sha256sum ~/Downloads/checkov-vscode-1.0.98.tar.gz 
+        sha256 = "b67552b173fa259ea859a830c24dc255642d9f3f6ca96e283f7d6ac66796ded8"; #sha256sum ~/Downloads/checkov-vscode-1.0.98.zip 
       }
     ];
     globalSnippets = {};
