@@ -165,6 +165,16 @@
     enableBashCompletion = true;
     enableCompletion = true;
     autosuggestions.enable = true;
+    initExtra = ''
+      [[ ! -f ${./p10k.zsh;} ]] || source ${./p10k.zsh}
+    '';
+    plugins = [
+      {
+        name = "powerlevel10k";
+        src = pkgs.zsh-powerlevel10k;
+        file = "share/zsh-powerlevel10k/powerlevel10k.zsh-theme";
+      }
+    ];
     syntaxHighlighting.enable = true;
     syntaxHighlighting.highlighters = ["main" "brackets" "pattern" "cursor" "line"];
     syntaxHighlighting.patterns = {};
@@ -172,7 +182,7 @@
     #promptInit = "info='n host cpu os wm sh n' fet.sh";
     ohMyZsh = {
       enable = true;
-      theme = "ys"; # robbyrussel jnrowe muse obraun ys
+      #theme = "ys"; # robbyrussel jnrowe muse obraun ys
       plugins = ["sudo" "terraform" "systemadmin" "vi-mode" "colorize"];
     };
   };
@@ -222,7 +232,6 @@
       openssl
       pipewire
       polkit_gnome
-      powerlevel10k # zsh-powerlevel10k
       python3
       python311Packages.boto3
       python311Packages.pip
@@ -243,6 +252,7 @@
       zsh-autocomplete
       zsh-history-substring-search
       zsh-nix-shell
+      zsh-powerlevel10k
     ];
   };
 
