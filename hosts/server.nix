@@ -136,7 +136,6 @@
       netcat
       nix-zsh-completions
       nmap
-      oh-my-zsh
       openssl
       python3
       python311Packages.boto3
