@@ -187,8 +187,8 @@
     #promptInit = "info='n host cpu os wm sh n' fet.sh";
     ohMyZsh = {
       enable = true;
-      #theme = "ys"; # robbyrussel jnrowe muse obraun ys
       plugins = ["sudo" "terraform" "systemadmin" "vi-mode" "colorize" "powerlevel10k"];
+      theme = "powerlevel10k"; # robbyrussel jnrowe muse obraun ys
     };
   };
 
