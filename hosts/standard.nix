@@ -120,7 +120,7 @@
       # TODO: You can set an initial password for your user.
       # If you do, you can skip setting a root password by passing '--no-root-passwd' to nixos-install.
       # Be sure to change it (using passwd) after rebooting!
-      initialPassword = "Coat-Wharf4-Pulverize";
+      initialPassword = "this-password-should-be-changed-as-soon-as-possible!";
       isNormalUser = true;
       shell = pkgs.zsh;
       openssh.authorizedKeys.keys = [
@@ -178,6 +178,7 @@
   };
 
   environment = {
+    defaultPackages = [ pkgs.strace ]; # remove pearl and rsync
     sessionVariables = rec
     {
       QT_QPA_PLATFORM = "wayland";
@@ -269,17 +270,6 @@
   services.teamviewer.enable = false;
 
 
-  # This setups a SSH server. Very important if you're setting up a headless system.
-  # Feel free to remove if you don't need it.
-  # services.openssh = {
-  #   enable = false;
-  #   settings = {
-  #     # Forbid root login through SSH.
-  #     PermitRootLogin = "no";
-  #     # Use keys only. Remove if you want to SSH using password (not recommended)
-  #     PasswordAuthentication = false;
-  #   };
-  # };
 
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
   system.stateVersion = "23.11";

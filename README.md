@@ -1,7 +1,7 @@
 ## Applications
 | Function             | App                 |
 | -------------------- | ------------------- |
-| Application Launcher | Rofi                |
+| Application Launcher | ulauncher           |
 | Audio                | Pipewire            |
 | Display Server       | Wayland             |
 | IDE                  | Visual Studio Code  |

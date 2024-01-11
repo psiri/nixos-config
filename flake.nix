@@ -67,6 +67,7 @@
         specialArgs = {inherit nix-colors user plymouth_theme inputs outputs;};
         modules = [
           ./hosts/unraid-nix                        # > Our host-specific nixos configuration file <
+          ./modules/audio/default.nix               # Standard audio module using pipewire
           ./modules/security-hardening/default.nix  # Security hardening module
 
           home-manager.nixosModules.home-manager {
@@ -83,6 +84,7 @@
         specialArgs = {inherit nix-colors user plymouth_theme inputs outputs;};
         modules = [
           ./hosts/server-nix                        # > Our host-specific nixos configuration file <
+          ./modules/audio/disable.nix               # disable audio
           ./modules/security-hardening/default.nix  # Security hardening module
 
           home-manager.nixosModules.home-manager {

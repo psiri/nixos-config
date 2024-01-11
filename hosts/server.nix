@@ -87,7 +87,7 @@
       # TODO: You can set an initial password for your user.
       # If you do, you can skip setting a root password by passing '--no-root-passwd' to nixos-install.
       # Be sure to change it (using passwd) after rebooting!
-      initialPassword = "nixserver";
+      initialPassword = "this-password-should-be-changed-as-soon-as-possible!";
       isNormalUser = true;
       shell = pkgs.zsh;
       openssh.authorizedKeys.keys = [
@@ -101,8 +101,6 @@
     };
   };
 
-  programs.git.enable = true;
-  # programs.git.config = [] # TODO - automatically configure gitconfig
   programs.htop.enable = true;
   # programs.htop.settings = {} # TODO - automatically configure htop
   programs.neovim.enable = true;
@@ -128,13 +126,7 @@
   };
 
   environment = {
-    sessionVariables = rec
-    {
-      XDG_CACHE_HOME = "$HOME/.cache";
-      XDG_CONFIG_HOME = "$HOME/.config";
-      XDG_DATA_HOME = "$HOME/.local/share";
-      XDG_STATE_HOME = "$HOME/.local/state";
-    };
+    defaultPackages = [ pkgs.strace ]; # remove pearl and rsync
     shells = with pkgs; [zsh]; # default shell to zsh
     systemPackages = with pkgs; [
       ansible
@@ -142,7 +134,6 @@
       curl
       dig
       dnsutils
-      dunst
       fira-code
       fira-code-symbols
       fira-code-nerdfont
@@ -162,8 +153,6 @@
       nmap
       oh-my-zsh
       openssl
-      pipewire
-      polkit_gnome
       python3
       python311Packages.boto3
       python311Packages.pip
@@ -172,7 +161,6 @@
       terraform
       tree
       unzip
-      usbutils # usb thing
       wget
       wireshark
       zsh

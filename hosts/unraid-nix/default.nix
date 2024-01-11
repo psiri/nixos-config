@@ -35,7 +35,7 @@ in
       ../../home/hypr
       #../../home/kde
       ../../home/kitty
-      #../../home/ulauncher
+      ../../home/ulauncher
       #../../home/virt
       ../../home/waybar
       ../../home/gtk
