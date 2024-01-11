@@ -7,7 +7,7 @@
   ...
 }: {
 
-  home-manager.users.${user}.programs.flameshot = {
+  home-manager.users.${user}.services.flameshot = {
     enable = true;
     settings = {       # Example configuration.ini has be included here for reference. Also see (https://github.com/flameshot-org/flameshot/blob/master/flameshot.example.ini)
       General = {
