@@ -8,7 +8,7 @@
     enable = true;
     enableExtensionUpdateCheck = true;
     enableUpdateCheck = true;
-    package = pkgs.vscode; # pkgs.vscodium
+    package = pkgs.vscodium; # pkgs.vscodium or pkgs.vscode (default)
     
     extensions = [
       pkgs.vscode-extensions.bbenoist.nix
