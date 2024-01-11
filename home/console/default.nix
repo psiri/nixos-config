@@ -13,6 +13,6 @@
     earlySetup = true;
     packages = with pkgs; [ terminus_font ];
     font = "ter-v32n";
-    keyMap = "us";
+    #keyMap = "us";
   };
 }
