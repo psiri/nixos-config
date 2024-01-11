@@ -12,7 +12,7 @@
     enable = true;
     earlySetup = true;
     packages = with pkgs; [ terminus_font ];
-    font = "ter-v32n";
+    font = "ter-v12n";
     keyMap = "us";
     #useXkbConfig = true;
   };
