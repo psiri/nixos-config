@@ -8,7 +8,7 @@
     enable = true;
     enableExtensionUpdateCheck = true;
     enableUpdateCheck = true;
-    #package = pkgs.vscode; # pkgs.vscodium
+    package = pkgs.vscode; # pkgs.vscodium
     
     extensions = [
       pkgs.vscode-extensions.bbenoist.nix
@@ -30,7 +30,14 @@
       pkgs.vscode-extensions.wholroyd.jinja
       pkgs.vscode-extensions.yzhang.markdown-all-in-one
       # TODO - find solution for installing missing extensions
-      # Checkov, Material Theme Icons,
+      # Checkov, Material Theme Icons (using another icon pack in the meantime)
+    ] ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
+      {
+        name = "checkov";
+        publisher = "bridgecrew";
+        version = "1.0.98";
+        #sha256 = "Bridgecrew.checkov"
+      }
     ];
     globalSnippets = {};
     haskell.enable = false;
