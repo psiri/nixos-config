@@ -8,7 +8,6 @@
   ...
 }: {
   # Default settings for the console
-
   console = {
     enable = true;
     earlySetup = true;
