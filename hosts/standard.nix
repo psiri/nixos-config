@@ -23,7 +23,7 @@
 
     # Import your generated (nixos-generate-config) hardware configuration
     # /etc/nixos/hardware-configuration.nix
-    ../../home/zsh
+    ../home/zsh
   ];
 
   nixpkgs = {
