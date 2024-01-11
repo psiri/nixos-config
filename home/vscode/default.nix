@@ -36,7 +36,8 @@
         name = "checkov";
         publisher = "bridgecrew";
         version = "1.0.98";
-        sha256 = "b67552b173fa259ea859a830c24dc255642d9f3f6ca96e283f7d6ac66796ded8"; #sha256sum ~/Downloads/checkov-vscode-1.0.98.zip 
+        sha256 = "38e1311f2cc71197d8a4dab9d36d9d53e19d9fb79b0c0df1737babbe253fd00c"; # sha256sum ~/Downloads/Bridgecrew.checkov-1.0.98.vsix 
+        # can be downloaded from https://marketplace.visualstudio.com/items?itemName=Bridgecrew.checkov
       }
     ];
     globalSnippets = {};
