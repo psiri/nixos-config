@@ -30,9 +30,9 @@
     enableAutosuggestions  = false;
     enableCompletion = true;
     historySubstringSearch.enable = true;
-    # initExtra = ''
-    #   [[ ! -f ${./p10k.zsh;} ]] || source ${./p10k.zsh}
-    # '';
+    initExtra = ''
+      POWERLEVEL9K_DISABLE_CONFIGURATION_WIZARD=true
+    '';
     plugins = [
       {
         name = "powerlevel10k";
@@ -49,10 +49,10 @@
     syntaxHighlighting.highlighters = ["main" "brackets" "pattern" "cursor" "line"];
     # syntaxHighlighting.patterns = {};
     syntaxHighlighting.styles = {"globbing" = "none";};
-    oh-my-zsh = {
-      enable = true;
-      plugins = ["sudo" "terraform" "systemadmin" "vi-mode" "colorize" "powerlevel10k"];
-      theme = "powerlevel10k"; # robbyrussel jnrowe muse obraun ys
-    };
+    # oh-my-zsh = {
+    #   enable = true;
+    #   plugins = ["sudo" "terraform" "systemadmin" "vi-mode" "colorize" "powerlevel10k"];
+    #   theme = "powerlevel10k"; # robbyrussel jnrowe muse obraun ys
+    # };
   };
 }

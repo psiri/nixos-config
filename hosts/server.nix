@@ -8,7 +8,9 @@
   user,
   ...
 }: {
-  imports = [];
+  imports = [
+    ../home/zsh
+  ];
 
   nixpkgs = {
     overlays = [];
@@ -107,23 +109,6 @@
   # programs.neovim.configure = [] # TODO - automatically configure neovim
   # programs.virt-manager.enable
   programs.wireshark.enable = true;
-
-  programs.zsh = {
-    enable = true;
-    enableBashCompletion = true;
-    enableCompletion = true;
-    autosuggestions.enable = true;
-    syntaxHighlighting.enable = true;
-    syntaxHighlighting.highlighters = ["main" "brackets" "pattern" "cursor" "line"];
-    syntaxHighlighting.patterns = {};
-    syntaxHighlighting.styles = {"globbing" = "none";};
-    #promptInit = "info='n host cpu os wm sh n' fet.sh";
-    ohMyZsh = {
-      enable = true;
-      theme = "ys"; # robbyrussel jnrowe muse obraun ys
-      plugins = ["sudo" "terraform" "systemadmin" "vi-mode" "colorize"];
-    };
-  };
 
   environment = {
     defaultPackages = [ pkgs.strace ]; # remove pearl and rsync
