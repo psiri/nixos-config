@@ -6,11 +6,11 @@
 }: {
   home-manager.users.${user}.programs.vscode = {
     enable = true;
-    enableExtensionsUpdateCheck = true;
+    enableExtensionUpdateCheck = true;
     enableUpdateCheck = true;
     package = "pkgs.vscode"; # "pkgs.vscodium"
     extensions = [
-      pkgs.vscode-extensions.soemthing.nix
+      pkgs.vscode-extensions.hashicorp.terraform
     ];
     globalSnippets = {};
     haskell.enable = false;
