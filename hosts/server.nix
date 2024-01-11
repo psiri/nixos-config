@@ -9,6 +9,7 @@
   ...
 }: {
   imports = [
+    ../modules/console
     ../home/zsh
   ];
 

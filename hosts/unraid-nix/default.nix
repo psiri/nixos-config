@@ -30,6 +30,7 @@ in
       #../../home/codium
       #../../home/copyq
       ../../home/dunst
+      ../../home/flameshot
       ../../home/firefox
       ../../home/git
       ../../home/hypr

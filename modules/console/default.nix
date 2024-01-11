@@ -3,8 +3,6 @@
   inputs,
   outputs,
   pkgs,
-  nix-colors,
-  user,
   ...
 }: {
   # Default settings for the console
