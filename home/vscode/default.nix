@@ -13,7 +13,7 @@
     extensions = [
       pkgs.vscode-extensions.bbenoist.nix
       pkgs.vscode-extensions.equinusocio.vsc-material-theme
-      pkgs.vscode-extensions.equinusocio.vsc-material-theme-icons
+      #pkgs.vscode-extensions.equinusocio.vsc-material-theme-icons
       pkgs.vscode-extensions.hashicorp.terraform
       pkgs.vscode-extensions.ms-azuretools.vscode-docker
       pkgs.vscode-extensions.ms-python.python
