@@ -7,6 +7,7 @@
   user,
   ...
 }: {
+  # ZSH with powerlevel10k plugin
 
   programs.zsh = {
     enable = true;

@@ -77,7 +77,7 @@
       material-design-icons
       material-symbols
       nerdfonts
-      (nerdfonts.override {fonts = ["FiraCode" "JetBrainsMono"];})
+      #(nerdfonts.override {fonts = ["FiraCode" "JetBrainsMono"];})
     ];
   };
 
