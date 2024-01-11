@@ -40,7 +40,6 @@ in
       ../../home/waybar
       ../../home/gtk
       ../../home/wlogout
-      ../../home/zsh
     ];
 
     colorscheme = inputs.nix-colors.colorSchemes.${scheme};
