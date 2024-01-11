@@ -8,7 +8,7 @@
     enable = true;
     enableExtensionUpdateCheck = true;
     enableUpdateCheck = true;
-    package = "pkgs.vscode"; # "pkgs.vscodium"
+    #package = "pkgs.vscode"; # "pkgs.vscodium"
     extensions = [
       pkgs.vscode-extensions.hashicorp.terraform
     ];
