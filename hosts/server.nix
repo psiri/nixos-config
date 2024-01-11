@@ -10,6 +10,7 @@
 }: {
   imports = [
     ../modules/console
+    ../home/vscode
     ../home/zsh
   ];
 

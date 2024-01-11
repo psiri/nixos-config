@@ -149,7 +149,6 @@
         # teams-for-linux # UNOFFICIAL MS Teams client
         # teamviewer
         vlc
-        vscode
         zoom-us
         # TODO script SecureCRT install
       ];
