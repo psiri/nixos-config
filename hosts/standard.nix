@@ -179,9 +179,9 @@
 
   home-manager.users.${user}.programs.zsh = {
     enable = true;
-    enableBashCompletion = true;
+    enableAutosuggestions  = false;
     enableCompletion = true;
-    autosuggestions.enable = true;
+    historySubstringSearch.enable = true;
     # initExtra = ''
     #   [[ ! -f ${./p10k.zsh;} ]] || source ${./p10k.zsh}
     # '';
@@ -199,10 +199,9 @@
     ];
     syntaxHighlighting.enable = true;
     syntaxHighlighting.highlighters = ["main" "brackets" "pattern" "cursor" "line"];
-    syntaxHighlighting.patterns = {};
+    # syntaxHighlighting.patterns = {};
     syntaxHighlighting.styles = {"globbing" = "none";};
-    #promptInit = "info='n host cpu os wm sh n' fet.sh";
-    ohMyZsh = {
+    oh-my-zsh = {
       enable = true;
       plugins = ["sudo" "terraform" "systemadmin" "vi-mode" "colorize" "powerlevel10k"];
       theme = "powerlevel10k"; # robbyrussel jnrowe muse obraun ys
