@@ -36,7 +36,7 @@
         name = "checkov";
         publisher = "bridgecrew";
         version = "1.0.98";
-        #sha256 = "Bridgecrew.checkov"
+        sha256 = "00ExHyzHEZfYpNq5022dU+Gdn7ebDA3xc3urviU/0Aw"
       }
     ];
     globalSnippets = {};
