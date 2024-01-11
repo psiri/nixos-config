@@ -10,10 +10,10 @@
   # Default settings for the console
   console = {
     enable = true;
-    #earlySetup = true;
+    earlySetup = true;
     packages = with pkgs; [ terminus_font ];
     font = "ter-v32n";
-    #keyMap = "us";
+    keyMap = "us";
     useXkbConfig = true;
   };
 
