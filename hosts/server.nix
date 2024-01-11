@@ -153,6 +153,7 @@
       nmap
       oh-my-zsh
       openssl
+      powerlevel10k # zsh-powerlevel10k
       python3
       python311Packages.boto3
       python311Packages.pip
@@ -167,7 +168,6 @@
       zsh-autocomplete
       zsh-history-substring-search
       zsh-nix-shell
-      zsh-powerlevel10k
     ];
   };
 
