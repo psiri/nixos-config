@@ -14,7 +14,7 @@
     packages = with pkgs; [ terminus_font ];
     font = "ter-v32n";
     keyMap = "us";
-    useXkbConfig = true;
+    #useXkbConfig = true;
   };
 
   services.xserver.layout = "us";
