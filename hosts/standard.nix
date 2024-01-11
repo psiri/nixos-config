@@ -110,7 +110,7 @@
       material-symbols
       meslo-lgs-nf # powerlevel10k recommended font
       nerdfonts
-      (nerdfonts.override {fonts = ["FiraCode" "JetBrainsMono"];})
+      #(nerdfonts.override {fonts = ["FiraCode" "JetBrainsMono"];})
     ];
   };
 
