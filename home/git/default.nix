@@ -10,7 +10,6 @@
       color.ui = true;
       credential.helper = "libsecret";    # OR "store"  # What is the most secure option?
       core.askPass = "";                  # "" = use terminal to ask pass
-      credential.helper = "store";        # Looking for more secure option
       github.user = "psiri";
       init.defaultBranch = "main";
     };
