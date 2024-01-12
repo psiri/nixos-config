@@ -48,14 +48,14 @@ $cf = rgba(${config.colorscheme.colors.base0F}FF)
 ## exec-once ##
 
 ## TODO move to /home/
-exec-once = waybar
-#exec-once = hyprpaper
+#exec-once = waybar
+exec-once = hyprpaper
 
 
-#exec-once = sleep 4 && gnome-keyring-daemon --start --components = pkcs11, secrets, ssh
+exec-once = sleep 4 && gnome-keyring-daemon --start --components = pkcs11, secrets, ssh
 # move above to seahorse below /home or /services/ unsure about below as its not really machine or software specific yet :)
-#exec-once = sleep 6 && dbus-update-activation-environment --all
-#exec-once = lxqt-policykit-agent & udiskie
+exec-once = sleep 6 && dbus-update-activation-environment --all
+exec-once = lxqt-policykit-agent & udiskie
 
 ## per-device config, from ./hosts/hostname/per-device.nix ##
 #source = ~/.config/hypr/per-device.conf
