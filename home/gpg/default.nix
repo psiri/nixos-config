@@ -9,7 +9,5 @@
     mutableKeys = true;
     mutableTrust = true;
     #publicKeys = "";
-    userEmail = "paulsiri1@gmail.com";
-    userName = "Paul Siri";
   };
 }
