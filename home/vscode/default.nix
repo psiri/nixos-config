@@ -40,13 +40,13 @@
         # ! IMPORTANT ! The sha256 checksum is matched against the packages from the official visual studio marketplace
         # Download from https://marketplace.visualstudio.com/items?itemName=Bridgecrew.checkov (or your desired extension)
         # Then run the following command to determine the sha256 checksum:
-        # sha256sum ~/Downloads/Bridgecrew.checkov-1.0.98.vsix 
+        # sha256sum Bridgecrew.checkov-1.0.98.vsix 
       }
     ];
     globalSnippets = {};
     haskell.enable = false;
     keybindings = [];
     mutableExtensionsDir = false; # Whether extensions can be installed or updated manually or by VS Code
-    userSettings = {};
+    userSettings = {};            # TODO - import settings from ~/.config/User/settings.json with solution for secret management
   };
 }

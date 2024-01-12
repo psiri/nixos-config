@@ -21,7 +21,7 @@
     #promptInit = "info='n host cpu os wm sh n' fet.sh";
     # ohMyZsh = {
     #   enable = true;
-    #   plugins = ["sudo" "terraform" "systemadmin" "vi-mode" "colorize"];
+    #   plugins = ["sudo" "terraform" "systemadmin" "vi-mode" "colorize"]; # git ansible aws argocd docker gh github gitignore history kubectl nmap python terraform virtualenv vscode
     #   theme = "ys"; # robbyrussel jnrowe muse obraun ys
     # };
   };
@@ -52,7 +52,7 @@
     syntaxHighlighting.styles = {"globbing" = "none";};
     # oh-my-zsh = {
     #   enable = true;
-    #   plugins = ["sudo" "terraform" "systemadmin" "vi-mode" "colorize"];
+    #   plugins = ["sudo" "terraform" "systemadmin" "vi-mode" "colorize"]; # git ansible aws argocd docker gh github gitignore history kubectl nmap python terraform virtualenv vscode
     #   theme = "ys"; # robbyrussel jnrowe muse obraun ys
     # };
   };
