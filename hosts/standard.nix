@@ -139,7 +139,6 @@
         # gimme-aws-creds # CLI wrapper for Okta/ SAML2.0 IDPs and AWS
         # github-desktop
         google-chrome
-        gnupg # Useful for GitHub key signing
         joplin-desktop
         obs-studio
         # openconnect # Open-source multi-VPN client supporting Cisco Anyconnect, Pulse Secure, GlobalProtect, etc

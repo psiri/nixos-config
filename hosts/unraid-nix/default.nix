@@ -33,6 +33,7 @@ in
       ../../home/flameshot
       ../../home/firefox
       ../../home/git
+      ../../home/gpg
       ../../home/hypr
       #../../home/kde
       ../../home/kitty
