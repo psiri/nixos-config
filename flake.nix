@@ -63,6 +63,23 @@
     # Available through 'nixos-rebuild --flake .#your-hostname'
     nixosConfigurations = {
       # FIXME replace with your hostname
+      desktop-nix = nixpkgs.lib.nixosSystem {
+        specialArgs = {inherit nix-colors user plymouth_theme inputs outputs;};
+        modules = [
+          ./hosts/desktop-nix                        # > Our host-specific nixos configuration file <
+          ./modules/audio/default.nix               # Standard audio module using pipewire
+          ./modules/security-hardening/default.nix  # Security hardening module
+
+          home-manager.nixosModules.home-manager {
+            home-manager = {
+              useGlobalPkgs = true;
+              useUserPackages = true;
+              extraSpecialArgs = {inherit nix-colors inputs;};
+              users.${user}.imports = [];
+            };
+          }
+        ];
+      };
       unraid-nix = nixpkgs.lib.nixosSystem {
         specialArgs = {inherit nix-colors user plymouth_theme inputs outputs;};
         modules = [

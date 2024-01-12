@@ -133,6 +133,7 @@
       # TODO: Be sure to add any other groups you need (such as networkmanager, audio, docker, etc)
       extraGroups = ["wheel" "networkmanager" "docker"];
       packages = with pkgs; [
+        # discord
         # docker
         # etcher # Belena Etcher
         flameshot
@@ -144,6 +145,7 @@
         # openconnect # Open-source multi-VPN client supporting Cisco Anyconnect, Pulse Secure, GlobalProtect, etc
         # opensnitch # Open-source application firewall
         remmina # Open-source remote desktop client
+        seahorse # encryption key and password manager
         slack
         spotify
         # teams-for-linux # UNOFFICIAL MS Teams client
