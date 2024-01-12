@@ -137,7 +137,7 @@
         # etcher # Belena Etcher
         flameshot
         # gimme-aws-creds # CLI wrapper for Okta/ SAML2.0 IDPs and AWS
-        github-desktop
+        # github-desktop
         google-chrome
         joplin-desktop
         obs-studio

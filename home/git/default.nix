@@ -7,10 +7,19 @@
   home-manager.users.${user}.programs.git = {
     enable = true;
     extraConfig = {
+      color.ui = true;
       credential.helper = "libsecret";
-      user.name = "psiri";
-      user.email = "paulsiri1@gmail.com";
+      core.askPass = "";                  # "" = use terminal to ask pass
+      credential.helper = "store";        # Looking for more secure option
+      github.user = "psiri";
+      init.defaultBranch = "main";
     };
+    # signing = {
+    #   key = "";                           # FIXME - Update signing key
+    #   signByDefault = true;
+    # };
+    user.Email = "paulsiri1@gmail.com";
+    user.Name = "Paul Siri";
   };
 
   programs.git = {

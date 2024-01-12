@@ -30,8 +30,8 @@
       pkgs.vscode-extensions.wholroyd.jinja
       pkgs.vscode-extensions.yzhang.markdown-all-in-one
     ] ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
-      # TODO - Use below solution for installing missing extensions
-      # Material Theme Icons (using another icon pack in the meantime)
+      # Use below example solution for installing other missing extensions
+      # TODO - Material Theme Icons (using another icon pack in the meantime)
       {
         name = "checkov";
         publisher = "bridgecrew";
