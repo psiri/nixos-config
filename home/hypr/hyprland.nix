@@ -48,7 +48,6 @@ $cf = rgba(${config.colorscheme.colors.base0F}FF)
 ## exec-once ##
 
 ## TODO move to /home/
-#exec-once = waybar
 exec-once = hyprpaper
 
 
@@ -92,7 +91,7 @@ general {
     gaps_out = 10
     border_size = 5
     resize_on_border = true
-    layout = dwindle
+    layout = master
     col.active_border = $c0 $ca $c3 $c2 $c1 $c0 90deg
     col.inactive_border = $c0 $c1 90deg
 }
