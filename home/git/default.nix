@@ -20,8 +20,8 @@
     #   key = "";                           # FIXME - Update signing key
     #   signByDefault = true;
     # };
-    user.Email = "paulsiri1@gmail.com";
-    user.Name = "Paul Siri";
+    userEmail = "paulsiri1@gmail.com";
+    userName = "Paul Siri";
   };
 
   # programs.git = {
