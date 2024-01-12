@@ -58,7 +58,7 @@ exec-once = waybar
 #exec-once = lxqt-policykit-agent & udiskie
 
 ## per-device config, from ./hosts/hostname/per-device.nix ##
-source = ~/.config/hypr/per-device.conf
+#source = ~/.config/hypr/per-device.conf
 
 env = XCURSOR_SIZE,20
 env = WLR_NO_HARDWARE_CURSORS,1
