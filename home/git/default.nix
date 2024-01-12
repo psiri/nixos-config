@@ -14,6 +14,9 @@
       github.user = "psiri";
       init.defaultBranch = "main";
     };
+    lfs = {
+      enable = false;
+    };
     # signing = {
     #   key = "";                           # FIXME - Update signing key
     #   signByDefault = true;
@@ -22,21 +25,21 @@
     user.Name = "Paul Siri";
   };
 
-  programs.git = {
-    enable = true;
-    # config = {
-    #   init =  {
-    #     defaultBranch = "main";
-    #   };
-    #   url = {
-    #     "https://github.com/" = {
-    #       insteadOf = [
-    #         "gh:"
-    #         "github:"
-    #       ];
-    #     };
-    #   };
-    # };
-    lfs.enable = false;
-  };
+  # programs.git = {
+  #   enable = true;
+  #   # config = {
+  #   #   init =  {
+  #   #     defaultBranch = "main";
+  #   #   };
+  #   #   url = {
+  #   #     "https://github.com/" = {
+  #   #       insteadOf = [
+  #   #         "gh:"
+  #   #         "github:"
+  #   #       ];
+  #   #     };
+  #   #   };
+  #   # };
+  #   lfs.enable = false;
+  # };
 }
