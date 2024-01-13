@@ -54,7 +54,7 @@ $cf = rgba(${config.colorscheme.colors.base0F}FF)
 ## exec-once ##
 
 ## TODO move to /home/
-exec-once = hyprpaper && kitty && kitty
+exec-once = hyprpaper
 
 
 exec-once = sleep 4 && gnome-keyring-daemon --start --components = pkcs11, secrets, ssh
