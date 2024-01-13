@@ -50,7 +50,7 @@
 
           // "cpu",
           // "memory",
-          "network#wlp2s0",
+          "network",
           "bluetooth",
           "backlight",
           // "pulseaudio#microphone",
