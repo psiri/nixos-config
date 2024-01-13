@@ -133,11 +133,13 @@
             "󰤥",
             "󰤨"
           ],
-          "format-wifi": " {icon}  ", // added multiple spaces to the right, was not aligning center correctly, still is not :(
+          "format-wifi": "{icon} {essid} ({signalStrength}%)",
+          "format-disconnected": "", // empty format hides the module
           "format-disconnected": "󰤮",
           "on-click": "iwgtk",
           "tooltip": true,
-          "tooltip-format": "󰢮 {ifname}\n󰩟 {ipaddr}/{cidr}\n󰩟 Gateway: {gwaddr}\n{icon} {essid}\n󱑽 {signalStrength}% {signaldBm} dBm {frequency} MHz\n󰞒 {bandwidthDownBytes}\n󰞕 {bandwidthUpBytes}"
+          "tooltip-format": "󰢮 {ifname}\n󰩟 {ipaddr}/{cidr}\n󰩟 Gateway: {gwaddr}\n{icon} {essid}\n󱑽 {signalStrength}% {signaldBm} dBm {frequency} MHz\n󰞒 {bandwidthDownBytes}\n󰞕 {bandwidthUpBytes}",
+          "tooltip-format-disconnected": "Disconnected",
         },
 
         "bluetooth": {
