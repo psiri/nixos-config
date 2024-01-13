@@ -24,6 +24,7 @@
     # Import your generated (nixos-generate-config) hardware configuration
     # /etc/nixos/hardware-configuration.nix
     ../modules/console
+    ../home/swaylock
     ../home/vscode
     ../home/zsh
   ];
