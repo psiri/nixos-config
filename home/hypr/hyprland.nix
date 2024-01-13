@@ -179,9 +179,9 @@ bind = $mainMod, P, pseudo, dwindle
 bind = $mainMod, J, togglesplit, # dwindle
 
 # Screenshots
-bind = , print, exec, grim $HOME/Pictures/Screenshots/$(date +'%b-%d-%Y_%H-%M-%S.png')
-bind = CTRL, print, exec, grim -g "$(slurp -o)" $HOME/Pictures/Screenshots/$(date +'%b-%d-%Y_%H-%M-%S.png')
-bind = CTRL SHIFT, P, exec, grim -g "$(slurp)" $HOME/Pictures/Screenshots/$(date +'%b-%d-%Y_%H-%M-%S.png')
+bind = , print, exec, grim $HOME/Pictures/Screenshots/$(date +'%b-%d-%Y_%H-%M-%S_%p.png')
+bind = CTRL, print, exec, grim -g "$(slurp -o)" $HOME/Pictures/Screenshots/$(date +'%b-%d-%Y_%H-%M-%S_%p.png')
+bind = CTRL SHIFT, P, exec, grim -g "$(slurp)" $HOME/Pictures/Screenshots/$(date +'%b-%d-%Y_%H-%M-%S_%p.png')
 
 # sound
 binde = , xf86audioraisevolume, exec, ~/nixos/scripts/dunst/pipewire.sh up
