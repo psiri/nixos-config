@@ -19,6 +19,7 @@ $MOD2 = ALT
 $terminal = kitty
 $fileManager = dolphin
 $menu = ulauncher-toggle
+$VSCODE_APP = codium
 
 ############################################# hyprpaper #############################################
 
@@ -167,16 +168,19 @@ bind = ,Print, exec, gscreenshot -f '/home/${user}/screenshots/screenshot_$hx$w_
 bind = shift ,Print, exec, gscreenshot -f '/home/${user}/screenshots/screenshot_$hx$w_%Y-%m-%d.png' -n -s
 
 
-bind = $mainMod, S, exec, bash ~/nixos/scripts/dunst/hyprpicker.sh
+# bind = $mainMod, S, exec, bash ~/nixos/scripts/dunst/hyprpicker.sh
 ## not working, check script TODO
 
 # bind = $mainMod, q, exec, $terminal --title kitty # TODO - fix whereever this conflict is
+bind = $mainMod, V, exec, $VSCODE_APP
+bind = $mainMod, S, exec, slack
+bind = $mainMod, T, exec, teams-for-linux
 bind = $MOD2, F, fullscreen
 bind = $mainMod, L, exec, $menu
 bind = $mainMod, C, killactive,
 bind = $mainMod, M, exit,
 bind = $mainMod, E, exec, $fileManager
-bind = $mainMod, V, togglefloating,
+bind = $mainMod SHIFT, V, togglefloating,
 bind = $mainMod, P, pseudo, dwindle
 bind = $mainMod, J, togglesplit, # dwindle
 
@@ -253,6 +257,7 @@ bindm = $mainMod, mouse:273, resizewindow
 source = ~/.config/hypr/per-app/*.conf
 
 ######################################### window rules #######################################
+## Force kitty to tile
 windowrule=tile,^(kitty)$
 windowrule=tile,title:^(kitty)(.*)$
 
