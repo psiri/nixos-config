@@ -146,7 +146,7 @@
           "format-on": " 󰂯 ",
           "format-connected": " 󰂯 ",
           "format-connected-battery": " 󰂯 ",
-          "format-no-controller": " 󰂯 "
+          "format-no-controller": " 󰂯 ",
           "tooltip-format-connected": " {device_alias} 󰂄{device_battery_percentage} ",
           "on-click": "blueberry",
           "tooltip": true
