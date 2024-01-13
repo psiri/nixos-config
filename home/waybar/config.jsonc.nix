@@ -49,7 +49,7 @@
         "modules-right": [
 
           "cpu",
-          "memory",
+          //"memory",
           "network",
           "bluetooth",
           "backlight",
