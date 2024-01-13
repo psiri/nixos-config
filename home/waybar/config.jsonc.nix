@@ -11,7 +11,7 @@
         "layer": "top",
         // "output": [],
         "position": "top",
-        "height": 36,
+        "height": 30,
         // "width": 900,
         // "margin": "",
         "margin-top": 10,
@@ -107,21 +107,21 @@
           "tooltip": false
         },
 
-      	"pulseaudio#audio": {
-      		"format": " {icon} {volume:2} ",
-      		"format-bluetooth": " {icon} {volume}%  ",
-      		"format-muted": " {icon} Muted ",
-      		"format-icons": {
-      			"headphones": "",
-      			"default": [
-      				"",
-      				""
-      			]
-      		},
-      		"scroll-step": 5,
-      		"on-click": "pavucontrol",
-      		"on-click-right": "pamixer -t"
-      	},
+        "pulseaudio#audio": {
+          "format": " {icon} {volume:2} ",
+          "format-bluetooth": " {icon} {volume}%  ",
+          "format-muted": " {icon} Muted ",
+          "format-icons": {
+            "headphones": "",
+            "default": [
+              "",
+              ""
+            ]
+          },
+          "scroll-step": 5,
+          "on-click": "pavucontrol",
+          "on-click-right": "pamixer -t"
+        },
 
         "network#wlp2s0": {
           "interval": 1,
