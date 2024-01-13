@@ -42,14 +42,14 @@
           "custom/notification"
         ],
         "modules-center": [
-          "clock",
+          "clock"
           // "hyprland/submap",
           // "hyprland/window"
         ],
         "modules-right": [
 
           "cpu",
-          //"memory",
+          "memory",
           "network",
           "bluetooth",
           "backlight",
