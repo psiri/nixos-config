@@ -102,7 +102,7 @@
 
   home-manager.users.${user}.xdg.userDirs = {
     enable = true;
-    createDirectories = false;
+    createDirectories = true;
     desktop = "$HOME/Desktop";
     documents = "$HOME/Documents";
     download = "$HOME/Downloads";
