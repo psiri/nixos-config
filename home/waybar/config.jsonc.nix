@@ -85,12 +85,14 @@
 
         "cpu": {
           "format": "  {usage}%",
+          "interval": 5,
           "on-click": "",
           "tooltip": false
         },
 
         "memory": {
           "format": "󰍛 {used:0.1f}GB ({percentage}%)", // "󰍛 {used:0.1f}GB ({percentage}%) / {total:0.1f}GB",
+          "interval": 5,
           "on-click": "",
           "tooltip": false
         },
