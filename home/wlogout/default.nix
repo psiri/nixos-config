@@ -15,7 +15,7 @@
     };
     home.file.".config/hypr/per-app/wlogout.conf" = {
       text = ''
-        bind = $mainMod, L, exec, wlogout -p layer-shell
+        bind = $mainMod SHIFT, L, exec, wlogout -p layer-shell
         windowrulev2 = animation snappy, float, fullscreen, class:^(wlogout)$
       '';
     };

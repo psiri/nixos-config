@@ -15,7 +15,7 @@
       windowrulev2 = size 700 300, class:^(foot)$
       bind = $mainMod, Q, exec, foot
       bind = control, escape, exec, foot -e btm
-      windowrulev2 = float, class:^(foot)$
+      windowrulev2 = tile, class:^(foot)$
     '';
   };
 }

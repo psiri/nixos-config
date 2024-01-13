@@ -164,15 +164,16 @@ master {
 # bind = $mainMod, S, exec, bash ~/nixos/scripts/dunst/hyprpicker.sh
 ## not working, check script TODO
 
-# bind = $mainMod, q, exec, $terminal --title kitty # TODO - fix whereever this conflict is
-bind = $mainMod, J, exec, joplin-desktop
-bind = $mainMod, L, exec, swaylock -c ff000000
+# bind = $mainMod, q, exec, $terminal --title kitty      # imported from ../kitty
+bind = $mainMod, J, exec, joplin-desktop                 # TODO - move to home
+# bind = $mainMod, L, exec, swaylock -c ff000000         # imported from ../swaylock
+# bind = $mainMod SHIFT, L, exec, wlogout -p layer-shell # imported from ../wlogout
+# bind = $mainMod, SPACE, exec, $menu                    # imported from ../ulauncher
 bind = $mainMod, R, exec, remmina
 bind = $mainMod, S, exec, slack
 bind = $mainMod, T, exec, teams-for-linux
 bind = $mainMod, V, exec, $VSCODE_APP
 bind = $MOD2, F, fullscreen
-bind = $mainMod, SPACE, exec, $menu
 bind = $mainMod, C, killactive,
 bind = $mainMod, M, exit,
 bind = $mainMod, E, exec, $fileManager
@@ -251,12 +252,6 @@ bindm = $mainMod, mouse:273, resizewindow
 
 ## wildcard per-app enabled in each ./home/app*/*.nix ##
 source = ~/.config/hypr/per-app/*.conf
-
-######################################### window rules #######################################
-## Force kitty to tile
-windowrule=tile,^(kitty)$
-windowrule=tile,title:^(kitty)(.*)$
-
     '';
   };
 }

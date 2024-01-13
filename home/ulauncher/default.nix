@@ -12,7 +12,7 @@
       windowrulev2 = noborder, class:^(ulauncher)$
       windowrulev2 = noshadow, class:^(ulauncher)$
       windowrulev2 = noblur, class:^(ulauncher)$
-      bind = $mainMod, R, exec, ulauncher-toggle
+      bind = $mainMod, SPACE, exec, ulauncher-toggle
     '';
   };
 
