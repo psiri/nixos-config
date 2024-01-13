@@ -125,7 +125,7 @@
 
         "network": {
           "interval": 1,
-          "interface": "wlan0",
+          "interface": "wlp5s0",
           "format-icons": [
             "󰤯",
             "󰤟",
