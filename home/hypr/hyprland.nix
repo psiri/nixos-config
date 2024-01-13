@@ -8,7 +8,7 @@
   home-manager.users.${user}.home.file.".config/hypr/hyprland.conf" = {
     text = ''
 ############################################# config starts here #############################################
-$MOD1 = SUPER
+$mainMod = SUPER
 $MOD2 = ALT
 
 # TODO add colours here, move all nix-colors to that file then import
@@ -148,7 +148,7 @@ animations {
 
 dwindle {
     no_gaps_when_only = false
-    pseudotile = true # master switch for pseudotiling. Enabling is bound to MOD1 + P in the keybinds section below
+    pseudotile = true # master switch for pseudotiling. Enabling is bound to mainMod + P in the keybinds section below
     preserve_split = true # you probably want this
     smart_resizing = true
     force_split = 2
@@ -167,18 +167,18 @@ bind = ,Print, exec, gscreenshot -f '/home/${user}/screenshots/screenshot_$hx$w_
 bind = shift ,Print, exec, gscreenshot -f '/home/${user}/screenshots/screenshot_$hx$w_%Y-%m-%d.png' -n -s
 
 
-bind = $MOD1, S, exec, bash ~/nixos/scripts/dunst/hyprpicker.sh
+bind = $mainMod, S, exec, bash ~/nixos/scripts/dunst/hyprpicker.sh
 ## not working, check script TODO
 
-bind = $MOD1, q, exec, $terminal --start-as-fullscreen --title kitty
+bind = $mainMod, q, exec, $terminal --start-as-fullscreen --title kitty
 bind = $MOD2, F, fullscreen
-bind = $MOD1, L, exec, $menu
-bind = $MOD1, C, killactive,
-bind = $MOD1, M, exit,
-bind = $MOD1, E, exec, $fileManager
-bind = $MOD1, V, togglefloating,
-bind = $MOD1, P, pseudo, dwindle
-bind = $MOD1, J, togglesplit, # dwindle
+bind = $mainMod, L, exec, $menu
+bind = $mainMod, C, killactive,
+bind = $mainMod, M, exit,
+bind = $mainMod, E, exec, $fileManager
+bind = $mainMod, V, togglefloating,
+bind = $mainMod, P, pseudo, dwindle
+bind = $mainMod, J, togglesplit, # dwindle
 
 # Screenshots
 bind = , print, exec, grim $HOME/Pictures/Screenshots/$(date +'%b-%d-%Y_%H-%M-%S_%p.png')
@@ -198,56 +198,56 @@ binde = , XF86MonBrightnessDown, exec, ~/nixos/scripts/dunst/brightnessctl.sh do
 binde = , XF86KbdBrightnessUp, exec, ~/nixos/scripts/dunst/asusctl.sh up
 binde = , XF86KbdBrightnessDown, exec, ~/nixos/scripts/dunst/asusctl.sh down
 
-# Move focus with MOD1 + arrow keys
-bind = $MOD1, left, movefocus, l
-bind = $MOD1, right, movefocus, r
-bind = $MOD1, up, movefocus, u
-bind = $MOD1, down, movefocus, d
+# Move focus with mainMod + arrow keys
+bind = $mainMod, left, movefocus, l
+bind = $mainMod, right, movefocus, r
+bind = $mainMod, up, movefocus, u
+bind = $mainMod, down, movefocus, d
 
-# Switch workspaces with MOD1 + [0-9]
+# Switch workspaces with mainMod + [0-9]
 ## added switching wallpapers on workspace switch
-bind = $MOD1, 1, workspace, 1
-bind = $MOD1, 1, exec, $w1
+bind = $mainMod, 1, workspace, 1
+bind = $mainMod, 1, exec, $w1
 
-bind = $MOD1, 2, workspace, 2
-bind = $MOD1, 2, exec, $w2
+bind = $mainMod, 2, workspace, 2
+bind = $mainMod, 2, exec, $w2
 
-bind = $MOD1, 3, workspace, 3
-bind = $MOD1, 3, exec, $w3
+bind = $mainMod, 3, workspace, 3
+bind = $mainMod, 3, exec, $w3
 
-bind = $MOD1, 4, workspace, 4
-bind = $MOD1, 4, exec, $w4
+bind = $mainMod, 4, workspace, 4
+bind = $mainMod, 4, exec, $w4
 
-bind = $MOD1, 5, workspace, 5
-bind = $MOD1, 5, exec, $w5
+bind = $mainMod, 5, workspace, 5
+bind = $mainMod, 5, exec, $w5
 
-bind = $MOD1, 6, workspace, 6
-bind = $MOD1, 6, exec, $w6
+bind = $mainMod, 6, workspace, 6
+bind = $mainMod, 6, exec, $w6
 
-bind = $MOD1, 7, workspace, 7
-bind = $MOD1, 7, exec, $w7
+bind = $mainMod, 7, workspace, 7
+bind = $mainMod, 7, exec, $w7
 
-bind = $MOD1, 8, workspace, 8
-bind = $MOD1, 8, exec, $w8
+bind = $mainMod, 8, workspace, 8
+bind = $mainMod, 8, exec, $w8
 
-# Move active window to a workspace with MOD1 + SHIFT + [0-9]
+# Move active window to a workspace with mainMod + SHIFT + [0-9]
 ## should add a hyprpaper workspace wallpaper switch here too :)
-bind = $MOD1 SHIFT, 1, movetoworkspace, 1
-bind = $MOD1 SHIFT, 2, movetoworkspace, 2
-bind = $MOD1 SHIFT, 3, movetoworkspace, 3
-bind = $MOD1 SHIFT, 4, movetoworkspace, 4
-bind = $MOD1 SHIFT, 5, movetoworkspace, 5
-bind = $MOD1 SHIFT, 6, movetoworkspace, 6
-bind = $MOD1 SHIFT, 7, movetoworkspace, 7
-bind = $MOD1 SHIFT, 8, movetoworkspace, 8
+bind = $mainMod SHIFT, 1, movetoworkspace, 1
+bind = $mainMod SHIFT, 2, movetoworkspace, 2
+bind = $mainMod SHIFT, 3, movetoworkspace, 3
+bind = $mainMod SHIFT, 4, movetoworkspace, 4
+bind = $mainMod SHIFT, 5, movetoworkspace, 5
+bind = $mainMod SHIFT, 6, movetoworkspace, 6
+bind = $mainMod SHIFT, 7, movetoworkspace, 7
+bind = $mainMod SHIFT, 8, movetoworkspace, 8
 
-# Scroll through existing workspaces with MOD1 + scroll
-bind = $MOD1, mouse_down, workspace, e+1
-bind = $MOD1, mouse_up, workspace, e-1
+# Scroll through existing workspaces with mainMod + scroll
+bind = $mainMod, mouse_down, workspace, e+1
+bind = $mainMod, mouse_up, workspace, e-1
 
-# Move/resize windows with MOD1 + LMB/RMB and dragging
-bindm = $MOD1, mouse:272, movewindow
-bindm = $MOD1, mouse:273, resizewindow
+# Move/resize windows with mainMod + LMB/RMB and dragging
+bindm = $mainMod, mouse:272, movewindow
+bindm = $mainMod, mouse:273, resizewindow
 
 ## wildcard per-app enabled in each ./home/app*/*.nix ##
 source = ~/.config/hypr/per-app/*.conf
