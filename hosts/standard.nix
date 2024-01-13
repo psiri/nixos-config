@@ -142,7 +142,6 @@
         # github-desktop
         google-chrome
         grim # simple screenshot tool while flameshot is broken
-        watershot
         joplin-desktop
         kitty
         obs-studio
@@ -151,10 +150,12 @@
         remmina # Open-source remote desktop client
         gnome.seahorse # encryption key and password manager
         slack
+        slurp # used in conjunction with grim for screenshotting while flameshot is broken
         spotify
         # teams-for-linux # UNOFFICIAL MS Teams client
         # teamviewer
         vlc
+        wl-clipboard #
         zoom-us
         # TODO script SecureCRT install
       ];
@@ -200,6 +201,7 @@
       hack-font
       htop
       iputils
+      jq
       libsecret
       lshw # list hardware
       mtr

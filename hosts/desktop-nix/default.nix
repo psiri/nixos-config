@@ -30,7 +30,7 @@ in
       #../../home/codium
       #../../home/copyq
       ../../home/dunst
-      ../../home/flameshot
+      #../../home/flameshot # Broken :(
       ../../home/firefox
       ../../home/git
       ../../home/gpg
