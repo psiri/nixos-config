@@ -17,7 +17,7 @@ $mainMod = SUPER
 # Set programs that you use
 $terminal = kitty
 $fileManager = dolphin
-$menu = wofi --show drun
+$menu = ulauncher-toggle
 
 ############################################# hyprpaper #############################################
 
@@ -54,7 +54,7 @@ $cf = rgba(${config.colorscheme.colors.base0F}FF)
 ## exec-once ##
 
 ## TODO move to /home/
-exec-once = hyprpaper
+exec-once = hyprpaper && kitty && kitty
 
 
 exec-once = sleep 4 && gnome-keyring-daemon --start --components = pkcs11, secrets, ssh
@@ -63,7 +63,7 @@ exec-once = sleep 6 && dbus-update-activation-environment --all
 exec-once = lxqt-policykit-agent & udiskie
 
 ## per-device config, from ./hosts/hostname/per-device.nix ##
-#source = ~/.config/hypr/per-device.conf
+## source = ~/.config/hypr/per-device.conf
 
 env = XCURSOR_SIZE,20
 env = WLR_NO_HARDWARE_CURSORS,1
@@ -97,7 +97,7 @@ general {
     gaps_out = 10
     border_size = 5
     resize_on_border = true
-    layout = dwindle
+    layout = master
     col.active_border = $c0 $ca $c3 $c2 $c1 $c0 90deg
     col.inactive_border = $c0 $c1 90deg
 }
@@ -169,9 +169,10 @@ bind = shift ,Print, exec, gscreenshot -f '/home/${user}/screenshots/screenshot_
 bind = $mainMod, S, exec, bash ~/nixos/scripts/dunst/hyprpicker.sh
 ## not working, check script TODO
 
+bind = $mainMod, Q, $terminal,
 bind = $mainMod, C, killactive,
 bind = $mainMod, M, exit,
-bind = $mainMod, E, exec, dolphin
+bind = $mainMod, E, exec, $fileManager
 bind = $mainMod, V, togglefloating,
 bind = $mainMod, P, pseudo, dwindle
 bind = $mainMod, J, togglesplit, # dwindle
