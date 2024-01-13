@@ -7,11 +7,17 @@
 }: {
   home-manager.users.${user}.home.file.".config/hypr/hyprland.conf" = {
     text = ''
-############################################# spaghetti starts here #############################################
+############################################# config starts here #############################################
 $mainMod = SUPER
 
 # TODO add colours here, move all nix-colors to that file then import
 ## source = ~/.config/hypr/colours.conf
+
+
+# Set programs that you use
+$terminal = kitty
+$fileManager = dolphin
+$menu = wofi --show drun
 
 ############################################# hyprpaper #############################################
 
@@ -165,7 +171,7 @@ bind = $mainMod, S, exec, bash ~/nixos/scripts/dunst/hyprpicker.sh
 
 bind = $mainMod, C, killactive,
 bind = $mainMod, M, exit,
-#bind = $mainMod, E, exec, nemo
+bind = $mainMod, E, exec, dolphin
 bind = $mainMod, V, togglefloating,
 bind = $mainMod, P, pseudo, dwindle
 bind = $mainMod, J, togglesplit, # dwindle

@@ -4,6 +4,7 @@
 | Application Launcher | ulauncher           |
 | Audio                | Pipewire            |
 | Display Server       | Wayland             |
+| File Manager         | Dolphin  |
 | IDE                  | Visual Studio Code  |
 | Notifications        | dunst               |
 | Screen Lock          | swaylock & swayidle |
