@@ -142,6 +142,7 @@
         # github-desktop
         google-chrome
         joplin-desktop
+        kitty
         obs-studio
         # openconnect # Open-source multi-VPN client supporting Cisco Anyconnect, Pulse Secure, GlobalProtect, etc
         # opensnitch # Open-source application firewall
@@ -197,7 +198,6 @@
       hack-font
       htop
       iputils
-      kitty
       libsecret
       lshw # list hardware
       mtr
