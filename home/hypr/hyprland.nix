@@ -54,7 +54,7 @@ $cf = rgba(${config.colorscheme.colors.base0F}FF)
 ## exec-once ##
 
 ## TODO move to /home/
-exec-once = hyprpaper
+exec-once = hyprpaper && kitty && firefox
 
 
 exec-once = sleep 4 && gnome-keyring-daemon --start --components = pkcs11, secrets, ssh
@@ -169,7 +169,7 @@ bind = shift ,Print, exec, gscreenshot -f '/home/${user}/screenshots/screenshot_
 bind = $mainMod, S, exec, bash ~/nixos/scripts/dunst/hyprpicker.sh
 ## not working, check script TODO
 
-bind = $mainMod, Q, $terminal,
+bind = $mainMod, Q, exec $terminal,
 bind = $mainMod, C, killactive,
 bind = $mainMod, M, exit,
 bind = $mainMod, E, exec, $fileManager
