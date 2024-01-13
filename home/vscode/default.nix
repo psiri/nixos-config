@@ -48,8 +48,7 @@
     keybindings = [];
     mutableExtensionsDir = false; # Whether extensions can be installed or updated manually or by VS Code
     userSettings = {
-      "window.titleBarStyle" = "custom"; 
-    };            # TODO - import settings from ~/.config/User/settings.json with solution for secret management
-    # ! IMPORTANT ! - need settings like 'codium --enable-features=UseOzonePlatform,WaylandWindowDecorations --ozone-platform-hint=auto' to get  vscode/codium to launch properly under Wayland
+      "window.titleBarStyle" = "custom";  # ! IMPORTANT ! - this setting fixed vscode/codium crashing on launch under Wayland / Hyprland
+    };
   };
 }

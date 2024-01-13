@@ -17,7 +17,7 @@
         startupLaunch=true;
         saveAfterCopy=false;
         useJpgForClipboard=false;
-        jpegQuality=100; # 100 = maximum
+        #jpegQuality=100; # 100 = maximum
       };
     };
   };
