@@ -137,11 +137,12 @@
         # docker
         dolphin # file manager
         # etcher # Belena Etcher
-        flameshot # ! Not yet working on Wayland :(
+        # flameshot # ! Not yet working on Wayland :( TODO - revisit future release
         # gimme-aws-creds # CLI wrapper for Okta/ SAML2.0 IDPs and AWS
         # github-desktop
         google-chrome
-        grim
+        grim # simple screenshot tool while flameshot is broken
+        ksnip
         joplin-desktop
         kitty
         obs-studio
