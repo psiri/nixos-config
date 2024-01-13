@@ -123,7 +123,7 @@
           "on-click-right": "pamixer -t"
         },
 
-        "network#wlp2s0": {
+        "network": {
           "interval": 1,
           "interface": "wlan0",
           "format-icons": [
