@@ -166,12 +166,13 @@ master {
 
 # bind = $mainMod, q, exec, $terminal --title kitty # TODO - fix whereever this conflict is
 bind = $mainMod, J, exec, joplin-desktop
+bind = $mainMod, L, exec, swaylock -c ff000000
 bind = $mainMod, R, exec, remmina
 bind = $mainMod, S, exec, slack
 bind = $mainMod, T, exec, teams-for-linux
 bind = $mainMod, V, exec, $VSCODE_APP
 bind = $MOD2, F, fullscreen
-bind = $mainMod, L, exec, $menu
+bind = $mainMod, SPACE, exec, $menu
 bind = $mainMod, C, killactive,
 bind = $mainMod, M, exit,
 bind = $mainMod, E, exec, $fileManager
