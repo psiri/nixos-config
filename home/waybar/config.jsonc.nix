@@ -125,7 +125,7 @@
 
         "network": {
           "interval": 1,
-          "interface": "wlp5s0",
+          // try auto-detection "interface": "wlp5s0",
           "format-icons": [
             "󰤯",
             "󰤟",
@@ -137,7 +137,7 @@
           "format-disconnected": "󰤮",
           "on-click": "iwgtk",
           "tooltip": true,
-          "tooltip-format": "󰢮 {ifname}\n󰩟 {ipaddr}/{cidr}\n{icon} {essid}\n󱑽 {signalStrength}% {signaldBm} dBm {frequency} MHz\n󰞒 {bandwidthDownBytes}\n󰞕 {bandwidthUpBytes}"
+          "tooltip-format": "󰢮 {ifname}\n󰩟 {ipaddr}/{cidr}\n󰩟 Gateway: {gwaddr}\n{icon} {essid}\n󱑽 {signalStrength}% {signaldBm} dBm {frequency} MHz\n󰞒 {bandwidthDownBytes}\n󰞕 {bandwidthUpBytes}"
         },
 
         "bluetooth": {
