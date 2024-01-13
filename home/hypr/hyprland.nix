@@ -172,9 +172,11 @@ bind = shift ,Print, exec, gscreenshot -f '/home/${user}/screenshots/screenshot_
 ## not working, check script TODO
 
 # bind = $mainMod, q, exec, $terminal --title kitty # TODO - fix whereever this conflict is
-bind = $mainMod, V, exec, $VSCODE_APP
+bind = $mainMod, J, exec, joplin-desktop
+bind = $mainMod, R, exec, remmina
 bind = $mainMod, S, exec, slack
 bind = $mainMod, T, exec, teams-for-linux
+bind = $mainMod, V, exec, $VSCODE_APP
 bind = $MOD2, F, fullscreen
 bind = $mainMod, L, exec, $menu
 bind = $mainMod, C, killactive,
@@ -182,7 +184,7 @@ bind = $mainMod, M, exit,
 bind = $mainMod, E, exec, $fileManager
 bind = $mainMod SHIFT, V, togglefloating,
 bind = $mainMod, P, pseudo, dwindle
-bind = $mainMod, J, togglesplit, # dwindle
+bind = $mainMod SHIFT, J, togglesplit, # dwindle
 
 # Screenshots
 bind = , print, exec, grim $HOME/Pictures/Screenshots/$(date +'%b-%d-%Y_%H-%M-%S_%p.png')

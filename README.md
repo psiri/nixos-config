@@ -6,6 +6,7 @@
 | Display Server       | Wayland             |
 | File Manager         | Dolphin             |
 | IDE                  | Visual Studio Code  |
+| Notes                | joplin-desktop      |
 | Notifications        | dunst               |
 | Screen Lock          | swaylock & swayidle |
 | Screen Recording     | OBS Studio          |

@@ -149,27 +149,27 @@
       packages = with pkgs; [
         # discord
         # docker
-        dolphin # file manager
-        # etcher # Belena Etcher
-        # flameshot # ! Not yet working on Wayland :( TODO - revisit future release
+        dolphin           # file manager
+        # etcher          # Belena Etcher
+        # flameshot       # ! Not yet working on Wayland :( TODO - revisit future release
         # gimme-aws-creds # CLI wrapper for Okta/ SAML2.0 IDPs and AWS
         # github-desktop
         google-chrome
-        grim # simple screenshot tool while flameshot is broken
+        grim              # simple screenshot tool while flameshot is broken
         joplin-desktop
         kitty
         obs-studio
-        # openconnect # Open-source multi-VPN client supporting Cisco Anyconnect, Pulse Secure, GlobalProtect, etc
-        # opensnitch # Open-source application firewall
-        remmina # Open-source remote desktop client
-        gnome.seahorse # encryption key and password manager
+        # openconnect     # Open-source multi-VPN client supporting Cisco Anyconnect, Pulse Secure, GlobalProtect, etc
+        # opensnitch      # Open-source application firewall
+        remmina           # Open-source remote desktop client
+        gnome.seahorse    # encryption key and password manager
         slack
-        slurp # used in conjunction with grim for screenshotting while flameshot is broken
+        slurp             # used in conjunction with grim for screenshotting while flameshot is broken
         spotify
-        teams-for-linux # UNOFFICIAL MS Teams client
+        teams-for-linux   # UNOFFICIAL MS Teams client
         # teamviewer
         vlc
-        wl-clipboard #
+        wl-clipboard      # tool for accessing Wayland clipboards
         zoom-us
         # TODO script SecureCRT install
       ];
