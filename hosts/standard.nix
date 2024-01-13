@@ -137,10 +137,11 @@
         # docker
         dolphin # file manager
         # etcher # Belena Etcher
-        flameshot
+        flameshot # ! Not yet working on Wayland :(
         # gimme-aws-creds # CLI wrapper for Okta/ SAML2.0 IDPs and AWS
         # github-desktop
         google-chrome
+        grim
         joplin-desktop
         kitty
         obs-studio
