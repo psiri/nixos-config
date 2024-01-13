@@ -169,7 +169,7 @@ bind = shift ,Print, exec, gscreenshot -f '/home/${user}/screenshots/screenshot_
 bind = $mainMod, S, exec, bash ~/nixos/scripts/dunst/hyprpicker.sh
 ## not working, check script TODO
 
-bind = $mainMod, Q, exec $terminal,
+#bind = $mainMod, Q, exec $terminal,
 bind = $mainMod, C, killactive,
 bind = $mainMod, M, exit,
 bind = $mainMod, E, exec, $fileManager
