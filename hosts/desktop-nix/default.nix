@@ -13,7 +13,7 @@ in
   }: {
     imports = [
       nix-colors.homeManagerModules.default
-      #./per-device.nix # per device hypr configuration
+      ./per-device.nix # per device hypr configuration
 
       #./hardware-configuration.nix # machine hardware config
       /etc/nixos/hardware-configuration.nix
