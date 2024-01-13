@@ -166,7 +166,7 @@ master {
 
 # bind = $mainMod, q, exec, $terminal --title kitty      # imported from ../kitty
 bind = $mainMod, J, exec, joplin-desktop                 # TODO - move to home
-# bind = $mainMod, L, exec, swaylock -c ff000000         # imported from ../swaylock
+bind = $mainMod, L, exec, swaylock -c ff000000         # imported from ../swaylock
 # bind = $mainMod SHIFT, L, exec, wlogout -p layer-shell # imported from ../wlogout
 # bind = $mainMod, SPACE, exec, $menu                    # imported from ../ulauncher
 bind = $mainMod, R, exec, remmina
