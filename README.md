@@ -9,7 +9,7 @@
 | Notifications        | dunst               |
 | Screen Lock          | swaylock & swayidle |
 | Screen Recording     | OBS Studio          |
-| Screenshots          | Flameshot           |
+| Screenshots          | grim + slurp        |
 | Session Management   | wlogout             |
 | Shell                | zsh                 |
 | Status Bar           | Waybar              |
