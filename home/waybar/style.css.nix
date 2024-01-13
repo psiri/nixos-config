@@ -118,8 +118,8 @@
       #submap
       #mode,
       /* #tray, */
-      #cpu,
-      #memory,
+      #cpu { background-color: #${config.colorScheme.colors.base00}; }
+      #memory { background-color: #${config.colorScheme.colors.base00}; }
       #backlight,
       #window  { background-color: #${config.colorScheme.colors.base00}; }
       #pulseaudio.audio { background-color: #${config.colorScheme.colors.base00}; }
