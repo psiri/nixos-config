@@ -142,7 +142,7 @@
         # github-desktop
         google-chrome
         grim # simple screenshot tool while flameshot is broken
-        shotman
+        watershot
         joplin-desktop
         kitty
         obs-studio
