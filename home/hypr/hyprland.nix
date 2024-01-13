@@ -170,7 +170,7 @@ bind = $mainMod, S, exec, bash ~/nixos/scripts/dunst/hyprpicker.sh
 ## not working, check script TODO
 
 #bind = $mainMod, Q, exec $terminal, # This conflicts with defaults from somewhere else
-bind = $mainMod, L, $menu
+bind = $mainMod, L, exec, $menu
 bind = $mainMod, C, killactive,
 bind = $mainMod, M, exit,
 bind = $mainMod, E, exec, $fileManager
