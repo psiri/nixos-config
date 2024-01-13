@@ -24,7 +24,7 @@
 
         "clock": {
           "interval": 1,
-          "format": " {:%I:%M} ",
+          "format": " {:%H:%M} ",
           "format-alt": " {:%A, %d %B} ",
           // "on-click": "gnome-calendar",
           "tooltip": true,
@@ -84,13 +84,13 @@
         },
 
         "cpu": {
-          "format": " {usage}%",
+          "format": "  {usage}%",
           "on-click": "",
           "tooltip": false
         },
 
         "memory": {
-          "format": "󰍛 {used:0.1f}GB ({percentage}%) / {total:0.1f}GB",
+          "format": "󰍛 {used:0.1f}GB ({percentage}%)", // "󰍛 {used:0.1f}GB ({percentage}%) / {total:0.1f}GB",
           "on-click": "",
           "tooltip": false
         },
