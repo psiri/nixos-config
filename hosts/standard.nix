@@ -103,10 +103,10 @@
   home-manager.users.${user}.xdg.userDirs = {
     enable = true;
     createDirectories = false;
-    userDirs.desktop = "${config.home.homeDirectory}/Desktop";
-    userDirs.documents = "${config.home.homeDirectory}/Documents";
-    userDirs.downloads = "${config.home.homeDirectory}/Downloads";
-    userDirs.pictures = "${config.home.homeDirectory}/Pictures";
+    #userDirs.desktop = "${config.home.homeDirectory}/Desktop";
+    #userDirs.documents = "${config.home.homeDirectory}/Documents";
+    #userDirs.downloads = "${config.home.homeDirectory}/Downloads";
+    #userDirs.pictures = "${config.home.homeDirectory}/Pictures";
   };
 
   fonts = {
