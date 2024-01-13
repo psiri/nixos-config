@@ -178,6 +178,11 @@ bind = $mainMod, V, togglefloating,
 bind = $mainMod, P, pseudo, dwindle
 bind = $mainMod, J, togglesplit, # dwindle
 
+# Screenshots
+bind = , print, exec, grim $(xdg-user-dir PICTURES)/Screenshots/$(date +'%s_grim.png')
+bind = CTRL, print, exec, grim -g "$(slurp -o)" $(xdg-user-dir PICTURES)/Screenshots/$(date +'%s_grim.png')
+bind = CTRL SHIFT, P, exec, grim -g "$(slurp)" $(xdg-user-dir PICTURES)/Screenshots/$(date +'%s_grim.png')
+
 # sound
 binde = , xf86audioraisevolume, exec, ~/nixos/scripts/dunst/pipewire.sh up
 binde = , xf86audiolowervolume, exec, ~/nixos/scripts/dunst/pipewire.sh down
