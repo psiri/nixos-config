@@ -95,7 +95,7 @@ input {
 general {
     gaps_in = 5
     gaps_out = 10
-    border_size = 5
+    border_size = 4
     resize_on_border = true
     layout = master
     col.active_border = $c0 $ca $c3 $c2 $c1 $c0 90deg
@@ -169,7 +169,8 @@ bind = shift ,Print, exec, gscreenshot -f '/home/${user}/screenshots/screenshot_
 bind = $mainMod, S, exec, bash ~/nixos/scripts/dunst/hyprpicker.sh
 ## not working, check script TODO
 
-#bind = $mainMod, Q, exec $terminal,
+#bind = $mainMod, Q, exec $terminal, # This conflicts with defaults from somewhere else
+bind = $mainMod, L, $menu
 bind = $mainMod, C, killactive,
 bind = $mainMod, M, exit,
 bind = $mainMod, E, exec, $fileManager
