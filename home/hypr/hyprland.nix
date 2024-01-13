@@ -170,7 +170,7 @@ bind = shift ,Print, exec, gscreenshot -f '/home/${user}/screenshots/screenshot_
 bind = $mainMod, S, exec, bash ~/nixos/scripts/dunst/hyprpicker.sh
 ## not working, check script TODO
 
-bind = $mainMod, q, exec, $terminal --start-as-fullscreen --title kitty
+bind = $mainMod, q, exec, $terminal --title kitty
 bind = $MOD2, F, fullscreen
 bind = $mainMod, L, exec, $menu
 bind = $mainMod, C, killactive,
@@ -251,6 +251,11 @@ bindm = $mainMod, mouse:273, resizewindow
 
 ## wildcard per-app enabled in each ./home/app*/*.nix ##
 source = ~/.config/hypr/per-app/*.conf
+
+######################################### window rules #######################################
+windowrule=tile,^(kitty)$
+windowrule=tile,title:^(kitty)(.*)$
+
     '';
   };
 }
