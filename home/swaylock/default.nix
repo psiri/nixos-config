@@ -27,7 +27,7 @@
         indicator-caps-lock = true;
         show-failed-attempts = true;
         timestr = "%R";
-        datestr = "%a %e %B";
+        #datestr = "%a %e %B";
         effect-blur="5x2";
         image="~/Pictures/Wallpaper/4.jpg";
         key-hl-color="00000066";
