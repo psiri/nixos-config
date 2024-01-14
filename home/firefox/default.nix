@@ -38,12 +38,16 @@
       ExtensionSettings = {
         "*" = {
           blocked_install_message = "This extension has been blocked by your organization.";
-          allowed_types = ["extension"];
+          installation_mode = "blocked"; # Blocks all extensions except those explicitly-defined below
         };
-        "uBlock@raymondhill.net" = {
+        "uBlock0@raymondhill.net" = {
           installation_mode = "force_installed";
           installation_url = "https://addons.mozilla.org/firefox/downloads/latest/ublock-origin/latest.xpi";
         };
+        # "uBlock0@raymondhill.net" = {
+        #   installation_mode = "force_installed";
+        #   installation_url = "https://addons.mozilla.org/firefox/downloads/latest/ublock-origin/latest.xpi";
+        # };
       };
       FirefoxHome = {
         Search = true;
@@ -56,6 +60,7 @@
       OfferToSaveLogins = false;
       OfferToSaveLoginsDefault = false;
       PasswordManagerEnabled = false;
+      SearchBar = "unified"; # Alternatives: "separate"
       SSLVersionMin = "tls1.2";
       UserMessaging = {
         ExtensionRecommendations = false;
