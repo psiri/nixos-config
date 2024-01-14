@@ -16,9 +16,14 @@
     programs.swaylock = {
       enable = true;
       settings = {
+        # THESE OPTIONS FAIL
         #clock = true;
-        color = "ff000000";
         #fade-in = 1; # Fade in time
+        #timestr = "%R";
+        #datestr = "%a %e %B";
+        #effect-blur="5x2";
+
+        color = "ff000000";
         font = "'Hack Nerd Font Mono'";
         font-size = 24;
         indicator-idle-visible = false;
@@ -26,9 +31,6 @@
         indicator-thickness = 20;
         indicator-caps-lock = true;
         show-failed-attempts = true;
-        timestr = "%R";
-        #datestr = "%a %e %B";
-        #effect-blur="5x2";
         image="~/Pictures/Wallpaper/4.jpg";
         key-hl-color="00000066";
         separator-color="00000000";
