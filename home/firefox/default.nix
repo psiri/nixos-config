@@ -32,7 +32,7 @@
         #Exceptions = [];
       };
       ExtensionSettings = {
-        "uBlock0@raymondhill.net" = {
+        "uBlock-origin" = {
           installation_mode = "force_installed";
           installation_url = "https://addons.mozilla.org/firefox/downloads/latest/ublock-origin/latest.xpi";
         };
