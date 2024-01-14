@@ -27,14 +27,14 @@ $VSCODE_APP = codium
 ## source = ~/.config/hypr/wallpaper.conf
 
 ## might want a function that pulls a wallpaper at random rather than having specific per desktop
-$w1 = hyprctl hyprpaper wallpaper "eDP-1,~/Pictures/Wallpaper/1.jpg"
-$w2 = hyprctl hyprpaper wallpaper "eDP-1,~/Pictures/Wallpaper/2.jpg"
-$w3 = hyprctl hyprpaper wallpaper "eDP-1,~/Pictures/Wallpaper/3.jpg"
-$w4 = hyprctl hyprpaper wallpaper "eDP-1,~/Pictures/Wallpaper/4.jpg"
-$w5 = hyprctl hyprpaper wallpaper "eDP-1,~/Pictures/Wallpaper/5.jpg"
-$w6 = hyprctl hyprpaper wallpaper "eDP-1,~/Pictures/Wallpaper/6.jpg"
-$w7 = hyprctl hyprpaper wallpaper "eDP-1,~/Pictures/Wallpaper/7.jpg"
-$w8 = hyprctl hyprpaper wallpaper "eDP-1,~/Pictures/Wallpaper/8.jpg"
+$w1 = hyprctl hyprpaper wallpaper "eDP-1, /home/${user}/Pictures/Wallpaper/1.jpg"
+$w2 = hyprctl hyprpaper wallpaper "eDP-1, /home/${user}/Pictures/Wallpaper/2.jpg"
+$w3 = hyprctl hyprpaper wallpaper "eDP-1, /home/${user}/Pictures/Wallpaper/3.jpg"
+$w4 = hyprctl hyprpaper wallpaper "eDP-1, /home/${user}/Pictures/Wallpaper/4.jpg"
+$w5 = hyprctl hyprpaper wallpaper "eDP-1, /home/${user}/Pictures/Wallpaper/5.jpg"
+$w6 = hyprctl hyprpaper wallpaper "eDP-1, /home/${user}/Pictures/Wallpaper/6.jpg"
+$w7 = hyprctl hyprpaper wallpaper "eDP-1, /home/${user}/Pictures/Wallpaper/7.jpg"
+$w8 = hyprctl hyprpaper wallpaper "eDP-1, /home/${user}/Pictures/Wallpaper/8.jpg"
 
 $c0 = rgba(${config.colorscheme.colors.base00}FF)
 $c1 = rgba(${config.colorscheme.colors.base01}FF)
