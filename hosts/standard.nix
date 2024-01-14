@@ -23,6 +23,7 @@
 
     # Import your generated (nixos-generate-config) hardware configuration
     # /etc/nixos/hardware-configuration.nix
+    ../home/chrome
     ../modules/console
     ../home/swaylock
     ../home/vscode
@@ -155,7 +156,6 @@
         # flameshot       # ! Not yet working on Wayland :( TODO - revisit future release
         # gimme-aws-creds # CLI wrapper for Okta/ SAML2.0 IDPs and AWS
         # github-desktop
-        google-chrome
         grim              # simple screenshot tool while flameshot is broken
         joplin-desktop
         kitty

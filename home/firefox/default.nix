@@ -33,6 +33,7 @@
     ];
     policies = {
       CaptivePortal = false;
+      #DisabledCiphers = {};
       DisableFirefoxAccounts = false;
       DisableFirefoxStudies = true;
       DisablePasswordReveal = true;
@@ -162,6 +163,5 @@
     #     SSLVersionMin = "tls1.2";
     #   };
     # };
-    # policies # TODO - automatically install Firefox extensions
   };
 }
