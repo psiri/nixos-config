@@ -3,7 +3,20 @@
   pkgs,
   user,
   ...
-}: {
+}: 
+
+  let
+    lock-false = {
+      Value = false;
+      Status = "locked";
+    };
+    lock-true = {
+      Value = true;
+      Status = "locked";
+    };
+  in
+
+{
   home-manager.users.${user}.home.file.".config/hypr/per-app/firefox.conf" = {
     text = ''
       bind = $mainMod, F, exec, firefox
