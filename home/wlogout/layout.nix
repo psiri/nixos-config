@@ -3,32 +3,32 @@
     text = ''
       {
           "label" : "lock",
-          "action" : "swaylock",
-          "text" : "Lock",
+          "action" : "swaylock -c ff000000",
+          "text" : "",
           "keybind" : "l"
       }
       {
           "label" : "reboot",
           "action" : "systemctl reboot",
-          "text" : "Reboot",
+          "text" : "󰜉",
           "keybind" : "r"
       }
       {
           "label" : "shutdown",
           "action" : "systemctl poweroff",
-          "text" : "Shutdown",
+          "text" : "󰐥",
           "keybind" : "s"
       }
       {
           "label" : "logout",
           "action" : "hyprctl dispatch exit 0",
-          "text" : "Logout",
+          "text" : "󰍃",
           "keybind" : "e"
       }
       {
           "label" : "suspend",
           "action" : "systemctl suspend",
-          "text" : "Suspend",
+          "text" : "󱖒",
           "keybind" : "u"
       }
       {
