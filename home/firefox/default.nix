@@ -53,9 +53,19 @@
           blocked_install_message = "This extension has been blocked by your organization.";
           installation_mode = "blocked"; # Blocks all extensions except those explicitly-defined below
         };
+        # To add additional extensions, find it on addons.mozilla.org, find
+        # the short ID in the url (like https://addons.mozilla.org/en-US/firefox/addon/!SHORT_ID!/)
+        # Then, download the XPI by filling it in to the install_url template, unzip it,
+        # run `jq .browser_specific_settings.gecko.id manifest.json` or
+        # `jq .applications.gecko.id manifest.json` to get the UUID
         # Bitwarden:
-        "bitwarden-password-manager" = {
+        "{446900e4-71c2-419f-a6a7-df9c091e268b}" = {
           install_url = "https://addons.mozilla.org/firefox/downloads/latest/bitwarden-password-manager/latest.xpi";
+          installation_mode = "force_installed";
+        };
+        # Dark Reader
+        "addon@darkreader.org" = {
+          install_url = "https://addons.mozilla.org/firefox/downloads/latest/darkreader/latest.xpi";
           installation_mode = "force_installed";
         };
         # uBlock Origin:
