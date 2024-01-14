@@ -40,8 +40,7 @@
       OfferToSaveLogins = false;
       OfferToSaveLoginsDefault = false;
       PasswordManagerEnabled = false;
-      SSLVersionMin = "tls1.2"
-
+      SSLVersionMin = "tls1.2";
     };
     package = pkgs.wrapFirefox pkgs.firefox-unwrapped {
       extraPolicies = {
