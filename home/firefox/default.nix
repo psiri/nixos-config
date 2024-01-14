@@ -40,14 +40,16 @@
           blocked_install_message = "This extension has been blocked by your organization.";
           installation_mode = "blocked"; # Blocks all extensions except those explicitly-defined below
         };
+        # uBlock Origin:
         "uBlock0@raymondhill.net" = {
+          install_url = "https://addons.mozilla.org/firefox/downloads/latest/ublock-origin/latest.xpi";
           installation_mode = "force_installed";
-          installation_url = "https://addons.mozilla.org/firefox/downloads/latest/ublock-origin/latest.xpi";
         };
-        # "uBlock0@raymondhill.net" = {
-        #   installation_mode = "force_installed";
-        #   installation_url = "https://addons.mozilla.org/firefox/downloads/latest/ublock-origin/latest.xpi";
-        # };
+        # Privacy Badger:
+        "jid1-MnnxcxisBPnSXQ@jetpack" = {
+          install_url = "https://addons.mozilla.org/firefox/downloads/latest/privacy-badger17/latest.xpi";
+          installation_mode = "force_installed";
+        };
       };
       FirefoxHome = {
         Search = true;
@@ -60,6 +62,26 @@
       OfferToSaveLogins = false;
       OfferToSaveLoginsDefault = false;
       PasswordManagerEnabled = false;
+      Preferences = { 
+        #"browser.contentblocking.category" = { Value = "strict"; Status = "locked"; };
+        "extensions.pocket.enabled" = lock-false;
+        #"extensions.screenshots.disabled" = lock-true;
+        "browser.topsites.contile.enabled" = lock-false;
+        #"browser.formfill.enable" = lock-false;
+        "browser.search.suggest.enabled" = lock-false;
+        "browser.search.suggest.enabled.private" = lock-false;
+        "browser.urlbar.suggest.searches" = lock-false;
+        "browser.urlbar.showSearchSuggestionsFirst" = lock-false;
+        "browser.newtabpage.activity-stream.feeds.section.topstories" = lock-false;
+        "browser.newtabpage.activity-stream.feeds.snippets" = lock-false;
+        "browser.newtabpage.activity-stream.section.highlights.includePocket" = lock-false;
+        "browser.newtabpage.activity-stream.section.highlights.includeBookmarks" = lock-false;
+        "browser.newtabpage.activity-stream.section.highlights.includeDownloads" = lock-false;
+        "browser.newtabpage.activity-stream.section.highlights.includeVisited" = lock-false;
+        "browser.newtabpage.activity-stream.showSponsored" = lock-false;
+        "browser.newtabpage.activity-stream.system.showSponsored" = lock-false;
+        "browser.newtabpage.activity-stream.showSponsoredTopSites" = lock-false;
+      };
       SearchBar = "unified"; # Alternatives: "separate"
       SSLVersionMin = "tls1.2";
       UserMessaging = {
