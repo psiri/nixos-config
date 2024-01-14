@@ -65,6 +65,10 @@
           #Exceptions = [];
         };
         ExtensionSettings = {
+          "*" = {
+            blocked_install_message = "This extension has been blocked by your organization.";
+            allowed_types = ["extension"];
+          };
           "uBlock@raymondhill.net" = {
             installation_mode = "force_installed";
             installation_url = "https://addons.mozilla.org/firefox/downloads/latest/ublock-origin/latest.xpi";
