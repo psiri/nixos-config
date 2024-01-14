@@ -26,8 +26,8 @@
 
   environment.sessionVariables = rec {MOZ_ENABLE_WAYLAND = "1";};
 
-  users.users.${user}.packages = with pkgs; [${chrome_version}];
-  programs.${chrome_version} = {
+  users.users.${user}.packages = with pkgs; ["${chrome_version}"];
+  programs."${chrome_version}" = {
     enable = true;
     defaultSearchProviderEnabled = true;
     defaultSearchProviderSearchURL= "https://encrypted.google.com/search?q={searchTerms}&{google:RLZ}{google:originalQueryForSuggestion}{google:assistedQueryStats}{google:searchFieldtrialParameter}{google:searchClient}{google:sourceId}{google:instantExtendedEnabledParameter}ie={inputEncoding}";
