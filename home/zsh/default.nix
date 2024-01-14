@@ -14,6 +14,9 @@
     enableBashCompletion = true;
     enableCompletion = true;
     autosuggestions.enable = true;
+    shellInit = ''
+      if [ -z "$DISPLAY" ] && [ "$XDG_VTNR" = 1 ];then exec Hyprland;fi
+    '';
     syntaxHighlighting.enable = true;
     syntaxHighlighting.highlighters = ["main" "brackets" "pattern" "cursor" "line"];
     syntaxHighlighting.patterns = {};
@@ -46,6 +49,9 @@
         file = "p10k.zsh";
       }
     ];
+    loginExtra = ''
+      if [ -z "$DISPLAY" ] && [ "$XDG_VTNR" = 1 ];then exec Hyprland;fi
+    '';
     syntaxHighlighting.enable = true;
     syntaxHighlighting.highlighters = ["main" "brackets" "pattern" "cursor" "line"];
     # syntaxHighlighting.patterns = {};

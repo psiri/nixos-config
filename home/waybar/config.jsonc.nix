@@ -11,7 +11,7 @@
         "layer": "top",
         // "output": [],
         "position": "top",
-        "height": 30,
+        "height": 25,
         // "width": 900,
         // "margin": "",
         "margin-top": 10,
