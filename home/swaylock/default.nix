@@ -22,7 +22,7 @@
         show-failed-attempts = true;
         timestr = "%R";
         datestr = "%a %e %B";
-        effect-blur="5x2"
+        effect-blur="5x2";
       };
     };
     home.file.".config/hypr/per-app/swaylock.conf" = {
