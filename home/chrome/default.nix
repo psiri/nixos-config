@@ -26,7 +26,7 @@
 
   environment.sessionVariables = rec {MOZ_ENABLE_WAYLAND = "1";};
 
-  users.users.${user}.packages = with pkgs; ["${chrome_version}"];
+  users.users.${user}.packages = with pkgs; [pkgs."${chrome_version}"];
   programs."${chrome_version}" = {
     enable = true;
     defaultSearchProviderEnabled = true;
