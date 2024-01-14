@@ -24,8 +24,9 @@
         #effect-blur="5x2";
 
         color = "ff000000";
-        font = "'Hack Nerd Font Mono'";
+        font = "Hack Nerd Font Mono";
         font-size = 24;
+        ignore-empty-password=true;
         indicator-idle-visible = false;
         indicator-radius = 200;
         indicator-thickness = 20;
@@ -53,7 +54,7 @@
         line-ver-color="ffffffFF";
         line-wrong-color="ffffffFF";
 
-        text-color="ffffff";
+        text-color="47177224";
         text-clear-color="ffffff";
         text-ver-color="ffffff";
         text-wrong-color="ffffff";
