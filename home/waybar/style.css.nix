@@ -8,7 +8,7 @@
   home-manager.users.${user}.home.file.".config/waybar/style.css" = {
     text = ''
       * {
-          font-size: 10px;
+          font-size: 11px;
           font-family: "Hack Nerd Font";
           border-radius: 5;
       }
