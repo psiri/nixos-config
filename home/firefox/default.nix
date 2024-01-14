@@ -36,7 +36,7 @@
         #Exceptions = [];
       };
       ExtensionSettings = {
-        "uBlock-origin" = {
+        "uBlock@raymondhill.net" = {
           installation_mode = "force_installed";
           installation_url = "https://addons.mozilla.org/firefox/downloads/latest/ublock-origin/latest.xpi";
         };
@@ -45,7 +45,7 @@
       OfferToSaveLogins = false;
       OfferToSaveLoginsDefault = false;
       PasswordManagerEnabled = false;
-      SSLVersionMin = "tls1.2";
+      #SSLVersionMin = "tls1.2";
     };
     package = pkgs.wrapFirefox pkgs.firefox-unwrapped {
       extraPolicies = {
