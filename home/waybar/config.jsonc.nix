@@ -11,14 +11,14 @@
         "layer": "top",
         // "output": [],
         "position": "top",
-        "height": 25,
-        // "width": 900,
+        "height": 25,    // blank = dynamic
+        // "width": "',  // blank = dynamic
         // "margin": "",
         "margin-top": 2,
         "margin-bottom": 0,
         "margin-left": 10,
         "margin-right": 10,
-        "spacing": 10,
+        "spacing": 10,   // size of gaps between modules
         "gtk-layer-shell": true,
         "border-radius": 5,
 

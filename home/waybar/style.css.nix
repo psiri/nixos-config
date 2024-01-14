@@ -8,15 +8,15 @@
   home-manager.users.${user}.home.file.".config/waybar/style.css" = {
     text = ''
       * {
-          font-size: 12px;
+          font-size: 10px;
           font-family: "Hack Nerd Font";
-          border-radius: 10;
+          border-radius: 5;
       }
 
       window#waybar {
         background-color: transparent;
         color: #${config.colorScheme.colors.base05};
-        /* border-radius: 20px; */
+        /* border-radius: 10px; */
         /* border: 1px solid #${config.colorScheme.colors.base00}; */
       }
 
