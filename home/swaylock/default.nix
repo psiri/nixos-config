@@ -31,9 +31,9 @@
         image="~/Pictures/Wallpaper/4.jpg";
       };
     };
-    home.file.".config/hypr/per-app/swaylock.conf" = {
+    home.file.".config/hypr/per-app/swaylock.conf" = { #-c ff000000
       text = ''
-        bind = $mainMod, L, exec, swaylock -c ff000000
+        bind = $mainMod, L, exec, swaylock --clock --timestr %R --datestr %a %e %B --effect-blur 5x2 --indicator-radius 200 --indicator-thickness 7
       '';
     };
   };
