@@ -54,7 +54,7 @@
           installation_mode = "blocked"; # Blocks all extensions except those explicitly-defined below
         };
         # Bitwarden:
-        "bitwarden" = {
+        "bitwarden-password-manager" = {
           install_url = "https://addons.mozilla.org/firefox/downloads/latest/bitwarden-password-manager/latest.xpi";
           installation_mode = "force_installed";
         };
