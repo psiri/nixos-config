@@ -16,10 +16,10 @@
     programs.swaylock = {
       enable = true;
       settings = {
-        clock = true;
+        #clock = true;
         color = "ff000000";
         fade-in = 1; # Fade in time
-        #font = "Hack Nerd Font Mono";
+        font = "'Hack Nerd Font Mono'";
         font-size = 24;
         indicator-idle-visible = false;
         indicator-radius = 200;
