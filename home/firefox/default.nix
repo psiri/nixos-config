@@ -53,6 +53,11 @@
           blocked_install_message = "This extension has been blocked by your organization.";
           installation_mode = "blocked"; # Blocks all extensions except those explicitly-defined below
         };
+        # Bitwarden:
+        "bitwarden" = {
+          install_url = "https://addons.mozilla.org/firefox/downloads/latest/bitwarden-password-manager/latest.xpi";
+          installation_mode = "force_installed";
+        };
         # uBlock Origin:
         "uBlock0@raymondhill.net" = {
           install_url = "https://addons.mozilla.org/firefox/downloads/latest/ublock-origin/latest.xpi";
