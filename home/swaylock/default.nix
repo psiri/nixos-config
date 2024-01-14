@@ -10,7 +10,7 @@
     '';
   };
 
-  users.users.${user}.packages = with pkgs; [swaylock-effects];
+  # users.users.${user}.packages = with pkgs; [swaylock-effects]; # Not working when I tried this
 
   home-manager.users.${user} = {
     programs.swaylock = {
@@ -28,7 +28,7 @@
         show-failed-attempts = true;
         timestr = "%R";
         #datestr = "%a %e %B";
-        effect-blur="5x2";
+        #effect-blur="5x2";
         image="~/Pictures/Wallpaper/4.jpg";
         key-hl-color="00000066";
         separator-color="00000000";
