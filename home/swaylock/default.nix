@@ -10,6 +10,8 @@
     '';
   };
 
+  users.users.${user}.packages = with pkgs; [swaylock-effects];
+
   home-manager.users.${user} = {
     programs.swaylock = {
       enable = true;
