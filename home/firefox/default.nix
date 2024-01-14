@@ -15,6 +15,34 @@
   users.users.${user}.packages = with pkgs; [firefox];
   programs.firefox = {
     enable = true;
+    languagePacks = [
+      "en-US"
+    ];
+    policies = {
+      DisablePasswordReveal = true;
+      DisableTelemetry = true;
+      DisplayBookmarksToolbar = "always";
+      DontCheckDefaultBrowser = true;
+      #DownloadDirectory = "" # Set and lock download dir
+      EnableTrackingProtection = {
+        Value = true;
+        Locked = true;
+        Cryptomining = true;
+        Fingerprinting = true;
+        #Exceptions = [];
+      };
+      ExtensionSettings = {
+        "uBlock0@raymondhill.net" = {
+          installation_mode = "force_installed";
+          installation_url = "https://addons.mozilla.org/firefox/downloads/latest/ublock-origin/latest.xpi";
+        };
+      };
+      OfferToSaveLogins = false;
+      OfferToSaveLoginsDefault = false;
+      PasswordManagerEnabled = false;
+      SSLVersionMin = "tls1.2"
+
+    };
     package = pkgs.wrapFirefox pkgs.firefox-unwrapped {
       extraPolicies = {
         CaptivePortal = false;
