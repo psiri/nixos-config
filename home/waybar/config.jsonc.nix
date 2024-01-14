@@ -11,7 +11,7 @@
         "layer": "top",
         // "output": [],
         "position": "top",
-        "height": 20,    // blank = dynamic
+        "height": 16,    // blank = dynamic
         // "width": "",  // blank = dynamic
         // "margin": "",
         "margin-top": 2,
