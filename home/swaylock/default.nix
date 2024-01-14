@@ -23,6 +23,7 @@
         timestr = "%R";
         datestr = "%a %e %B";
         effect-blur="5x2";
+        image="$HOME/Pictures/Wallpaper/4,jpg";
       };
     };
     home.file.".config/hypr/per-app/swaylock.conf" = {
