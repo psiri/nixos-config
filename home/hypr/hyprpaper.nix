@@ -5,12 +5,13 @@
 }: {
   home-manager.users.${user}.home.file.".config/hypr/hyprpaper.conf" = {
     text = ''
+      preload =  /home/${user}/Pictures/Wallpaper/1.jpg
+      preload =  /home/${user}/Pictures/Wallpaper/2.jpg
+      preload =  /home/${user}/Pictures/Wallpaper/3.jpg
+      preload =  /home/${user}/Pictures/Wallpaper/4.jpg
       preload =  /home/${user}/Pictures/Wallpaper/5.jpg
-      preload =  /home/${user}/Pictures/Wallpaper/6.jpg
-      preload =  /home/${user}/Pictures/Wallpaper/7.jpg
-      preload =  /home/${user}/Pictures/Wallpaper/8.jpg
 
-      wallpaper = eDP-1, /home/${user}/Pictures/Wallpaper/5.jpg
+      wallpaper = 0, /home/${user}/Pictures/Wallpaper/1.jpg
     '';
     # wallpaper = eDP-1, ~/nixos/wallpaper/5.jpg
     # this value needs to have a configuration for both laptop and desktop
