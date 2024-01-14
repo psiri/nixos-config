@@ -54,7 +54,7 @@
         line-ver-color="ffffffFF";
         line-wrong-color="ffffffFF";
 
-        text-color="2fb1e0";
+        text-color="29DBF6";
         text-clear-color="ffffff";
         text-ver-color="ffffff";
         text-wrong-color="ffffff";
