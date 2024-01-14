@@ -13,7 +13,7 @@
         "position": "top",
         "height": 16,    // blank = dynamic
         // "width": "",  // blank = dynamic
-        // "margin": "",
+        // "margin": "", // margin value using the css format without units
         "margin-top": 2,
         "margin-bottom": 0,
         "margin-left": 10,
