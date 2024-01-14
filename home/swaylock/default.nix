@@ -14,6 +14,9 @@
     programs.swaylock = {
       enable = true;
       settings = {
+        clock = true;
+        fade-in = 1; # Fade in time
+        font = "Hack Nerd Font Mono";
         font-size = 24;
         indicator-idle-visible = false;
         indicator-radius = 200;
@@ -23,7 +26,7 @@
         timestr = "%R";
         datestr = "%a %e %B";
         effect-blur="5x2";
-        image="$HOME/Pictures/Wallpaper/4.jpg";
+        image="~/Pictures/Wallpaper/4.jpg";
       };
     };
     home.file.".config/hypr/per-app/swaylock.conf" = {
