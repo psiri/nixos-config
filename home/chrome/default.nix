@@ -48,7 +48,7 @@
       "SpellcheckEnabled" = true;
       "SpellcheckLanguage" = ["en-US"];
     };
-    homePageLocation = "https://nixos.org/manual/nixos/stable/options"
+    homePageLocation = "https://nixos.org/manual/nixos/stable/options";
   };
     
     # policies = {
