@@ -17,6 +17,7 @@
       enable = true;
       settings = {
         clock = true;
+        color = "ff000000";
         fade-in = 1; # Fade in time
         #font = "Hack Nerd Font Mono";
         font-size = 24;
@@ -31,10 +32,11 @@
         image="~/Pictures/Wallpaper/4.jpg";
       };
     };
-    home.file.".config/hypr/per-app/swaylock.conf" = { #-c ff000000
+    home.file.".config/hypr/per-app/swaylock.conf" = {
       text = ''
-        bind = $mainMod, L, exec, swaylock --clock --timestr "%R" --datestr "%a %e %B" --effect-blur "5x2" --indicator-radius 200 --indicator-thickness 7 --image "~/Pictures/Wallpaper/4.jpg"
+        bind = $mainMod, L, exec, swaylock 
       '';
+      #--clock --timestr "%R" --datestr "%a %e %B" --effect-blur "5x2" --indicator-radius 200 --indicator-thickness 7 --image "~/Pictures/Wallpaper/4.jpg"
     };
   };
 }
