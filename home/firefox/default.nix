@@ -19,7 +19,11 @@
       "en-US"
     ];
     policies = {
+      CaptivePortal = false;
+      DisableFirefoxAccounts = false;
+      DisableFirefoxStudies = true;
       DisablePasswordReveal = true;
+      DisablePocket = true;
       DisableTelemetry = true;
       DisplayBookmarksToolbar = "always";
       DontCheckDefaultBrowser = true;
@@ -37,6 +41,7 @@
           installation_url = "https://addons.mozilla.org/firefox/downloads/latest/ublock-origin/latest.xpi";
         };
       };
+      NoDefaultBookmarks = true;
       OfferToSaveLogins = false;
       OfferToSaveLoginsDefault = false;
       PasswordManagerEnabled = false;
@@ -45,10 +50,26 @@
     package = pkgs.wrapFirefox pkgs.firefox-unwrapped {
       extraPolicies = {
         CaptivePortal = false;
-        DisableFirefoxStudies = true;
+        DisablePasswordReveal = true;
         DisablePocket = true;
-        DisableTelemetry = true;
         DisableFirefoxAccounts = false;
+        DisableFirefoxStudies = true;
+        DisableTelemetry = true;
+        DisplayBookmarksToolbar = "always";
+        DontCheckDefaultBrowser = true;
+        EnableTrackingProtection = {
+          Value = true;
+          Locked = true;
+          Cryptomining = true;
+          Fingerprinting = true;
+          #Exceptions = [];
+        };
+        ExtensionSettings = {
+          "uBlock-origin" = {
+            installation_mode = "force_installed";
+            installation_url = "https://addons.mozilla.org/firefox/downloads/latest/ublock-origin/latest.xpi";
+          };
+        };
         NoDefaultBookmarks = true;
         OfferToSaveLogins = false;
         OfferToSaveLoginsDefault = false;
@@ -64,6 +85,7 @@
           ExtensionRecommendations = false;
           SkipOnboarding = true;
         };
+        SSLVersionMin = "tls1.2";
       };
     };
     # policies # TODO - automatically install Firefox extensions
