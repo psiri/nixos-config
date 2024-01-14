@@ -12,7 +12,7 @@
         // "output": [],
         "position": "top",
         //"height": 25,    // blank = dynamic
-        // "width": "',  // blank = dynamic
+        // "width": "",  // blank = dynamic
         // "margin": "",
         "margin-top": 2,
         "margin-bottom": 0,
@@ -24,7 +24,7 @@
 
         "clock": {
           "interval": 1,
-          "format": " {:%H:%M} ",
+          "format": " {:%H:%M:%S} ",
           "format-alt": " {:%A, %d %B} ",
           // "on-click": "gnome-calendar",
           "tooltip": true,
@@ -80,7 +80,7 @@
 
         "tray": {
           "icon-size": 12,
-          "spacing": 10
+          "spacing": 5
         },
 
         "cpu": {
