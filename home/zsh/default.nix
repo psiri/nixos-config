@@ -14,6 +14,8 @@
     enableBashCompletion = true;
     enableCompletion = true;
     autosuggestions.enable = true;
+    # Automatically start Hyprland after TTY login. 
+    # Note: `exec Hyprland` is used to return user to login prompt if/when Hyprland exits.
     shellInit = ''
       if [ -z "$DISPLAY" ] && [ "$XDG_VTNR" = 1 ];then exec Hyprland;fi
     '';
@@ -49,6 +51,8 @@
         file = "p10k.zsh";
       }
     ];
+    # Automatically start Hyprland after TTY login. 
+    # Note: `exec Hyprland` is used to return user to login prompt if/when Hyprland exits.
     loginExtra = ''
       if [ -z "$DISPLAY" ] && [ "$XDG_VTNR" = 1 ];then exec Hyprland;fi
     '';

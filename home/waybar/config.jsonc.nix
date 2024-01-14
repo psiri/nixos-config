@@ -14,13 +14,13 @@
         "height": 25,
         // "width": 900,
         // "margin": "",
-        "margin-top": 10,
+        "margin-top": 2,
         "margin-bottom": 0,
         "margin-left": 10,
         "margin-right": 10,
         "spacing": 10,
         "gtk-layer-shell": true,
-        "border-radius": 10,
+        "border-radius": 5,
 
         "clock": {
           "interval": 1,
