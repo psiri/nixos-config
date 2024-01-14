@@ -18,7 +18,7 @@
       settings = {
         #clock = true;
         color = "ff000000";
-        fade-in = 1; # Fade in time
+        #fade-in = 1; # Fade in time
         font = "'Hack Nerd Font Mono'";
         font-size = 24;
         indicator-idle-visible = false;
