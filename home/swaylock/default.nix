@@ -31,7 +31,7 @@
     };
     home.file.".config/hypr/per-app/swaylock.conf" = {
       text = ''
-        bind = $mainMod, L, exec, swaylock
+        bind = $mainMod, L, exec, swaylock -c ff000000
       '';
     };
   };
