@@ -9,7 +9,7 @@
     enableExtensionUpdateCheck = true;
     enableUpdateCheck = true;
     package = pkgs.vscodium; # pkgs.vscodium or pkgs.vscode (default)
-    
+
     extensions = [
       pkgs.vscode-extensions.bbenoist.nix
       #pkgs.vscode-extensions.bridgecrew.checkov                   # Does not exist, using workaround solution below
@@ -77,28 +77,28 @@
         selection.background = "#80CBC4";
         statusBarItem.remoteBackground = "#80CBC4";
         Abyss = {
-            activityBar.background = "#000000";
-            activityBar.foreground = "#ff0000";
-            tab.activeBorder = "#ff0000";
-            tab.activeForeground = "#ff0000";
-            tab.activeBackground = "#00394f";
-            tab.inactiveForeground = "#c49af1";
-            tab.inactiveBackground = "#000000";
-            titleBar.activeForeground = "#77c3f9";
-            titleBar.activeBackground = "#000000";
-            activityBar.activeBackground = "#081a1b";
-            editor.background = "#000000";
-            editorLineNumber.foreground = "#68007a";
-            sideBar.background = "#000000";
-            sideBar.border = "#00828e";
-            sideBar.foreground = "#00fbff";
-            sideBarSectionHeader.background = "#000000";
-            sideBarSectionHeader.foreground = "#00828e";
-            sideBarTitle.foreground = "#77f9f9";
-            statusBar.background = "#000000";
-            statusBar.border = "#000000";
-            statusBar.foreground = "#de6f00";
-            statusBarItem.prominentForeground = "#e600ff";
+          activityBar.background = "#000000";
+          activityBar.foreground = "#ff0000";
+          tab.activeBorder = "#ff0000";
+          tab.activeForeground = "#ff0000";
+          tab.activeBackground = "#00394f";
+          tab.inactiveForeground = "#c49af1";
+          tab.inactiveBackground = "#000000";
+          titleBar.activeForeground = "#77c3f9";
+          titleBar.activeBackground = "#000000";
+          activityBar.activeBackground = "#081a1b";
+          editor.background = "#000000";
+          editorLineNumber.foreground = "#68007a";
+          sideBar.background = "#000000";
+          sideBar.border = "#00828e";
+          sideBar.foreground = "#00fbff";
+          sideBarSectionHeader.background = "#000000";
+          sideBarSectionHeader.foreground = "#00828e";
+          sideBarTitle.foreground = "#77f9f9";
+          statusBar.background = "#000000";
+          statusBar.border = "#000000";
+          statusBar.foreground = "#de6f00";
+          statusBarItem.prominentForeground = "#e600ff";
         };
       };
       materialTheme.accent = "Teal";
@@ -107,116 +107,116 @@
       editor.wordWrapColumn = 120;
       editor.cursorWidth = 2;
       editor.fontLigatures = true;
-      editor.tokenColorCustomizations = {
-        Abyss = {
-          comments = "#5a5a5a";
-          functions = "#b300ea";
-          strings = "#19c1db";
-          types = "#ff8000";
-          textMateRules = [
-            {
-              "scope" = "storage.type.terraform";
-              "settings" = {
-                "foreground" = "#ea7500";
-              };
-            }
-            {
-              "scope" = "punctuation.separator.terraform";
-              "settings" = {
-                "foreground" = "#eeff02";
-              };
-            }
-            {
-              "scope" = "keyword.operator.accessor.terraform";
-              "settings" = {
-                "foreground" = "#ff0000";
-              };
-            }
-            {
-              "scope" = "meta.block.terraform";
-              "settings" = {
-                "foreground" = "#d18b8b";
-              };
-            }
-            {
-              "scope" = "support.constant.terraform";
-              "settings" = {
-                "foreground" = "#726dff";
-              };
-            }
-            {
-              "scope" = "punctuation.section.parens.begin.terraform";
-              "settings" = {
-                "foreground" = "#11fb00";
-              };
-            }
-            {
-              "scope" = "punctuation.section.parens.end.terraform";
-              "settings" = {
-                "foreground" = "#11fb00";
-              };
-            }
-            {
-              "scope" = "punctuation.section.brackets.begin.terraform";
-              "settings" = {
-                "foreground" = "#eafb00";
-              };
-            }
-            {
-              "scope" = "punctuation.section.brackets.end.terraform";
-              "settings" = {
-                "foreground" = "#eafb00";
-              };
-            }
-            {
-              "scope" = "keyword.operator.logical.terraform";
-              "settings" = {
-                "foreground" = "#eafb00";
-              };
-            }
-            {
-              "scope" = "entity.other.jinja.delimiter.variable";
-              "settings" = {
-                "foreground" = "#e600ff";
-              };
-            }
-            {
-              "scope" = "punctuation.other.jinja";
-              "settings" = {
-                "foreground" = "#eafb00";
-              };
-            }
-            {
-              "scope" = "punctuation.definition.string.begin.jinja";
-              "settings" = {
-                "foreground" = "#ff0000";
-              };
-            }
-            {
-              "scope" = "punctuation.definition.string.end.jinja";
-              "settings" = {
-                "foreground" = "#ff0000";
-              };
-            }
-            {
-              "scope" = "keyword.control.heredoc.terraform";
-              "settings" = {
-                "foreground" = "#ff0000";
-              };
-            }
-            {
-              "scope" = "string.quoted.single.yaml";
-              "settings" = {
-                "foreground" = "#7bd3ff";
-              };
-            }
-          ];
-        };
-      };
+      # editor.tokenColorCustomizations = {
+      #   Abyss = {
+      #     comments = "#5a5a5a";
+      #     functions = "#b300ea";
+      #     strings = "#19c1db";
+      #     types = "#ff8000";
+      #     textMateRules = [
+      #       {
+      #         "scope" = "storage.type.terraform";
+      #         "settings" = {
+      #           "foreground" = "#ea7500";
+      #         };
+      #       }
+      #       {
+      #         "scope" = "punctuation.separator.terraform";
+      #         "settings" = {
+      #           "foreground" = "#eeff02";
+      #         };
+      #       }
+      #       {
+      #         "scope" = "keyword.operator.accessor.terraform";
+      #         "settings" = {
+      #           "foreground" = "#ff0000";
+      #         };
+      #       }
+      #       {
+      #         "scope" = "meta.block.terraform";
+      #         "settings" = {
+      #           "foreground" = "#d18b8b";
+      #         };
+      #       }
+      #       {
+      #         "scope" = "support.constant.terraform";
+      #         "settings" = {
+      #           "foreground" = "#726dff";
+      #         };
+      #       }
+      #       {
+      #         "scope" = "punctuation.section.parens.begin.terraform";
+      #         "settings" = {
+      #           "foreground" = "#11fb00";
+      #         };
+      #       }
+      #       {
+      #         "scope" = "punctuation.section.parens.end.terraform";
+      #         "settings" = {
+      #           "foreground" = "#11fb00";
+      #         };
+      #       }
+      #       {
+      #         "scope" = "punctuation.section.brackets.begin.terraform";
+      #         "settings" = {
+      #           "foreground" = "#eafb00";
+      #         };
+      #       }
+      #       {
+      #         "scope" = "punctuation.section.brackets.end.terraform";
+      #         "settings" = {
+      #           "foreground" = "#eafb00";
+      #         };
+      #       }
+      #       {
+      #         "scope" = "keyword.operator.logical.terraform";
+      #         "settings" = {
+      #           "foreground" = "#eafb00";
+      #         };
+      #       }
+      #       {
+      #         "scope" = "entity.other.jinja.delimiter.variable";
+      #         "settings" = {
+      #           "foreground" = "#e600ff";
+      #         };
+      #       }
+      #       {
+      #         "scope" = "punctuation.other.jinja";
+      #         "settings" = {
+      #           "foreground" = "#eafb00";
+      #         };
+      #       }
+      #       {
+      #         "scope" = "punctuation.definition.string.begin.jinja";
+      #         "settings" = {
+      #           "foreground" = "#ff0000";
+      #         };
+      #       }
+      #       {
+      #         "scope" = "punctuation.definition.string.end.jinja";
+      #         "settings" = {
+      #           "foreground" = "#ff0000";
+      #         };
+      #       }
+      #       {
+      #         "scope" = "keyword.control.heredoc.terraform";
+      #         "settings" = {
+      #           "foreground" = "#ff0000";
+      #         };
+      #       }
+      #       {
+      #         "scope" = "string.quoted.single.yaml";
+      #         "settings" = {
+      #           "foreground" = "#7bd3ff";
+      #         };
+      #       }
+      #     ];
+      #   };
+      # };
       git.autofetch = true;
       editor.renderControlCharacters = false;
       terraform = {
-          editor.formatOnSave = true;
+        editor.formatOnSave = true;
       };
       editor.tabSize = 2;
       editor.formatOnSave = true;
