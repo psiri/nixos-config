@@ -143,7 +143,7 @@
       "CommandLineFlagSecurityWarningsEnabled" = true; # true = show securitry warnings when potentially dangerous command-line flags are used
       "DefaultBwoeserSettingEnabled" = false;          # true = Enable default browser check on startup
       #"DefaultDownloadDirectory"     = "$HOME/Downloads" # unset = use platform-specific defaults
-      "DnsOverHttpsMode" = "automatic"  # off = disable DoH, automatic = Enable with insecure fallback, secure = force DoH only
+      "DnsOverHttpsMode" = "automatic";  # off = disable DoH, automatic = Enable with insecure fallback, secure = force DoH only
       #DnsOverHttpsTemplates = 
       "DownloadRestrictions" = 4; # 0 = off/no restrictions, 1= blocks malicious files AND dangerous file types, 2= 1 + uncommon/unwanted file types, 3 = blocks all downloads, 4=blocks malicious files but not file types
       # "EnableOnlineRevocationChecks" = true; # true = enable OCSP/CRL checks
