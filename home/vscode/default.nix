@@ -76,7 +76,7 @@
         editor.findMatchBorder = "#80CBC4";
         selection.background = "#80CBC4";
         statusBarItem.remoteBackground = "#80CBC4";
-        "[Abyss]" = {
+        Abyss = {
             activityBar.background = "#000000";
             activityBar.foreground = "#ff0000";
             tab.activeBorder = "#ff0000";
@@ -108,7 +108,7 @@
       editor.cursorWidth = 2;
       editor.fontLigatures = true;
       editor.tokenColorCustomizations = {
-        "[Abyss]" = {
+        Abyss = {
           comments = "#5a5a5a";
           functions = "#b300ea";
           strings = "#19c1db";
@@ -215,7 +215,7 @@
       };
       git.autofetch = true;
       editor.renderControlCharacters = false;
-      "[terraform]" = {
+      terraform = {
           editor.formatOnSave = true;
       };
       editor.tabSize = 2;
