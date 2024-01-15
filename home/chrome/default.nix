@@ -15,16 +15,6 @@
       Status = "locked";
     };
     chrome_version = "chromium"; # FIXME - Change to your desired Chrome version, either "google-chrome" or "chromium"
-    allowed_extensions = [
-      #"cfhdojbkjhnklbpkdaibdccddilifddb" # Adblock Plus
-      "cjpalhdlnbpafiamejdnhcphjbkeiagm" # ublock origin
-      "nngceckbapebfimnlniiiahkandclblb" # Bitwarden
-      #"inomeogfingihgjfjlpeplalcfajhgai" # Chrome Remote Desktop
-      "eimadpbcbfnmbkopoojfekhnkhdbieeh" # Dark Reader
-      "ponfpcnoihfmfllpaingbgckeeldkhle" # Enhancer for YouTube
-      #"callobklhcbilhphinckomhgkigmfocg" # Google Endpoint Verification
-      "pkehgijcmpdhfbdbbnkijodmdjhbjlgp" # Privacy Badger
-    ];
   in
 
 {
@@ -41,7 +31,16 @@
     enable = true;
     defaultSearchProviderEnabled = true;
     defaultSearchProviderSearchURL= "https://encrypted.google.com/search?q={searchTerms}&{google:RLZ}{google:originalQueryForSuggestion}{google:assistedQueryStats}{google:searchFieldtrialParameter}{google:searchClient}{google:sourceId}{google:instantExtendedEnabledParameter}ie={inputEncoding}";
-    extensions = ${allowed_extensions};
+    extensions =  [
+      #"cfhdojbkjhnklbpkdaibdccddilifddb" # Adblock Plus
+      "cjpalhdlnbpafiamejdnhcphjbkeiagm" # ublock origin
+      "nngceckbapebfimnlniiiahkandclblb" # Bitwarden
+      #"inomeogfingihgjfjlpeplalcfajhgai" # Chrome Remote Desktop
+      "eimadpbcbfnmbkopoojfekhnkhdbieeh" # Dark Reader
+      "ponfpcnoihfmfllpaingbgckeeldkhle" # Enhancer for YouTube
+      #"callobklhcbilhphinckomhgkigmfocg" # Google Endpoint Verification
+      "pkehgijcmpdhfbdbbnkijodmdjhbjlgp" # Privacy Badger
+    ];
     extraOpts = {
       "BrowserSignin" = 1;
       "CalendarIntegrationEnabled" = true;
@@ -60,7 +59,16 @@
       ###########################################
       "BlockExternalExtensions" = false; # Whether or not external extensions are allowed
       "ExtensionAllowedTypes" = [ "extension", "theme" ] # extension, theme, user_script, hosted_app, legacy_packaged_app, platform_app
-      "ExtensionInstallAllowlist" = ${allowed_extensions};
+      "ExtensionInstallAllowlist" = [
+        "cfhdojbkjhnklbpkdaibdccddilifddb" # Adblock Plus
+        "cjpalhdlnbpafiamejdnhcphjbkeiagm" # ublock origin
+        "nngceckbapebfimnlniiiahkandclblb" # Bitwarden
+        #"inomeogfingihgjfjlpeplalcfajhgai" # Chrome Remote Desktop
+        "eimadpbcbfnmbkopoojfekhnkhdbieeh" # Dark Reader
+        "ponfpcnoihfmfllpaingbgckeeldkhle" # Enhancer for YouTube
+        "callobklhcbilhphinckomhgkigmfocg" # Google Endpoint Verification
+        "pkehgijcmpdhfbdbbnkijodmdjhbjlgp" # Privacy Badger
+      ];
       "ExtensionBlocklist" = [ "*" ];                    # * = all extensions blocked unless they are explicitly on the ExtensionInstallAllowlist
       "ExtensionInstallForceList" = [];
       "ExtensionInstallTypeBlocklist" = [];              # Which extension types are blocked
