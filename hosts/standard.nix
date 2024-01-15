@@ -238,6 +238,7 @@
       swayidle
       swaylock
       terraform
+      terraform-docs
       tree
       unzip
       usbutils # usb thing
