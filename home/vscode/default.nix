@@ -101,12 +101,12 @@
           statusBarItem.prominentForeground = "#e600ff";
         };
       };
-      materialTheme.accent = "Teal";
-      editor.fontFamily = "Hack Nerd Font";
-      editor.wordWrap = "on";
-      editor.wordWrapColumn = 120;
-      editor.cursorWidth = 2;
-      editor.fontLigatures = true;
+      # materialTheme.accent = "Teal";
+      # editor.fontFamily = "Hack Nerd Font";
+      # editor.wordWrap = "on";
+      # editor.wordWrapColumn = 120;
+      # editor.cursorWidth = 2;
+      # editor.fontLigatures = true;
       # editor.tokenColorCustomizations = {
       #   Abyss = {
       #     comments = "#5a5a5a";
