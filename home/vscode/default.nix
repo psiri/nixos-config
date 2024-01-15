@@ -211,7 +211,7 @@
               };
             }
           ];
-        }
+        };
       },
       git.autofetch = true;
       editor.renderControlCharacters = false;
