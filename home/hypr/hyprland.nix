@@ -60,7 +60,7 @@ $cf = rgba(${config.colorscheme.colors.base0F}FF)
 ## TODO move to /home/
 exec-once = hyprpaper
 # IDLE SCREEN LOCK
-exec-once = swayidle -w timeout 120 "$LOCK_CMD" timeout 180 "hyprctl dispatch dpms off" resume "hyprctl dispatch dpms on"
+exec-once = swayidle -w timeout 20 "$LOCK_CMD" timeout 40 "hyprctl dispatch dpms off" resume "hyprctl dispatch dpms on"
 
 
 exec-once = sleep 4 && gnome-keyring-daemon --start --components = pkcs11, secrets, ssh
