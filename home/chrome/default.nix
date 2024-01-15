@@ -58,7 +58,7 @@
       #               EXTENSIONS                #
       ###########################################
       "BlockExternalExtensions" = false; # Whether or not external extensions are allowed
-      "ExtensionAllowedTypes" = [ "extension", "theme" ] # extension, theme, user_script, hosted_app, legacy_packaged_app, platform_app
+      "ExtensionAllowedTypes" = [ "extension" "theme" ] # extension, theme, user_script, hosted_app, legacy_packaged_app, platform_app
       "ExtensionInstallAllowlist" = [
         "cfhdojbkjhnklbpkdaibdccddilifddb" # Adblock Plus
         "cjpalhdlnbpafiamejdnhcphjbkeiagm" # ublock origin
