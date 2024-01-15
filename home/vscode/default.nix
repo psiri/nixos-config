@@ -122,7 +122,7 @@
       prismaCloud.assetDetails.AssetName = "vscode-iac-test";
       prismaCloud.loginCredentials.AccessKey = "";
       prismaCloud.loginCredentials.SecretKey = "";
-      prismaCloud.accessURL.PrismaCloudAPI URL = "https://api4.prismacloud.io";
+      prismaCloud.accessURL = "https://api4.prismacloud.io";
       checkov.token = "";
       checkov.prismaURL = "https://api4.prismacloud.io";
       checkov.useBridgecrewIDs = true;
