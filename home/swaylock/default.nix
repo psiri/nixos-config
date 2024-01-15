@@ -68,7 +68,7 @@
     };
     home.file.".config/hypr/per-app/swaylock.conf" = {
       text = ''
-        bind = $mainMod, L, exec, grim $LOCK_IMG; convert $LOCK_IMG -blur 0x6 $LOCK_IMG; swaylock --image $LOCK_IMG 
+        bind = $mainMod, L, exec, grim $lockimg; convert $lockimg -blur 0x6 $lockimg; swaylock --image $lockimg 
       '';
       #--clock --timestr "%R" --datestr "%a %e %B" --effect-blur "5x2" --indicator-radius 200 --indicator-thickness 7 --image "~/Pictures/Wallpaper/4.jpg"
     };
@@ -76,7 +76,7 @@
     #   text = ''
     #     timeout 10 'if pgrep swaylock; then hyprctl dispatch dpms off; fi' \
     #     resume 'hyprctl dispatch dpms on' \
-    #     before-sleep 'grim $LOCK_IMG; convert $LOCK_IMG -blur 0x6 $LOCK_IMG; swaylock --image $LOCK_IMG -f'
+    #     before-sleep 'grim $lockimg; convert $lockimg -blur 0x6 $lockimg; swaylock --image $lockimg -f'
     #   '';
     # };
   };
