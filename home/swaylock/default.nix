@@ -74,7 +74,7 @@
     };
     home.file.".config/swayidle/config" = {
       text = ''
-        timeout 30 'grim $LOCK_IMG; convert $LOCK_IMG -blur 0x6 $LOCK_IMG; swaylock --image $LOCK_IMG -f'
+        timeout 30 'grim $LOCK_IMG; convert $LOCK_IMG -blur 0x6 $LOCK_IMG; swaylock --image $LOCK_IMG'
         timeout 40 'hyprctl dispatch dpms off' resume 'hyprctl dispatch dpms on'
         before-sleep 'grim $LOCK_IMG; convert $LOCK_IMG -blur 0x6 $LOCK_IMG; swaylock --image $LOCK_IMG -f'
       '';
