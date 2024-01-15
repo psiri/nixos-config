@@ -74,11 +74,10 @@
     };
     home.file.".config/swayidle/config" = {
       text = ''
-        timeout 20 'swaylock -f'
-        timeout 40 'hyprctl dispatch dpms off' resume 'hyprctl dispatch dpms on'
+        timeout 1800 'swaylock -f'
+        timeout 1810 'hyprctl dispatch dpms off' resume 'hyprctl dispatch dpms on'
         before-sleep 'swaylock -f'
       '';
-      #--clock --timestr "%R" --datestr "%a %e %B" --effect-blur "5x2" --indicator-radius 200 --indicator-thickness 7 --image "~/Pictures/Wallpaper/4.jpg"
     };
   };
 }
