@@ -102,7 +102,7 @@
         };
       };
       materialTheme.accent = "Teal";
-      editor.fontFamily = "Hack Nerd Font Mono";
+      editor.fontFamily = "Hack Nerd Font";
       editor.wordWrap = "on";
       editor.wordWrapColumn = 120;
       editor.cursorWidth = 2;
