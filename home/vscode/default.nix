@@ -102,12 +102,117 @@
         };
       };
       materialTheme.accent = "Teal";
-      editor.fontFamily = "OperatorMono";
+      editor.fontFamily = "Hack Nerd Font Mono";
       editor.wordWrap = "on";
       editor.wordWrapColumn = 120;
       editor.cursorWidth = 2;
       editor.fontLigatures = true;
-      #editor.tokenColorCustomizations = {} # TODO
+      editor.tokenColorCustomizations = {
+        "[Material Theme Ocean High Contrast]" = {
+          comments = "#5a5a5a";
+          functions = "#b300ea";
+          strings = "#19c1db";
+          types = "#ff8000";
+          textMateRules = [
+            {
+              "scope" = "storage.type.terraform";
+              "settings" = {
+                "foreground" = "#ea7500";
+              };
+            }
+            {
+              "scope" = "punctuation.separator.terraform";
+              "settings" = {
+                "foreground" = "#eeff02";
+              };
+            }
+            {
+              "scope" = "keyword.operator.accessor.terraform";
+              "settings" = {
+                "foreground" = "#ff0000";
+              };
+            }
+            {
+              "scope" = "meta.block.terraform";
+              "settings" = {
+                "foreground" = "#d18b8b";
+              };
+            }
+            {
+              "scope" = "support.constant.terraform";
+              "settings" = {
+                "foreground" = "#726dff";
+              };
+            }
+            {
+              "scope" = "punctuation.section.parens.begin.terraform";
+              "settings" = {
+                "foreground" = "#11fb00";
+              };
+            }
+            {
+              "scope" = "punctuation.section.parens.end.terraform";
+              "settings" = {
+                "foreground" = "#11fb00";
+              };
+            }
+            {
+              "scope" = "punctuation.section.brackets.begin.terraform";
+              "settings" = {
+                "foreground" = "#eafb00";
+              };
+            }
+            {
+              "scope" = "punctuation.section.brackets.end.terraform";
+              "settings" = {
+                "foreground" = "#eafb00";
+              };
+            }
+            {
+              "scope" = "keyword.operator.logical.terraform";
+              "settings" = {
+                "foreground" = "#eafb00";
+              };
+            }
+            {
+              "scope" = "entity.other.jinja.delimiter.variable";
+              "settings" = {
+                "foreground" = "#e600ff";
+              };
+            }
+            {
+              "scope" = "punctuation.other.jinja";
+              "settings" = {
+                "foreground" = "#eafb00";
+              };
+            }
+            {
+              "scope" = "punctuation.definition.string.begin.jinja";
+              "settings" = {
+                "foreground" = "#ff0000";
+              };
+            }
+            {
+              "scope" = "punctuation.definition.string.end.jinja";
+              "settings" = {
+                "foreground" = "#ff0000";
+              };
+            }
+            {
+              "scope" = "keyword.control.heredoc.terraform";
+              "settings" = {
+                "foreground" = "#ff0000";
+              };
+            }
+            {
+              "scope" = "string.quoted.single.yaml";
+              "settings" = {
+                "foreground" = "#7bd3ff";
+              };
+            }
+          ];
+        }
+      },
       git.autofetch = true;
       editor.renderControlCharacters = false;
       "[terraform]" = {
