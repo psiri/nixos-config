@@ -83,17 +83,17 @@
       ###########################################
       "IdleTimeout" = 30;        # Length of time without user input before the browser runs "IdleTimeoutActions"
       "IdleTimeoutActions" = [
-        # close_browsers
-        # show_profile_picker
-        clear_browsing_history
-        clear_download_history
-        clear_cookies_and_other_site_data
-        clear_cached_images_and_files
-        clear_password_signin
-        clear_autofill
-        # clear_site_settings
-        clear_hosted_app_data
-        # reload_pages
+        # "close_browsers"
+        # "show_profile_picker"
+        "clear_browsing_history"
+        "clear_download_history"
+        "clear_cookies_and_other_site_data"
+        "clear_cached_images_and_files"
+        "clear_password_signin"
+        "clear_autofill"
+        # "clear_site_settings"
+        "clear_hosted_app_data"
+        # "reload_pages"
       ];
       ###########################################
       #                 KERBEROS                #
@@ -131,14 +131,14 @@
       "BrowserLabsEnabled" = false;     # true = Users can access browser experimental features
       "BrowserSignIn" = 1;              # 0 = Disable, 1=Enable, 2=Force sign-in
       "ClearBrowsingDataOnExitList" = [ # List of all browsing data types that should be deleted when
-        browsing_history                # the user closes all browser windows
-        download_history
-        cookies_and_other_site_data
-        cached_images_and_files
-        password_signin
-        autofill
-        site_settings
-        hosted_app_data
+        "browsing_history"              # the user closes all browser windows
+        "download_history"
+        "cookies_and_other_site_data"
+        "cached_images_and_files"
+        "password_signin"
+        "autofill"
+        "site_settings"
+        "hosted_app_data"
       ];
       "CommandLineFlagSecurityWarningsEnabled" = true; # true = show securitry warnings when potentially dangerous command-line flags are used
       "DefaultBwoeserSettingEnabled" = false;          # true = Enable default browser check on startup
