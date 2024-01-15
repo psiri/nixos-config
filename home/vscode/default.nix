@@ -234,7 +234,7 @@
       terminal.integrated.minimumContrastRatio = 1;
       terminal.integrated.defaultProfile.osx = "zsh";
       telemetry.telemetryLevel = "off";
-      workbench.iconTheme = "material-icon-theme";
+      workbench.iconTheme = "vscode-icons";
       terminal.integrated.scrollback = 3000;
       diffEditor.ignoreTrimWhitespace = false;
       terraform.languageServer.enable = true;
