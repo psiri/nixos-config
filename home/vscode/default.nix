@@ -221,10 +221,10 @@
       editor.tabSize = 2;
       editor.formatOnSave = true;
       prismaCloud.assetDetails.AssetName = "vscode-iac-test";
-      prismaCloud.loginCredentials.AccessKey = "";
-      prismaCloud.loginCredentials.SecretKey = "";
+      #prismaCloud.loginCredentials.AccessKey = "";
+      #prismaCloud.loginCredentials.SecretKey = "";
       prismaCloud.accessURL = "https://api4.prismacloud.io";
-      checkov.token = "";
+      #checkov.token = "";
       checkov.prismaURL = "https://api4.prismacloud.io";
       checkov.useBridgecrewIDs = true;
       checkov.checkovVersion = "latest";
@@ -234,7 +234,7 @@
       terminal.integrated.minimumContrastRatio = 1;
       terminal.integrated.defaultProfile.osx = "zsh";
       telemetry.telemetryLevel = "off";
-      workbench.iconTheme = "eq-material-theme-icons";
+      workbench.iconTheme = "material-icon-theme";
       terminal.integrated.scrollback = 3000;
       diffEditor.ignoreTrimWhitespace = false;
       terraform.languageServer.enable = true;
