@@ -115,8 +115,8 @@
       };
       editor.tabSize = 2;
       workbench.editorAssociations = {
-        *.ipynb = "jupyter.notebook.ipynb";
-        *.stl = "hexEditor.hexedit";
+        "*.ipynb" = "jupyter.notebook.ipynb";
+        "*.stl" = "hexEditor.hexedit";
       };
       editor.formatOnSave = true;
       prismaCloud.assetDetails.AssetName = "vscode-iac-test";
