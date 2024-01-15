@@ -20,8 +20,8 @@ $terminal = kitty
 $fileManager = dolphin
 $menu = ulauncher-toggle
 $VSCODE_APP = codium
-$LOCK_IMG = ~/.cache/lockscreen.png
-$lockcmd = grim $LOCK_IMG; convert $LOCK_IMG -blur 0x10 $LOCK_IMG; swaylock --image $LOCK_IMG
+$LOCK_IMG =~/.cache/lockscreen.png
+$LOCK_CMD = grim $LOCK_IMG; convert $LOCK_IMG -blur 0x8 $LOCK_IMG; swaylock --image $LOCK_IMG
 
 ############################################# hyprpaper #############################################
 
