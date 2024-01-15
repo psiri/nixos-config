@@ -201,6 +201,13 @@
       "InsecurePrivateNetworkRequestsAllowed" = false; # true = Allow websites to make requests to any network endpoint in an insecure mannger. false = Use default behavior
       #"InsecurePrivateNetworkRequestsAllowedForUrls" = [];
       #"PrivateNetworkAccessRestrictionsEnabled" = null;
+      ###########################################
+      #  STARTUP, HOME PAGE, AND NEW TAB PAGE   #
+      ###########################################
+      "HomepageIsNewTabPage" = true; # true = New Tab page is the Homepage
+      "RestoreOnStartup" = 1;     # 5 = Open New Tab Page, 1 = Restore the last session, 4 = Open list of URLs, 6 = 1 + 4
+      "RestoreOnStartupUrls" = []; # if RestoreOnStartup = 4 or 6, opens these URLs
+      "ShowHomeButton" = false;
     };
     homepageLocation = "https://nixos.org/manual/nixos/stable/options";
   };
