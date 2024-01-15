@@ -20,6 +20,8 @@ $terminal = kitty
 $fileManager = dolphin
 $menu = ulauncher-toggle
 $VSCODE_APP = codium
+$LOCK_IMAGE = ~/Pictures/Wallpaper/4.jpg
+$LOCK_CMD = grim $LOCK_IMAGE; convert $LOCK_IMAGE -blur 0x4 $LOCK_IMAGE; swaylock --image $LOCK_IMAGE
 
 ############################################# hyprpaper #############################################
 
@@ -56,7 +58,9 @@ $cf = rgba(${config.colorscheme.colors.base0F}FF)
 ## exec-once ##
 
 ## TODO move to /home/
-exec-once = hyprpaper && firefox
+exec-once = hyprpaper
+# IDLE SCREEN LOCK
+exec-once = swayidle -w timeout 120 "$LOCK_CMD" timeout 180 "hyprctl dispatch dpms off" resume "hyprctl dispatch dpms on"
 
 
 exec-once = sleep 4 && gnome-keyring-daemon --start --components = pkcs11, secrets, ssh

@@ -233,7 +233,6 @@
       python311Packages.boto3
       python311Packages.pip
       python311Packages.xmltodict
-      #rofi
       ssm-session-manager-plugin # AWS Systems Manager Session Manager plugin
       swayidle
       swaylock
