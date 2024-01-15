@@ -76,7 +76,7 @@
         editor.findMatchBorder = "#80CBC4";
         selection.background = "#80CBC4";
         statusBarItem.remoteBackground = "#80CBC4";
-        "Material Theme Ocean High Contrast" = {
+        "[Material Theme Ocean High Contrast]" = {
           activityBar.background = "#000000";
           activityBar.foreground = "#ff0000";
           tab.activeBorder = "#ff0000";
@@ -108,7 +108,7 @@
       editor.cursorWidth = 2;
       editor.fontLigatures = true;
       editor.tokenColorCustomizations = {
-        "Material Theme Ocean High Contrast" = {
+        "[Material Theme Ocean High Contrast]" = {
           comments = "#5a5a5a";
           functions = "#b300ea";
           strings = "#19c1db";
