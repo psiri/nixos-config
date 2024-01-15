@@ -49,9 +49,9 @@
     mutableExtensionsDir = false; # Whether extensions can be installed or updated manually or by VS Code
     userSettings = {
       editor.minimap.enabled = false;
-      window.titleBarStyle = "custom";  # ! IMPORTANT ! - this setting fixed vscode/codium crashing on launch under Wayland / Hyprland
+      #window.titleBarStyle = "custom";  # ! IMPORTANT ! - this setting fixed vscode/codium crashing on launch under Wayland / Hyprland
       workbench.colorTheme = "Abyss";
-      workbench.statusBar.visible = true;
+      #workbench.statusBar.visible = true;
       # workbench.colorCustomizations = {
       #   activityBarBadge.background = "#80CBC4";
       #   activityBar.activeBorder = "#80CBC4";
