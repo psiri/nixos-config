@@ -179,7 +179,7 @@
 
   programs.htop.enable = true;
   # programs.htop.settings = {} # TODO - automatically configure htop
-  programs.neovim.enable = true;
+  # programs.neovim.enable = true;
   # programs.neovim.configure = [] # TODO - automatically configure neovim
   # programs.virt-manager.enable
   programs.waybar.enable = true;
@@ -222,7 +222,6 @@
       mtr
       nano
       neofetch
-      neovim
       netcat
       nix-zsh-completions
       nmap

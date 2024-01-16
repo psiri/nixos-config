@@ -15,7 +15,7 @@
 | Shell                | zsh                 |
 | Status Bar           | Waybar              |
 | Terminal             | Kitty               |
-| Text Editor          | Neovim              |
+| Text Editor          | nano                |
 | Window Manager       | Hyprland            |
 
 ## Instructions
