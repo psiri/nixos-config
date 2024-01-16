@@ -79,7 +79,7 @@
     #     before-sleep 'swaylock --image $lockimg -f'
     #   '';
     # };
-    services.swayidle.enable = {
+    services.swayidle = {
       enable = true;
       events = [
         { event = "before-sleep"; command = "${pkgs.swaylock}/bin/swaylock -fF"; }
