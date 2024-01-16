@@ -59,7 +59,7 @@ $cf = rgba(${config.colorscheme.colors.base0F}FF)
 ## TODO move to /home/
 exec-once = hyprpaper
 # IDLE SCREEN LOCK
-exec = swayidle -w timeout 40 'swaylock -f' timeout 60 'hyprctl dispatch dpms off' resume 'hyprctl dispatch dpms on' before-sleep 'swaylock --image $lockimg -f'
+exec = swayidle -w timeout 600 'swaylock -f' timeout 660 'hyprctl dispatch dpms off' resume 'hyprctl dispatch dpms on' before-sleep 'swaylock --image $lockimg -f'
 #exec-once = swayidle -w timeout 20 'if pgrep -x swaylock; then hyprctl dispatch dpms off; fi' resume 'hyprctl dispatch dpms on' before-sleep 'swaylock --image $lockimg -f'
 
 
