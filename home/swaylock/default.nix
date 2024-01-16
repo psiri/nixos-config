@@ -82,13 +82,13 @@
     services.swayidle = {
       enable = true;
       events = [
-        { event = "before-sleep"; command = "${pkgs.swaylock}/bin/swaylock"; }
+        { event = "before-sleep"; command = "${pkgs.swaylock}/bin/swaylock" -f; }
         { event = "lock"; command = "${pkgs.swaylock}/bin/swaylock"; }
       ];
       timeouts = [
         {
           timeout = 20;
-          command = "${pkgs.swaylock}/bin/swaylock";
+          command = "${pkgs.swaylock}/bin/swaylock -f";
           #command = "${config.home-manager.users.${user}.programs.swaylock.package}/bin/swaylock -f";
         }
         # {
@@ -106,7 +106,7 @@
           resumeCommand = "hyprctl dispatch dpms on";
         }
       ];
-      systemdTarget = "hyprland-session.target";
+      #systemdTarget = "hyprland-session.target";
     };
   };
 }
