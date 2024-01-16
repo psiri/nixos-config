@@ -82,11 +82,11 @@
     services.swayidle = {
       enable = true;
       events = [
-        { event = "before-sleep"; command = "${pkgs.swaylock}/bin/swaylock -fF"; }
+        { event = "before-sleep"; command = "${pkgs.swaylock}/bin/swaylock -f"; }
         { event = "lock"; command = "swaylock"; }
       ];
       timeouts = [
-        { timeout = 20; command = "${pkgs.swaylock}/bin/swaylock -fF"; }
+        { timeout = 20; command = "${pkgs.swaylock}/bin/swaylock -f"; }
         { timeout = 180; command = "${pkgs.systemd}/bin/systemctl suspend"; }
       ];
     };
