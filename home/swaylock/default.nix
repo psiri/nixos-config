@@ -68,7 +68,7 @@
     };
     home.file.".config/hypr/per-app/swaylock.conf" = {
       text = ''
-        bind = $mainMod, L, exec, grim ~/.cache/lockscreen.png; sleep 2; convert ~/.cache/lockscreen.png -blur 0x6 ~/.cache/lockscreen.png; swaylock --image ~/.cache/lockscreen.png 
+        bind = $mainMod, L, exec, grim ~/.cache/lockscreen.png; sleep 2; convert ~/.cache/lockscreen.png -blur 0x6 ~/.cache/lockscreen.png; sleep 2; swaylock --image ~/.cache/lockscreen.png 
       '';
       #--clock --timestr "%R" --datestr "%a %e %B" --effect-blur "5x2" --indicator-radius 200 --indicator-thickness 7 --image "~/Pictures/Wallpaper/4.jpg"
     };
