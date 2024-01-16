@@ -74,10 +74,10 @@
     };
     home.file.".config/swayidle/config" = {
       text = ''
-        timeout 30 '$lockcmd'
+        timeout 30 'grim ~/.cache/lockscreen.png; sleep 2; convert ~/.cache/lockscreen.png -blur 0x6 ~/.cache/lockscreen.png; sleep 2; swaylock --image ~/.cache/lockscreen.png -f'
         'if pgrep swaylock; then hyprctl dispatch dpms off; fi'
         resume 'hyprctl dispatch dpms on'
-        before-sleep '$lockcmd -f'
+        before-sleep 'grim ~/.cache/lockscreen.png; sleep 2; convert ~/.cache/lockscreen.png -blur 0x6 ~/.cache/lockscreen.png; sleep 2; swaylock --image ~/.cache/lockscreen.png -f'
       '';
     };
   };
