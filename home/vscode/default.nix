@@ -221,9 +221,27 @@
           scrollback = 3000;
         };
       };
-      terraform = {
+      "[terraform]" = {
         editor = {
+          defaultFormatter = "hashicorp.terraform";
           formatOnSave = true;
+          formatOnSaveMode = "file";
+        };
+        languageServer = {
+          enable = true;
+        };
+        experimentalFeatures = {
+          validateOnSave = true;
+        };
+        telemetry = {
+          telemetryLevel = "off";
+        };
+      };
+      "[terraform-vars]" = {
+        editor = {
+          defaultFormatter = "hashicorp.terraform";
+          formatOnSave = true;
+          formatOnSaveMode = "file";
         };
         languageServer = {
           enable = true;
