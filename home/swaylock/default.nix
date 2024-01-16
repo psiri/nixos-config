@@ -100,7 +100,7 @@
           resumeCommand = "hyprctl dispatch dpms on";
         }
       ];
-      systemdTarget = "hyprland-session.target";
+      #systemdTarget = "hyprland-session.target";
     };
   };
 }
