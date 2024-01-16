@@ -72,12 +72,12 @@
       '';
       #--clock --timestr "%R" --datestr "%a %e %B" --effect-blur "5x2" --indicator-radius 200 --indicator-thickness 7 --image "~/Pictures/Wallpaper/4.jpg"
     };
-    home.file.".config/swayidle/config" = {
-      text = ''
-        timeout 15 'swaylock --image $lockimg -f && hyprctl dispatch dpms off'
-        resume 'hyprctl dispatch dpms on'
-        before-sleep 'swaylock --image $lockimg -f'
-      '';
-    };
+    # home.file.".config/swayidle/config" = {
+    #   text = ''
+    #     timeout 15 'swaylock --image $lockimg -f && hyprctl dispatch dpms off'
+    #     resume 'hyprctl dispatch dpms on'
+    #     before-sleep 'swaylock --image $lockimg -f'
+    #   '';
+    # };
   };
 }
