@@ -86,8 +86,19 @@
         { event = "lock"; command = "swaylock"; }
       ];
       timeouts = [
-        { timeout = 20; command = "${pkgs.swaylock}/bin/swaylock -f"; }
-        { timeout = 180; command = "${pkgs.systemd}/bin/systemctl suspend"; }
+        {
+          timeout = 20;
+          command = "${pkgs.swaylock}/bin/swaylock -f";
+        }
+        # { 
+        #   timeout = 180;
+        #   command = "${pkgs.systemd}/bin/systemctl suspend";
+        # }
+        {
+          timeout = 40;
+          command = "hyprctl dispatch dpms off";
+          resumeCommand = "hyprctl dispatch dpms on";
+        }
       ];
       systemdTarget = "hyprland-session.target";
     };
