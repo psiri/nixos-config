@@ -14,6 +14,7 @@
 | Session Management   | wlogout             |
 | Shell                | zsh                 |
 | Status Bar           | Waybar              |
+| System Monitor       | bashtop + bottom + htop |
 | Terminal             | Kitty               |
 | Text Editor          | nano                |
 | Window Manager       | Hyprland            |

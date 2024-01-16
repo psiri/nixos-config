@@ -179,8 +179,6 @@
 
   programs.htop.enable = true;
   # programs.htop.settings = {} # TODO - automatically configure htop
-  # programs.neovim.enable = true;
-  # programs.neovim.configure = [] # TODO - automatically configure neovim
   # programs.virt-manager.enable
   programs.waybar.enable = true;
   programs.wireshark.enable = true;

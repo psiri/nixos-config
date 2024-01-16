@@ -33,7 +33,7 @@
 
   home-manager.users.${user}.programs.zsh = {
     enable = true;
-    enableAutosuggestions  = false;
+    enableAutosuggestions  = true;
     enableCompletion = true;
     historySubstringSearch.enable = true;
     initExtra = ''

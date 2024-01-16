@@ -24,7 +24,7 @@
       group_processes = true
 
       # Whether to hide the average cpu entry.
-      hide_avg_cpu = true
+      hide_avg_cpu = false
 
       # Whether to use dot markers rather than braille.
       dot_marker = true
