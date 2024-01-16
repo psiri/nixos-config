@@ -74,7 +74,7 @@
     };
     # home.file.".config/swayidle/config" = {
     #   text = ''
-    #     timeout 15 'swaylock --image $lockimg -f && hyprctl dispatch dpms off'
+    #     timeout 600 'swaylock --image $lockimg -f && hyprctl dispatch dpms off'
     #     resume 'hyprctl dispatch dpms on'
     #     before-sleep 'swaylock --image $lockimg -f'
     #   '';
