@@ -56,13 +56,21 @@
         useBridgecrewIDs = true;
         useDebugLogs = true;
       };
+      debug = {
+        console = {
+          fontFamily = "Hack Nerd Font"; 
+          fontSize = 11;
+        };
+      };
       diffEditor = {
         ignoreTrimWhitespace = false;
       };
       editor = {
+        accessibilitySupport = "off";
         cursorWidth = 2;
         fontFamily = "Hack Nerd Font";     
         fontLigatures = true;
+        fontSize = 11;
         formatOnSave = true;
         formatOnSaveMode = "modificationsIfAvailable";
         minimap = {
@@ -179,6 +187,9 @@
         wordWrap = "on";
         wordWrapColumn = 120;
       };
+      extensions = {
+        autoUpdate = false;
+      };
       git = {
         autofetch = true;
         confirmSync = false;
@@ -218,13 +229,22 @@
           linuxExec = "zsh";
         };
         integrated = {
+          copyOnSelection = true;
+          cursorBlinking = true;
           cursorStyle = "line";
+          # env = {
+          #   linux = {}; # Add environment vars here is needed
+          # }
           defaultProfile = {
             osx = "zsh";
             linux = "zsh";
           };
+          fontSize = 11;
+          fontWeightBold = "bold";
+          ignoreBracketedPasteMode = false;
           minimumContrastRatio = 1;
           persistentSessionScrollback = 1000;
+          rightClickBehavior = "paste";
           scrollback = 3000;
         };
       };
@@ -374,8 +394,10 @@
             };
           };
         };
+        closeOnFileDelete = true;
         colorTheme = "Material Theme Ocean High Contrast";
         iconTheme = "vscode-icons";
+        preferredDarkColorTheme = "Material Theme Ocean High Contrast";
         statusBar = {
           visible = true;
         };
