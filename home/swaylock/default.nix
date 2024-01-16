@@ -82,7 +82,7 @@
     services.swayidle = {
       enable = true;
       events = [
-        { event = "before-sleep"; command = "${pkgs.swaylock}/bin/swaylock" -f; }
+        { event = "before-sleep"; command = "${pkgs.swaylock}/bin/swaylock -f"; }
         { event = "lock"; command = "${pkgs.swaylock}/bin/swaylock"; }
       ];
       timeouts = [
