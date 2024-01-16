@@ -233,7 +233,7 @@
           cursorBlinking = true;
           cursorStyle = "line";
           # env = {
-          #   linux = {}; # Add environment vars here is needed
+          #   linux = {}; # Add environment vars here if needed
           # }
           defaultProfile = {
             osx = "zsh";
@@ -286,7 +286,7 @@
         showReleaseNotes = false;
       };
       window = {
-        zoomLevel = 2;
+        zoomLevel = 1;
       };
       workbench = {
         colorCustomizations = {
