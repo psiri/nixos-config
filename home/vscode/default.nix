@@ -196,6 +196,11 @@
         loginCredentials.SecretKey = "";
         accessURL = "https://api4.prismacloud.io";
       };
+      redhat = {
+        telemetry = {
+          enabled = false;
+        };
+      };
       security = {
         workspace = {
           trust = {
@@ -204,6 +209,8 @@
         };
       };
       telemetry = {
+        enableCrashReporter = false;
+        enableTelemetry = false;
         telemetryLevel = "off";
       };
       terminal = {
@@ -234,6 +241,7 @@
           validateOnSave = true;
         };
         telemetry = {
+          enabled = false;
           telemetryLevel = "off";
         };
       };
@@ -249,6 +257,13 @@
         experimentalFeatures = {
           validateOnSave = true;
         };
+        telemetry = {
+          enabled = false;
+          telemetryLevel = "off";
+        };
+      };
+      update = {
+        showReleaseNotes = false;
       };
       window = {
         zoomLevel = 2;
