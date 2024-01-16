@@ -68,16 +68,16 @@
     };
     home.file.".config/hypr/per-app/swaylock.conf" = {
       text = ''
-        bind = $mainMod, L, exec, grim "~/.cache/lockscreen.png"; convert "~/.cache/lockscreen.png" -blur 0x6 "~/.cache/lockscreen.png"; swaylock --image "~/.cache/lockscreen.png" 
+        bind = $mainMod, L, exec, grim ~/.cache/lockscreen.png; convert ~/.cache/lockscreen.png -blur 0x6 ~/.cache/lockscreen.png; swaylock --image ~/.cache/lockscreen.png
       '';
       #--clock --timestr "%R" --datestr "%a %e %B" --effect-blur "5x2" --indicator-radius 200 --indicator-thickness 7 --image "~/Pictures/Wallpaper/4.jpg"
     };
-    home.file.".config/swayidle/config" = {
-      text = ''
-        timeout 30 'grim ~/.cache/lockscreen.png && convert ~/.cache/lockscreen.png -blur 0x6 ~/.cache/lockscreen.png && swaylock --image ~/.cache/lockscreen.png -f && hyprctl dispatch dpms off'
-        resume 'hyprctl dispatch dpms on'
-        before-sleep 'grim ~/.cache/lockscreen.png && convert ~/.cache/lockscreen.png -blur 0x6 ~/.cache/lockscreen.png && swaylock --image ~/.cache/lockscreen.png -f'
-      '';
-    };
+    # home.file.".config/swayidle/config" = {
+    #   text = ''
+    #     timeout 15 'swaylock --image ~/.cache/lockscreen.png -f && hyprctl dispatch dpms off'
+    #     resume 'hyprctl dispatch dpms on'
+    #     before-sleep 'grim ~/.cache/lockscreen.png && convert ~/.cache/lockscreen.png -blur 0x6 ~/.cache/lockscreen.png && swaylock --image ~/.cache/lockscreen.png -f'
+    #   '';
+    # };
   };
 }

@@ -20,8 +20,9 @@ $terminal = kitty
 $fileManager = dolphin
 $menu = ulauncher-toggle
 $VSCODE_APP = codium
-$lockimg =~/.cache/lockscreen.png
-$lockcmd = grim $lockimg; convert $lockimg -blur 0x6 $lockimg; swaylock --image $lockimg
+#$LOCK_IMG =~/.cache/lockscreen.png
+LOCK_IMG=~/Pictures/Wallpaper/4.jpg
+#$LOCK_CMD = grim $LOCK_IMG; convert $LOCK_IMG -blur 0x6 $LOCK_IMG; swaylock --image $LOCK_IMG
 
 ############################################# hyprpaper #############################################
 
@@ -60,7 +61,9 @@ $cf = rgba(${config.colorscheme.colors.base0F}FF)
 ## TODO move to /home/
 exec-once = hyprpaper
 # IDLE SCREEN LOCK
-exec-once = swayidle -w
+exec-once = swayidle -w timeout 15 'if pgrep swaylock; then hyprctl dispatch dpms off; fi' \
+        resume 'hyprctl dispatch dpms on' \
+        before-sleep 'swaylock --image $LOCK_IMG -f'
 
 
 exec-once = sleep 4 && gnome-keyring-daemon --start --components = pkcs11, secrets, ssh
