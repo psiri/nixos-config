@@ -178,7 +178,7 @@
         };
         wordWrap = "on";
         wordWrapColumn = 120;
-      },
+      };
       git = {
         autofetch = true;
         confirmSync = false;
