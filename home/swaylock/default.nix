@@ -82,13 +82,19 @@
     services.swayidle = {
       enable = true;
       events = [
-        { event = "before-sleep"; command = "${config.home-manager.users.${user}.programs.swaylock.package}/bin/swaylock -f"; }
+        { event = "before-sleep"; command = "${pkgs.swaylock}/bin/swaylock -f"; }
         { event = "lock"; command = "swaylock"; }
       ];
       timeouts = [
         {
           timeout = 20;
-          command = "${config.home-manager.users.${user}.programs.swaylock.package}/bin/swaylock -f";
+          command = "${pkgs.swaylock}/bin/swaylock -f";
+          #command = "${config.home-manager.users.${user}.programs.swaylock.package}/bin/swaylock -f";
+        }
+        {
+          timeout = 30;
+          command = "swaylock -f";
+          #command = "${config.home-manager.users.${user}.programs.swaylock.package}/bin/swaylock -f";
         }
         # { 
         #   timeout = 180;
