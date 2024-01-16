@@ -74,9 +74,9 @@
     };
     home.file.".config/swayidle/config" = {
       text = ''
-        timeout 30 '$lockcmd' \
-        'if pgrep swaylock; then hyprctl dispatch dpms off; fi' \
-        resume 'hyprctl dispatch dpms on' \
+        timeout 30 '$lockcmd'
+        'if pgrep swaylock; then hyprctl dispatch dpms off; fi'
+        resume 'hyprctl dispatch dpms on'
         before-sleep '$lockcmd -f'
       '';
     };
