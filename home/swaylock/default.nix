@@ -89,6 +89,7 @@
         { timeout = 20; command = "${pkgs.swaylock}/bin/swaylock -f"; }
         { timeout = 180; command = "${pkgs.systemd}/bin/systemctl suspend"; }
       ];
+      systemdTarget = "hyprland-session.target";
     };
   };
 }
