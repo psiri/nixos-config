@@ -83,7 +83,7 @@
       enable = true;
       events = [
         { event = "before-sleep"; command = "${pkgs.swaylock}/bin/swaylock -f"; }
-        { event = "lock"; command = "swaylock"; }
+        { event = "lock"; command = "${pkgs.swaylock}/bin/swaylock"; }
       ];
       timeouts = [
         {
@@ -92,8 +92,8 @@
           #command = "${config.home-manager.users.${user}.programs.swaylock.package}/bin/swaylock -f";
         }
         {
-          timeout = 30;
-          command = "swaylock -f";
+          timeout = 100;
+          command = "${pkgs.swaylock}/bin/swaylock -f";
           #command = "${config.home-manager.users.${user}.programs.swaylock.package}/bin/swaylock -f";
         }
         # { 
