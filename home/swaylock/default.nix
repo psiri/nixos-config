@@ -79,5 +79,16 @@
     #     before-sleep 'swaylock --image $lockimg -f'
     #   '';
     # };
+    services.swayidle.enable = {
+      enable = true;
+      events = [
+        { event = "before-sleep"; command = "${pkgs.swaylock}/bin/swaylock -fF"; }
+        { event = "lock"; command = "swaylock"; }
+      ];
+      timeouts = [
+        { timeout = 20; command = "${pkgs.swaylock}/bin/swaylock -fF"; }
+        { timeout = 180; command = "${pkgs.systemd}/bin/systemctl suspend"; }
+      ];
+    };
   };
 }
