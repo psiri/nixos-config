@@ -91,11 +91,11 @@
           command = "${pkgs.swaylock}/bin/swaylock -f";
           #command = "${config.home-manager.users.${user}.programs.swaylock.package}/bin/swaylock -f";
         }
-        # {
-        #   timeout = 100;
-        #   command = "${pkgs.swaylock}/bin/swaylock -f";
-        #   #command = "${config.home-manager.users.${user}.programs.swaylock.package}/bin/swaylock -f";
-        # }
+        {
+          timeout = 40;
+          #command = "${pkgs.swaylock}/bin/swaylock -f";
+          command = "${config.home-manager.users.${user}.programs.swaylock.package}/bin/swaylock -f";
+        }
         # { 
         #   timeout = 180;
         #   command = "${pkgs.systemd}/bin/systemctl suspend";
