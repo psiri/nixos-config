@@ -167,7 +167,7 @@
         slack
         slurp             # used in conjunction with grim for screenshotting while flameshot is broken
         spotify
-        # teams-for-linux   # UNOFFICIAL MS Teams client
+        # teams-for-linux # UNOFFICIAL MS Teams client, dropping this in favor of browser-based client
         # teamviewer
         vlc
         wl-clipboard      # tool for accessing Wayland clipboards
