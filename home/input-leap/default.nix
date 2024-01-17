@@ -4,7 +4,7 @@
   outputs,
   user,
   pkgs,
-  unstable,
+  nixpkgs-unstable,
   ...
 }: 
 
