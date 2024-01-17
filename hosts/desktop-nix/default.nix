@@ -35,14 +35,15 @@ in
       ../../home/firefox
       ../../home/git
       ../../home/gpg
+      ../../home/gtk
       ../../home/hypr
       #../../home/input-leap
       #../../home/kde
       ../../home/kitty
+      ../../home/rkvm
       ../../home/ulauncher
       #../../home/virt
       ../../home/waybar
-      ../../home/gtk
       ../../home/wlogout
     ];
 

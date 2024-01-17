@@ -168,7 +168,6 @@
         # openconnect     # Open-source multi-VPN client supporting Cisco Anyconnect, Pulse Secure, GlobalProtect, etc
         # opensnitch      # Open-source application firewall
         remmina           # Open-source remote desktop client
-        rkvm
         gnome.seahorse    # encryption key and password manager
         slack
         slurp             # used in conjunction with grim for screenshotting while flameshot is broken
