@@ -12,7 +12,7 @@
       enableCrypro = true;
       enableDragDrop = false;
       extraFlags = [ "-f" ];
-      name = "${networking.hostName}";
+      name = "${config.networking.hostName}";
       #server = "your-servername-here:24800"
     };
   };
