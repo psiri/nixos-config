@@ -26,7 +26,7 @@ in
       #../../hardware/wireless
 
       ../../home
-      ../../home/barrier
+      #../../home/barrier # Does not support Wayland
       ../../home/bottom
       #../../home/codium
       #../../home/copyq
