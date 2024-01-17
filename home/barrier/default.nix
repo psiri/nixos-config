@@ -9,7 +9,7 @@
   home-manager.users.${user} = {
     services.barrier.client = {
       enable = true;
-      enableCrypro = true;
+      enableCrypto = true;
       enableDragDrop = false;
       extraFlags = [ "-f" ];
       name = "${config.networking.hostName}";
