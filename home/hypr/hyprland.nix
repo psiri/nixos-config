@@ -17,7 +17,7 @@ $MOD2 = ALT
 
 # Set programs that you use
 $terminal = kitty
-$fileManager = dolphin
+$fileManager = thunar
 $menu = ulauncher-toggle
 $VSCODE_APP = codium
 $lockimg =~/Pictures/Wallpaper/4.jpg

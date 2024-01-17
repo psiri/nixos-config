@@ -4,7 +4,7 @@
 | Application Launcher | ulauncher           |
 | Audio                | Pipewire            |
 | Display Server       | Wayland             |
-| File Manager         | Dolphin             |
+| File Manager         | Thunar              |
 | IDE                  | Visual Studio Code  |
 | Notes                | joplin-desktop      |
 | Notifications        | dunst               |

@@ -155,7 +155,6 @@
       packages = with pkgs; [
         # discord
         # docker
-        # dolphin           # file manager
         # etcher          # Belena Etcher
         # flameshot       # ! Not yet working on Wayland :( TODO - revisit future release
         # gimme-aws-creds # CLI wrapper for Okta/ SAML2.0 IDPs and AWS
@@ -176,7 +175,7 @@
         # teamviewer
         vlc
         wl-clipboard      # tool for accessing Wayland clipboards
-        xfce.thunar
+        xfce.thunar       # file manager
         zoom-us
         # TODO script SecureCRT install
       ];
