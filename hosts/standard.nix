@@ -174,9 +174,9 @@
         spotify
         # teams-for-linux # UNOFFICIAL MS Teams client, dropping this in favor of browser-based client
         # teamviewer
-        thunar
         vlc
         wl-clipboard      # tool for accessing Wayland clipboards
+        xfce.thunar
         zoom-us
         # TODO script SecureCRT install
       ];
