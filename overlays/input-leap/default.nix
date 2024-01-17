@@ -1,7 +1,7 @@
 
 (self: super: {
   # Customized input-leap package
-  input-leap = super.input-leap.override (old: {
+  input-leap = super.input-leap.overrideAttrs (old: {
     #version = "unstable-2023-12-27";
     src = super.fetchFromGitHub {
       owner = "input-leap";
