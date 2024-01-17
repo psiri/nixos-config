@@ -3,7 +3,7 @@
   # Customized input-leap package
   input-leap = super.input-leap.override (old: {
     version = "unstable-2023-12-27";
-    src = fetchFromGitHub {
+    src = { #fetchFromGitHub {
       owner = "input-leap";
       repo = "input-leap";
       rev = "ecf1fb6645af7b79e6ea984d3c9698ca0ab6f391";
