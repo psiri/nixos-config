@@ -4,7 +4,6 @@
   outputs,
   user,
   pkgs,
-  nixpkgs-unstable,
   ...
 }: 
 
@@ -14,7 +13,7 @@
 # in
 
 {
-  users.users.${user}.packages = [ nixpkgs-unstable.input-leap ];
+  users.users.${user}.packages = [ pkgs.input-leap ];
   #imports = [ "${nixpkgs-unstable-input-leap}" ];
 }
 

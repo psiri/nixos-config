@@ -22,7 +22,6 @@
   outputs = {
     self,
     nixpkgs,
-    nixpkgs-unstable,
     home-manager,
     #hyprland,
     nix-colors,
