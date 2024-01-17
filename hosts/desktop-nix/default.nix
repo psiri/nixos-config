@@ -36,6 +36,7 @@ in
       ../../home/git
       ../../home/gpg
       ../../home/hypr
+      ../../home/input-leap
       #../../home/kde
       ../../home/kitty
       ../../home/ulauncher

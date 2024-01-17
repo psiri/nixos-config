@@ -157,7 +157,6 @@
         # gimme-aws-creds # CLI wrapper for Okta/ SAML2.0 IDPs and AWS
         # github-desktop
         grim              # simple screenshot tool while flameshot is broken
-        input-leap
         joplin-desktop
         kitty
         obs-studio
