@@ -51,7 +51,7 @@
             hash = "sha256-TEv1xR1wUG3wXNATLLIZKOtW05X96wsPNOlE77OQK54=";
             fetchSubmodules = true;
           };
-        }
+        };
       })
       # You can also add overlays exported from other flakes:
       # neovim-nightly-overlay.overlays.default
