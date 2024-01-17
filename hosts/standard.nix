@@ -155,7 +155,7 @@
       packages = with pkgs; [
         # discord
         # docker
-        dolphin           # file manager
+        # dolphin           # file manager
         # etcher          # Belena Etcher
         # flameshot       # ! Not yet working on Wayland :( TODO - revisit future release
         # gimme-aws-creds # CLI wrapper for Okta/ SAML2.0 IDPs and AWS
@@ -174,6 +174,7 @@
         spotify
         # teams-for-linux # UNOFFICIAL MS Teams client, dropping this in favor of browser-based client
         # teamviewer
+        thunar
         vlc
         wl-clipboard      # tool for accessing Wayland clipboards
         zoom-us
