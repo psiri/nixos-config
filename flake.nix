@@ -64,7 +64,7 @@
     nixosConfigurations = {
       # FIXME replace with your hostname
       desktop-nix = nixpkgs.lib.nixosSystem {
-        specialArgs = {inherit nix-colors user plymouth_theme inputs outputs unstable;};
+        specialArgs = {inherit nix-colors user plymouth_theme inputs outputs;};
         modules = [
           ./hosts/desktop-nix                        # > Our host-specific nixos configuration file <
           ./modules/audio/default.nix               # Standard audio module using pipewire
