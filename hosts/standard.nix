@@ -38,6 +38,8 @@
       # outputs.overlays.modifications
       # outputs.overlays.unstable-packages
 
+
+      ../overlays
       # You can also add overlays exported from other flakes:
       # neovim-nightly-overlay.overlays.default
 
@@ -157,6 +159,7 @@
         # gimme-aws-creds # CLI wrapper for Okta/ SAML2.0 IDPs and AWS
         # github-desktop
         grim              # simple screenshot tool while flameshot is broken
+        input-leap
         joplin-desktop
         kitty
         obs-studio
