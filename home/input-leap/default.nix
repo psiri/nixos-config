@@ -14,7 +14,7 @@
 # in
 
 {
-  config.users.users.${user}.packages = [ unstable.input-leap ];
+  users.users.${user}.packages = [ nixpkgs-unstable.input-leap ];
   #imports = [ "${nixpkgs-unstable-input-leap}" ];
 }
 
