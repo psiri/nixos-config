@@ -4,16 +4,18 @@
   outputs,
   user,
   pkgs,
+  unstable,
   ...
 }: 
 
-let
-  nixpkgs-unstable-input-leap = builtins.fetchurl "https://github.com/NixOS/nixpkgs/tree/nixos-unstable/pkgs/applications/misc/input-leap/default.nix";
-  #builtins.fetchurl "https://github.com/NixOS/nixpkgs/tree/nixos-unstable/pkgs/misc/input-leap";
-in
+# let
+#   nixpkgs-unstable-input-leap = builtins.fetchurl "https://github.com/NixOS/nixpkgs/tree/nixos-unstable/pkgs/applications/misc/input-leap/default.nix";
+#   #builtins.fetchurl "https://github.com/NixOS/nixpkgs/tree/nixos-unstable/pkgs/misc/input-leap";
+# in
 
 {
-  imports = [ "${nixpkgs-unstable-input-leap}" ];
+  users.users.${user}.packages = [ unstable.input-leap ];
+  #imports = [ "${nixpkgs-unstable-input-leap}" ];
 }
 
 
