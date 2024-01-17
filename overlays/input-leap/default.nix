@@ -1,11 +1,3 @@
-{
-  config,
-  inputs,
-  outputs,
-  user,
-  pkgs,
-  ...
-}: 
 
 (self: super: {
   # Customized input-leap package

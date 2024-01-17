@@ -39,7 +39,7 @@
       # outputs.overlays.unstable-packages
 
 
-      ../overlays/input-leap/default.nix
+      (import ../overlays/input-leap/default.nix)
 
       # (self: super: {
       #   # Customized input-leap package
@@ -56,6 +56,7 @@
       #     # };
       #   });
       # })
+
       # You can also add overlays exported from other flakes:
       # neovim-nightly-overlay.overlays.default
 
