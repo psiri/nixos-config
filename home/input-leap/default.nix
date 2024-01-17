@@ -20,7 +20,7 @@ in
     [ # Include the results of the hardware scan.
       /etc/nixos/hardware-configuration.nix
       # Override the input-leap module
-      <nixos-unstable/nixos/modules/programs/input-leap.nix>
+      <nixos-unstable/nixos/modules/applications/misc/input-leap.nix>
     ];
 
   # Override select packages to use the unstable channel
