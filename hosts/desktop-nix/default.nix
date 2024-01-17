@@ -25,8 +25,8 @@ in
       #../../hardware/rgb
       #../../hardware/wireless
 
-      ../../barrier
       ../../home
+      ../../home/barrier
       ../../home/bottom
       #../../home/codium
       #../../home/copyq
