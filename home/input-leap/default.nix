@@ -18,7 +18,7 @@ in
   disabledModules = [ "programs/input-leap.nix" ];
   imports =
     [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
+      /etc/nixos/hardware-configuration.nix
       # Override the input-leap module
       <nixos-unstable/nixos/modules/programs/input-leap.nix>
     ];
