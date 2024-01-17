@@ -39,7 +39,7 @@
       # outputs.overlays.unstable-packages
 
 
-      ../overlays/input-leap
+      ../overlays/input-leap/default.nix
 
       # (self: super: {
       #   # Customized input-leap package
