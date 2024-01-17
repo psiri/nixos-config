@@ -11,14 +11,14 @@
     client = {
       enable = true;
       #settings = {};
-      settings.certificate = "~/.config/rkvm/rkvm-certificate.pem";
+      settings.certificate = "/home/${user}/.config/rkvm/rkvm-certificate";
       settings.server = "10.0.100.50:5258";
       settings.password = "123456789101112131415161718192021";
     };
     server = {
       enable = false;
       #settings = {};
-      settings.certificate = "~/.config/rkvm/rkvm-certificate.pem";
+      settings.certificate = "/home/${user}/.config/rkvm/rkvm-certificate.pem";
       settings.key = "~/.config/rkvm/rkvm-key.pem";
       settings.listen = "0.0.0.0:5258";
       settings.password = "123456789101112131415161718192021";
