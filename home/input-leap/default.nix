@@ -7,7 +7,7 @@
   ...
 }: {
   
-  environment.systemPackages = with pkgs; [
-    nixpkgs-unstable.input-leap
+  users.users.${user}.packages = with pkgs; [
+    ${nixpkgs-unstable}.input-leap
   ];
 }
