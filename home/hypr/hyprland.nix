@@ -103,7 +103,7 @@ general {
     gaps_out = 6
     border_size = 3
     resize_on_border = true
-    layout = master
+    layout = dwindle
     col.active_border = $c0 $ca $c3 $c2 $c1 $c0 90deg
     col.inactive_border = $c0 $c1 90deg
 }
