@@ -43,7 +43,7 @@
 
       (self: super: {
         # Customized input-leap package
-        input-leap = super.input-leap.override {
+        input-leap = super.input-leap.override (old: rec {
           version = "unstable-2023-12-27";
           src.rev = "ecf1fb6645af7b79e6ea984d3c9698ca0ab6f391";
           src.hash = "sha256-TEv1xR1wUG3wXNATLLIZKOtW05X96wsPNOlE77OQK54=";
@@ -54,7 +54,7 @@
           #   hash = "sha256-TEv1xR1wUG3wXNATLLIZKOtW05X96wsPNOlE77OQK54=";
           #   fetchSubmodules = true;
           # };
-        };
+        });
       })
       # You can also add overlays exported from other flakes:
       # neovim-nightly-overlay.overlays.default
