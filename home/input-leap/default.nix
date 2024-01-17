@@ -8,7 +8,7 @@
 }: 
 
 let
-  nixpkgs-unstable-input-leap = builtins.fetchurl "https://github.com/NixOS/nixpkgs/blob/master/pkgs/applications/misc/input-leap";
+  nixpkgs-unstable-input-leap = builtins.fetchurl "https://github.com/NixOS/nixpkgs/tree/nixos-unstable/pkgs/misc/input-leap";
 in
 
 {
