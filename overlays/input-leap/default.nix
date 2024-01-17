@@ -1,4 +1,4 @@
-{ pkgs, config, lib, ... }:
+#{ pkgs, config, lib, ... }:
 
 (self: super: {
   # Customized input-leap package
