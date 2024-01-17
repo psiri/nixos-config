@@ -8,6 +8,6 @@
 }: {
   
   environment.systemPackages = with pkgs; [
-    nixos-unstable.input-leap
+    nixpkgs-unstable.input-leap
   ];
 }
