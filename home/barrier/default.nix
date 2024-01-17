@@ -13,7 +13,7 @@
       enableDragDrop = false;
       extraFlags = [ "-f" ];
       name = "${config.networking.hostName}";
-      server = "llap1:24800"
+      server = "llap1:24800";
     };
   };
 }
