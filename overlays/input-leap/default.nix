@@ -1,3 +1,12 @@
+{
+  config,
+  inputs,
+  outputs,
+  user,
+  pkgs,
+  ...
+}: 
+
 (self: super: {
   # Customized input-leap package
   input-leap = super.input-leap.override (old: rec {
