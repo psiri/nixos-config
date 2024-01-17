@@ -218,7 +218,6 @@
       gnutar # tar
       hack-font
       htop
-      input-leap
       iputils
       jq
       libsecret
