@@ -52,6 +52,21 @@ in
 
     networking = {
       hostName = "ll-nix1";
+      interfaces = {
+        enp0s20f0u2 = {
+          ipv4 = {
+            addresses = {
+              address = "10.0.100.50";
+              prefixLength = "24";
+            };
+            routes = {
+              address = "0.0.0.0";
+              prefixLength = "0";
+              vis = "10.0.100.1";
+            };
+          };
+        };
+      };
       firewall.enable = true;
       networkmanager.enable = true;
     };
