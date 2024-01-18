@@ -61,13 +61,13 @@ in
                 prefixLength = "24";
               }
             ];
-            routes = {
-              [
+            routes = [
+              {
                 address = "0.0.0.0";
                 prefixLength = "0";
                 via = "10.0.100.1";
-              ];
-            };
+              };
+            ];
           };
         };
       };
