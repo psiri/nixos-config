@@ -16,7 +16,7 @@ in
       ./per-device.nix # per device hypr configuration
 
       #./hardware-configuration.nix # machine hardware config
-      /etc/nixos/hardware-configuration.nix
+      ./hardware-configuration.nix
       ../standard.nix # standard or server configs
 
       #../../hardware/audio # change to pipewire, move to home

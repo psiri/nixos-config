@@ -60,7 +60,8 @@ $cf = rgba(${config.colorscheme.colors.base0F}FF)
 exec-once = hyprpaper
 # IDLE SCREEN LOCK
 exec = swayidle -w timeout 600 'swaylock -f' timeout 660 'hyprctl dispatch dpms off' resume 'hyprctl dispatch dpms on' before-sleep 'swaylock --image $lockimg -f'
-# TODO - add 'if pgrep -x swaylock; then hyprctl dispatch dpms off; fi' shut off monitors during manual lock
+# TODO - shut off monitors during manual lock: add
+# 'if pgrep -x swaylock; then hyprctl dispatch dpms off; fi'
 
 
 exec-once = sleep 4 && gnome-keyring-daemon --start --components = pkcs11, secrets, ssh
