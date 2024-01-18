@@ -51,7 +51,7 @@ in
     home-manager.users.${user}.colorscheme = inputs.nix-colors.colorSchemes.${scheme};
 
     networking = {
-      hostName = "desktop-nix";
+      hostName = "ll-nix1";
       firewall.enable = true;
       networkmanager.enable = true;
     };
