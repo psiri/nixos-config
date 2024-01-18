@@ -55,14 +55,18 @@ in
       interfaces = {
         enp0s20f0u2 = {
           ipv4 = {
-            addresses = {
-              address = "10.0.100.50";
-              prefixLength = "24";
-            };
+            addresses = [
+              {
+                address = "10.0.100.50";
+                prefixLength = "24";
+              }
+            ];
             routes = {
-              address = "0.0.0.0";
-              prefixLength = "0";
-              vis = "10.0.100.1";
+              [
+                address = "0.0.0.0";
+                prefixLength = "0";
+                via = "10.0.100.1";
+              ];
             };
           };
         };
