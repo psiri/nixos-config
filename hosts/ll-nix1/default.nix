@@ -40,7 +40,7 @@ in
       #../../home/input-leap
       #../../home/kde
       ../../home/kitty
-      ../../home/rkvm
+      #../../home/rkvm
       ../../home/ulauncher
       #../../home/virt
       ../../home/waybar
