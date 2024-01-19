@@ -26,6 +26,7 @@
     ../home/chrome
     ../modules/console
     ../home/swaylock
+    ../home/thunar # file manager
     ../home/vscode
     ../home/zsh
   ];
@@ -175,7 +176,6 @@
         # teamviewer
         vlc
         wl-clipboard      # tool for accessing Wayland clipboards
-        xfce.thunar       # file manager
         zoom-us
         # TODO script SecureCRT install
       ];
