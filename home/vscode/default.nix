@@ -286,7 +286,7 @@
       };
       window = {
         zoomLevel = 1;
-        titleBarStyle = "custom";  # ! IMPORTANT ! - this setting fixed vscode/codium crashing on launch under Wayland / Hyprland
+        #titleBarStyle = "custom";  # ! IMPORTANT ! - this setting fixed vscode/codium crashing on launch under Wayland / Hyprland
       };
       workbench = {
         colorCustomizations = {
