@@ -45,6 +45,7 @@ in
       #../../home/virt
       ../../home/waybar
       ../../home/wlogout
+      ../../modules/brightness
     ];
 
     colorscheme = inputs.nix-colors.colorSchemes.${scheme};

@@ -99,7 +99,7 @@
         },
 
         "backlight": {
-          "format": " {icon} {percent} ",
+          "format": " {icon} {percent}% ",
           "format-icons": [
             "󰃟"
           ],
