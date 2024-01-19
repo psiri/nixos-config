@@ -48,7 +48,6 @@
     keybindings = [];
     mutableExtensionsDir = false; # Whether extensions can be installed or updated manually or by VS Code
     userSettings = {
-      window.titleBarStyle = "custom";  # ! IMPORTANT ! - this setting fixed vscode/codium crashing on launch under Wayland / Hyprland
       checkov = {
         checkovVersion = "latest";
         prismaURL = "https://api4.prismacloud.io";
@@ -287,6 +286,7 @@
       };
       window = {
         zoomLevel = 1;
+        titleBarStyle = "custom";  # ! IMPORTANT ! - this setting fixed vscode/codium crashing on launch under Wayland / Hyprland
       };
       workbench = {
         colorCustomizations = {
