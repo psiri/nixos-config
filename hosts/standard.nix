@@ -26,7 +26,7 @@
     ../home/chrome
     ../modules/console
     ../home/swaylock
-    ../home/vscode
+    #../home/vscode
     ../home/zsh
   ];
 
