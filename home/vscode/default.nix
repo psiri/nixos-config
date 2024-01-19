@@ -189,6 +189,10 @@
       extensions = {
         autoUpdate = false;
       };
+      explorer = {
+        confirmDelete = false;
+        confirmDragAndDrop = false;
+      };
       git = {
         autofetch = true;
         confirmSync = false;
