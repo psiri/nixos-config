@@ -16,9 +16,9 @@
     autosuggestions.enable = true;
     interactiveShellInit = ''
       source ${pkgs.zsh-history-substring-search}/share/zsh-history-substring-search/zsh-history-substring-search.zsh
-      bindkey '^[0A' history-substring-search-up
+      bindkey '^[OA' history-substring-search-up
       bindkey '^[[A' history-substring-search-up
-      bindkey '^[0B' history-substring-search-down
+      bindkey '^[OB' history-substring-search-down
       bindkey '^[[B' history-substring-search-down
     '';
     # Automatically start Hyprland after TTY login. 
