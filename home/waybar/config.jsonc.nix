@@ -60,12 +60,13 @@
         ],
 
         "hyprland/workspaces": {
-          "format": " {icon} ",
+          "format": "{name}: {icon} ",
           "format-icons": {
             "default": "󰄰",
             "active": ""
           },
-          "on-click": "activate"
+          "on-click": "activate",
+          "sort-by-number": true
         },
 
         "hyprland/submap": {
