@@ -73,7 +73,15 @@ in
         };
       };
       firewall.enable = true;
-      networkmanager.enable = true;
+      networkmanager = {
+        enable = true;
+        # appendNameservers = [
+        #   "server-ip-1"
+        # ];
+        unmanaged = [ # A list of interfaces that will not be managed by networkmanager
+          "enp0s20f0u2"
+        ];
+      };
     };
 
     hardware.opengl.enable = true;
