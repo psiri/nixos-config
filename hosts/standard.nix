@@ -88,6 +88,7 @@
   services.ntp.enable = true; # Enable NTP
 
   # TODO: This is just an example, be sure to use whatever bootloader you prefer
+  boot.tmp.useTmpfs = false; # FIXME ! IMPORTANT ! - This is just a workaround for this specific system which only has 8GB ram!
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
