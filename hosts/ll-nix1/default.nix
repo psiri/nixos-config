@@ -48,6 +48,7 @@ in
       ../../modules/brightness
     ];
 
+    boot.tmp.useTmpfs = false; # FIXME ! IMPORTANT ! - This is just a workaround for this specific system which only has 8GB ram!
     colorscheme = inputs.nix-colors.colorSchemes.${scheme};
     home-manager.users.${user}.colorscheme = inputs.nix-colors.colorSchemes.${scheme};
 
