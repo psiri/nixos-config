@@ -11,7 +11,7 @@
         "layer": "top",
         // "output": [],
         "position": "top",
-        "height": 16,    // blank = dynamic
+        //"height": 16,    // blank = dynamic
         // "width": "",  // blank = dynamic
         // "margin": "", // margin value using the css format without units
         "margin-top": 2,
@@ -137,10 +137,10 @@
             "󰤥",
             "󰤨"
           ],
-          "format-wifi": "{icon} {essid} ({signalStrength}%) 󰞒 {bandwidthDownBytes}\n󰞕 {bandwidthUpBytes}",
+          "format-wifi": "{icon} {essid} ({signalStrength}%) 󰞒 {bandwidthDownBytes} | 󰞕 {bandwidthUpBytes}",
           "format-disconnected": "", // empty format hides the module
           "format-disconnected": "󰤮",
-          "format-ethernet": "{icon} {ifname} 󰞒 {bandwidthDownBytes}\n󰞕 {bandwidthUpBytes}", 
+          "format-ethernet": "{icon} {ifname} 󰞒 {bandwidthDownBytes} | 󰞕 {bandwidthUpBytes}", 
           "on-click": "kitty --class nmwui nmtui",
           "tooltip": true,
           "tooltip-format": "󰢮 {ifname}\n󰩟 {ipaddr}/{cidr}\n󰩟 Gateway: {gwaddr}\nNetmask: {netmask}\n{icon} {essid}\n󱑽 {signalStrength}% {signaldBm} dBm {frequency} MHz\n󰞒 {bandwidthDownBytes}\n󰞕 {bandwidthUpBytes}",
