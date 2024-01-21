@@ -184,7 +184,7 @@
 
   programs.htop.enable = true;
   # programs.htop.settings = {} # TODO - automatically configure htop
-  programs.nm-applet.enable = true; # GUI application for network manager
+  #programs.nm-applet.enable = true; # GUI application for network manager
   # programs.virt-manager.enable
   programs.waybar.enable = true;
   programs.wireshark.enable = true;

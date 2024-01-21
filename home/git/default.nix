@@ -18,7 +18,7 @@
     };
     signing = {
       key = "3CA7C048A915F7F2E6DB3442515C6F9D35B95FC0";  # FIXME - Change to your signing key
-      signByDefault = true;
+      signByDefault = false;
     };
     userEmail = "paulsiri1@gmail.com";                   # FIXME - Change to your email
     userName = "Paul Siri";                              # FIXME - Change to your name
