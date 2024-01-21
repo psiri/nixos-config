@@ -129,7 +129,7 @@
 
         "network": {
           "interval": 1,
-          // try auto-detection "interface": "wlp5s0",
+          // use auto-detection "interface": "wlp5s0",
           "format-icons": [
             "󰤯",
             "󰤟",
@@ -137,13 +137,17 @@
             "󰤥",
             "󰤨"
           ],
-          "format-wifi": "{icon} {essid} ({signalStrength}%)",
+          "format-wifi": "{icon} {essid} ({signalStrength}%) 󰞒 {bandwidthDownBytes}\n󰞕 {bandwidthUpBytes}",
           "format-disconnected": "", // empty format hides the module
           "format-disconnected": "󰤮",
+          "format-ethernet": "{icon} {ifname} 󰞒 {bandwidthDownBytes}\n󰞕 {bandwidthUpBytes}", 
           "on-click": "kitty --class nmwui nmtui",
           "tooltip": true,
-          "tooltip-format": "󰢮 {ifname}\n󰩟 {ipaddr}/{cidr}\n󰩟 Gateway: {gwaddr}\n{icon} {essid}\n󱑽 {signalStrength}% {signaldBm} dBm {frequency} MHz\n󰞒 {bandwidthDownBytes}\n󰞕 {bandwidthUpBytes}",
+          "tooltip-format": "󰢮 {ifname}\n󰩟 {ipaddr}/{cidr}\n󰩟 Gateway: {gwaddr}\nNetmask: {netmask}\n{icon} {essid}\n󱑽 {signalStrength}% {signaldBm} dBm {frequency} MHz\n󰞒 {bandwidthDownBytes}\n󰞕 {bandwidthUpBytes}",
           "tooltip-format-disconnected": "Disconnected",
+          "tooltip-format-disabled": "Disabled",
+          "tooltip-format-ethernet": "󰢮 {ifname}\n󰩟 {ipaddr}/{cidr}\n󰩟 Gateway: {gwaddr}\nNetmask: {netmask}\n󰞒 {bandwidthDownBytes}\n󰞕 {bandwidthUpBytes}",
+          "tooltip-format-wifi": "󰢮 {ifname}\n󰩟 {ipaddr}/{cidr}\n󰩟 Gateway: {gwaddr}\nNetmask: {netmask}\n{icon} {essid}\n󱑽 {signalStrength}% {signaldBm} dBm {frequency} MHz\n󰞒 {bandwidthDownBytes}\n󰞕 {bandwidthUpBytes}"
         },
 
         "bluetooth": {
@@ -154,7 +158,7 @@
           "format-connected-battery": " 󰂯 ",
           "format-no-controller": "",
           "tooltip-format-connected": " {device_alias} 󰂄{device_battery_percentage} ",
-          "on-click": "blueberry",
+          "on-click": "bluez",
           "tooltip": true
         },
 
