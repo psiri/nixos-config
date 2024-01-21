@@ -47,10 +47,9 @@
           // "hyprland/window"
         ],
         "modules-right": [
-
+          "network",
           "cpu",
           "memory",
-          "network",
           "bluetooth",
           "backlight",
           // "pulseaudio#microphone",
