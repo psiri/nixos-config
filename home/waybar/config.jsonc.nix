@@ -138,7 +138,7 @@
           "format-wifi": "{icon} {essid} ({signalStrength}%)",
           "format-disconnected": "", // empty format hides the module
           "format-disconnected": "󰤮",
-          "on-click": "iwgtk",
+          "on-click": "nmtui",
           "tooltip": true,
           "tooltip-format": "󰢮 {ifname}\n󰩟 {ipaddr}/{cidr}\n󰩟 Gateway: {gwaddr}\n{icon} {essid}\n󱑽 {signalStrength}% {signaldBm} dBm {frequency} MHz\n󰞒 {bandwidthDownBytes}\n󰞕 {bandwidthUpBytes}",
           "tooltip-format-disconnected": "Disconnected",
