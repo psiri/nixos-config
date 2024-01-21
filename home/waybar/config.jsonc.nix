@@ -97,7 +97,7 @@
           "interval": 1,
           "on-click": "",
           "tooltip": true,
-          "tooltip-format": "Overall: {avail} GiB / {total} GiB ({percentage}%)\n Swap: {swapUsed} GiB / {swapAvail} GiB ({swapPercentage}%)"
+          "tooltip-format": "Used: {used} GiB ({percentage}%) / {total} GiB\nAvailable: {avail} GiB / {total} GiB\n Swap: {swapUsed} GiB ({swapPercentage}%) / {swapAvail} GiB"
         },
 
         "backlight": {
