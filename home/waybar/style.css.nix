@@ -173,6 +173,7 @@
       /* If workspaces is the rightmost module, omit right margin */
       /* .modules-right > widget:last-child > #workspaces, */
       /* .modules-right > widget:last-child > #workspaces, */
+      .modules-right > widget:last-child > #network,
       .modules-right > widget:last-child > #workspaces button,
       .modules-right > widget:last-child > #taskbar button,
       .modules-right > widget:last-child > #custom-launcher,
@@ -183,7 +184,6 @@
       .modules-right > widget:last-child > #backlight,
       .modules-right > widget:last-child > #pulseaudio.audio,
       .modules-right > widget:last-child > #pulseaudio.microphone,
-      .modules-right > widget:last-child > #network,
       .modules-right > widget:last-child > #bluetooth,
       .modules-right > widget:last-child > #battery,
       .modules-right > widget:last-child > #clock,

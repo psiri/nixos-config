@@ -137,10 +137,10 @@
             "󰤥",
             "󰤨"
           ],
-          "format-wifi": "{icon} {essid} ({signalStrength}%) 󰞒 {bandwidthDownBytes} | 󰞕 {bandwidthUpBytes}",
+          "format-wifi": "󰞒 {bandwidthDownBytes} | 󰞕 {bandwidthUpBytes} {icon} {essid} ({signalStrength}%)",
           "format-disconnected": "", // empty format hides the module
           "format-disconnected": "󰤮",
-          "format-ethernet": "{icon} {ifname} 󰞒 {bandwidthDownBytes} | 󰞕 {bandwidthUpBytes}", 
+          "format-ethernet": "󰞒 {bandwidthDownBytes} | 󰞕 {bandwidthUpBytes} {icon} {ifname} ", 
           "on-click": "kitty --class nmwui nmtui",
           "tooltip": true,
           "tooltip-format": "󰢮 {ifname}\n󰩟 {ipaddr}/{cidr}\n󰩟 Gateway: {gwaddr}\nNetmask: {netmask}\n{icon} {essid}\n󱑽 {signalStrength}% {signaldBm} dBm {frequency} MHz\n󰞒 {bandwidthDownBytes}\n󰞕 {bandwidthUpBytes}",
