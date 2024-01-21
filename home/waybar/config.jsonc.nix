@@ -96,7 +96,7 @@
           "format": "󰍛 {used:0.1f}GB ({percentage}%)", // "󰍛 {used:0.1f}GB ({percentage}%) / {total:0.1f}GB",
           "interval": 1,
           "on-click": "",
-          "tooltip": true
+          "tooltip": true,
           "tooltip-format": "Overall: {total} GiB / {avail} GiB ({percentage}%)\n Swap: {swapUsed} GiB / {swapAvail} GiB ({swapPercentage}%)"
         },
 
