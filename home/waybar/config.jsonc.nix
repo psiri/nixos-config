@@ -56,9 +56,7 @@
           // "pulseaudio#microphone",
           "pulseaudio#audio",
           "battery",
-          "tray",
-          "tooltip": true,
-          "tooltip-format": "Overall: {usage}%\n Load: {load}%\nAvg Freq: {avg_frequency} GHz\nMax Freq: {max_frequency} GHz\nMin Freq: {min_frequency} GHz\nCore 0: {usage0}%\nCore 1: {usage1}%\n Core 2: {usage2}%\n Core 3: {usage3}%\n Core 4: {usage4}%\n Core 5: {usage5}%\n Core 6: {usage6}%\n Core 7: {usage7}%"
+          "tray"
         ],
 
         "hyprland/workspaces": {
@@ -90,7 +88,8 @@
           "format": "  {usage}%",
           "interval": 5,
           "on-click": "",
-          "tooltip": false
+          "tooltip": true,
+          "tooltip-format": "Overall: {usage}%\n Load: {load}%\nAvg Freq: {avg_frequency} GHz\nMax Freq: {max_frequency} GHz\nMin Freq: {min_frequency} GHz\nCore 0: {usage0}%\nCore 1: {usage1}%\n Core 2: {usage2}%\n Core 3: {usage3}%\n Core 4: {usage4}%\n Core 5: {usage5}%\n Core 6: {usage6}%\n Core 7: {usage7}%"
         },
 
         "memory": {
