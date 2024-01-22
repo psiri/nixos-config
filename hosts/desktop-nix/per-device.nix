@@ -1,7 +1,8 @@
 {user, ...}: {
   home-manager.users.${user}.home.file.".config/hypr/per-device.conf" = {
     text = ''
-      monitor=,3840x2160,auto,auto
+      monitor=DP-2,3840x2160@144,auto,1.5
+      monitor=DP-3,3840x2160@144,auto,1.5
     '';
   };
 }
