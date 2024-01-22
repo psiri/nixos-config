@@ -53,25 +53,25 @@ in
 
     networking = {
       hostName = "ll-nix1";
-      interfaces = {
-        enp0s20f0u2 = {
-          ipv4 = {
-            addresses = [
-              {
-                address = "10.0.100.50";
-                prefixLength = 24;
-              }
-            ];
-            routes = [
-              {
-                address = "0.0.0.0";
-                prefixLength = 0;
-                via = "10.0.100.1";
-              }
-            ];
-          };
-        };
-      };
+      # interfaces = {
+      #   name = {
+      #     ipv4 = {
+      #       addresses = [
+      #         {
+      #           address = "10.X.Y.X";
+      #           prefixLength = 24;
+      #         }
+      #       ];
+      #       routes = [
+      #         {
+      #           address = "0.0.0.0";
+      #           prefixLength = 0;
+      #           via = "10.X.Y.1";
+      #         }
+      #       ];
+      #     };
+      #   };
+      # };
       firewall.enable = true;
       networkmanager = {
         enable = true;
@@ -79,7 +79,6 @@ in
         #   "server-ip-1"
         # ];
         unmanaged = [ # A list of interfaces that will not be managed by networkmanager
-          "enp0s20f0u2"
         ];
       };
     };
