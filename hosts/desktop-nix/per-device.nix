@@ -3,7 +3,7 @@
     text = ''
       monitor=DP-1,3840x2160,auto,1.5
       monitor=DP-2,3840x2160,auto,1.5
-      monitor=DP-3,3840x2160,-5760x0,1.5,transform,1
+      monitor=DP-3,3840x2160,0x-3840,1.5,transform,1
     '';
   };
 }
