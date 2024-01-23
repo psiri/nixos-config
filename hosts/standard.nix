@@ -202,7 +202,7 @@
       NIXOS_OZONE_WL = "1"; # fixes electron apps in Wayland?
       # TRYING THE BELOW!
       XDG_SESSION_TYPE = "wayland";
-      GIO_EXTRA_MODULES="${pkgs.gvfs}/lib/gio/modules:${getLib dconf}/lib/gio/modules" # Fix to get file managers to be able to mount SMB / CIFS / NFS and trash locations
+      GIO_EXTRA_MODULES="${pkgs.gvfs}/lib/gio/modules:${getLib dconf}/lib/gio/modules"; # Fix to get file managers to be able to mount SMB / CIFS / NFS and trash locations
     };
     shells = with pkgs; [zsh]; # default shell to zsh
     systemPackages = with pkgs; [
