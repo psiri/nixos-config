@@ -4,6 +4,7 @@
   outputs,
   pkgs,
   user,
+  lib,
   ...
 }: {
   programs.thunar = {
