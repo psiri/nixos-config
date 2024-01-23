@@ -167,6 +167,7 @@
         obs-studio
         # openconnect     # Open-source multi-VPN client supporting Cisco Anyconnect, Pulse Secure, GlobalProtect, etc
         # opensnitch      # Open-source application firewall
+        peazip            # archive manager
         remmina           # Open-source remote desktop client
         gnome.seahorse    # encryption key and password manager
         slack
