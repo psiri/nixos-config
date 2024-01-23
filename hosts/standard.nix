@@ -160,6 +160,7 @@
         # flameshot       # ! Not yet working on Wayland :( TODO - revisit future release
         # gimme-aws-creds # CLI wrapper for Okta/ SAML2.0 IDPs and AWS
         # github-desktop
+        gnome.file-roller # archive manager
         grim              # simple screenshot tool while flameshot is broken
         #input-leap
         joplin-desktop
@@ -167,7 +168,6 @@
         obs-studio
         # openconnect     # Open-source multi-VPN client supporting Cisco Anyconnect, Pulse Secure, GlobalProtect, etc
         # opensnitch      # Open-source application firewall
-        peazip            # archive manager
         remmina           # Open-source remote desktop client
         gnome.seahorse    # encryption key and password manager
         slack
