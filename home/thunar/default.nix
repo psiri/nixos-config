@@ -24,9 +24,9 @@
     };
   };
 
-  networking.firewall.extraCommands = ''iptables -t raw -A OUTPUT -p udp -m udp --dport 137 -j CT --helper netbios-ns'';
-  fileSystems."/mnt/share" = {
-    device = "//sv1-nas1";
+  #networking.firewall.extraCommands = ''iptables -t raw -A OUTPUT -p udp -m udp --dport 137 -j CT --helper netbios-ns'';
+  fileSystems."/mnt/nas" = {
+    device = "//sv1-nas1.bitbodyguard.local:/";
     fsType = "cifs";
     # options = let
     #   # this line prevents hanging on network split
