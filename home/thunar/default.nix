@@ -13,6 +13,13 @@
       thunar-volman
     ];
   };
-  services.gvfs.enable = true; # Mount, trash, and other functionalities
-  services.tumbler.enable = true; # Thumbnail support for images
+  services = {
+    gvfs = {
+      enable = true; # Mount, trash, and other functionalities
+      package = lib.mkForce pkgs.gnome3.gvfs; # use the gnome versions to support smb:// in thunar
+    };
+    tumbler = {
+      enable = true; # Thumbnail support for images
+    };
+  };
 }
