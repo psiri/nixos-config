@@ -208,6 +208,7 @@
       ansible
       awscli2 # AWS CLI v2
       cifs-utils
+      gnome.nautilus
       curl
       dig
       dnsutils
@@ -236,7 +237,6 @@
       python311Packages.boto3
       python311Packages.pip
       python311Packages.xmltodict
-      samba
       ssm-session-manager-plugin # AWS Systems Manager Session Manager plugin
       swayidle
       swaylock
