@@ -207,6 +207,7 @@
     systemPackages = with pkgs; [
       ansible
       awscli2 # AWS CLI v2
+      cifs-utils
       curl
       dig
       dnsutils
