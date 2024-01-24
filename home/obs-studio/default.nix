@@ -6,7 +6,7 @@
   user,
   ...
 }: {
-  programs.obs-studio = {
+  home-manager.users.${user}.programs.obs-studio = {
     enable = true;
     plugins = [ # List of plugins to install
 
