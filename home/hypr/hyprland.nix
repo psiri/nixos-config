@@ -189,6 +189,11 @@ bind = $mainMod SHIFT, V, togglefloating,
 bind = $mainMod, P, pseudo, dwindle
 bind = $mainMod SHIFT, J, togglesplit, # dwindle
 
+# Window Rules
+windowrulev2 = opacity 1.0 1.0, title:(.*)(- YouTube)  # Disables opacity of any YouTube windows
+windowrulev2 = nodim, title:(.*)(- YouTube)            # Disables dimming of any YouTube windows
+
+
 # Screenshots
 bind = , print, exec, grim $HOME/Pictures/Screenshots/$(date +'%b-%d-%Y_%H-%M-%S_%p.png')
 bind = CTRL, print, exec, grim -g "$(slurp -o)" $HOME/Pictures/Screenshots/$(date +'%b-%d-%Y_%H-%M-%S_%p.png')
