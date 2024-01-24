@@ -22,8 +22,6 @@
       bind = $mainMod, F, exec, firefox
       windowrulev2 = opacity 1.0 1.0, class:^(firefox)$   # Disables opacity of FireFox windows
       windowrulev2 = nodim, class:^(firefox)$             # Disables dimming of FireFox windows
-      # windowrulev2 = size 700 300, class:^(firefox)$
-      # windowrulev2 = tile, class:^(firefox)$
     '';
   };
 
