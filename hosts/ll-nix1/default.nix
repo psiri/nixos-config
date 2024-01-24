@@ -52,6 +52,7 @@ in
     home-manager.users.${user}.colorscheme = inputs.nix-colors.colorSchemes.${scheme};
 
     networking = {
+      enableIPv6 = false;
       hostName = "ll-nix1";
       # interfaces = {
       #   name = {

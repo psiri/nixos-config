@@ -166,7 +166,6 @@
         #input-leap
         joplin-desktop
         kitty
-        #obs-studio
         # openconnect     # Open-source multi-VPN client supporting Cisco Anyconnect, Pulse Secure, GlobalProtect, etc
         # opensnitch      # Open-source application firewall
         remmina           # Open-source remote desktop client
@@ -202,9 +201,8 @@
       XDG_DATA_HOME = "$HOME/.local/share";
       XDG_STATE_HOME = "$HOME/.local/state";
       NIXOS_OZONE_WL = "1"; # fixes electron apps in Wayland?
-      # TRYING THE BELOW!
       XDG_SESSION_TYPE = "wayland";
-      GIO_EXTRA_MODULES= lib.mkForce "${pkgs.gvfs}/lib/gio/modules:${pkgs.dconf.lib}/lib/gio/modules"; # Fix to get file managers to be able to mount SMB / CIFS / NFS and trash locations
+      GIO_EXTRA_MODULES= lib.mkForce "${pkgs.gvfs}/lib/gio/modules:${pkgs.dconf.lib}/lib/gio/modules"; # Fix to get file managers (thunar, etc) to be able to mount SMB / CIFS / NFS and trash locations using gvfs
     };
     shells = with pkgs; [zsh]; # default shell to zsh
     systemPackages = with pkgs; [
