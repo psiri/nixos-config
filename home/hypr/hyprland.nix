@@ -176,7 +176,7 @@ bind = $mainMod, J, exec, joplin-desktop --enable-features=UseOzonePlatform --oz
 # bind = $mainMod, q, exec, $terminal --title kitty      # imported from ../kitty
 # bind = $mainMod SHIFT, L, exec, wlogout -p layer-shell # imported from ../wlogout
 # bind = $mainMod, SPACE, exec, $menu                    # imported from ../ulauncher
-# bind = $mainMod, W, exec, ${chrome_version}            # imported from ../chrome
+# bind = $mainMod, W, exec, chromium                     # imported from ../chrome
 bind = $mainMod, R, exec, remmina
 bind = $mainMod, S, exec, slack
 bind = $mainMod, T, exec, teams-for-linux
