@@ -21,10 +21,10 @@
   home-manager.users.${user}.home.file.".config/hypr/per-app/${chrome_version}.conf" = {
     text = ''
       bind = $mainMod, W, exec, ${chrome_version}
-      windowrulev2 = opacity 1.0 1.0, class:^(chromium)$   # Disables opacity of Chromium windows
-      windowrulev2 = nodim, class:^(chromium)$             # Disables dimming of Chromium windows
-      windowrulev2 = opacity 1.0 1.0, class:^(chrome)$     # Disables opacity of Chrome windows
-      windowrulev2 = nodim, class:^(chrome)$               # Disables dimming of Chrome windows
+      windowrulev2 = opacity 1.0 1.0, class:^(chromium-browser)$          # Disables opacity of Chromium windows
+      windowrulev2 = nodim, class:^(chromium-browser)$                    # Disables dimming of Chromium windows
+      windowrulev2 = opacity 1.0 1.0, class:^(Google-chrome)$     # Disables opacity of Chrome windows
+      windowrulev2 = nodim, class:^(Google-chrome)$               # Disables dimming of Chrome windows
     '';
   };
 
