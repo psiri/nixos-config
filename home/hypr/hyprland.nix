@@ -191,7 +191,7 @@ bind = $mainMod SHIFT, J, togglesplit, # dwindle
 
 # Window Rules
 windowrulev2 = opacity 1.0 1.0, title:(.*)(- YouTube)  # Disables opacity of any YouTube windows
-windowrulev2 = nodim, title:(.*)(- YouTube)            # Disables dimming of any YouTube windows
+windowrulev2 = nodim, title:(.*) (- YouTube)$          # Disables dimming of any YouTube windows
 
 
 # Screenshots
