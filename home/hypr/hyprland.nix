@@ -171,9 +171,10 @@ master {
 
 # bind = $mainMod, q, exec, $terminal --title kitty      # imported from ../kitty
 bind = $mainMod, J, exec, joplin-desktop --enable-features=UseOzonePlatform --ozone-platform=wayland                # TODO - move to home
-# bind = $mainMod, L, exec, swaylock -c ff000000         # imported from ../swaylock
+# bind = $mainMod, L, exec, swaylock                     # imported from ../swaylock
 # bind = $mainMod SHIFT, L, exec, wlogout -p layer-shell # imported from ../wlogout
 # bind = $mainMod, SPACE, exec, $menu                    # imported from ../ulauncher
+# bind = $mainMod, O, exec, obs                          # imported from ../obs-studio
 bind = $mainMod, R, exec, remmina
 bind = $mainMod, S, exec, slack
 bind = $mainMod, T, exec, teams-for-linux

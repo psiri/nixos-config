@@ -20,6 +20,9 @@
   home-manager.users.${user}.home.file.".config/hypr/per-app/firefox.conf" = {
     text = ''
       bind = $mainMod, F, exec, firefox
+      windowrulev2 = opacity 1.0 1.0, class:^(firefox)$
+      # windowrulev2 = size 700 300, class:^(firefox)$
+      # windowrulev2 = tile, class:^(firefox)$
     '';
   };
 
