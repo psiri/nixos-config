@@ -12,7 +12,7 @@
 
     ];
   };
-  home-manager.users.${user}.home.file.".config/hypr/per-app/obs.conf" = {
+  home-manager.users.${user}.home.file.".config/hypr/per-app/obs-studio.conf" = {
     text = ''
       # windowrulev2 = opacity 0.8 0.8, class:^(obs-studio)$
       # windowrulev2 = size 700 300, class:^(obs-studio)$

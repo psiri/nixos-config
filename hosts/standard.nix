@@ -25,6 +25,7 @@
     # /etc/nixos/hardware-configuration.nix
     ../home/chrome
     ../modules/console
+    ../home/obs-studio
     ../home/swaylock
     ../home/thunar # file manager
     ../home/vscode
