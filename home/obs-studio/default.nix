@@ -17,7 +17,7 @@
       # windowrulev2 = opacity 0.8 0.8, class:^(obs-studio)$
       # windowrulev2 = size 700 300, class:^(obs-studio)$
       # windowrulev2 = tile, class:^(obs-studio)$
-      bind = $mainMod, O, exec, obs
+      bind = $mainMod, o, exec, obs
     '';
   };
 }
