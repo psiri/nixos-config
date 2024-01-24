@@ -10,7 +10,7 @@
     programs.obs-studio = {
       enable = true;
       plugins = [ # List of plugins to install
-        pkgs.obs-studio-plugins.wlrob
+        pkgs.obs-studio-plugins.wlrobs
       ];
     };
     home.file.".config/hypr/per-app/obs-studio.conf" = {
