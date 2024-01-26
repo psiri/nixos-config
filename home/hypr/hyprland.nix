@@ -174,7 +174,7 @@ bind = $mainMod, J, exec, joplin-desktop --enable-features=UseOzonePlatform --oz
 # bind = $mainMod, L, exec, swaylock                     # imported from ../swaylock
 # bind = $mainMod, O, exec, obs                          # imported from ../obs-studio
 # bind = $mainMod, q, exec, $terminal --title kitty      # imported from ../kitty
-bind = $mainMod, S, exec env QT_QPA_PLATFORM_PLUGIN_PATH=~/Documents/github/psiri/nixos-config/pkgs/securecrt/result/usr/lib/scrt-sfx/plugins/platforms/ ~/Documents/github/psiri/nixos-config/pkgs/securecrt/result/usr/bin/SecureCRT
+bind = $mainMod, S, exec ~/Documents/github/psiri/nixos-config/pkgs/securecrt/result/usr/bin/SecureCRT     # env QT_QPA_PLATFORM_PLUGIN_PATH=~/Documents/github/psiri/nixos-config/pkgs/securecrt/result/usr/lib/scrt-sfx/plugins/platforms/ 
 # bind = $mainMod SHIFT, L, exec, wlogout -p layer-shell # imported from ../wlogout
 # bind = $mainMod, SPACE, exec, $menu                    # imported from ../ulauncher
 # bind = $mainMod, W, exec, chromium                     # imported from ../chrome
