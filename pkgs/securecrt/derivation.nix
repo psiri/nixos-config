@@ -1,4 +1,4 @@
-{ stdenv, dpkg, glibc, gcc-unwrapped, autoPatchelfHook, libxcb, libX11, libxkbcommon, cups, libpng, openssl, python310, krb5, xcb-util-cursor, brotli, icu70, freetype, xcbutilkeysyms, fontconfig, argyllcms, xcbutilwm }:
+{ stdenv, dpkg, glibc, gcc-unwrapped, autoPatchelfHook, libxcb, libX11, libxkbcommon, cups, libpng, openssl, python310, krb5, xcb-util-cursor, brotli, icu70, freetype, xcbutilkeysyms, fontconfig, argyllcms, xcbutilwm, pkgs }:
 
 let
 
@@ -8,7 +8,7 @@ let
   allowUnfree = true;
   nixpkgs.config.allowUnfree = true;
   autoPatchelfIgnoreMissingDeps = true;
-
+  QT_QPA_PLATFORM_PLUGIN_PATH="${pkgs.qt6.qtbase.bin}/lib/qt-${pkgs.qt6.qtbase.version}/plugins/platforms";
   src = ./scrt-sfx-9.5.0-3241.ubuntu22-64.x86_64.deb;
 
 in stdenv.mkDerivation {
@@ -37,15 +37,17 @@ in stdenv.mkDerivation {
     xcbutilkeysyms
     fontconfig
     argyllcms
-    #xcbuildHook
     xcbutilwm
-  ]; #++ [ pkgs.python310Packages.python-ironicclient];
+  ] ++ [ pkgs.qt6.qtbase pkgs.qt6.wrapQtAppsHook];
 
   # Required at running time
   buildInputs = [
     glibc
     gcc-unwrapped
-  ]; #++ [ pkgs.xorg.libxcb pkgs.xorg.libX11 pkgs.libxkbcommon];
+  ] ++ [ pkgs.qt6.qtbase pkgs.qt6.wrapQtAppsHook]; #++ [ pkgs.xorg.libxcb pkgs.xorg.libX11 pkgs.libxkbcommon];
+
+  #dontWrapQtApps = true;
+  #wrapQtAppsHook = 1;
 
   unpackPhase = "true";
 
