@@ -193,7 +193,7 @@
     defaultPackages = [ pkgs.strace ]; # remove pearl and rsync
     sessionVariables = rec
     {
-      QT_QPA_PLATFORM = "wayland;xcb";
+      #QT_QPA_PLATFORM = "wayland";
       #QT_QPA_PLATFORMTHEME = "qt5ct";
       GTK_THEME = "${config.colorscheme.slug}"; # sets default gtk theme the package built by nix-colors
       XDG_CACHE_HOME = "$HOME/.cache";
