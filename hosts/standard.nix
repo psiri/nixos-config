@@ -193,7 +193,7 @@
     defaultPackages = [ pkgs.strace ]; # remove pearl and rsync
     sessionVariables = rec
     {
-      QT_QPA_PLATFORM = "wayland";
+      QT_QPA_PLATFORM = "wayland;xcb";
       #QT_QPA_PLATFORMTHEME = "qt5ct";
       GTK_THEME = "${config.colorscheme.slug}"; # sets default gtk theme the package built by nix-colors
       XDG_CACHE_HOME = "$HOME/.cache";
@@ -237,6 +237,7 @@
       python311Packages.boto3
       python311Packages.pip
       python311Packages.xmltodict
+      qt5-wayland # SecureCRT dependency
       ssm-session-manager-plugin # AWS Systems Manager Session Manager plugin
       swayidle
       swaylock
