@@ -238,7 +238,7 @@
       python311Packages.boto3
       python311Packages.pip
       python311Packages.xmltodict
-      qt6.base
+      qtbase
       qt6.qtwayland # SecureCRT dependency
       ssm-session-manager-plugin # AWS Systems Manager Session Manager plugin
       swayidle
