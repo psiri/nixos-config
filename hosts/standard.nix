@@ -195,7 +195,7 @@
     {
       #QT_QPA_PLATFORM = "wayland";
       #QT_QPA_PLATFORMTHEME = "qt5ct";
-      QT_QPA_PLATFORM_PLUGIN_PATH="${pkgs.qt5.qtbase.bin}/lib/qt-${pkgs.qt5.qtbase.version}/plugins/platforms";
+      QT_QPA_PLATFORM_PLUGIN_PATH="${pkgs.qt6.qtbase}/lib/qt-6/plugins/platforms";
       GTK_THEME = "${config.colorscheme.slug}"; # sets default gtk theme the package built by nix-colors
       XDG_CACHE_HOME = "$HOME/.cache";
       XDG_CONFIG_HOME = "$HOME/.config";
@@ -238,7 +238,7 @@
       python311Packages.boto3
       python311Packages.pip
       python311Packages.xmltodict
-      libsForQt5.qt5.qtwayland
+      qt6.qtbase
       qt6.qtwayland # SecureCRT dependency
       ssm-session-manager-plugin # AWS Systems Manager Session Manager plugin
       swayidle

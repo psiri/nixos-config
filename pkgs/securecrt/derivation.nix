@@ -8,7 +8,6 @@ let
   allowUnfree = true;
   nixpkgs.config.allowUnfree = true;
   autoPatchelfIgnoreMissingDeps = true;
-  QT_QPA_PLATFORM_PLUGIN_PATH="${pkgs.qt5.qtbase.bin}/lib/qt-${pkgs.qt5.qtbase.version}/plugins/platforms";
   src = ./scrt-sfx-9.5.0-3241.ubuntu22-64.x86_64.deb;
 
 in stdenv.mkDerivation {
@@ -38,13 +37,13 @@ in stdenv.mkDerivation {
     fontconfig
     argyllcms
     xcbutilwm
-  ] ++ [ pkgs.qt5.qtbase pkgs.qt5.wrapQtAppsHook];
+  ] ++ [ pkgs.qt6.qtbase pkgs.qt6.wrapQtAppsHook ];
 
   # Required at running time
   buildInputs = [
     glibc
     gcc-unwrapped
-  ] ++ [ pkgs.qt5.qtbase pkgs.qt5.wrapQtAppsHook]; #++ [ pkgs.xorg.libxcb pkgs.xorg.libX11 pkgs.libxkbcommon];
+  ] ++ [ pkgs.qt6.qtbase pkgs.qt6.wrapQtAppsHook ]; #++ [ pkgs.xorg.libxcb pkgs.xorg.libX11 pkgs.libxkbcommon];
 
   #dontWrapQtApps = true;
   #wrapQtAppsHook = 1;
