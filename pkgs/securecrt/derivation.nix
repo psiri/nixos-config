@@ -37,13 +37,13 @@ in stdenv.mkDerivation {
     fontconfig
     argyllcms
     xcbutilwm
-  ] ++ [ pkgs.qt6.qtbase pkgs.qt6.wrapQtAppsHook ];
+  ]; # ++ [ pkgs.qt6.qtbase pkgs.qt6.wrapQtAppsHook ];
 
   # Required at running time
   buildInputs = [
     glibc
     gcc-unwrapped
-  ] ++ [ pkgs.qt6.qtbase pkgs.qt6.wrapQtAppsHook ]; #++ [ pkgs.xorg.libxcb pkgs.xorg.libX11 pkgs.libxkbcommon];
+  ]; #++ [ pkgs.qt6.qtbase pkgs.qt6.wrapQtAppsHook ];
 
   #dontWrapQtApps = true;
   #wrapQtAppsHook = 1;
