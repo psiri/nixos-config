@@ -53,6 +53,7 @@ in
 
     networking = {
       enableIPv6 = false;
+      firewall.enable = true;
       hostName = "ll-nix1";
       # interfaces = {
       #   name = {
@@ -73,7 +74,6 @@ in
       #     };
       #   };
       # };
-      firewall.enable = true;
       networkmanager = {
         enable = true;
         # appendNameservers = [
