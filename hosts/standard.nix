@@ -251,6 +251,7 @@
       wlogout
       wget
       wireshark
+      xdg-desktop-portal-hyprland
       zsh
       zsh-autocomplete
       zsh-history-substring-search
