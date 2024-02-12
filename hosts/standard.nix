@@ -219,6 +219,7 @@
       fira-code-nerdfont
       git
       gnutar # tar
+      google-cloud-sdk
       hack-font
       htop
       iputils
