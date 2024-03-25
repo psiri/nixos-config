@@ -87,7 +87,7 @@ export NIX_CONFIG="experimental-features = nix-command flakes"
   FIXME (required) or TODO (usually tips or optional stuff you might want)
 1. Clone the nixos configuration:
     1. `sudo git clone [--branch <YOURBRANCH>] https://github.com/psiri/nixos-config /tmp/dotfiles`
-       1. Note: `--branch <YOURBRANCH>` is optional but useful when testing new configurations that haven't been merged into main/master
+       1. Note: `--branch <YOURBRANCH>` is optional but useful when testing new configurations that haven't been merged into main/master. I regularly use this method to ensure the entire rebuild process can be thoroughly tested and vetted against prior to a merge into main/master.
 
 ## Installation
 
