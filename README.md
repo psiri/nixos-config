@@ -111,7 +111,7 @@ Note: Any installation ISO will work, but I chose minimal to ensure the configur
 
 ## Credits
 
-Although I have finally taken the full Nix plunge (converting all my systems over to NixOs), I am still *very* new and tweaking my config daily.  Along the way I took inspiration (and occasionally code) from the following resources:
+Although I have finally taken the full Nix plunge (converting all my systems over to NixOs), I am still *very* new and tweaking my config daily.  Along the way I took inspiration (and referenced code) from the following resources:
 
 * [Misterio77](https://github.com/Misterio77/nix-starter-configs) - Fantastic resource for starting out with Nixos flakes.  Well documented with many helpful inline-comments.
 * [kye](https://codeberg.org/kye/nixos) - Absolutely beautiful Hyprland config with an intuitive, modular repo layout that can easily be adapted to your needs.
