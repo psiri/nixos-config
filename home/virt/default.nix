@@ -5,30 +5,11 @@
   user,
   ...
 }: {
-  programs.dconf.enable = true;
-
-  users.users.${user} = {
-    extraGroups = ["libvirtd"];
-    packages = with pkgs; [
-      virt-manager # TODO might need some nix added to configure using qemu as default for OOBE
-      qemu # this needed with virtmanager? TODO i believe so
-      libvirt
-      virt-manager
-      virt-viewer
-      spice 
-      spice-gtk
-      spice-protocol
-      win-virtio
-      win-spice
-      gnome.adwaita-icon-theme
-    ];
-  };
-
-
   virtualisation = {
     libvirtd = {
       enable = true;
       qemu = {
+        package = pkgs.qemu_kvm;
         swtpm.enable = true;
         ovmf.enable = true;
         ovmf.packages = [ pkgs.OVMFFull.fd ];
@@ -36,5 +17,26 @@
     };
     spiceUSBRedirection.enable = true;
   };
-  services.spice-vdagentd.enable = true;
+
+  users.users.${username}.extraGroups = [ "libvirtd" ];
+
+  environment.systemPackages = with pkgs; [
+    spice
+    spice-gtk
+    spice-protocol
+    virt-viewer
+    virtio-win
+    win-spice
+
+  ];
+  programs.virt-manager.enable = true;
+
+  home-manager.users.${username} = {
+    dconf.settings = {
+      "org/virt-manager/virt-manager/connections" = {
+        autoconnect = [ "qemu:///system" ];
+        uris = [ "qemu:///system" ];
+      };
+    };
+  };
 }
