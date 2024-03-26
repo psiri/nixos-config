@@ -13,6 +13,8 @@
         swtpm.enable = true;
         ovmf.enable = true;
         ovmf.packages = [ pkgs.OVMFFull.fd ];
+        swtpm.enable = true;
+        swtpm.package = pkgs.swtpm;
       };
     };
     spiceUSBRedirection.enable = true;
@@ -21,6 +23,8 @@
   users.users.${user}.extraGroups = [ "libvirtd" ];
 
   environment.systemPackages = with pkgs; [
+    libguestfs
+    qemu_kvm
     spice
     spice-gtk
     spice-protocol
@@ -40,4 +44,7 @@
       };
     };
   };
+
+
+  systemd.services."libvertd".reloadIfChanged = true;
 }
