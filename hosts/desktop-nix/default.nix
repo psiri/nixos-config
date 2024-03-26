@@ -19,6 +19,7 @@ in
       ./hardware-configuration.nix
       ../standard.nix # standard or server configs
 
+      ../../modules/virt
       #../../hardware/audio # change to pipewire, move to home
       #../../hardware/bluetooth
       #../../hardware/nvidia
@@ -42,7 +43,6 @@ in
       ../../home/kitty
       ../../home/rkvm
       ../../home/ulauncher
-      ../../home/virt
       ../../home/waybar
       ../../home/wlogout
     ];
