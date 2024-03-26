@@ -8,6 +8,7 @@
   virtualisation = {
     libvirtd = {
       enable = true;
+      onBoot = "start";
       qemu = {
         package = pkgs.qemu_kvm;
         swtpm.enable = true;
