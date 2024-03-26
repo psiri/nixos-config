@@ -14,7 +14,7 @@
         ovmf.enable = true;
         ovmf.packages = [ pkgs.OVMFFull.fd ];
         swtpm.enable = true;
-        swtpm.package = pkgs.swtpm;
+        #swtpm.package = pkgs.swtpm;
       };
     };
     spiceUSBRedirection.enable = true;
@@ -24,7 +24,7 @@
 
   environment.systemPackages = with pkgs; [
     libguestfs
-    qemu_kvm
+    # qemu_kvm # Redundant, captured in virtualisation
     spice
     spice-gtk
     spice-protocol
