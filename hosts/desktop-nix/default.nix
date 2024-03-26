@@ -42,7 +42,7 @@ in
       ../../home/kitty
       ../../home/rkvm
       ../../home/ulauncher
-      #../../home/virt
+      ../../home/virt
       ../../home/waybar
       ../../home/wlogout
     ];
@@ -67,6 +67,6 @@ in
 
     environment = {
       #systemPackages = with pkgs; [pciutils];
-      shellAliases.rebuild = "sudo rm -rf /tmp/dotfiles && sudo git clone --branch main https://github.com/psiri/nixos-config /tmp/dotfiles && sudo nixos-rebuild switch --flake /tmp/dotfiles/.#desktop-nix --impure";
+      shellAliases.rebuild = "sudo rm -rf /tmp/dotfiles && sudo git clone --branch 0.2 https://github.com/psiri/nixos-config /tmp/dotfiles && sudo nixos-rebuild switch --flake /tmp/dotfiles/.#desktop-nix --impure";
     };
   }
