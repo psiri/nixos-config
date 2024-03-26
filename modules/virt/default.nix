@@ -11,10 +11,9 @@
       qemu = {
         package = pkgs.qemu_kvm;
         swtpm.enable = true;
+        swtpm.package = pkgs.swtpm;
         ovmf.enable = true;
         ovmf.packages = [ pkgs.OVMFFull.fd ];
-        swtpm.enable = true;
-        #swtpm.package = pkgs.swtpm;
       };
     };
     spiceUSBRedirection.enable = true;
