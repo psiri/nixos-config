@@ -18,6 +18,7 @@
 | System Monitor       | bashtop + bottom + htop |
 | Terminal             | Kitty               |
 | Text Editor          | nano                |
+| Virtualization       | KVM + QEMU + vert-manager |
 | Window Manager       | Hyprland            |
 
 ## Background
