@@ -118,3 +118,12 @@ Although I have finally taken the full Nix plunge (converting all my systems ove
 
 * [Misterio77](https://github.com/Misterio77/nix-starter-configs) - Fantastic resource for starting out with Nixos flakes.  Well documented with many helpful inline-comments.
 * [kye](https://codeberg.org/kye/nixos) - Absolutely beautiful Hyprland config with an intuitive, modular repo layout that can easily be adapted to your needs.
+
+
+## Resources
+
+The following are some of the NixOS resources I use constanty:
+
+* [NixOS Package Search](https://search.nixos.org/packages?channel=23.11) - The quickest way to search for packages
+* [NixOS Options Search](https://search.nixos.org/options?channel=23.11) - The quickest way to search for Nix configuration options you might care about
+* [Home Manager Configuration Options](https://nix-community.github.io/home-manager/options.xhtml) - The official Home Manager configuration options documentation.  Contains all Home Manager options.
