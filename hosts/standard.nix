@@ -166,6 +166,7 @@
         #input-leap
         joplin-desktop
         kitty
+        okta-aws-cli
         # openconnect     # Open-source multi-VPN client supporting Cisco Anyconnect, Pulse Secure, GlobalProtect, etc
         # opensnitch      # Open-source application firewall
         remmina           # Open-source remote desktop client
