@@ -15,13 +15,5 @@
     vendorHash = "sha256-SjABVO6tHYRc/1pYjOqfZP+NfnK1/WnAcY5NQ4hMssE=";
 
     ldflags = [ "-s" "-w" ];
-
-    meta = with lib; {
-      description = "A CLI for having Okta as the IdP for AWS CLI operations";
-      homepage = "https://github.com/okta/okta-aws-cli";
-      license = licenses.asl20;
-      maintainers = with maintainers; [ daniyalsuri6 ];
-      mainProgram = "okta-aws-cli";
-    };
   });
 })
