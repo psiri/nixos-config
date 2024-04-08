@@ -12,8 +12,8 @@
       fetchSubmodules = true;
     };
 
-    vendorHash = "sha256-SjABVO6tHYRc/1pYjOqfZP+NfnK1/WnAcY5NQ4hMssE=";
+    # vendorHash = "sha256-SjABVO6tHYRc/1pYjOqfZP+NfnK1/WnAcY5NQ4hMssE=";
 
-    ldflags = [ "-s" "-w" ];
+    # ldflags = [ "-s" "-w" ];
   });
 })
