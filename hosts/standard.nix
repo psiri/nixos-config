@@ -41,7 +41,7 @@
       # outputs.overlays.unstable-packages
 
       # import from ../overlays files
-      # (import ../overlays/input-leap)
+      (import ../overlays/okta-aws-cli)
 
 
       # You can also add overlays exported from other flakes:
