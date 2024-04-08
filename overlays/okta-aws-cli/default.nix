@@ -8,12 +8,8 @@
       owner = "okta";
       repo = "okta-aws-cli";
       rev = "v2.1.2";
-      hash = "sha256-MNaoCefJwUPWYPZ+AtQUHhm1ZKSFq+hCGGAFwBxrbWI=";
+      #hash = "sha256-MNaoCefJwUPWYPZ+AtQUHhm1ZKSFq+hCGGAFwBxrbWI=";
       fetchSubmodules = true;
     };
-
-    # vendorHash = "sha256-SjABVO6tHYRc/1pYjOqfZP+NfnK1/WnAcY5NQ4hMssE=";
-
-    # ldflags = [ "-s" "-w" ];
   });
 })
