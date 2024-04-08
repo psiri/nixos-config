@@ -6,7 +6,7 @@
     src = super.fetchFromGitHub {
       owner = "okta";
       repo = "okta-aws-cli";
-      rev = "v${version}";
+      rev = "v2.1.2";
       hash = "sha256-MNaoCefJwUPWYPZ+AtQUHhm1ZKSFq+hCGGAFwBxrbWI=";
       fetchSubmodules = true;
     };
