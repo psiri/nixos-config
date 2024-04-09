@@ -163,7 +163,7 @@
       ];
       # TODO: Be sure to add any other groups you need (such as networkmanager, audio, docker, etc)
       extraGroups = ["wheel" "networkmanager" "docker"];
-      packages = with pkgs, pkgs.unstable; [
+      packages = with pkgs; [
         # discord
         # docker
         # etcher          # Belena Etcher
@@ -175,7 +175,6 @@
         #input-leap
         joplin-desktop
         kitty
-        unstable.okta-aws-cli
         # openconnect     # Open-source multi-VPN client supporting Cisco Anyconnect, Pulse Secure, GlobalProtect, etc
         # opensnitch      # Open-source application firewall
         remmina           # Open-source remote desktop client
@@ -242,6 +241,7 @@
       netcat
       nix-zsh-completions
       nmap
+      unstable.okta-aws-cli
       openssl
       pipewire
       polkit_gnome
