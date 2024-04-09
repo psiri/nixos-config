@@ -41,8 +41,9 @@
       # outputs.overlays.unstable-packages
 
       # import from ../overlays files
-      (import ../overlays/okta-aws-cli)
-
+      #(import ../overlays/okta-aws-cli)
+      (import ../overlays/unstable-packages)
+      
 
       # You can also add overlays exported from other flakes:
       # neovim-nightly-overlay.overlays.default
@@ -166,7 +167,7 @@
         #input-leap
         joplin-desktop
         kitty
-        okta-aws-cli-unstable
+        unstable.okta-aws-cli
         # openconnect     # Open-source multi-VPN client supporting Cisco Anyconnect, Pulse Secure, GlobalProtect, etc
         # opensnitch      # Open-source application firewall
         remmina           # Open-source remote desktop client

@@ -20,11 +20,4 @@
   # });
 
 
-  let
-    cherryPick = pkg: pkg.override (origArgs: builtins.intersectAttrs origArgs self);
-    nixpkgs-unstable = import <nixpkgs-unstable> {};
-  in
-  {
-    okta-aws-cli-unstable = assert (! super ? okta-aws-cli-unstable); (cherryPick nixpkgs-unstable.okta-aws-cli);
-  }
 })
