@@ -60,9 +60,10 @@
     # These are usually stuff you would upstream into home-manager
     #homeManagerModules = import ./home;
 
+    overlays = import ./overlays {inherit inputs;};
+
     # NixOS configuration entrypoint
     # Available through 'nixos-rebuild --flake .#your-hostname'
-    overlays = import ./overlays {inherit inputs;};
     nixosConfigurations = {
       # FIXME replace with your hostname
       ll-nix1 = nixpkgs.lib.nixosSystem {
