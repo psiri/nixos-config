@@ -42,7 +42,7 @@
 
       # import from ../overlays files
       #(import ../overlays/okta-aws-cli)
-      #(import ../overlays/unstable-packages)
+      (import ../overlays/unstable-packages)
       
 
       # You can also add overlays exported from other flakes:
@@ -57,12 +57,12 @@
 
       # When applied, the unstable nixpkgs set (declared in the flake inputs) will
       # be accessible through 'pkgs.unstable'
-      unstable-packages = final: _prev: {
-        unstable = import inputs.nixpkgs-unstable {
-          system = final.system;
-          config.allowUnfree = true;
-        };
-      };
+      # unstable-packages = final: _prev: {
+      #   unstable = import inputs.nixpkgs-unstable {
+      #     system = final.system;
+      #     config.allowUnfree = true;
+      #   };
+      # };
     ];
     # Configure your nixpkgs instance
     config = {
