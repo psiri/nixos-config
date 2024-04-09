@@ -42,7 +42,7 @@
 
       # import from ../overlays files
       #(import ../overlays/okta-aws-cli)
-      import ../overlays
+      import ./overlays {inherit inputs;};
       
 
       # You can also add overlays exported from other flakes:
