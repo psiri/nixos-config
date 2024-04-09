@@ -54,6 +54,15 @@
       #     patches = [ ./change-hello-to-hi.patch ];
       #   });
       # })
+
+      # When applied, the unstable nixpkgs set (declared in the flake inputs) will
+      # be accessible through 'pkgs.unstable'
+      unstable-packages = final: _prev: {
+        unstable = import inputs.nixpkgs-unstable {
+          system = final.system;
+          config.allowUnfree = true;
+        };
+      };
     ];
     # Configure your nixpkgs instance
     config = {
@@ -167,7 +176,7 @@
         #input-leap
         joplin-desktop
         kitty
-        nixpkgs-unstable.okta-aws-cli
+        pkgs.unstable.okta-aws-cli
         # openconnect     # Open-source multi-VPN client supporting Cisco Anyconnect, Pulse Secure, GlobalProtect, etc
         # opensnitch      # Open-source application firewall
         remmina           # Open-source remote desktop client
