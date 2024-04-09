@@ -32,7 +32,7 @@
     ../home/zsh
   ];
 
-  overlays = import ./overlays {inherit inputs;};
+  overlays = import ../overlays {inherit inputs;};
   nixpkgs = {
     # You can add overlays here
     overlays = [
