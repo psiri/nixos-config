@@ -1,5 +1,3 @@
 (final: _prev: {
-  unstable = import nixpkgs-unstable {
-    system = "x86_64-linux;
-  };
+  unstable = import nixpkgs-unstable {};
 })
