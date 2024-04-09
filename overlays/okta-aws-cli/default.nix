@@ -9,7 +9,7 @@
       repo = "okta-aws-cli";
       rev = "v2.1.2";
       sha256 = "sha256-MNaoCefJwUPWYPZ+AtQUHhm1ZKSFq+hCGGAFwBxrbWI=";
-      fetchSubmodules = true;
+      fetchSubmodules = false;
     };
 
     vendorHash = "sha256-SjABVO6tHYRc/1pYjOqfZP+NfnK1/WnAcY5NQ4hMssE=";
