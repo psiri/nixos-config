@@ -32,6 +32,7 @@
     ../home/zsh
   ];
 
+  overlays = import ./overlays {inherit inputs;};
   nixpkgs = {
     # You can add overlays here
     overlays = [
@@ -42,7 +43,6 @@
 
       # import from ../overlays files
       #(import ../overlays/okta-aws-cli)
-      import ../overlays {inherit inputs;}
       
 
       # You can also add overlays exported from other flakes:
