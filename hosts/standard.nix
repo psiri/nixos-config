@@ -42,7 +42,7 @@
 
       # import from ../overlays files
       #(import ../overlays/okta-aws-cli)
-      (import ../overlays/unstable-packages)
+      #(import ../overlays/unstable-packages)
       
 
       # You can also add overlays exported from other flakes:
@@ -167,7 +167,7 @@
         #input-leap
         joplin-desktop
         kitty
-        unstable.okta-aws-cli
+        nixpkgs-unstable.okta-aws-cli
         # openconnect     # Open-source multi-VPN client supporting Cisco Anyconnect, Pulse Secure, GlobalProtect, etc
         # opensnitch      # Open-source application firewall
         remmina           # Open-source remote desktop client
