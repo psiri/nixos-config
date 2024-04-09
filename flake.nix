@@ -62,6 +62,7 @@
 
     # NixOS configuration entrypoint
     # Available through 'nixos-rebuild --flake .#your-hostname'
+    overlays = import ./overlays {inherit inputs;};
     nixosConfigurations = {
       # FIXME replace with your hostname
       ll-nix1 = nixpkgs.lib.nixosSystem {
