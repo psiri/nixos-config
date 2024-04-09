@@ -163,7 +163,7 @@
       ];
       # TODO: Be sure to add any other groups you need (such as networkmanager, audio, docker, etc)
       extraGroups = ["wheel" "networkmanager" "docker"];
-      packages = with pkgs; [
+      packages = with pkgs, pkgs.unstable; [
         # discord
         # docker
         # etcher          # Belena Etcher
