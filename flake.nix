@@ -22,6 +22,7 @@
   outputs = {
     self,
     nixpkgs,
+    nixpkgs-unstable,
     home-manager,
     #hyprland,
     nix-colors,
@@ -58,6 +59,8 @@
     # Reusable home-manager modules you might want to export
     # These are usually stuff you would upstream into home-manager
     #homeManagerModules = import ./home;
+
+    overlays = import ./overlays {inherit inputs;};
 
     # NixOS configuration entrypoint
     # Available through 'nixos-rebuild --flake .#your-hostname'

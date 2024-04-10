@@ -38,11 +38,11 @@
       # Add overlays your own flake exports (from overlays and pkgs dir):
       # outputs.overlays.additions
       # outputs.overlays.modifications
-      # outputs.overlays.unstable-packages
+      outputs.overlays.unstable-packages
 
       # import from ../overlays files
-      # (import ../overlays/input-leap)
-
+      #(import ../overlays/okta-aws-cli)
+      
 
       # You can also add overlays exported from other flakes:
       # neovim-nightly-overlay.overlays.default
@@ -53,6 +53,15 @@
       #     patches = [ ./change-hello-to-hi.patch ];
       #   });
       # })
+
+      # When applied, the unstable nixpkgs set (declared in the flake inputs) will
+      # be accessible through 'pkgs.unstable'
+      # unstable-packages = final: _prev: {
+      #   unstable = import inputs.nixpkgs-unstable {
+      #     system = final.system;
+      #     config.allowUnfree = true;
+      #   };
+      # };
     ];
     # Configure your nixpkgs instance
     config = {
@@ -166,6 +175,7 @@
         #input-leap
         joplin-desktop
         kitty
+        unstable.okta-aws-cli # The unstable version of okta-aws-cli, and AWS CLI client for Okta SSO
         # openconnect     # Open-source multi-VPN client supporting Cisco Anyconnect, Pulse Secure, GlobalProtect, etc
         # opensnitch      # Open-source application firewall
         remmina           # Open-source remote desktop client

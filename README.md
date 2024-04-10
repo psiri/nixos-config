@@ -4,9 +4,10 @@
 | Application Launcher | ulauncher           |
 | Archive Manager      | File-Roller         |
 | Audio                | Pipewire            |
+| Browser              | Chromium + Firefox  |
 | Display Server       | Wayland             |
 | File Manager         | Thunar              |
-| IDE                  | Visual Studio Code  |
+| IDE                  | Codium (VS Code OSS)  |
 | Notes                | joplin-desktop      |
 | Notifications        | dunst               |
 | Screen Lock          | swaylock & swayidle |
@@ -122,7 +123,7 @@ Although I have finally taken the full Nix plunge (converting all my systems ove
 
 ## Resources
 
-The following are some of the NixOS resources I use constanty:
+The following are some of the NixOS resources I use constantly:
 
 * [NixOS Package Search](https://search.nixos.org/packages?channel=23.11) - The quickest way to search for packages
 * [NixOS Options Search](https://search.nixos.org/options?channel=23.11) - The quickest way to search for Nix configuration options you might care about
