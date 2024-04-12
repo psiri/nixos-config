@@ -3,7 +3,7 @@
     text = ''
       {
           "label" : "lock",
-          "action" : "swaylock -c ff000000",
+          "action" : "pidof hyprlock || hyprlock",
           "text" : "",
           "keybind" : "l"
       }

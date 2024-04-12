@@ -26,7 +26,7 @@
     ../home/chrome
     ../modules/console
     ../home/obs-studio
-    ../home/swaylock
+    #../home/swaylock # replacing with hyprlock
     ../home/thunar # file manager
     ../home/vscode
     ../home/zsh
