@@ -251,8 +251,8 @@
       python311Packages.xmltodict
       #qt6.qtwayland # SecureCRT dependency
       ssm-session-manager-plugin # AWS Systems Manager Session Manager plugin
-      swayidle
-      swaylock
+      #swayidle # Replaced with hyprlock
+      #swaylock # Replaced with hypridle
       terraform
       terraform-docs
       tree

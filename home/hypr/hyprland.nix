@@ -58,8 +58,11 @@ $cf = rgba(${config.colorscheme.colors.base0F}FF)
 
 ## TODO move to /home/
 exec-once = hyprpaper
+
+
 # IDLE SCREEN LOCK
-exec = swayidle -w timeout 600 'swaylock -f' timeout 660 'hyprctl dispatch dpms off' resume 'hyprctl dispatch dpms on' before-sleep 'swaylock --image $lockimg -f'
+exec-once = hypridle
+# exec = swayidle -w timeout 600 'swaylock -f' timeout 660 'hyprctl dispatch dpms off' resume 'hyprctl dispatch dpms on' before-sleep 'swaylock --image $lockimg -f'
 # TODO - shut off monitors during manual lock: add
 # 'if pgrep -x swaylock; then hyprctl dispatch dpms off; fi'
 
