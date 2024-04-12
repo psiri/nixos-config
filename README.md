@@ -5,12 +5,14 @@
 | Archive Manager      | File-Roller         |
 | Audio                | Pipewire            |
 | Browser              | Chromium + Firefox  |
+| Compositor           | Hyprland            |
 | Display Server       | Wayland             |
 | File Manager         | Thunar              |
 | IDE                  | Codium (VS Code OSS)  |
+| Idle Daemon          | hypridle            |
 | Notes                | joplin-desktop      |
 | Notifications        | dunst               |
-| Screen Lock          | swaylock & swayidle |
+| Screen Lock          | hyprlock            |
 | Screen Recording     | OBS Studio          |
 | Screenshots          | grim + slurp        |
 | Session Management   | wlogout             |
