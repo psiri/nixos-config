@@ -241,6 +241,7 @@
       python311Packages.boto3
       python311Packages.pip
       python311Packages.setuptools
+      python3.11-setuptools
       python311Packages.xmltodict
       python311Packages.wheel
       #python311Packages.pan-python
