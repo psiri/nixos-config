@@ -41,9 +41,9 @@
 
   {
   users.users.${user}.packages = with pkgs; [
-    python3.withPackages (p: with p; [
+    python3.withPackages [
       pan-python
-    ])
+    ];
   ];
 }
 
