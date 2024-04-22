@@ -26,7 +26,7 @@
     ../home/chrome
     ../modules/console
     ../home/obs-studio
-    ../overlays/python/shell.nix
+    #../overlays/python/shell.nix
     #../home/swaylock # replacing with hyprlock
     ../home/thunar # file manager
     ../home/vscode
@@ -259,6 +259,15 @@
       zsh-history-substring-search
       zsh-nix-shell
       zsh-powerlevel10k
+      pkgs.mkShell {
+      packages = [
+        (pkgs.python3.withPackages (python-pkgs: [
+          # select Python packages here
+          python-pkgs.requests
+          (pkgs.callPackage ../overlays/python/default.nix)
+        ]))
+      ];
+      };
     ];
   };
 
