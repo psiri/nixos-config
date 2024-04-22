@@ -25,7 +25,7 @@
       };
     };
 
-  pan-python = pkgs.pan-python.withPackages (p: [(py-slvs p)]);
+  #pan-python = pkgs.pan-python.withPackages (p: [(py-slvs p)]);
 in
   pan-python
 
