@@ -12,7 +12,7 @@ buildPythonPackage rec {
 
   src = pkgs.fetchPypi {
     inherit pname version;
-    hash = "sha256-CP3V73yWSArRHBLUct4hrNMjWZlvaaUlkpm1QP66RWA=";
+    hash = "sha256-QIIZ/zusCsao7fCpTYzsl49rCavtD6b1uBnR1TnBDnI=";
   };
 
   # do not run tests
