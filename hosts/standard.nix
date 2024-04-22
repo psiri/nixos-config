@@ -26,7 +26,6 @@
     ../home/chrome
     ../modules/console
     ../home/obs-studio
-    ../home/python
     #../home/swaylock # replacing with hyprlock
     ../home/thunar # file manager
     ../home/vscode
@@ -42,7 +41,7 @@
       outputs.overlays.unstable-packages
 
       # import from ../overlays files
-      #(import ../overlays/okta-aws-cli)
+      (import ../overlays/python)
       
 
       # You can also add overlays exported from other flakes:
