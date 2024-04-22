@@ -1,9 +1,10 @@
-{ lib
-, buildPythonPackage
-, fetchPypi
-, setuptools
-, wheel
-}:
+{ pkgs, buildPythonPackage }:
+# { lib
+# , buildPythonPackage
+# , fetchPypi
+# , setuptools
+# , wheel
+# }:
 
 buildPythonPackage rec {
   pname = "pan-python";
@@ -30,4 +31,4 @@ buildPythonPackage rec {
     license = licenses.ISC;
     maintainers = with maintainers; [ "kevin.steves@pobox.com" ];
   };
-}
+};
