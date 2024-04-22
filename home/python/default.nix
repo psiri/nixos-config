@@ -14,6 +14,8 @@
       pyproject = true;
 
       propagatedBuildInputs = with pythonPkgs; [
+        setuptools
+        wheel
       ];
 
       dontUseCmakeConfigure = true;
