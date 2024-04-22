@@ -241,6 +241,7 @@
       python311Packages.boto3
       python311Packages.pip
       python311Packages.setuptools
+      python311Packages.setuptoolsBuildHook
       python311Packages.virtualenv
       python311Packages.xmltodict
       python311Packages.wheel
