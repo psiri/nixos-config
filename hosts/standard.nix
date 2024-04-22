@@ -242,7 +242,7 @@
       python311Packages.xmltodict
       (pkgs.python3.withPackages (python-pkgs: [
       # select Python packages here
-      (pkgs.callPackage ../overlays/python)
+      (pkgs.callPackage ../overlays/python/default.nix)
       ]))
       #qt6.qtwayland # SecureCRT dependency
       ssm-session-manager-plugin # AWS Systems Manager Session Manager plugin
