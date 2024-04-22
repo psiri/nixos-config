@@ -41,7 +41,7 @@
       outputs.overlays.unstable-packages
 
       # import from ../overlays files
-      (import ../overlays/python)
+      #(import ../overlays/python)
       
 
       # You can also add overlays exported from other flakes:
@@ -240,7 +240,10 @@
       python311Packages.boto3
       python311Packages.pip
       python311Packages.xmltodict
-      #(python3.withPackages (ps: with ps; [ pan-python ]))
+      (pkgs.python3.withPackages (python-pkgs: [
+      # select Python packages here
+      (pkgs.callPackage ../overlays/python)
+      ]))
       #qt6.qtwayland # SecureCRT dependency
       ssm-session-manager-plugin # AWS Systems Manager Session Manager plugin
       #swayidle # Replaced with hyprlock
