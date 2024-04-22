@@ -1,5 +1,4 @@
-{ 
-lib
+{ lib
 , buildPythonPackage
 , fetchPypi
 , setuptools
@@ -25,10 +24,10 @@ buildPythonPackage rec {
     wheel
   ];
 
-  meta = with lib; {
-    description = "Multi-tool set for Palo Alto Networks PAN-OS, Panorama, WildFire and AutoFocus";
-    homepage = "https://github.com/kevinsteves/pan-python";
-    license = licenses.ISC;
-    maintainers = with maintainers; [ "kevin.steves@pobox.com" ];
-  };
+  # meta = with lib; {
+  #   description = "Multi-tool set for Palo Alto Networks PAN-OS, Panorama, WildFire and AutoFocus";
+  #   homepage = "https://github.com/kevinsteves/pan-python";
+  #   license = licenses.ISC;
+  #   maintainers = with maintainers; [ "kevin.steves@pobox.com" ];
+  # };
 }
