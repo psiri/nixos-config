@@ -46,7 +46,7 @@
           #   doCheck = false; # check requires infrastructure
           # };
 
-          db-dtypes = pkgs.python3Packages.buildPythonPackage rec {
+          pan-python = pkgs.python3Packages.buildPythonPackage rec {
             pname = "pan-python";
             version = "0.25.0";
 
@@ -78,7 +78,7 @@
         with pkgs;
         {
           devShells.default = mkShell {
-            name = "soip reports";
+            name = "default python";
             packages = [
               # put any non-Python packages here
               # google-cloud-sdk
