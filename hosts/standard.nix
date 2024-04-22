@@ -54,15 +54,6 @@
       #     patches = [ ./change-hello-to-hi.patch ];
       #   });
       # })
-
-      # When applied, the unstable nixpkgs set (declared in the flake inputs) will
-      # be accessible through 'pkgs.unstable'
-      # unstable-packages = final: _prev: {
-      #   unstable = import inputs.nixpkgs-unstable {
-      #     system = final.system;
-      #     config.allowUnfree = true;
-      #   };
-      # };
     ];
     # Configure your nixpkgs instance
     config = {
@@ -250,6 +241,7 @@
       python311Packages.boto3
       python311Packages.pip
       python311Packages.xmltodict
+      (python3.withPackages (ps: with ps; [ pan-python ]))
       #qt6.qtwayland # SecureCRT dependency
       ssm-session-manager-plugin # AWS Systems Manager Session Manager plugin
       #swayidle # Replaced with hyprlock
