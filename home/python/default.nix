@@ -38,17 +38,13 @@
     };
 
   in
-  with pkgs;
 
-  users.users = {
-    ${user} = {
-      packages = with pkgs; [
-      (python.withPackages (p: with p; [
-                pan-python
-              ]))
-      ];
-    };
-  }
+  users.users.${user}.packages = with pkgs; [
+    (python.withPackages (p: with p; [
+      pan-python
+    ]))
+  ];
+}
 
   # {
   #   devShells.default = mkShell {
