@@ -240,11 +240,10 @@
       python3
       python311Packages.boto3
       python311Packages.pip
-      python311Packages.setuptools
-      python311Packages.virtualenv
+      #python311Packages.setuptools
+      #python311Packages.virtualenv
       python311Packages.xmltodict
-      python311Packages.wheel
-      #python311Packages.pan-python
+      #python311Packages.wheel
       #qt6.qtwayland # SecureCRT dependency
       ssm-session-manager-plugin # AWS Systems Manager Session Manager plugin
       #swayidle # Replaced with hyprlock
