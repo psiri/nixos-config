@@ -240,7 +240,7 @@
       python311Packages.boto3
       python311Packages.pip
       python311Packages.xmltodict
-      (pkgs.python3.withPackages (python-pkgs: [
+      (python3.withPackages (python-pkgs: [
       # select Python packages here
       (pkgs.callPackage ../overlays/python/default.nix)
       ]))
