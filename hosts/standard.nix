@@ -26,7 +26,7 @@
     ../home/chrome
     ../modules/console
     ../home/obs-studio
-    ../pkgs/pan-python
+    #../pkgs/pan-python
     #../home/swaylock # replacing with hyprlock
     ../home/thunar # file manager
     ../home/vscode
