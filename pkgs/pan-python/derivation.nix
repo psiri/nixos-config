@@ -1,6 +1,6 @@
 { pkgs
 , buildPythonPackage
-# , lib
+, lib
 # , fetchPypi
 # , setuptools
 # , wheel
