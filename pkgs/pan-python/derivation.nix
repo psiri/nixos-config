@@ -1,10 +1,10 @@
-{ pkgs, buildPythonPackage }:
-# { lib
-# , buildPythonPackage
-# , fetchPypi
-# , setuptools
-# , wheel
-# }:
+{ pkgs
+, lib
+, buildPythonPackage
+, fetchPypi
+, setuptools
+, wheel
+}:
 
 buildPythonPackage rec {
   pname = "pan-python";
