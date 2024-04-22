@@ -31,4 +31,4 @@ buildPythonPackage rec {
     license = licenses.ISC;
     maintainers = with maintainers; [ "kevin.steves@pobox.com" ];
   };
-};
+}
