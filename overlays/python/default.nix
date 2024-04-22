@@ -1,42 +1,30 @@
-{pkgs, ...}: let
-  pan-python = pythonPkgs:
-    pythonPkgs.buildPythonPackage rec {
-      pname = "pan-python";
-      version = "0.25.0";
+# toolz.nix
+{ lib
+, buildPythonPackage
+, fetchPypi
+, setuptools
+, wheel
+}:
 
-      src = pythonPkgs.fetchPypi {
-        pname = "pan-python";
-        version = "0.25.0";
-        #sha256 = "sha256-U6T/aXy0JTC1ptL5oBmch0ytSPmIkRA8XOi31NpArnI=";
-      };
+buildPythonPackage rec {
+  pname = "pan-python";
+  version = "0.25.0";
 
-      nativeBuildInputs = with pkgs; [];
-      pyproject = true;
+  src = fetchPypi {
+    inherit pname version;
+    #hash = "sha256-CP3V73yWSArRHBLUct4hrNMjWZlvaaUlkpm1QP66RWA=";
+  };
 
-      propagatedBuildInputs = with pythonPkgs; [
-        setuptools
-        wheel
-      ];
+  # do not run tests
+  doCheck = false;
 
-      dontUseCmakeConfigure = true;
-
-      meta = with pkgs.lib; {
-        description = "Multi-tool set for Palo Alto Networks PAN-OS, Panorama, WildFire and AutoFocus ";
-        homepage = "https://github.com/kevinsteves/pan-python";
-        license = licenses.isc;
-      };
-    };
-
-  #pan-python = pkgs.pan-python.withPackages (p: [(py-slvs p)]);
-in
-  pan-python
-
-
-
-
-
-
-
+  # specific to buildPythonPackage, see its reference
+  pyproject = true;
+  build-system = [
+    setuptools
+    wheel
+  ];
+}
 
 
 
