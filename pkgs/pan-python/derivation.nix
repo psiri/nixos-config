@@ -1,9 +1,9 @@
 { pkgs
 , buildPythonPackage
 , lib
-# , fetchPypi
-# , setuptools
-# , wheel
+, fetchPypi
+, setuptools
+, wheel
 }:
 
 buildPythonPackage rec {
