@@ -2,7 +2,7 @@
 , buildPythonPackage
 # , lib
 # , fetchPypi
-# , setuptools
+, setuptools
 # , wheel
 }:
 
