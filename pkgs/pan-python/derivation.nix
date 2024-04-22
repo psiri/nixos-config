@@ -29,7 +29,7 @@ buildPythonPackage rec {
   meta = {
     description = "Multi-tool set for Palo Alto Networks PAN-OS, Panorama, WildFire and AutoFocus";
     homepage = "https://github.com/kevinsteves/pan-python";
-    license = licenses.ISC;
+    #license = licenses.ISC;
     #maintainers = with maintainers; [ "kevin.steves@pobox.com" ];
   };
 }
