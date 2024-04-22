@@ -20,7 +20,10 @@ buildPythonPackage rec {
 
   # specific to buildPythonPackage, see its reference
   pyproject = true;
-  nativeBuildInputs = [];
+  nativeBuildInputs = [
+    setuptools
+    wheel
+  ];
   build-system = [
     setuptools
     wheel
