@@ -1,11 +1,10 @@
 {
-  config,
-  inputs,
-  outputs,
-  pkgs,
-  user,
-  ...
-}: {
+  description = "Python Packages Example";
+
+  inputs = {
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    flake-utils.url = "github:numtide/flake-utils";
+  };
 
   outputs = { self, nixpkgs, flake-utils }:
     flake-utils.lib.eachDefaultSystem
@@ -33,7 +32,21 @@
           # };
 
           # pandas-gbq and db-types are not in nixpkgs so we will define them here
-          pan-python = pkgs.python3Packages.buildPythonPackage rec {
+          # pandas-gbq = pkgs.python3Packages.buildPythonPackage rec {
+          #   pname = "pandas-gbq";
+          #   version = "0.19.2";
+
+          #   src = pkgs.fetchFromGitHub {
+          #     owner = "googleapis";
+          #     repo = "python-bigquery-pandas";
+          #     rev = "v${version}";
+          #     sha256 = "USs9VCJWkgOY2XXMiCA1RO3Bw+C+SGblRHNnOZ0pWjs=";
+          #   };
+
+          #   doCheck = false; # check requires infrastructure
+          # };
+
+          db-dtypes = pkgs.python3Packages.buildPythonPackage rec {
             pname = "pan-python";
             version = "0.25.0";
 
@@ -41,13 +54,11 @@
               owner = "kevinsteves";
               repo = "pan-python";
               rev = "0.25.0";
-              #sha256 = "USs9VCJWkgOY2XXMiCA1RO3Bw+C+SGblRHNnOZ0pWjs=";
+              #sha256 = "OAVHx/a4uupVGXSWN2/3uem9/4i+TUkzTX4kp0uLY44=";
             };
 
-            #doCheck = false; # check requires infrastructure
+            #doCheck = false; # check requires pip
           };
-
-
         
           # YAML extension module for including YAML files from within YAML files
           # pyyaml-include = pkgs.python3Packages.buildPythonPackage rec {
@@ -67,7 +78,7 @@
         with pkgs;
         {
           devShells.default = mkShell {
-            name = "py-defaults";
+            name = "soip reports";
             packages = [
               # put any non-Python packages here
               # google-cloud-sdk
@@ -78,7 +89,7 @@
             ];
 
             shellHook = ''
-            echo "Default Python packages"
+            echo "Installed Pyhton Packages"
             '';
           };
         }
