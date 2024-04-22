@@ -3,7 +3,7 @@
 # , lib
 # , fetchPypi
 , setuptools
-# , wheel
+, wheel
 }:
 
 buildPythonPackage rec {
