@@ -237,7 +237,7 @@
       openssl
       pipewire
       polkit_gnome
-      python3
+      python3Full
       python311Packages.boto3
       python311Packages.pip
       python311Packages.xmltodict
