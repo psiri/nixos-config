@@ -3,6 +3,7 @@
 # , lib
 # , fetchPypi
 , setuptools
+, setuptools.build_meta
 , wheel
 }:
 
