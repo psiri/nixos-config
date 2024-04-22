@@ -21,10 +21,10 @@ buildPythonPackage rec {
   # specific to buildPythonPackage, see its reference
   pyproject = true;
   # nativeBuildInputs = [];
-  # build-system = [
-  #   setuptools
-  #   wheel
-  # ];
+  build-system = [
+    setuptools
+    wheel
+  ];
 
   meta = {
     description = "Multi-tool set for Palo Alto Networks PAN-OS, Panorama, WildFire and AutoFocus";
