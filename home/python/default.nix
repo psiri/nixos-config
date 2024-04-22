@@ -39,21 +39,32 @@
 
   in
   with pkgs;
-  {
-    devShells.default = mkShell {
-      name = "default python";
-      packages = [
-        # put any non-Python packages here
-        # google-cloud-sdk
-        # Python packages:
-        (python.withPackages (p: with p; [
-          pan-python
-        ]))
-      ];
 
-      shellHook = ''
-      echo "Installed Pyhton Packages"
-      '';
+  users.users = {
+    ${user} = {
+      packages = with pkgs; [
+      (python.withPackages (p: with p; [
+                pan-python
+              ]))
+      ];
     };
   }
+
+  # {
+  #   devShells.default = mkShell {
+  #     name = "default python";
+  #     packages = [
+  #       # put any non-Python packages here
+  #       # google-cloud-sdk
+  #       # Python packages:
+  #       (python.withPackages (p: with p; [
+  #         pan-python
+  #       ]))
+  #     ];
+
+  #     shellHook = ''
+  #     echo "Installed Pyhton Packages"
+  #     '';
+  #   };
+  # }
 #}  
