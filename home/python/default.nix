@@ -43,7 +43,7 @@
   users.users.${user}.packages = with pkgs; [
     python3.withPackages [
       pan-python
-    ];
+    ]
   ];
 }
 
