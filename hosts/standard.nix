@@ -259,7 +259,7 @@
       zsh-history-substring-search
       zsh-nix-shell
       zsh-powerlevel10k
-      pkgs.mkShell.packages = [
+      mkShell.packages = [
         (pkgs.python3.withPackages (python-pkgs: [
           # select Python packages here
           python-pkgs.requests
