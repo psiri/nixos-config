@@ -26,6 +26,7 @@
     ../home/chrome
     ../modules/console
     ../home/obs-studio
+    ../overlays/python/shell.nix
     #../home/swaylock # replacing with hyprlock
     ../home/thunar # file manager
     ../home/vscode
@@ -240,10 +241,6 @@
       python311Packages.boto3
       python311Packages.pip
       python311Packages.xmltodict
-      (python3.withPackages (python-pkgs: [
-      # select Python packages here
-      (pkgs.callPackage ../overlays/python/default.nix)
-      ]))
       #qt6.qtwayland # SecureCRT dependency
       ssm-session-manager-plugin # AWS Systems Manager Session Manager plugin
       #swayidle # Replaced with hyprlock
