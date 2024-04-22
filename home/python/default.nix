@@ -39,10 +39,11 @@
 
   in
 
+  {
   users.users.${user}.packages = with pkgs; [
-    (python.withPackages (p: with p; [
+    python.withPackages (p: with p; [
       pan-python
-    ]))
+    ])
   ];
 }
 
