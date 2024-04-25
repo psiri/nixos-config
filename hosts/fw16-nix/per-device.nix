@@ -1,4 +1,4 @@
-{user, ...}: {
+{user, pkgs, ...}: {
   home-manager.users.${user}.home.file.".config/hypr/per-device.conf" = {
     text = ''
       monitor=,3840x2160,auto,1
@@ -7,4 +7,12 @@
       monitor=DP-3,3840x2160,-2160x0,1,transform,1
     '';
   };
+
+  environment.systemPackages = with pkgs; [
+    age
+    qmk
+    qmk-udev-rules
+    sops
+  ];
+
 }
