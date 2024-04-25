@@ -94,7 +94,7 @@
     systemd-boot.enable = true;
     efi.canTouchEfiVariables = true;
     efi.efiSysMountPoint = "/boot";
-    timeout = 5;
+    timeout = 3;
   };
 
   time.timeZone="America/Los_Angeles";
