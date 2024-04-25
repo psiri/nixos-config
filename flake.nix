@@ -95,11 +95,10 @@
           ./hosts/fw16-nix                           # > Our host-specific nixos configuration file <
           ./modules/audio/default.nix               # Standard audio module using pipewire
           ./modules/security-hardening/default.nix  # Security hardening module
-          disko.nixosModules.disko
+          #disko.nixosModules.disko
           sops-nix.nixosModules.sops
           nur.nixosModules.nur
-          hardware.nixosModules.framew
-
+          hardware.nixosModules.framework-13-7040-amd
 
           home-manager.nixosModules.home-manager {
             home-manager = {
