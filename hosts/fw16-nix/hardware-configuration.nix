@@ -8,9 +8,25 @@
     [ (modulesPath + "/installer/scan/not-detected.nix")
     ];
 
-  boot.initrd.availableKernelModules = [ "nvme" "xhci_pci" "ahci" "usbhid" "usb_storage" "sd_mod" "virtio_net" "virtio_pci" "virtio_mmio" "virtio_blk" "virtio_scsi" "9p" "9pnet_virtio" ];
-  boot.initrd.kernelModules = [ ];
-  boot.kernelModules = [ "kvm-amd" ];
+  boot.initrd.availableKernelModules = [ "amdgpu" "nvme" "xhci_pci" "thunderbolt" "ahci" "usbhid" "usb_storage" "uas" "sd_mod" "pci_stub" "vfio" "vfio-pci" "vfio_iommu_type1" "virtio_net" "virtio_pci" "virtio_mmio" "virtio_blk" "virtio_scsi" "9p" "9pnet_virtio" ];
+  boot.initrd.kernelModules = [ "vfio" "vfio-pci" "amdgpu" ]; 
+  boot.kernelModules = [ 
+    "kvm-amd"
+    "pci_stub"
+    "vfio_pci"
+    "vfio"
+    "vfio_iommu_type1"
+    "kvmfr"
+  ];
+  boot.kernelParams = [
+    "iommu=pt"
+    # "pcie_aspm=off"
+    "amd_iommu=on"
+    #"vfio-pci.ids=1002:7480,1002:ab30"
+    #"pci-stub.ids=1002:7480,1002:ab30"
+    "mem_sleep_default=deep"
+  ];
+  boot.kernelPackages = config.boot.zfs.package.latestCompatibleLinuxPackages;
   boot.extraModulePackages = [ ];
 
   fileSystems."/" =
@@ -36,5 +52,27 @@
   # networking.interfaces.wlp5s0.useDHCP = lib.mkDefault true;
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
-  hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
+
+  hardware = {
+    cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
+    keyboard.qmk.enable = true;
+    opengl = {
+      driSupport = true;
+      driSupport32Bit = true;
+      enable = true;
+      extraPackages = with pkgs; [
+        amdvlk
+        libva
+        libvdpau
+        libvdpau-va-gl
+        vaapiVdpau
+      ];
+      extraPackages32 = [
+        pkgs.driversi686Linux.amdvlk
+      ];
+    };
+    # steam-hardware.enable = true;
+  };
+
+
 }
