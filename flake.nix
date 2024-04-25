@@ -19,6 +19,7 @@
     nixos-hardware.url = "github:nixos/nixos-hardware";
 
     impermanence.url = "github:nix-community/impermanence";
+
     disko = {
       url = "github:nix-community/disko";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -39,7 +40,7 @@
     #hyprland,
     nix-colors,
     disko,
-    sops-nix
+    sops-nix,
     ...
   } @ inputs: let
     user = "psiri"; # FIXME set your username
