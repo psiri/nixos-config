@@ -26,7 +26,8 @@
     ../home/chrome
     ../modules/console
     ../home/obs-studio
-    ../home/swaylock
+    #../pkgs/pan-python
+    #../home/swaylock # replacing with hyprlock
     ../home/thunar # file manager
     ../home/vscode
     ../home/zsh
@@ -41,7 +42,7 @@
       outputs.overlays.unstable-packages
 
       # import from ../overlays files
-      #(import ../overlays/okta-aws-cli)
+      #(import ../overlays/python)
       
 
       # You can also add overlays exported from other flakes:
@@ -53,15 +54,6 @@
       #     patches = [ ./change-hello-to-hi.patch ];
       #   });
       # })
-
-      # When applied, the unstable nixpkgs set (declared in the flake inputs) will
-      # be accessible through 'pkgs.unstable'
-      # unstable-packages = final: _prev: {
-      #   unstable = import inputs.nixpkgs-unstable {
-      #     system = final.system;
-      #     config.allowUnfree = true;
-      #   };
-      # };
     ];
     # Configure your nixpkgs instance
     config = {
@@ -248,11 +240,14 @@
       python3
       python311Packages.boto3
       python311Packages.pip
+      #python311Packages.setuptools
+      #python311Packages.virtualenv
       python311Packages.xmltodict
+      #python311Packages.wheel
       #qt6.qtwayland # SecureCRT dependency
       ssm-session-manager-plugin # AWS Systems Manager Session Manager plugin
-      swayidle
-      swaylock
+      #swayidle # Replaced with hyprlock
+      #swaylock # Replaced with hypridle
       terraform
       terraform-docs
       tree

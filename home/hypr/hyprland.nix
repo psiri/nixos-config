@@ -58,8 +58,11 @@ $cf = rgba(${config.colorscheme.colors.base0F}FF)
 
 ## TODO move to /home/
 exec-once = hyprpaper
+
+
 # IDLE SCREEN LOCK
-exec = swayidle -w timeout 600 'swaylock -f' timeout 660 'hyprctl dispatch dpms off' resume 'hyprctl dispatch dpms on' before-sleep 'swaylock --image $lockimg -f'
+exec-once = hypridle
+# exec = swayidle -w timeout 600 'swaylock -f' timeout 660 'hyprctl dispatch dpms off' resume 'hyprctl dispatch dpms on' before-sleep 'swaylock --image $lockimg -f'
 # TODO - shut off monitors during manual lock: add
 # 'if pgrep -x swaylock; then hyprctl dispatch dpms off; fi'
 
@@ -171,6 +174,7 @@ master {
 
 # bind = $mainMod, F, exec, firefox                      # imported from ../firefox
 bind = $mainMod, J, exec, joplin-desktop --enable-features=UseOzonePlatform --ozone-platform=wayland       # TODO - move to home
+bind = $mainMod, L, exec, pidof hyprlock || hyprlock
 # bind = $mainMod, L, exec, swaylock                     # imported from ../swaylock
 # bind = $mainMod, O, exec, obs                          # imported from ../obs-studio
 # bind = $mainMod, q, exec, $terminal --title kitty      # imported from ../kitty
