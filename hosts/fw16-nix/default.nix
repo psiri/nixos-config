@@ -52,7 +52,7 @@ in
 
     networking = {
       enableIPv6 = false;
-      hostName = "desktop-nix";
+      hostName = "fw16-nix";
       firewall.enable = true;
       networkmanager.enable = true;
     };
