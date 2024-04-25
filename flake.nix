@@ -32,6 +32,8 @@
     home-manager,
     #hyprland,
     nix-colors,
+    disko,
+    sops-nix
     ...
   } @ inputs: let
     user = "psiri"; # FIXME set your username
@@ -95,8 +97,8 @@
           ./hosts/fw16-nix                           # > Our host-specific nixos configuration file <
           ./modules/audio/default.nix               # Standard audio module using pipewire
           ./modules/security-hardening/default.nix  # Security hardening module
-          #disko.nixosModules.disko
-          #sops-nix.nixosModules.sops
+          disko.nixosModules.disko
+          sops-nix.nixosModules.sops
           hardware.nixosModules.framework-13-7040-amd
 
           home-manager.nixosModules.home-manager {
