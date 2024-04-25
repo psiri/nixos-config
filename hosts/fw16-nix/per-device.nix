@@ -14,4 +14,13 @@
     qmk-udev-rules
     sops
   ];
+
+  services = {
+    fprintd.enable = true;
+    fwupd.enable = true;
+    #pcscd.enable = true;
+    power-profiles-daemon.enable = true;
+  }
+
+
 }
