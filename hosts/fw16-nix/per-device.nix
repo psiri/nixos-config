@@ -14,12 +14,4 @@
     qmk-udev-rules
     sops
   ];
-
-  system = {
-    stateVersion = "24.05";
-    autoUpgrade.enable = true;
-    autoUpgrade.allowReboot = false;
-  };
-
-
 }
