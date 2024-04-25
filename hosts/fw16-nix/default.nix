@@ -45,6 +45,10 @@ in
       ../../home/ulauncher
       ../../home/waybar
       ../../home/wlogout
+
+
+      #./disko-config.nix
+      #./impermanence.nix
     ];
 
     colorscheme = inputs.nix-colors.colorSchemes.${scheme};

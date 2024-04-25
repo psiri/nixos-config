@@ -17,6 +17,12 @@
     # TODO: Add any other flake you might need
     hardware.url = "github:nixos/nixos-hardware";
     nixos-hardware.url = "github:nixos/nixos-hardware";
+
+    disko.url = "github:nix-community/disko";
+    disko.inputs.nixpkgs.follows = "nixpkgs";
+    impermanence.url = "github:nix-community/impermanence";
+    sops-nix.url = "github:Mic92/sops-nix";
+
   };
 
   outputs = {
@@ -89,6 +95,11 @@
           ./hosts/fw16-nix                           # > Our host-specific nixos configuration file <
           ./modules/audio/default.nix               # Standard audio module using pipewire
           ./modules/security-hardening/default.nix  # Security hardening module
+          disko.nixosModules.disko
+          sops-nix.nixosModules.sops
+          nur.nixosModules.nur
+          hardware.nixosModules.framew
+
 
           home-manager.nixosModules.home-manager {
             home-manager = {
