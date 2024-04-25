@@ -41,6 +41,7 @@
     nix-colors,
     disko,
     sops-nix,
+    hardware,
     ...
   } @ inputs: let
     user = "psiri"; # FIXME set your username
