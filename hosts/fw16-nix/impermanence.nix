@@ -46,7 +46,7 @@
       ];
       files = [
         ".bash_history"
-        ".gitconfig"
+        #".gitconfig"
         #".zlogin"
         #".zshenv"
         ".zsh_history"
