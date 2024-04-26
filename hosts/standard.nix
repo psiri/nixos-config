@@ -249,6 +249,7 @@
       python311Packages.xmltodict
       #python311Packages.wheel
       #qt6.qtwayland # SecureCRT dependency
+      sops
       ssm-session-manager-plugin # AWS Systems Manager Session Manager plugin
       #swayidle # Replaced with hyprlock
       #swaylock # Replaced with hypridle
