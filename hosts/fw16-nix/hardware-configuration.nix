@@ -32,6 +32,9 @@
       zfs rollback -r zroot/encrypted/home@blank
     '';
   };
+  boot.initrd.postDeviceCommands = ''
+    zfs rollback -r zroot/encrypted/root@blank
+  '';
 
   boot.supportedFilesystems = [ "zfs" ];
   boot.zfs.requestEncryptionCredentials = true; # Prompts for password input?
