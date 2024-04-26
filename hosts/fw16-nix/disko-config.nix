@@ -31,7 +31,7 @@
     zpool = {
       zroot = {
         type = "zpool";
-        mode = "" # not mirrored
+        mode = ""; # not mirrored
         rootFsOptions = {
           canmount = "off";
         };
