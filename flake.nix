@@ -111,7 +111,7 @@
           ./modules/security-hardening/default.nix  # Security hardening module
           disko.nixosModules.disko
           #sops-nix.nixosModules.sops
-          hardware.nixosModules.framework-13-7040-amd
+          hardware.nixosModules.framework-16-inch-7040-amd
           impermanence.nixosModules.impermanence
 
 
