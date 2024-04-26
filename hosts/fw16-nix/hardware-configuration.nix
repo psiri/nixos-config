@@ -10,6 +10,45 @@
 
   boot.initrd.availableKernelModules = [ "amdgpu" "nvme" "xhci_pci" "thunderbolt" "ahci" "usbhid" "usb_storage" "uas" "sd_mod" "pci_stub" "vfio" "vfio-pci" "vfio_iommu_type1" "virtio_net" "virtio_pci" "virtio_mmio" "virtio_blk" "virtio_scsi" "9p" "9pnet_virtio" ];
   boot.initrd.kernelModules = [ "vfio" "vfio-pci" "amdgpu" ]; 
+
+  boot.initrd.systemd.services.rollback = {
+    description = "Rollback root filesystem";
+    wantedBy = [
+      "initrd.target"
+    ];
+    after = [
+      "zfs-import-zroot.service"
+    ];
+    before = [
+      "sysroot.mount"
+    ];
+    path = with pkgs; [
+      zfs
+    ];
+    unitConfig.DefaultDependencies = "no";
+    serviceConfig.Type = "oneshot";
+    script = ''
+      zfs rollback -r zroot/encrypted/root@blank
+      zfs rollback -r zroot/encrypted/home@blank
+    '';
+  };
+
+  boot.supportedFilesystems = [ "zfs" ];
+  boot.zfs.requestEncryptionCredentials = true; # Prompts for password input?
+  services.zfs.autoScrub.enable = true;
+
+  # fileSystems."/" =
+  #   { device = "/dev/disk/by-uuid/00ef2401-13a0-4740-933c-9d6bd51c9bf4";
+  #     fsType = "ext4";
+  #   };
+
+  # boot.initrd.luks.devices."luks-80a356ce-01a6-4bc3-9ed7-c84a2a694406".device = "/dev/disk/by-uuid/80a356ce-01a6-4bc3-9ed7-c84a2a694406";
+
+  # fileSystems."/boot" =
+  #   { device = "/dev/disk/by-uuid/DC3E-6165";
+  #     fsType = "vfat";
+  #   };
+
   boot.kernelModules = [ 
     "kvm-amd"
     "pci_stub"
@@ -28,18 +67,6 @@
   ];
   boot.kernelPackages = config.boot.zfs.package.latestCompatibleLinuxPackages;
   boot.extraModulePackages = [ ];
-
-  fileSystems."/" =
-    { device = "/dev/disk/by-uuid/00ef2401-13a0-4740-933c-9d6bd51c9bf4";
-      fsType = "ext4";
-    };
-
-  boot.initrd.luks.devices."luks-80a356ce-01a6-4bc3-9ed7-c84a2a694406".device = "/dev/disk/by-uuid/80a356ce-01a6-4bc3-9ed7-c84a2a694406";
-
-  fileSystems."/boot" =
-    { device = "/dev/disk/by-uuid/DC3E-6165";
-      fsType = "vfat";
-    };
 
   swapDevices = [ ];
 
@@ -73,6 +100,5 @@
     };
     # steam-hardware.enable = true;
   };
-
 
 }
