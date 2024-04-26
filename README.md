@@ -101,10 +101,21 @@ export NIX_CONFIG="experimental-features = nix-command flakes"
 
 Note: Any installation ISO will work, but I chose minimal to ensure the configuration can be easily replicated onto headless systems
 
-1. Run through the [official NixOS install guide](https://nixos.wiki/wiki/NixOS_Installation_Guide), STOPPING after completing the `NixOs Config` step
-2. Copy the generated hardware configuration to your template directory:
-    1. `cp /mnt/etc/nixos/hardware-configuration.nix /tmp/dotfiles/hosts/<HOSTNAME>/hardware-configuration.nix`
-3.  run `sudo nixos-install --flake /tmp/dotfiles/.#<HOSTNAME>` and reboot when the installation is complete
+1. Clone the repo (optionally selecting target branch):
+   1. `sudo git clone [--branch <YOURBRANCH>] https://github.com/psiri/nixos-config /tmp/dotfiles`
+2. Change directory into the host-sepcific config dir. Example for host `fw16-nix`:
+   1. `cd /tmp/dotfiles/hosts/fw16-nix`
+3. Perform disk partitioning using disko:
+    1. `sudo nix --experimental-features "nix-command flakes" run github:nix-community/disko -- --mode disko ./disko-config.nix`
+    2. (Optional, recommended) Validate the partitioning
+       1. run `mount | grep /mnt` and validate that the output shows your partitions as defined within the respective `disko-config.nix` file
+<!-- 4.  Generate a temporary configuration.nix file without any filesystems:
+    1.  `sudo nixos-generate-config --no-filesystems --root /mnt`
+    2.  This will create the file `configuration.nix` in /mnt/etc/nixos
+    3.  Copy the `disko-config.nix` file into `/etc/nixos`
+        1.  `cp ./disko-config.nix /mnt/etc/nixos` -->
+5.  Complete the NixOS installation:
+    1.  Run `sudo nixos-install --flake /tmp/dotfiles/.#<HOSTNAME>` and reboot when the installation is complete
    
 
 ### Install or update from a running NixOS system:
