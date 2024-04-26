@@ -44,6 +44,7 @@
     disko,
     sops-nix,
     hardware,
+    impermanence,
     ...
   } @ inputs: let
     user = "psiri"; # FIXME set your username
@@ -110,6 +111,8 @@
           disko.nixosModules.disko
           sops-nix.nixosModules.sops
           hardware.nixosModules.framework-13-7040-amd
+          impermanence.nixosModules.impermanence
+
 
           home-manager.nixosModules.home-manager {
             home-manager = {
