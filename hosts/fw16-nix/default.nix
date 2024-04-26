@@ -51,9 +51,9 @@ in
       ./impermanence.nix
     ];
 
-    sops.defaultSopsFile = ../../secrets/secrets.yaml;
-    sops.age.keyFile = "/nix/persist/home/${user}/.config/sops/age/keys.txt";
-    sops.secrets."network_manager.env" = { };
+    #sops.defaultSopsFile = ../../secrets/secrets.yaml;
+    #sops.age.keyFile = "/nix/persist/home/${user}/.config/sops/age/keys.txt";
+    #sops.secrets."network_manager.env" = { };
     #sops.secrets.user_password.neededForUsers = true;
     #security.pam.services.${user}.enableKwallet = true;
 
