@@ -104,13 +104,14 @@
       };
       fw16-nix = nixpkgs.lib.nixosSystem {
         specialArgs = {inherit nix-colors user plymouth_theme inputs outputs;};
+        system = "x86_64-Linux";
         modules = [
           ./hosts/fw16-nix                           # > Our host-specific nixos configuration file <
           ./modules/audio/default.nix               # Standard audio module using pipewire
           ./modules/security-hardening/default.nix  # Security hardening module
           disko.nixosModules.disko
           #sops-nix.nixosModules.sops
-          hardware.nixosModules.framework-13-7040-amd
+          #hardware.nixosModules.framework-13-7040-amd
           impermanence.nixosModules.impermanence
 
 
