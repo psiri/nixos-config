@@ -47,10 +47,10 @@
       files = [
         ".bash_history"
         ".gitconfig"
-        ".zlogin"
-        ".zshenv"
+        #".zlogin"
+        #".zshenv"
         ".zsh_history"
-        ".zshrc"
+        #".zshrc"
       ];
     };
   };
