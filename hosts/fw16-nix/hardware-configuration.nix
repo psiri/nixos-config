@@ -35,7 +35,13 @@
 
   boot.supportedFilesystems = [ "zfs" ];
   boot.zfs.requestEncryptionCredentials = true; # Prompts for password input?
-  services.zfs.autoScrub.enable = true;
+  boot.zfs.allowHibernation = false;
+  services.zfs = {
+    autoScrub.enable = true;
+    autoScrub.pools = [ "zroot" ];
+    trim.enable = true;
+  };
+  programs.zsh.enable = true;
 
   # fileSystems."/" =
   #   { device = "/dev/disk/by-uuid/00ef2401-13a0-4740-933c-9d6bd51c9bf4";
