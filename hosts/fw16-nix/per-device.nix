@@ -18,7 +18,6 @@
     qmk
     qmk-udev-rules
     sops
-    powertop
   ];
 
   services = {
