@@ -88,12 +88,13 @@
   # networking.interfaces.wlp5s0.useDHCP = lib.mkDefault true;
 
 
-  # Fixes for Mediatek wifi cards on F13/F16
+  # Fixes for Mediatek wifi cards on F13/F16:. Without the following,
+  # Mediatek cards have been limited to 802.11n networks & speeds:
   hardware.wirelessRegulatoryDatabase = true;
   boot.extraModprobeConfig = ''
     options cfg80211 ieee80211_regdom="US"
   '';
-
+  # End Mediatek wifi fixes
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
 
