@@ -9,7 +9,7 @@
       # trigger when the Lid Switch is turning on (lid closed)
       bindl = , switch:on:Lid Switch,exec,hyprctl keyword monitor "eDP-1, disable"
       # trigger when the Lid Switch is turning off (lid opened)
-      bindl = , switch:off:Lid Switch,exec,hyprctl keyword monitor "eDP-1, 2560x1600@60.00,0x0,1"
+      bindl = , switch:off:Lid Switch,exec,hyprctl keyword monitor "eDP-1, 2560x1600@60.00, 0x0, 1"
     '';
   };
 
