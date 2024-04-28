@@ -87,6 +87,14 @@
   # networking.interfaces.enp4s0.useDHCP = lib.mkDefault true;
   # networking.interfaces.wlp5s0.useDHCP = lib.mkDefault true;
 
+
+  # Fixes for Mediatek wifi cards on F13/F16
+  hardware.wirelessRegulatoryDatabase = true;
+  boot.extraModprobeConfig = ''
+    options cfg80211 ieee80211_regdom="US"
+  '';
+
+
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
 
   hardware = {
