@@ -7,9 +7,9 @@
       monitor=DP-3,3840x2160,-2160x0,1,transform,1
 
       # trigger when the Lid Switch is turning off
-      #bindl = , switch:off:Lid Switch,exec,hyprctl keyword monitor "eDP-1, 2560x1600@60,auto,1"
+      bindl = , switch:off:Lid Switch,exec,hyprctl keyword monitor "eDP-1, 2560x1600@60,auto,1"
       # trigger when the Lid Switch is turning on
-      #bindl = , switch:on:Lid Switch,exec,hyprctl keyword monitor "eDP-1, disable"
+      bindl = , switch:on:Lid Switch,exec,hyprctl keyword monitor "eDP-1, disable"
     '';
   };
 
