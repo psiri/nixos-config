@@ -5,6 +5,11 @@
       monitor=DP-2,3840x2160,0x0,1
       # Rotate DP-3 and place it to the left of DP-2
       monitor=DP-3,3840x2160,-2160x0,1,transform,1
+
+      # trigger when the Lid Switch is turning off
+      bindl = , switch:off:Lid Switch,exec,hyprctl keyword monitor "eDP-1, 2560x1440x1600@60,auto,1"
+      # trigger when the Lid Switch is turning on
+      bindl = , switch:on:Lid Switch,exec,hyprctl keyword monitor "eDP-1, disable"
     '';
   };
 
