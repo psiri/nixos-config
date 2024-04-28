@@ -241,7 +241,6 @@
       openssl
       pipewire
       polkit_gnome
-      powertop
       python3
       python311Packages.boto3
       python311Packages.pip
