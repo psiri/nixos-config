@@ -84,7 +84,7 @@
   # End Mediatek wifi fixes
 
   nixpkgs.hostPlatform = {
-    system = lib.mkDefault "x86_64-linux";
+    system = "x86_64-linux";
     gcc.arch = "znver4"; # Additional tuning for Zen 4 architecture
     gcc.tune = "znver4"; # Additional tuning for Zen 4 architecture
   };
