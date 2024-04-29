@@ -85,8 +85,6 @@
 
   nixpkgs.hostPlatform = {
     system = "x86_64-linux";
-    gcc.arch = "znver4"; # Additional tuning for Zen 4 architecture
-    gcc.tune = "znver4"; # Additional tuning for Zen 4 architecture
   };
 
   hardware = {
