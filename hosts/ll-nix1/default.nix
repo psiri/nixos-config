@@ -15,10 +15,11 @@ in
       nix-colors.homeManagerModules.default
       ./per-device.nix # per device hypr configuration
 
-      /etc/nixos/hardware-configuration.nix # machine-local hardware config (for initial setup)
-      #./hardware-configuration.nix
+      #./hardware-configuration.nix # machine hardware config
+      ./hardware-configuration.nix
       ../standard.nix # standard or server configs
 
+      ../../modules/virt
       #../../hardware/audio # change to pipewire, move to home
       #../../hardware/bluetooth
       #../../hardware/nvidia
@@ -42,52 +43,37 @@ in
       ../../home/kitty
       #../../home/rkvm
       ../../home/ulauncher
-      #../../home/virt
       ../../home/waybar
       ../../home/wlogout
-      ../../modules/brightness
+
+
+      ./disko-config.nix
+      ./impermanence.nix
     ];
+
+    #sops.defaultSopsFile = ../../secrets/secrets.yaml;
+    #sops.age.keyFile = "/nix/persist/home/${user}/.config/sops/age/keys.txt";
+    #sops.secrets."network_manager.env" = { };
+    #sops.secrets.user_password.neededForUsers = true;
+    #security.pam.services.${user}.enableKwallet = true;
+
+
 
     colorscheme = inputs.nix-colors.colorSchemes.${scheme};
     home-manager.users.${user}.colorscheme = inputs.nix-colors.colorSchemes.${scheme};
 
     networking = {
       enableIPv6 = false;
-      firewall.enable = true;
       hostName = "ll-nix1";
-      # interfaces = {
-      #   name = {
-      #     ipv4 = {
-      #       addresses = [
-      #         {
-      #           address = "10.X.Y.X";
-      #           prefixLength = 24;
-      #         }
-      #       ];
-      #       routes = [
-      #         {
-      #           address = "0.0.0.0";
-      #           prefixLength = 0;
-      #           via = "10.X.Y.1";
-      #         }
-      #       ];
-      #     };
-      #   };
-      # };
-      networkmanager = {
-        enable = true;
-        # appendNameservers = [
-        #   "server-ip-1"
-        # ];
-        unmanaged = [ # A list of interfaces that will not be managed by networkmanager
-        ];
-      };
+      hostId = "66c98433";
+      firewall.enable = true;
+      networkmanager.enable = true;
     };
 
     hardware.opengl.enable = true;
 
     environment = {
       #systemPackages = with pkgs; [pciutils];
-      shellAliases.rebuild = "sudo rm -rf /tmp/dotfiles && sudo git clone --branch main https://github.com/psiri/nixos-config /tmp/dotfiles && sudo nixos-rebuild switch --flake /tmp/dotfiles/.#ll-nix1 --impure";
+      shellAliases.rebuild = "sudo rm -rf /tmp/dotfiles && sudo git clone --branch 0.0.5 https://github.com/psiri/nixos-config /tmp/dotfiles && sudo nixos-rebuild switch --flake /tmp/dotfiles/.#ll-nix1 --impure";
     };
   }

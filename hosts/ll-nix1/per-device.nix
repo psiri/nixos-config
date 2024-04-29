@@ -11,4 +11,25 @@
       #monitor=eDP-1,disable
     '';
   };
+
+  environment.systemPackages = with pkgs; [
+    age
+    qmk
+    qmk-udev-rules
+    sops
+    # Necessary for Gnome to use the ambient light sensor
+    iio-sensor-proxy
+    # Framework specific bits
+    framework-tool
+    linuxKernel.packages.linux_zen.framework-laptop-kmod
+  ];
+
+  services = {
+    fprintd.enable = true;
+    fwupd.enable = true;
+    #pcscd.enable = true;
+    #power-profiles-daemon.enable = true;
+    udev.packages = [ pkgs.via ];
+  };
+
 }
