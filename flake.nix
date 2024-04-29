@@ -91,6 +91,9 @@
           ./hosts/ll-nix1                           # > Our host-specific nixos configuration file <
           ./modules/audio/default.nix               # Standard audio module using pipewire
           ./modules/security-hardening/default.nix  # Security hardening module
+          disko.nixosModules.disko
+          #sops-nix.nixosModules.sops
+          impermanence.nixosModules.impermanence
 
           home-manager.nixosModules.home-manager {
             home-manager = {
