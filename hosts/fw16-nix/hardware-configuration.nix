@@ -44,19 +44,6 @@
     autoScrub.pools = [ "zroot" ];
     trim.enable = true;
   };
-  programs.zsh.enable = true;
-
-  # fileSystems."/" =
-  #   { device = "/dev/disk/by-uuid/00ef2401-13a0-4740-933c-9d6bd51c9bf4";
-  #     fsType = "ext4";
-  #   };
-
-  # boot.initrd.luks.devices."luks-80a356ce-01a6-4bc3-9ed7-c84a2a694406".device = "/dev/disk/by-uuid/80a356ce-01a6-4bc3-9ed7-c84a2a694406";
-
-  # fileSystems."/boot" =
-  #   { device = "/dev/disk/by-uuid/DC3E-6165";
-  #     fsType = "vfat";
-  #   };
 
   boot.kernelModules = [ 
     "kvm-amd"
@@ -67,12 +54,12 @@
     "kvmfr"
   ];
   boot.kernelParams = [
-    "iommu=pt"
+    #"iommu=pt" # Required if doing passthrough to VMs / Docker
     # "pcie_aspm=off"
     "amd_iommu=on"
     #"vfio-pci.ids=1002:7480,1002:ab30"
     #"pci-stub.ids=1002:7480,1002:ab30"
-    "mem_sleep_default=deep"
+    "mem_sleep_default=deep" # Fix for AMD-related power-draw while syspended/sleeping
   ];
   boot.kernelPackages = config.boot.zfs.package.latestCompatibleLinuxPackages;
   boot.extraModulePackages = [ ];
@@ -96,7 +83,11 @@
   '';
   # End Mediatek wifi fixes
 
-  nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
+  nixpkgs.hostPlatform =   nixpkgs.hostPlatform = {
+    system = lib.mkDefault "x86_64-linux";
+    gcc.arch = "znver4"; # Additional tuning for Zen 4 architecture
+    gcc.tune = "znver4"; # Additional tuning for Zen 4 architecture
+  };
 
   hardware = {
     cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
