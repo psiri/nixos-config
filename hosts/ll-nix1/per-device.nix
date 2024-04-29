@@ -1,4 +1,4 @@
-{user, ...}: {
+{user, pkgs, ...}: {
   home-manager.users.${user}.home.file.".config/hypr/per-device.conf" = {
     text = ''
       # Desktop middle monitor
