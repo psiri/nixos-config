@@ -45,9 +45,9 @@
     trim.enable = true;
   };
 
-  system.impermanence.zfs = {
-    enable = true;
-  };
+  # system.impermanence.zfs = {
+  #   enable = true;
+  # };
 
   boot.kernelModules = [ 
     "pci_stub"
