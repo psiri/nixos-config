@@ -58,14 +58,13 @@ in
     #security.pam.services.${user}.enableKwallet = true;
 
 
-
     colorscheme = inputs.nix-colors.colorSchemes.${scheme};
     home-manager.users.${user}.colorscheme = inputs.nix-colors.colorSchemes.${scheme};
 
     networking = {
       enableIPv6 = false;
       hostName = "ll-nix1";
-      hostId = "66c98433";
+      hostId = "66c98433"; # FIXME required for ZFS. Should be unique.
       firewall.enable = true;
       networkmanager.enable = true;
     };

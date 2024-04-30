@@ -65,7 +65,7 @@ in
     networking = {
       enableIPv6 = false;
       hostName = "fw16-nix";
-      hostId = "36a96503";
+      hostId = "36a96503"; # FIXME required for ZFS. Should be unique.
       firewall.enable = true;
       networkmanager.enable = true;
     };

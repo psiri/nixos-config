@@ -46,7 +46,7 @@
             options.encryption = "aes-256-gcm";
             options.keyformat = "passphrase";
             #options.keylocation = "file:///tmp/disk-1.key"; #TODO use nix-anywhere with --disk-encryption-keys
-            postCreateHook = ''zfs set keylocation="prompt" "zroot/encrypted"'';
+            postCreateHook = ''zfs set keylocation="prompt" "zroot/encrypted"''; # FIXME Prompts for password input. If you wish to have interactive-authentication, keep this line un-commented.  For fully-scripted installations using keyfiles, comment this option and uncomment "options.keylocation" instead.
           };
           "encrypted/root" = {
             type = "zfs_fs";
