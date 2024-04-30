@@ -4,7 +4,7 @@
       nv2280 = {
         type = "disk";
         # device = "/dev/disk/by-id/nvme-eui.";
-        device = "/dev/nvme0n1"; # nvme1n1 is NVME 2280 slot on FW16
+        device = "/dev/nvme0n1"; # nvme0n1 is NVME 2280 slot on FW16 (with no 2230 active)
         content = {
           type = "gpt";
           partitions = {
