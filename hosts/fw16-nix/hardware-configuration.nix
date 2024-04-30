@@ -40,10 +40,13 @@
     serviceConfig = {
       Type = "oneshot";
       ExecStart =
-        ''${config.boot.zfs.package}/sbin/zfs rollback -r zroot/encrypted/root@blank && echo "  >> >> rollback complete << <<"
-        '';
+        "${config.boot.zfs.package}/sbin/zfs rollback -r zroot/encrypted/root@blank";
     };
   };
+
+  security.sudo.extraConfig = ''
+    Defaults lecture = never
+  ''; # Prevents sudo warnings that reset after root rollback
 
   boot.supportedFilesystems = [ "zfs" ];
   boot.zfs.requestEncryptionCredentials = true; # Prompts for password input?
