@@ -92,7 +92,7 @@
           ./modules/audio/default.nix               # Standard audio module using pipewire
           ./modules/security-hardening/default.nix  # Security hardening module
           disko.nixosModules.disko
-          sops-nix.nixosModules.sops
+          #sops-nix.nixosModules.sops
           impermanence.nixosModules.impermanence
 
           home-manager.nixosModules.home-manager {
@@ -113,7 +113,7 @@
           ./modules/audio/default.nix               # Standard audio module using pipewire
           ./modules/security-hardening/default.nix  # Security hardening module
           disko.nixosModules.disko
-          #sops-nix.nixosModules.sops
+          sops-nix.nixosModules.sops
           hardware.nixosModules.framework-16-7040-amd
           impermanence.nixosModules.impermanence
 
