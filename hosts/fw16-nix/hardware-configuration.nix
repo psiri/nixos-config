@@ -11,38 +11,39 @@
   boot.initrd.availableKernelModules = [ "amdgpu" "nvme" "xhci_pci" "thunderbolt" "ahci" "usbhid" "usb_storage" "uas" "sd_mod" "pci_stub" "vfio" "vfio-pci" "vfio_iommu_type1" "virtio_net" "virtio_pci" "virtio_mmio" "virtio_blk" "virtio_scsi" "9p" "9pnet_virtio" ];
   boot.initrd.kernelModules = [ "vfio" "vfio-pci" "amdgpu" ]; 
 
-  # boot.initrd.systemd.services.rollback = {
-  #   description = "Rollback root filesystem to a pristine state on boot";
-  #   wantedBy = [
-  #     "initrd.target"
-  #   ];
-  #   after = [
-  #     "zfs-import-zroot.service"
-  #   ];
-  #   before = [
-  #     "sysroot.mount"
-  #   ];
-  #   path = with pkgs; [
-  #     zfs
-  #   ];
-  #   unitConfig.DefaultDependencies = "no";
-  #   serviceConfig.Type = "oneshot";
-  #   script = ''
-  #     zfs rollback -r zroot/encrypted/root@blank && echo "  >> >> rollback complete << <<"
-  #   '';
-  #     # zfs rollback -r zroot/encrypted/home@blank
-  # };
-
-  boot.initrd.systemd.services.initrd-rollback-root = {
-    after = [ "zfs-import-zpool.service" ];
-    before = [ "sysroot.mount" "local-fs.target" ];
+  boot.initrd.systemd.enable = lib.mkDefault true;
+  boot.initrd.systemd.services.rollback = {
     description = "Rollback root filesystem to a pristine state on boot";
-    serviceConfig = {
-      Type = "oneshot";
-      ExecStart =
-        "${config.boot.zfs.package}/sbin/zfs rollback -r zroot/encrypted/root@blank";
-    };
+    wantedBy = [
+      "initrd.target"
+    ];
+    after = [
+      "zfs-import-zroot.service"
+    ];
+    before = [
+      "sysroot.mount"
+    ];
+    path = with pkgs; [
+      zfs
+    ];
+    unitConfig.DefaultDependencies = "no";
+    serviceConfig.Type = "oneshot";
+    script = ''
+      zfs rollback -r zroot/encrypted/root@blank && echo "  >> >> rollback complete << <<"
+    '';
+      # zfs rollback -r zroot/encrypted/home@blank
   };
+
+  # boot.initrd.systemd.services.initrd-rollback-root = {
+  #   after = [ "zfs-import-zpool.service" ];
+  #   before = [ "sysroot.mount" "local-fs.target" ];
+  #   description = "Rollback root filesystem to a pristine state on boot";
+  #   serviceConfig = {
+  #     Type = "oneshot";
+  #     ExecStart =
+  #       "${config.boot.zfs.package}/sbin/zfs rollback -r zroot/encrypted/root@blank";
+  #   };
+  # };
 
   security.sudo.extraConfig = ''
     Defaults lecture = never
