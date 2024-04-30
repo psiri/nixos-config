@@ -11,6 +11,11 @@
   boot.initrd.availableKernelModules = [ "amdgpu" "nvme" "xhci_pci" "thunderbolt" "ahci" "usbhid" "usb_storage" "uas" "sd_mod" "pci_stub" "vfio" "vfio-pci" "vfio_iommu_type1" "virtio_net" "virtio_pci" "virtio_mmio" "virtio_blk" "virtio_scsi" "9p" "9pnet_virtio" ];
   boot.initrd.kernelModules = [ "vfio" "vfio-pci" "amdgpu" ]; 
 
+# The following section handles automatically "destroying" the  root filesystem every boot
+# by rolling-back to the initial blank zfs snapshot created during initial configuration (by disko via "disko-config.nix" in our case)
+#
+# Note: if you set a temporary password for your user (or root), for example with the "initialPassword" parameter
+#       then the rollback will also restore these to their initial values!
   boot.initrd.systemd.enable = lib.mkDefault true;
   boot.initrd.systemd.services.rollback = {
     description = "Rollback root filesystem to a pristine state on boot";
@@ -18,7 +23,7 @@
       "initrd.target"
     ];
     after = [
-      "zfs-import-zroot.service"
+      "zfs-import-zroot.service" # FIXME change "zroot" to the name of your specific zpool. Defined in "disko-config.nix".
     ];
     before = [
       "sysroot.mount"
@@ -32,29 +37,19 @@
       zfs rollback -r zroot/encrypted/root@blank && echo "  >> >> rollback complete << <<"
     '';
       # zfs rollback -r zroot/encrypted/home@blank
+      # FIXME - IMPORTANT - change "zroot" to the name of your specific zpool. Defined in "disko-config.nix".
   };
-
-  # boot.initrd.systemd.services.initrd-rollback-root = {
-  #   after = [ "zfs-import-zpool.service" ];
-  #   before = [ "sysroot.mount" "local-fs.target" ];
-  #   description = "Rollback root filesystem to a pristine state on boot";
-  #   serviceConfig = {
-  #     Type = "oneshot";
-  #     ExecStart =
-  #       "${config.boot.zfs.package}/sbin/zfs rollback -r zroot/encrypted/root@blank";
-  #   };
-  # };
 
   security.sudo.extraConfig = ''
     Defaults lecture = never
   ''; # Prevents sudo warnings that reset after root rollback
 
   boot.supportedFilesystems = [ "zfs" ];
-  boot.zfs.requestEncryptionCredentials = true; # Prompts for password input?
+  boot.zfs.requestEncryptionCredentials = true; # Prompts for password input. If you wish to have interactive-authentication, set to true.
   boot.zfs.allowHibernation = false;
   services.zfs = {
     autoScrub.enable = true;
-    autoScrub.pools = [ "zroot" ];
+    autoScrub.pools = [ "zroot" ]; # FIXME change "zroot" to the name of your specific zpool. Defined in "disko-config.nix".
     trim.enable = true;
   };
 
