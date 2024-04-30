@@ -117,7 +117,20 @@ Note: Any installation ISO will work, but I chose minimal to ensure the configur
     - Note: If you encounter an error, you may need to append the `--impure` flag
 
 
+## Secret Management with Sops-Nix
 
+1. (If necessary) Generate a key using age:
+   1. `mkdir -p ~/.config/sops/age`
+   2. `age-keygen -o ~/.config/sops/age/keys.txt`
+      1. When using age, the public key will be output from this command.  This will be required for the next step.
+2. Copy your age PUBLIC key to the `.sops.yaml` file (in the repo root)
+   1. Paste your PUBLIC key under the `keys` list.  For a user with name `bob`, an example would be:
+   2. ```
+      keys:
+        - &bob age1somekeystringhere-example12345678910
+      ```
+3. After configuring .sops.yaml, you can open a new secrets file with sops:
+   1. `nix-shell -p sops --run "sops secrets/example.yaml"`
 
 ## Credits
 
