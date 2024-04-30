@@ -54,7 +54,7 @@ in
     sops.defaultSopsFile = ../../secrets/secrets.yaml;
     sops.age.keyFile = "/nix/persist/var/lib/sops-nix/key.txt"; # This is using an age key that is expected to already be in the filesystem
     #sops.secrets."network_manager.env" = { };
-    sops.secrets.user_password.neededForUsers = true;
+    sops.secrets.user_password_hashed.neededForUsers = true;
     #security.pam.services.${user}.enableKwallet = true;
 
 
