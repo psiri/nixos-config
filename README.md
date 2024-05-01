@@ -47,52 +47,48 @@ Shared modules / components can be pulled-in at various levels as-appropriate:
 ```
 .
 ├── flake.lock
-├── flake.nix                           # Flake definition
-├── home                                # Directory for user-specific apps and configurations. Contains both app-declarations and respective home-manager configurations.
-│   ├── firefox
+├── flake.nix                          # Flake definition
+├── home                               # Directory for user-specific apps and configurations. Contains both app-declarations and respective home-manager configurations. These directories are then imported as-needed by the "template" or per-host configurations.
+│   ├── firefox                        # firefox package installation and home-manager config
 │   │   └── default.nix
-│   ├── hypr                            # Hyprland, Hypridle, and Hyprlock directory. Imported by hosts using the hypr ecosystem as compositor
+│   ├── hypr                           # Hyprland, Hypridle, and Hyprlock directory. Imported by hosts using the hypr ecosystem as compositor
 │   │   ├── default.nix
 │   │   ├── hypridle.nix
-│   │   ├── hyprland.nix
+│   │   ├── hyprland.nix               # Hyprland home-manager config
 │   │   ├── hyprlock.nix
 │   │   └── hyprpaper.nix
-│   └── example-app-3                  # Example - your additional apps go here
+│   └── example-app-3                  # Example - your additional apps would go here
 │       └── default.nix
-├── hosts                              # Directory containing templates (for server/headless and standard/headed) as well as per-host subdirectories
-│   ├── desktop-nix                    # Host-specific subdirectory.
-│   │   ├── default.nix                # default.nix imports the respective "template" (ex: "standard") and all host-specific config files (hardware-configuration.nix, per-device.nix, etc.)
-│   │   ├── hardware-configuration.nix # Contains host-specific hardware configs. Ex: 
-│   │   └── per-device.nix
-│   ├── fw16-nix
+├── hosts                              # Directory containing templates (for server/headless and standard/headed) as well as per-host subdirectories           
+│   ├── fw16-nix                       # Framework 16 host directory
+│   │   ├── default.nix                # Defines host-specific config & imports the respective "template" (ex: "standard") + all host-specific config files (hardware-configuration.nix, per-device.nix, etc.)
+│   │   ├── disko-config.nix           # Disko disk partitioning. Declares how disko will perform disk partitioning & file system config
+│   │   ├── hardware-configuration.nix # Contains host-specific hardware configs. Ex: boot options, kernel modules, etc.
+│   │   ├── impermanence.nix           # Impermanence configuration. Defines which files and folders will persist
+│   │   └── per-device.nix             # Per-host config customizations for hyprland (ex: monitor layouts, keybinds).
+│   ├── your-new-host                  # Host-specific subdirectory for your new host would go here
 │   │   ├── default.nix
 │   │   ├── disko-config.nix
 │   │   ├── hardware-configuration.nix
 │   │   ├── impermanence.nix
 │   │   └── per-device.nix
-│   ├── ll-nix1
-│   │   ├── default.nix
-│   │   ├── disko-config.nix
-│   │   ├── hardware-configuration.nix
-│   │   ├── impermanence.nix
-│   │   └── per-device.nix
-│   ├── server-nix
+│   ├── server-nix                     
 │   │   └── default.nix
-│   ├── server.nix                      #
-│   └── standard.nix
-├── modules                             # Common momdules that may be imported / re-used by
+│   ├── server.nix                     # Server (headless) template. Defines server baselines, imports other server apps as-needed
+│   └── standard.nix                   # Standard (headed) configuration template.  Imports other standard apps as-needed
+├── modules                            # Common momdules that may be imported / re-used by either templates or host-specific configs
 │   ├── security-hardening
 │   │   └── default.nix
-│   └── virt                            # Virtualization module (KVM, qemu, vert-manager, etc)
+│   └── virt                           # Virtualization module (KVM, qemu, vert-manager, etc)
 │       └── default.nix
-├── overlays                            # Overlays. Default overly allows for use of "unstable" packages when running "stable" channels, when required
+├── overlays                           # Overlays. Default overly allows for use of "unstable" packages when running "stable" channels, when required
 │   └── default.nix
-├── pkgs                                # Custom package builds
+├── pkgs                               # Custom package builds
 │   └── securecrt
 │       ├── default.nix
 │       └── derivation.nix
 ├── README.md
-└── secrets                             # Location of (encrypted) secrets what will be deployed and managed using sops-nix
+└── secrets                            # Location of (encrypted) secrets what will be deployed and managed using sops-nix
     └── secrets.yaml
 ```
 

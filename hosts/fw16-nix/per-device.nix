@@ -14,24 +14,4 @@
       bindl = , switch:off:Lid Switch,exec,hyprctl keyword monitor "eDP-1, 2560x1600@60.00, 0x0, 1"
     '';
   };
-
-  environment.systemPackages = with pkgs; [
-    age
-    qmk
-    qmk-udev-rules
-    sops
-
-    # Framework specific packages
-    framework-tool
-    linuxKernel.packages.linux_zen.framework-laptop-kmod
-  ];
-
-  services = {
-    fprintd.enable = true;
-    fwupd.enable = true;
-    #pcscd.enable = true;
-    power-profiles-daemon.enable = true;
-    udev.packages = [ pkgs.via ];
-  };
-
 }

@@ -51,10 +51,11 @@ in
       ./impermanence.nix
     ];
 
-    #sops.defaultSopsFile = ../../secrets/secrets.yaml;
-    #sops.age.keyFile = "/nix/persist/home/${user}/.config/sops/age/keys.txt";
-    #sops.secrets."network_manager.env" = { };
-    #sops.secrets.user_password.neededForUsers = true;
+    sops.defaultSopsFile = ../../secrets/secrets.yaml;
+    sops.age.keyFile = "/nix/persist/var/lib/sops-nix/key.txt"; # This is using an age key that is expected to already be in the filesystem
+    sops.defaultSopsFormat = "yaml";
+    sops.secrets.user_password_hashed.neededForUsers = true;
+    sops.secrets."hello_world" = { }; # Example secret. Will be mounted at /run/secrets/hello_world
     #security.pam.services.${user}.enableKwallet = true;
 
 
@@ -72,7 +73,26 @@ in
     hardware.opengl.enable = true;
 
     environment = {
-      #systemPackages = with pkgs; [pciutils];
+      systemPackages = with pkgs; [
+        age
+        qmk
+        qmk-udev-rules
+        sops
+        # Necessary for Gnome to use the ambient light sensor
+        iio-sensor-proxy
+        # Framework specific bits
+        framework-tool
+        linuxKernel.packages.linux_zen.framework-laptop-kmod
+      ];
       shellAliases.rebuild = "sudo rm -rf /tmp/dotfiles && sudo git clone --branch 0.0.5 https://github.com/psiri/nixos-config /tmp/dotfiles && sudo nixos-rebuild switch --flake /tmp/dotfiles/.#ll-nix1 --impure";
     };
+
+    services = {
+      fprintd.enable = true;
+      fwupd.enable = true;
+      #pcscd.enable = true;
+      #power-profiles-daemon.enable = true;
+      udev.packages = [ pkgs.via ];
+    };
+
   }
