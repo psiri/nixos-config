@@ -119,18 +119,38 @@ Note: Any installation ISO will work, but I chose minimal to ensure the configur
 
 ## Secret Management with Sops-Nix
 
+The example below is intended to get you up-and-running with sops-nix in the simpliest, most intuitive way possible. While I do recommend using deriving your age keys from ed25519 keys for enhanced security, the steps below will allow even beginners to quickly achieve fully-declarative management of secrets.
+
 1. (If necessary) Generate a key using age:
    1. `mkdir -p ~/.config/sops/age`
    2. `age-keygen -o ~/.config/sops/age/keys.txt`
       1. When using age, the public key will be output from this command.  This will be required for the next step.
 2. Copy your age PUBLIC key to the `.sops.yaml` file (in the repo root)
    1. Paste your PUBLIC key under the `keys` list.  For a user with name `bob`, an example would be:
-   2. ```
+    ```
+      # This example uses YAML anchors which allows reuse of multiple keys 
+      # without having to repeat yourself.
+      # Also see https://github.com/Mic92/dotfiles/blob/master/nixos/.sops.yaml
+      # for a more complex example.
       keys:
-        - &bob age1somekeystringhere-example12345678910
+        - &bob 2504791468b153b8a3963cc97ba53d1919c5dfd4
+      creation_rules:
+        - path_regex: secrets/[^/]+\.(yaml|json|env|ini)$
+          key_groups:
+          - age:
+            - *bob
       ```
+    * For an example of the resulting file, see [.sops.yaml](.sops.yaml)
 3. After configuring .sops.yaml, you can open a new secrets file with sops:
    1. `nix-shell -p sops --run "sops secrets/example.yaml"`
+      1. Define the secrets (optionally with a hierarchy). Once saved, the contents will be encrypted with sops-nix and safe for commitment to VCS.
+      * For an example of the resulting encrypted file, see [./secrets/secrets.yaml](secrets/secrets.yaml)
+4. You are now ready to deploy your secrets to your machine.
+   1. For _each_ secret the host requires, you will need a corresponding secret declaration in the form of `sops.secrets."SECRET-NAME" = { };`
+      * [Example:](./hosts/fw16-nix/default.nix#L58) ```sops.secrets."hello_world" = { }; # Example secret. Will be mounted at /run/secrets/hello_world```
+   2. If specifying secrets for users, the special flag `neededForUsers = true;` must be set on the corresponding secret.
+      * Example can be seen in [./hosts/fw16-nix/default.nix line 57](./hosts/fw16-nix/default.nix#L57):
+         * ```sops.secrets.user_password_hashed.neededForUsers = true;```
 
 ## Credits
 

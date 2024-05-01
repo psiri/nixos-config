@@ -55,8 +55,7 @@ in
     sops.age.keyFile = "/nix/persist/var/lib/sops-nix/key.txt"; # This is using an age key that is expected to already be in the filesystem
     sops.defaultSopsFormat = "yaml";
     sops.secrets.user_password_hashed.neededForUsers = true;
-    sops.secrets."hello" = { };
-    sops.secrets."psiri_hello" = { };
+    sops.secrets."hello_world" = { }; # Example secret. Will be mounted at /run/secrets/hello_world
     #security.pam.services.${user}.enableKwallet = true;
 
 
