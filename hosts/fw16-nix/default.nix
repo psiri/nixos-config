@@ -9,7 +9,7 @@ in
     outputs,
     nix-colors,
     user,
-    sops-nix,
+    <sops-nix/modules/sops>,
     ...
   }: {
     imports = [
