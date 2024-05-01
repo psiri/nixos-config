@@ -89,21 +89,22 @@ Shared modules / components can be pulled-in at various levels as-appropriate:
 │       └── derivation.nix
 ├── README.md
 └── secrets                            # Location of (encrypted) secrets what will be deployed and managed using sops-nix
-    └── secrets.yaml
+│   └── secrets.yaml                   # assumes you are using the locally-managed secrets option instead of a private repo
+└── .sops.yaml                         # Location of sops-nix configuration file (when using locally-managed secrets)
 ```
 
 
 ## Background
 
-As a security / DevSecOps professional, I can't even begin to fathom the ammount of time I've wasted setting up systems for various clients or engagements, and how much collective effort I've invested into other "declarative" automation tools (Ansible, Chef, GCP "OS Config", AWS Systems Manager, etc.) trying to automate and scale both the build  and maintenance processes.  Over the course of my career I've ran numerous Professional Services (PS) teams, built and ran security-focused Managed Service (MS) offerings, and operated large-scale enterprise cloud platforms, but one of the toughest recurring challenges has always been management of hosts / endpoints.  
+As a security / DevSecOps professional, I can't even begin to fathom the ammount of time I've wasted setting up systems for various clients or engagements, and how much collective effort I've invested into other "declarative" automation tools (Ansible, Chef, GCP "OS Config", AWS Systems Manager, etc.) trying to automate and scale both the build  and maintenance processes.  Over the course of my career I've ran numerous Professional Services (PS) teams, built and ran security-focused Managed Service (MS) offerings, and operated large-scale enterprise cloud platforms, but one of the toughest recurring challenges has always been management of hosts / endpoints - particularly in environments with strict security and/or compliance requirements.  
 
-No matter how good our imperative toolsets were (and we've done some incredible things with Packer, Ansible, GitHub Actions, SSM, GCP OS Config, and the like), configuration drift of the hosts was inevitable (particularly after clients / end-users got ahold of these systems at runtime). Packer, GHA/Jenkins, and Ansible are great tools for AMI builds and initial configuration, but painfully slow (especially at scale), and (due to the nature of the tools being imperative) all have significant weaknesses when it comes to software they're was not explicitly instructed to manage. Extra software users manually-installed wouldn't be removed, and rectifying configuration drift between thse running (user-modified) systems' actual state and a desired ("golden") state was a constant struggle, especially when the goal is to ensure a host contains *only your specified/scanctioned/approved software* after end-users have got their hands on it.
+No matter how good our imperative toolsets were (and we've done some incredible things with Packer, Ansible, GitHub Actions, SSM, GCP OS Config, and the like), configuration drift of the hosts was inevitable (particularly after clients / end-users got ahold of these systems at runtime). Packer, GHA/Jenkins, and Ansible are great tools for AMI builds and initial configuration, but painfully slow (especially at scale), and (due to the nature of the tools being imperative) all have significant weaknesses when it comes to software they're not explicitly-instructed to manage. Extra software users manually-installed wouldn't be removed, and rectifying configuration drift between thse running (user-modified) systems' actual state and a desired ("golden") state was a constant struggle, especially when the goal is to ensure a host contains *only your specified/scanctioned/approved software*.
 
 Beyond the day-0 image build, we had no way to guarantee *an entire system* was still in its desired state. Sure, tools like these let us ensure *specified* packages, services, or agents were installed/removed, but everything else without one of these dedicated workflows fell into a grey area. No matter how tightly we locked-down the environment, it was virtually impossible to eliminate these problems without forcing users into something truly immutable - like Docker - and then shifting our security efforts "left".  While Docker is ideal for many production workloads/applications, it simply isn't a feasible replacement for user desktops / laptops / workstations. [WebTops](https://docs.linuxserver.io/images/docker-webtop/) come close, but still require a host system which in-turn must be built and maintained as well (making them better suited as a VDI alternative).
 
-Along this journey I've spent ~30 years with Windows, 12+ years with MacOS, and 10+ years with Linux.  About 3 years ago I went all-in on Linux for my personal desktops / laptops (servers were already running linux). Initially I switched to Ubuntu (which I had worked with extensively, particulraly in the cloud), then to PopOS! (an Ubuntu-based distro by System76), then to Arch. In the case of both Ubuntu/Pop and Arch, I had also used Ansible for configuration management, but I could never quite get to the "ideal state" that I was looking for - *a declarative system backed by Infrastructure as Code (IaC) that ensured rock-solid stability, guaranteed reproducibility, and (ideally) immutability*. In addition, all these OSes had some issues with dependency conflicts, particularly when it became necessary to run multiple versions of software for development/testing purposes. I appreciated Debian-based distros' stability, software availability, and documentation, but frequently needed more up-to-date packages.  Arch checked the recent-software-availability box without sacrificing package availability or documentation quality, but being on the bleeding edge meant apps or system functionality would occasionally break during an update, and over time these stability issue collectively cost me a significant ammount of time as well.
-
 ### NixOS Journey
+
+Along this journey I've spent ~30 years with Windows, 12+ years with MacOS, and 10+ years with Linux.  About 3 years ago I went all-in on Linux for my personal desktops / laptops (servers were already running linux). Initially I switched to Ubuntu (which I had worked with extensively, particulraly in the cloud), then to PopOS! (an Ubuntu-based distro by System76), then to Arch. In the case of both Ubuntu/Pop and Arch, I had also used Ansible for configuration management, but I could never quite get to the "ideal state" that I was looking for - *a declarative system backed by Infrastructure as Code (IaC) that ensured rock-solid stability, guaranteed reproducibility, and (ideally) immutability*. In addition, all these OSes had some issues with dependency conflicts, particularly when it became necessary to run multiple versions of software for development/testing purposes. I appreciated Debian-based distros' stability, software availability, and documentation, but frequently needed more up-to-date packages.  Arch checked the recent-software-availability box without sacrificing package availability or documentation quality, but being on the bleeding edge meant apps or system functionality would occasionally break during an update, and over time these stability issue collectively cost me a significant ammount of time as well.
 
 In 2023 I discovered NixOS. NixOS promised to be the answer that I was looking for - it's declarative, code-driven, very hard to break (thanks to "generations" and its atomic operations), capable of adressing differing dependency issues seamlessly, and immutable (dev's claims - I'd actually argue it's not really "immutable" in the Docker sense, but in practice its atomic approach comes close enough while still maintaning usability). While I'm a security professional and **not a software developer**, I regularly work with enough Python, JSON, Terraform, etc. to quickly pick up the gist of the Nix language and hack together a working configuration.  I played around with NixOS in a few different "flavors" of VMs simulating servers, desktops, etc. (I would **strongly encourage** anyone looking to try NixOS to go this route before baremetal) until I had a fairly functional configuration, and then went about modularizing it using Nix flakes.
 
@@ -166,16 +167,18 @@ Note: Any installation ISO will work, but I chose minimal to ensure the configur
    1. `sudo git clone [--branch <YOURBRANCH>] https://github.com/psiri/nixos-config /tmp/dotfiles`
 2. Perform disk partitioning using disko:
     1. `sudo nix --experimental-features "nix-command flakes" run github:nix-community/disko -- --mode disko ./tmp/dotfiles/hosts/<HOSTNAME>/disko-config.nix`
+       * **Note:** if you did not specify a key file for disk encryption, you may be prompted to specify your encryption passphrase 
     2. (Optional, recommended) Validate the partitioning
        1. run `mount | grep /mnt` and validate that the output shows your partitions as defined within the respective `disko-config.nix` file
 3.  Complete the NixOS installation:
     1.  Run `sudo nixos-install --flake /tmp/dotfiles/.#<HOSTNAME>` and reboot when the installation is complete
+        * **Note:** Depending whether you opted to store secrets locally or in a private get repo, you may be prompted for authentication to the private repo
    
 
 ### Install or update from a running NixOS system:
 
 1. Run `sudo nixos-rebuild switch --flake /tmp/dotfiles/.#<HOSTNAME>` to apply your system configuration.
-    - Note: If you encounter an error, you may need to append the `--impure` flag
+    - **Note:** If you encounter an error, you may need to append the `--impure` flag
 
 
 ## Secret Management with Sops-Nix
@@ -204,7 +207,7 @@ The example below is intended to get you up-and-running with sops-nix in the sim
         - age:
           - *bob
     ```
-    * Note: the location of this file will depend on whether you are storing secrets locally (in the same repo as your config), or in a separate private repository (as described in the following section).
+    * **Note:** the location of this file will depend on whether you are storing secrets locally (in the same repo as your config), or in a separate private repository (as described in the following section).
       * For an example of the resulting file using local encryption, see [.sops.yaml](.sops.yaml)
       * For details on using a separate private repo, see [Option 2 - Sops-Nix with Secrets Stored in a Private Repo](#option-2---sops-nix-with-secrets-stored-in-a-private-repo)
 3. After configuring .sops.yaml, you can open a new secrets file with sops:
@@ -253,7 +256,7 @@ The following steps describe how deploy secrets stored in a (separate) private r
 8. Update the `sops.defaultSopsFile` setting to point to the private repository
    1. ```sops.defaultSopsFile = "${builtins.toString inputs.private-secrets}/secrets.yaml";```
       1. For a working reference example, refer to: [hosts/fw16-nix/default.nix](./hosts/fw16-nix/default.nix#L61-L68)
-   * Note: When building for the first time, you will be prompted for authentication to the private repo.  While you can use basic authentication, a PAT is recommended.
+   * **Note:** When building for the first time, you will be prompted for authentication to the private repo.  While you can use basic authentication, a PAT is recommended.
 
 
 ## Credits
