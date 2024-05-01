@@ -24,6 +24,79 @@
 | Virtualization       | KVM + QEMU + vert-manager |
 | Window Manager       | Hyprland            |
 
+## Hosts
+
+The following table breaks down the respective hardware and software / feature configuration of systems managed by this repo:
+
+| Hostname                           |  Disko  | sops-nix | Impermanence | Home-Manager | Base Template                    | Hardware                              |
+| ---------------------------------- | :-----: | :------: | :----------: | :----------: | -------------------------------- | ------------------------------------- |
+| [fw16-nix](./hosts/fw16-nix)       | &check; | &check;  |   &check;    |   &check;    | [standard](./hosts/standard.nix) | Framework Laptop 16 (AMD, iGPU-only)  |
+| [ll-nix1](./hosts/ll-nix1)         | &check; | &check;  |   &check;    |   &check;    | [standard](./hosts/standard.nix) | Dell Latitude (Intel, iGPU-only)      |
+| [desktop-nix](./hosts/desktop-nix) | &check; | &check;  |   &check;    |   &check;    | [standard](./hosts/standard.nix) | AMD Ryzen + AMD dGPU (custom build)   |
+| [server-nix](./hosts/server-nix)   | &cross; | &cross;  |   &cross;    |   &check;    | [server](./hosts/server.nix)     | Intended for VMs (KVM, AWS, GCP, etc) |
+
+#### Repo Layout
+
+The project blends some of the community's best-practices for repo layouts with lessons-learned from working with other modular automation tools (Ansible, Terraform, etc). It's layout is intended to enable systems to be configured in a flexible manner while minimizing code re-use and ensuring the end-state system isn't bloated.
+
+Shared modules / components can be pulled-in at various levels as-appropriate:
+1. Flake-level (applies to all systems)
+2. Template-level (applies to all systems of a given template / flavor - ex: headless-systems [servers], headed-systems [desktops, laptops])
+3. Host-level (applies to a specific host)
+
+```
+.
+├── flake.lock
+├── flake.nix                           # Flake definition
+├── home                                # Directory for user-specific apps and configurations. Contains both app-declarations and respective home-manager configurations.
+│   ├── firefox
+│   │   └── default.nix
+│   ├── hypr                            # Hyprland, Hypridle, and Hyprlock directory. Imported by hosts using the hypr ecosystem as compositor
+│   │   ├── default.nix
+│   │   ├── hypridle.nix
+│   │   ├── hyprland.nix
+│   │   ├── hyprlock.nix
+│   │   └── hyprpaper.nix
+│   └── example-app-3                  # Example - your additional apps go here
+│       └── default.nix
+├── hosts                              # Directory containing templates (for server/headless and standard/headed) as well as per-host subdirectories
+│   ├── desktop-nix                    # Host-specific subdirectory.
+│   │   ├── default.nix                # default.nix imports the respective "template" (ex: "standard") and all host-specific config files (hardware-configuration.nix, per-device.nix, etc.)
+│   │   ├── hardware-configuration.nix # Contains host-specific hardware configs. Ex: 
+│   │   └── per-device.nix
+│   ├── fw16-nix
+│   │   ├── default.nix
+│   │   ├── disko-config.nix
+│   │   ├── hardware-configuration.nix
+│   │   ├── impermanence.nix
+│   │   └── per-device.nix
+│   ├── ll-nix1
+│   │   ├── default.nix
+│   │   ├── disko-config.nix
+│   │   ├── hardware-configuration.nix
+│   │   ├── impermanence.nix
+│   │   └── per-device.nix
+│   ├── server-nix
+│   │   └── default.nix
+│   ├── server.nix                      #
+│   └── standard.nix
+├── modules                             # Common momdules that may be imported / re-used by
+│   ├── security-hardening
+│   │   └── default.nix
+│   └── virt                            # Virtualization module (KVM, qemu, vert-manager, etc)
+│       └── default.nix
+├── overlays                            # Overlays. Default overly allows for use of "unstable" packages when running "stable" channels, when required
+│   └── default.nix
+├── pkgs                                # Custom package builds
+│   └── securecrt
+│       ├── default.nix
+│       └── derivation.nix
+├── README.md
+└── secrets                             # Location of (encrypted) secrets what will be deployed and managed using sops-nix
+    └── secrets.yaml
+```
+
+
 ## Background
 
 As a security / DevSecOps professional, I can't even begin to fathom the ammount of time I've wasted setting up systems for various clients or engagements, and how much collective effort I've invested into other "declarative" automation tools (Ansible, Chef, GCP "OS Config", AWS Systems Manager, etc.) trying to automate and scale both the build  and maintenance processes.  Over the course of my career I've ran numerous Professional Services (PS) teams, built and ran security-focused Managed Service (MS) offerings, and operated large-scale enterprise cloud platforms, but one of the toughest recurring challenges has always been management of hosts / endpoints.  
@@ -36,25 +109,17 @@ Along this journey I've spent ~30 years with Windows, 12+ years with MacOS, and 
 
 ### NixOS Journey
 
-In late 2023 I discovered NixOS. NixOS promised to be the answer that I was looking for - it's declarative, code-driven, very hard to break (thanks to "generations" and its atomic operations), capable of adressing differing dependency issues seamlessly, and immutable (dev's claims - I'd actually argue it's not really "immutable" in the Docker sense, but in practice its atomic approach comes close enough while still maintaning usability). While I'm a security professional and **not a software developer**, I regularly work with enough Python, JSON, Terraform, etc. to quickly pick up the gist of the Nix language and hack together a working configuration.  I played around with NixOS in a few different "flavors" of VMs simulating servers, desktops, etc. (I would **strongly encourage** anyone looking to try NixOS to go this route before baremetal) until I had a fairly functional configuration, and then went about modularizing it using Nix flakes.
+In 2023 I discovered NixOS. NixOS promised to be the answer that I was looking for - it's declarative, code-driven, very hard to break (thanks to "generations" and its atomic operations), capable of adressing differing dependency issues seamlessly, and immutable (dev's claims - I'd actually argue it's not really "immutable" in the Docker sense, but in practice its atomic approach comes close enough while still maintaning usability). While I'm a security professional and **not a software developer**, I regularly work with enough Python, JSON, Terraform, etc. to quickly pick up the gist of the Nix language and hack together a working configuration.  I played around with NixOS in a few different "flavors" of VMs simulating servers, desktops, etc. (I would **strongly encourage** anyone looking to try NixOS to go this route before baremetal) until I had a fairly functional configuration, and then went about modularizing it using Nix flakes.
 
 ### This Project
 
 This repo represents the continuiously-evolving state of my _personal_ NixOS systems.  This project uses the modern NixOS "flakes" approach to modularize system and software configurations.  At this time, the configuration is intended for single-user systems, though I have attempted to varibleize the user-specific elements / home-manager components for future support of multi-user systems.
 NixOS has a pretty steep learning curve, and along my joruney I've leaned heavily on the great work of others to get to this point.  I fully support/encourage anyone looking for NixOS reference configurations to borrow code from this project (if you do, please just reference me).
 
-#### Repo Layout
-
-The project blends some of the community's best-practices for repo layouts with lessons-learned from working with other modular automation tools (Ansible, Terraform, etc). It's layout is intended to enable systems to be configured in a flexible manner while minimizing code re-use and ensuring the end-state system isn't bloated.
-
-Shared modules / components can be pulled-in at various levels as-appropriate:
-1. Flake-level (applies to all systems)
-2. Template-level (applies to all systems of a given template / flavor - ex: headless-systems [servers], headed-systems [desktops, laptops])
-3. Host-level (applies to a specific host)
 
 ### Project Goals
 
-* **Multi-Purpose:**
+* **Modular / Multi-Purpose:**
   * Servers / headless systems (both physical and cloud-hosted)
   * Desktops
   * Laptops
@@ -99,7 +164,7 @@ export NIX_CONFIG="experimental-features = nix-command flakes"
 
 ### Install from a boot ISO:
 
-Note: Any installation ISO will work, but I chose minimal to ensure the configuration can be easily replicated onto headless systems
+Note: Any installation ISO will work, but I chose minimal to ensure the configuration can be easily replicated onto headless systems. For most users, the Gnome ISO will be the recommended choice, as also simplifies network connections and comes with git pre-installed.
 
 1. Clone the repo (optionally selecting target branch):
    1. `sudo git clone [--branch <YOURBRANCH>] https://github.com/psiri/nixos-config /tmp/dotfiles`
@@ -119,7 +184,7 @@ Note: Any installation ISO will work, but I chose minimal to ensure the configur
 
 ## Secret Management with Sops-Nix
 
-The example below is intended to get you up-and-running with sops-nix in the simpliest, most intuitive way possible. While I do recommend using deriving your age keys from ed25519 keys for enhanced security, the steps below will allow even beginners to quickly achieve fully-declarative management of secrets.
+The example below is intended to get you up-and-running with sops-nix in the simpliest, most intuitive way possible. While I do recommend using deriving your age keys from ed25519 keys for enhanced security, the steps below will allow beginners to quickly achieve fully-declarative management of secrets.
 
 1. (If necessary) Generate a key using age:
    1. `mkdir -p ~/.config/sops/age`
@@ -148,13 +213,13 @@ The example below is intended to get you up-and-running with sops-nix in the sim
 4. You are now ready to deploy your secrets to your machine.
    1. For _each_ secret the host requires, you will need a corresponding secret declaration in the form of `sops.secrets."SECRET-NAME" = { };`
       * [Example:](./hosts/fw16-nix/default.nix#L58) ```sops.secrets."hello_world" = { }; # Example secret. Will be mounted at /run/secrets/hello_world```
-   2. If specifying secrets for users, the special flag `neededForUsers = true;` must be set on the corresponding secret.
+   2. If specifying secrets for users, the special flag `neededForUsers = true;` must be set on the corresponding secret. This will cause the secret to be mounted at `/run/secrets-for-users` such that it can be utilized during initial user creation.
       * Example can be seen in [./hosts/fw16-nix/default.nix line 57](./hosts/fw16-nix/default.nix#L57):
          * ```sops.secrets.user_password_hashed.neededForUsers = true;```
 
 ## Credits
 
-Although I have finally taken the full Nix plunge (converting all my systems over to NixOs), I am still *very* new and tweaking my config daily.  Along the way I took inspiration (and referenced code) from the following resources:
+Although I have finally taken the full Nix plunge (converting all my systems over to NixOs), I am still new and tweaking my config daily.  Along the way I took inspiration (and referenced code) from the following resources:
 
 * [Misterio77](https://github.com/Misterio77/nix-starter-configs) - Fantastic resource for starting out with Nixos flakes.  Well documented with many helpful inline-comments.
 * [kye](https://codeberg.org/kye/nixos) - Absolutely beautiful Hyprland config with an intuitive, modular repo layout that can easily be adapted to your needs.
@@ -167,3 +232,7 @@ The following are some of the NixOS resources I use constantly:
 * [NixOS Package Search](https://search.nixos.org/packages?channel=23.11) - The quickest way to search for packages
 * [NixOS Options Search](https://search.nixos.org/options?channel=23.11) - The quickest way to search for Nix configuration options you might care about
 * [Home Manager Configuration Options](https://nix-community.github.io/home-manager/options.xhtml) - The official Home Manager configuration options documentation.  Contains all Home Manager options.
+* [disko](https://github.com/nix-community/disko) - Official nix-community flake for declarative disk partioning, with examples for virtually any disk / partition / file system combination you'd be interested in.
+* [sops-nix](https://github.com/Mic92/sops-nix) - The best option for declarative, version-control-ready secrets management on NixOS.
+* [Impermanence](https://github.com/nix-community/impermanence) - Official nix-community flake for creating ephemeral (impermanent) NixOS systems. Supports opt-in state persistence for critical files and directories.
+* [erase-your-darlings blog by grahamc](https://grahamc.com/blog/erase-your-darlings) - Fantastic blog on immpermanence with ZFS.

@@ -22,7 +22,10 @@ in
 
       ../../home
       ../../home/bottom
+      ../../home/firefox
       ../../home/git
+      ../../home/gpg
+      ../../home/kitty
       #../../home/virt
     ];
 
