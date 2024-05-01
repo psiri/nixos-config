@@ -9,6 +9,7 @@ in
     outputs,
     nix-colors,
     user,
+    sops-nix,
     ...
   }: {
     imports = [
