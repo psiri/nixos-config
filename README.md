@@ -180,7 +180,8 @@ Note: Any installation ISO will work, but I chose minimal to ensure the configur
 
 ## Secret Management with Sops-Nix
 
-### Option 1 - Sops-Nix with Secrets Stored Locally (In the Same Repo)
+
+### Sops-Nix Prerequisites
 
 The example below is intended to get you up-and-running with sops-nix in the simpliest, most intuitive way possible. While I do recommend using deriving your age keys from ed25519 keys for enhanced security, the steps below will allow beginners to quickly achieve fully-declarative management of secrets.
 
@@ -188,26 +189,34 @@ The example below is intended to get you up-and-running with sops-nix in the sim
    1. `mkdir -p ~/.config/sops/age`
    2. `age-keygen -o ~/.config/sops/age/keys.txt`
       1. When using age, the public key will be output from this command.  This will be required for the next step.
-2. Copy your age PUBLIC key to the `.sops.yaml` file (in the repo root)
+2. Copy your age PUBLIC key into a `.sops.yaml` file
    1. Paste your PUBLIC key under the `keys` list.  For a user with name `bob`, an example would be:
     ```
-      # This example uses YAML anchors which allows reuse of multiple keys 
-      # without having to repeat yourself.
-      # Also see https://github.com/Mic92/dotfiles/blob/master/nixos/.sops.yaml
-      # for a more complex example.
-      keys:
-        - &bob 2504791468b153b8a3963cc97ba53d1919c5dfd4
-      creation_rules:
-        - path_regex: secrets/[^/]+\.(yaml|json|env|ini)$
-          key_groups:
-          - age:
-            - *bob
-      ```
-    * For an example of the resulting file, see [.sops.yaml](.sops.yaml)
+    # This example uses YAML anchors which allows reuse of multiple keys 
+    # without having to repeat yourself.
+    # Also see https://github.com/Mic92/dotfiles/blob/master/nixos/.sops.yaml
+    # for a more complex example.
+    keys:
+      - &bob 2504791468b153b8a3963cc97ba53d1919c5dfd4
+    creation_rules:
+      - path_regex: secrets/[^/]+\.(yaml|json|env|ini)$
+        key_groups:
+        - age:
+          - *bob
+    ```
+    * Note: the location of this file will depend on whether you are storing secrets locally (in the same repo as your config), or in a separate private repository (as described in the following section).
+      * For an example of the resulting file using local encryption, see [.sops.yaml](.sops.yaml)
+      * For details on using a separate private repo, see [Option 2 - Sops-Nix with Secrets Stored in a Private Repo](#option-2---sops-nix-with-secrets-stored-in-a-private-repo)
 3. After configuring .sops.yaml, you can open a new secrets file with sops:
    1. `nix-shell -p sops --run "sops secrets/example.yaml"`
       1. Define the secrets (optionally with a hierarchy). Once saved, the contents will be encrypted with sops-nix and safe for commitment to VCS.
       * For an example of the resulting encrypted file, see [./secrets/secrets.yaml](secrets/secrets.yaml)
+
+
+### Option 1 - Sops-Nix with Secrets Stored Locally (In the Same Repo)
+
+You are now ready to deploy your secrets to your machine. If you are satisfied using the local-repository to store your (encrypted) secrets, proceed as follows:
+
 4. You are now ready to deploy your secrets to your machine.
    1. For _each_ secret the host requires, you will need a corresponding secret declaration in the form of `sops.secrets."SECRET-NAME" = { };`
       * [Example:](./hosts/fw16-nix/default.nix#L58) ```sops.secrets."hello_world" = { }; # Example secret. Will be mounted at /run/secrets/hello_world```
@@ -216,9 +225,34 @@ The example below is intended to get you up-and-running with sops-nix in the sim
          * ```sops.secrets.user_password_hashed.neededForUsers = true;```
 
 
-### Option 2 - Sops-Nix with Secrets Stored in a (Separate) Private Repo
+### Option 2 - Sops-Nix with Secrets Stored in a Private Repo
 
-If you are particularly security-conscious (like me), or your organization has secutiy/compliance standards prohibiting storage of any secrets in VCS (even if they are encrypted), you can store sops-nix secrets in a separate private repository.  The following example demonstra
+You are now ready to deploy your secrets to your machine.  If you are particularly security-conscious (like me), or your organization has secutiy and/or compliance standards prohibiting storage of secrets in VCS (even if they are encrypted), you can store sops-nix secrets in a separate private repository.  
+
+The following steps describe how deploy secrets stored in a (separate) private repo. It is assumed that you have completed the [Sops-Nix Prerequisites](#sops-nix-prerequisites) and already generated your `.sops.yaml` and `secrets.yaml` files:
+
+1. Create a private repository to house your secrets.
+   * In my case, I created the following repo: `https://github.com/psiri/nixos-secrets`
+2. The repository needs only contain the `.sops.yaml` and `secrets.yaml` files generated in the prerequisites steps above.  
+   1. Move the `.sops.yaml` and (encrypted) `secrets.yaml` files into the private repo.  The most basic repo structure may look as follows:
+    ```
+    .
+    ├── README.md
+    ├── secrets.yaml
+    └── .sops.yaml
+    ```
+3. Add the following lines to `inputs` within `flake.nix` to tell NixOS where to pull your private secrets from:
+   ```
+    private-secrets = {
+      url = "git+https://github.com/psiri/nixos-secrets.git?ref=main&shallow=1"; # Private repo used to store secrets separately with an added layer of protection. Replace with your respective repo URL. "&shallow=1" is added to ensure Nix only grabs the latest commit.
+      # url = "git+ssh://github.com/psiri/nixos-secrets.git?ref=main&shallow=1"; # Alternatively, you can clone using SSH
+      flake = false;
+    };
+    ```
+    * For a working reference example, refer to: [flake.nix](./flake.nix#L33-36)
+4. Update the `sops.defaultSopsFile` setting to point to the private repository
+   1. ```sops.defaultSopsFile = "${builtins.toString inputs.private-secrets}/secrets.yaml";```
+   * Note: When building for the first time, you will be prompted for authentication to the private repo.  While you can use basic authentication, a PAT is recommended.
 
 
 ## Credits

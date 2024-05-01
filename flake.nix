@@ -31,10 +31,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     private-secrets = {
-      url = "git+https://github.com/psiri/nixos-secrets.git?ref=main&shallow=1"; # Private repo used to store secrets separately with an added layer of protection
+      url = "git+https://github.com/psiri/nixos-secrets.git?ref=main&shallow=1"; # Private repo used to store secrets separately with an added layer of protection. FIXME Replace with your respective repo URL. "&shallow=1" is added to ensure Nix only grabs the latest commit.
+      # url = "git+ssh://github.com/psiri/nixos-secrets.git?ref=main&shallow=1"; # Alternatively, you can clone using SSH
       flake = false;
     };
-
 
   };
 
