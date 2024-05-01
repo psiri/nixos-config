@@ -9,7 +9,6 @@ in
     outputs,
     nix-colors,
     user,
-    sops-nix,
     ...
   }: {
     imports = [
@@ -50,6 +49,7 @@ in
 
       ./disko-config.nix
       ./impermanence.nix
+      sops-nix.nixosModules.sops
     ];
 
     sops.defaultSopsFile = ../../secrets/secrets.yaml;
