@@ -231,7 +231,7 @@ You are now ready to deploy your secrets to your machine.  If you are particular
 
 The following steps describe how deploy secrets stored in a (separate) private repo. It is assumed that you have completed the [Sops-Nix Prerequisites](#sops-nix-prerequisites) and already generated your `.sops.yaml` and `secrets.yaml` files:
 
-5. Create a private repository to house your secrets.
+5. Create a private repository to store your secrets.
    * In my case, I created the following repo: `https://github.com/psiri/nixos-secrets`
 6. The repository needs only contain the `.sops.yaml` and `secrets.yaml` files generated in the prerequisites steps above.  
    1. Move the `.sops.yaml` and (encrypted) `secrets.yaml` files into the private repo.  The most basic repo structure may look as follows:
@@ -249,7 +249,7 @@ The following steps describe how deploy secrets stored in a (separate) private r
       flake = false;
     };
     ```
-    * For a working reference example, refer to: [flake.nix](./flake.nix#L33-37)
+    * For a working reference example, refer to: [flake.nix](./flake.nix#L33-L37)
 8. Update the `sops.defaultSopsFile` setting to point to the private repository
    1. ```sops.defaultSopsFile = "${builtins.toString inputs.private-secrets}/secrets.yaml";```
    * Note: When building for the first time, you will be prompted for authentication to the private repo.  While you can use basic authentication, a PAT is recommended.
