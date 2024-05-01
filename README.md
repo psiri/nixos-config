@@ -72,7 +72,7 @@ Shared modules / components can be pulled-in at various levels as-appropriate:
 │   │   ├── hardware-configuration.nix
 │   │   ├── impermanence.nix
 │   │   └── per-device.nix
-│   ├── server-nix                     
+│   ├── server-nix                     # "server-nix" host directory
 │   │   └── default.nix
 │   ├── server.nix                     # Server (headless) template. Defines server baselines, imports other server apps as-needed
 │   └── standard.nix                   # Standard (headed) configuration template.  Imports other standard apps as-needed
@@ -81,8 +81,8 @@ Shared modules / components can be pulled-in at various levels as-appropriate:
 │   │   └── default.nix
 │   └── virt                           # Virtualization module (KVM, qemu, vert-manager, etc)
 │       └── default.nix
-├── overlays                           # Overlays. Default overly allows for use of "unstable" packages when running "stable" channels, when required
-│   └── default.nix
+├── overlays                           # Overlay directory
+│   └── default.nix                    # Default overlay allows for use of "unstable" packages when running "stable" channels, when required
 ├── pkgs                               # Custom package builds
 │   └── securecrt
 │       ├── default.nix
