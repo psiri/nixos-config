@@ -20,9 +20,8 @@
     qmk
     qmk-udev-rules
     sops
-    # Necessary for Gnome to use the ambient light sensor
-    iio-sensor-proxy
-    # Framework specific bits
+
+    # Framework specific packages
     framework-tool
     linuxKernel.packages.linux_zen.framework-laptop-kmod
   ];
