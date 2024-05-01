@@ -49,7 +49,6 @@ in
 
       ./disko-config.nix
       ./impermanence.nix
-      <sops-nix/modules/sops>
     ];
 
     sops.defaultSopsFile = ../../secrets/secrets.yaml;
