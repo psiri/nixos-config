@@ -56,7 +56,7 @@ in
     sops.defaultSopsFormat = "yaml";
     sops.secrets.user_password_hashed.neededForUsers = true;
     sops.secrets."hello" = { };
-    sops.secrets."hello" = { };
+    sops.secrets."psiri_hello" = { };
     #security.pam.services.${user}.enableKwallet = true;
 
 
