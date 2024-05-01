@@ -31,7 +31,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     private-secrets = {
-      url = "https://github.com/psiri/nixos-secrets.git?ref=main#shallow=1"; # Private repo used to store secrets separately with an added layer of protection
+      url = "git+https://github.com/psiri/nixos-secrets.git?ref=main&shallow=1"; # Private repo used to store secrets separately with an added layer of protection
       flake = false;
     };
 
@@ -49,12 +49,11 @@
     sops-nix,
     hardware,
     impermanence,
+    #private-secrets,
     ...
   } @ inputs: let
     user = "psiri"; # FIXME set your username
     plymouth_theme = "deus_ex"; # device specific?
-
-    secrets_location = builtins.tostring inputs.private-secrets
 
     inherit (self) outputs;
     # Supported systems for your flake packages, shell, etc.

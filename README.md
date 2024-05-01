@@ -180,6 +180,8 @@ Note: Any installation ISO will work, but I chose minimal to ensure the configur
 
 ## Secret Management with Sops-Nix
 
+### Option 1 - Sops-Nix with Secrets Stored Locally (In the Same Repo)
+
 The example below is intended to get you up-and-running with sops-nix in the simpliest, most intuitive way possible. While I do recommend using deriving your age keys from ed25519 keys for enhanced security, the steps below will allow beginners to quickly achieve fully-declarative management of secrets.
 
 1. (If necessary) Generate a key using age:
@@ -212,6 +214,12 @@ The example below is intended to get you up-and-running with sops-nix in the sim
    2. If specifying secrets for users, the special flag `neededForUsers = true;` must be set on the corresponding secret. This will cause the secret to be mounted at `/run/secrets-for-users` such that it can be utilized during initial user creation.
       * Example can be seen in [./hosts/fw16-nix/default.nix line 57](./hosts/fw16-nix/default.nix#L57):
          * ```sops.secrets.user_password_hashed.neededForUsers = true;```
+
+
+### Option 2 - Sops-Nix with Secrets Stored in a (Separate) Private Repo
+
+If you are particularly security-conscious (like me), or your organization has secutiy/compliance standards prohibiting storage of any secrets in VCS (even if they are encrypted), you can store sops-nix secrets in a separate private repository.  The following example demonstra
+
 
 ## Credits
 

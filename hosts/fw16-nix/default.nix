@@ -1,5 +1,5 @@
 let
-  scheme = "tokyo-night-dark";
+  scheme = "tokyo-night-dark";d
 in
   {
     config,
@@ -63,7 +63,9 @@ in
     #sops.defaultSopsFile = ../../secrets/secrets.yaml;
     ################# PRIVATE SECRETS MANAGEMENT ##############################
     # uncomment this line to use sops secrets stores within a private repo
-    sops.defaultSopsFile = "${secrets_location}/secrets.yaml";
+    # this will attempt to clone the (private) repo at the path defined 
+    # in the "private-secrets" input defined within flake.nix
+    sops.defaultSopsFile = "${builtins.toString inputs.private-secrets}/secrets.yaml";
 
 
     colorscheme = inputs.nix-colors.colorSchemes.${scheme};

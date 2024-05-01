@@ -184,6 +184,24 @@
         "type": "github"
       }
     },
+    "private-secrets": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1714593020,
+        "narHash": "sha256-F4D8kaOEOwixSMDSpFL7PfLIY0NIkRxywePce8EiCM0=",
+        "ref": "main",
+        "rev": "22ebf19677eff221525996d707d0db37d92de19d",
+        "shallow": true,
+        "type": "git",
+        "url": "https://github.com/psiri/nixos-secrets.git"
+      },
+      "original": {
+        "ref": "main",
+        "shallow": true,
+        "type": "git",
+        "url": "https://github.com/psiri/nixos-secrets.git"
+      }
+    },
     "root": {
       "inputs": {
         "disko": "disko",
@@ -194,6 +212,7 @@
         "nixos-hardware": "nixos-hardware",
         "nixpkgs": "nixpkgs",
         "nixpkgs-unstable": "nixpkgs-unstable",
+        "private-secrets": "private-secrets",
         "sops-nix": "sops-nix"
       }
     },
