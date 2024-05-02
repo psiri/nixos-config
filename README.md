@@ -164,7 +164,7 @@ The instructions below assume you will be using flakes, [disko](https://github.c
    
 
 ## Updates
-This section describes how yo update your NixOS configuration
+This section describes how yo update your NixOS configuration.
 
 ### Update from a running NixOS system:
 
