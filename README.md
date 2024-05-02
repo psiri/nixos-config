@@ -33,7 +33,7 @@ The following table breaks down the respective hardware and software / feature c
 | [fw16-nix](./hosts/fw16-nix)       | &check; | &check;  |   &check;    |   &check;    | [standard](./hosts/standard.nix) | Framework Laptop 16 (AMD, iGPU-only)  |
 | [ll-nix1](./hosts/ll-nix1)         | &check; | &check;  |   &check;    |   &check;    | [standard](./hosts/standard.nix) | Dell Latitude (Intel, iGPU-only)      |
 | [desktop-nix](./hosts/desktop-nix) | &check; | &check;  |   &check;    |   &check;    | [standard](./hosts/standard.nix) | AMD Ryzen + AMD dGPU (custom build)   |
-| [server-nix](./hosts/server-nix)   | &cross; | &cross;  |   &cross;    |   &check;    | [server](./hosts/server.nix)     | Intended for VMs (KVM, AWS, GCP, etc) |
+| [server-nix](./hosts/server-nix)   | &cross; | &check;  |   &cross;    |   &check;    | [server](./hosts/server.nix)     | Intended for VMs (KVM, AWS, GCP, etc) |
 
 #### Repo Layout
 

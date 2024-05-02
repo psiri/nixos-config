@@ -18,8 +18,6 @@ in
       /etc/nixos/hardware-configuration.nix
       ../server.nix # standard or server configs
 
-      #../../hardware/bluetooth
-
       ../../home
       ../../home/bottom
       ../../home/firefox
@@ -28,6 +26,23 @@ in
       ../../home/kitty
       #../../home/virt
     ];
+
+
+
+    sops.age.keyFile = "/nix/persist/var/lib/sops-nix/key.txt"; # This is using an age key that is expected to already be in the filesystem
+    sops.defaultSopsFormat = "yaml";
+    sops.secrets.user_password_hashed.neededForUsers = true;
+    sops.secrets."hello_world" = { }; # Example secret. Will be mounted at /run/secrets/hello_world
+
+    ################# LOCAL SECRETS MANAGEMENT ################################
+    # uncomment this line to use sops secrets within the local repo
+    #sops.defaultSopsFile = ../../secrets/secrets.yaml;
+    ################# PRIVATE SECRETS MANAGEMENT ##############################
+    # uncomment this line to use sops secrets stores within a private repo
+    # this will attempt to clone the (private) repo at the path defined 
+    # in the "private-secrets" input defined within flake.nix
+    sops.defaultSopsFile = "${builtins.toString inputs.private-secrets}/secrets.yaml";
+
 
     colorscheme = inputs.nix-colors.colorSchemes.${scheme};
     home-manager.users.${user}.colorscheme = inputs.nix-colors.colorSchemes.${scheme};

@@ -97,7 +97,7 @@
           ./modules/audio/default.nix               # Standard audio module using pipewire
           ./modules/security-hardening/default.nix  # Security hardening module
           disko.nixosModules.disko
-          #sops-nix.nixosModules.sops
+          sops-nix.nixosModules.sops
           impermanence.nixosModules.impermanence
 
           home-manager.nixosModules.home-manager {
@@ -156,6 +156,9 @@
           ./hosts/server-nix                        # > Our host-specific nixos configuration file <
           ./modules/audio/disable.nix               # disable audio
           ./modules/security-hardening/default.nix  # Security hardening module
+          #disko.nixosModules.disko
+          sops-nix.nixosModules.sops
+          #impermanence.nixosModules.impermanence
 
           home-manager.nixosModules.home-manager {
             home-manager = {
