@@ -41,11 +41,31 @@ in
       #../../home/input-leap
       #../../home/kde
       ../../home/kitty
-      ../../home/rkvm
+      #../../home/rkvm
       ../../home/ulauncher
       ../../home/waybar
       ../../home/wlogout
+
+
+      ./disko-config.nix
+      ./impermanence.nix
     ];
+
+
+
+    sops.age.keyFile = "/nix/persist/var/lib/sops-nix/key.txt"; # This is using an age key that is expected to already be in the filesystem
+    sops.defaultSopsFormat = "yaml";
+    sops.secrets.user_password_hashed.neededForUsers = true;
+    sops.secrets."hello_world" = { }; # Example secret. Will be mounted at /run/secrets/hello_world
+
+    ################# LOCAL SECRETS MANAGEMENT ################################
+    # uncomment this line to use sops secrets within the local repo
+    #sops.defaultSopsFile = ../../secrets/secrets.yaml;
+    ################# PRIVATE SECRETS MANAGEMENT ##############################
+    # uncomment this line to use sops secrets stores within a private repo
+    # this will attempt to clone the (private) repo at the path defined 
+    # in the "private-secrets" input defined within flake.nix
+
 
     colorscheme = inputs.nix-colors.colorSchemes.${scheme};
     home-manager.users.${user}.colorscheme = inputs.nix-colors.colorSchemes.${scheme};
@@ -53,6 +73,7 @@ in
     networking = {
       enableIPv6 = false;
       hostName = "desktop-nix";
+      hostId = "70b9a734"; # FIXME required for ZFS. Should be unique.
       firewall.enable = true;
       networkmanager.enable = true;
     };
@@ -66,7 +87,12 @@ in
     # };
 
     environment = {
-      #systemPackages = with pkgs; [pciutils];
+      systemPackages = with pkgs; [
+        age
+        qmk
+        qmk-udev-rules
+        sops
+      ];
       shellAliases.rebuild = "sudo rm -rf /tmp/dotfiles && sudo git clone --branch main https://github.com/psiri/nixos-config /tmp/dotfiles && sudo nixos-rebuild switch --flake /tmp/dotfiles/.#desktop-nix --impure";
     };
   }
