@@ -41,7 +41,8 @@ The project blends some of the community's best-practices for repo layouts with 
 
 Shared modules / components can be pulled-in at various levels as-appropriate:
 1. Flake-level (applies to all systems)
-2. Template-level (applies to all systems of a given template / flavor - ex: headless-systems [servers], headed-systems [desktops, laptops])
+2. Template-level
+   1. Applies to all systems which import the respective template - ex: headless-systems ([servers](./hosts/server.nix)) OR "[standard](./hosts/standard.nix)" / headed-systems (desktops, laptops)
 3. Host-level (applies to a specific host)
 
 ```
