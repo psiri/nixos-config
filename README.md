@@ -42,7 +42,7 @@ The project blends some of the community's best-practices for repo layouts with 
 Shared modules / components can be pulled-in at various levels as-appropriate:
 1. Flake-level (applies to all systems)
 2. Template-level
-   1. Applies to all systems which import the respective template - ex: headless-systems ([servers](./hosts/server.nix)) OR "[standard](./hosts/standard.nix)" / headed-systems (desktops, laptops)
+   * Applies to all systems which import the respective template - ex: headless-systems ([servers](./hosts/server.nix)) OR "[standard](./hosts/standard.nix)" / headed-systems (desktops, laptops)
 3. Host-level (applies to a specific host)
 
 ```
@@ -149,7 +149,7 @@ This section describes how to install NixOS.
 
 Note: Any installation ISO will work, but I chose minimal to ensure the configuration can be easily replicated onto headless systems. For most users, the Gnome ISO will be the recommended choice, as also simplifies network connections and comes with `git` pre-installed.
 
-The instructions below assume you will be using flakes, [disko](https://github.com/nix-community/disko) for declarative disk partitioning, `home-manager` for declarative home management, and [sops-nix](https://github.com/Mic92/sops-nix) for secrets management. [Impermanence](https://github.com/nix-community/impermanence) is optional.
+The instructions below assume you will be using flakes, [disko](https://github.com/nix-community/disko) for declarative disk partitioning, `home-manager` for declarative home management, and [sops-nix](https://github.com/Mic92/sops-nix) for secrets management. [Impermanence](https://github.com/nix-community/impermanence) (included on most of my systems now) is optional, but can easily be turned off with a few comments.
 
 1. Clone the repo (optionally selecting target branch):
    1. `sudo git clone [--branch <YOUR-TARGET-BRANCH>] https://github.com/psiri/nixos-config`
@@ -177,6 +177,7 @@ This section describes how yo update your NixOS configuration.
 
 ## Secret Management with Sops-Nix
 
+This section describes how to (safely) manage secrets declaratively using sops-nix, and provides examples for both managing secrets in a public repository (along with your configuration) or separately in a private repository (my personal recommendation for added security). 
 
 ### Sops-Nix Prerequisites
 
@@ -214,7 +215,7 @@ The example below is intended to get you up-and-running with sops-nix in the sim
       * Example can be seen in [./hosts/fw16-nix/default.nix line 57](./hosts/fw16-nix/default.nix#L57):
          * ```sops.secrets.user_password_hashed.neededForUsers = true;```
 
-### Option 1 - Sops-Nix with Secrets Stored Locally (In the Same Repo)
+#### Option 1 - Sops-Nix with Secrets Stored Locally (In the Same Repo)
 
 You are now ready to deploy your secrets to your machine. If you are satisfied using the local-repository to store your (encrypted) secrets, proceed as follows:
 
@@ -222,7 +223,7 @@ You are now ready to deploy your secrets to your machine. If you are satisfied u
    1. `sudo nixos-rebuild switch --flake ./nixos-config/.#<HOSTNAME>`
 
 
-### Option 2 - Sops-Nix with Secrets Stored in a Private Repo
+#### Option 2 - Sops-Nix with Secrets Stored in a Private Repo
 
 You are now ready to deploy your secrets to your machine.  If you are particularly security-conscious (like me), or your organization has secutiy and/or compliance standards prohibiting storage of secrets in VCS (even if they are encrypted), you can store sops-nix secrets in a separate private repository.  
 
@@ -251,6 +252,16 @@ The following steps describe how deploy secrets stored in a (separate) private r
    1. ```sops.defaultSopsFile = "${builtins.toString inputs.private-secrets}/secrets.yaml";```
       1. For a working reference example, refer to: [hosts/fw16-nix/default.nix](./hosts/fw16-nix/default.nix#L61-L68)
    * **Note:** When building for the first time, you will be prompted for authentication to the private repo.  While you can use basic authentication, a PAT is recommended.  Alternatively, you can also clone using SSH.
+
+
+## Impermanence
+
+This section describes how to enable impermanence.  
+
+[Impermanence](https://github.com/nix-community/impermanence) is a NixOS flake which aims to make your system (_almost_ completely) ephemeral.  Impermanence is implemented in conjunction with a means of wiping or "rolling back" your system configuration such that all files and directories you don't explicitly declare as "persistent" are wiped out every reboot.
+   * :notebook: The method by which the deletion or rollback happens depends on your filesystem and hardware configuration.  In the examples contained within this repo, ZFS snapshot rollbacks are utilized to return the root dataset back to its initial (pristine) state.
+
+#### Setup
 
 
 ## Credits
