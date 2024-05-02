@@ -256,7 +256,7 @@ The following steps describe how deploy secrets stored in a (separate) private r
 8. Update the `sops.defaultSopsFile` setting to point to the private repository
    1. ```sops.defaultSopsFile = "${builtins.toString inputs.private-secrets}/secrets.yaml";```
       1. For a working reference example, refer to: [hosts/fw16-nix/default.nix](./hosts/fw16-nix/default.nix#L61-L68)
-   * **Note:** When building for the first time, you will be prompted for authentication to the private repo.  While you can use basic authentication, a PAT is recommended.
+   * **Note:** When building for the first time, you will be prompted for authentication to the private repo.  While you can use basic authentication, a PAT is recommended.  Alternatively, you can also clone using SSH.
 
 
 ## Credits
