@@ -136,49 +136,42 @@ NixOS has a pretty steep learning curve, and along my joruney I've leaned heavil
 ## Instructions
 
 ### Prerequisites
-- Requirements: Nix 2.4+
-- The experimental `flakes` and `nix-command` features
+1. Requirements: Nix 2.4+
+2. The experimental `flakes` and `nix-command` features
+3. `git`
 
-```bash
-export NIX_CONFIG="experimental-features = nix-command flakes"
-```
-
-1.  Update any settings you currently have on `/etc/nixos/` to
-  `nixos` (typically `configuration.nix` and `hardware-configuration.nix`).
-    - The included file has some options you might want, specially if you don't
-      have a configuration ready. Make sure you have generated your own
-      `hardware-configuration.nix`; if not, just mount your partitions to
-      `/mnt` and run: `nixos-generate-config --root /mnt`.
-2. If you want to use home-manager: add your stuff from `~/.config/nixpkgs`
-  to `home`. These configurations are imported as-needed by the user-and-hsot
-1. Take a look at `flake.nix`, making sure to fill out anything marked with
-  FIXME (required) or TODO (usually tips or optional stuff you might want)
-1. Clone the nixos configuration:
-    1. `sudo git clone [--branch <YOURBRANCH>] https://github.com/psiri/nixos-config /tmp/dotfiles`
-       1. Note: `--branch <YOURBRANCH>` is optional but useful when testing new configurations that haven't been merged into main/master. I regularly use this method to ensure the entire rebuild process can be thoroughly tested and vetted against prior to a merge into main/master.
 
 ## Installation
+This section describes how to install NixOS.
 
-### Install from a boot ISO:
+### Install From a Boot ISO:
 
-Note: Any installation ISO will work, but I chose minimal to ensure the configuration can be easily replicated onto headless systems. For most users, the Gnome ISO will be the recommended choice, as also simplifies network connections and comes with git pre-installed.
+Note: Any installation ISO will work, but I chose minimal to ensure the configuration can be easily replicated onto headless systems. For most users, the Gnome ISO will be the recommended choice, as also simplifies network connections and comes with `git` pre-installed.
+
+The instructions below assume you will be using flakes, [disko](https://github.com/nix-community/disko) for declarative disk partitioning, `home-manager` for declarative home management, and [sops-nix](https://github.com/Mic92/sops-nix) for secrets management. [Impermanence](https://github.com/nix-community/impermanence) is optional.
 
 1. Clone the repo (optionally selecting target branch):
-   1. `sudo git clone [--branch <YOURBRANCH>] https://github.com/psiri/nixos-config /tmp/dotfiles`
+   1. `sudo git clone [--branch <YOUR-TARGET-BRANCH>] https://github.com/psiri/nixos-config`
+      *   **Note:** `--branch <YOUR-TARGET-BRANCH>` is optional but useful when testing new configurations that haven't been merged into main/master. I regularly use this method to ensure the entire rebuild process can be thoroughly tested and vetted against prior to a merge into main/master.  Alternatively you can checkout your desired branch once cloned.
 2. Perform disk partitioning using disko:
-    1. `sudo nix --experimental-features "nix-command flakes" run github:nix-community/disko -- --mode disko ./tmp/dotfiles/hosts/<HOSTNAME>/disko-config.nix`
+    1. `sudo nix --experimental-features "nix-command flakes" run github:nix-community/disko -- --mode disko ./nixos-config/hosts/<HOSTNAME>/disko-config.nix`
        * **Note:** if you did not specify a key file for disk encryption, you may be prompted to specify your encryption passphrase 
     2. (Optional, recommended) Validate the partitioning
        1. run `mount | grep /mnt` and validate that the output shows your partitions as defined within the respective `disko-config.nix` file
 3.  Complete the NixOS installation:
-    1.  Run `sudo nixos-install --flake /tmp/dotfiles/.#<HOSTNAME>` and reboot when the installation is complete
+    1.  Run `sudo nixos-install --flake ./nixos-config/.#<HOSTNAME>` and reboot when the installation is complete
         * **Note:** Depending whether you opted to store secrets locally or in a private get repo, you may be prompted for authentication to the private repo
    
 
-### Install or update from a running NixOS system:
+## Updates
+This section describes how yo update your NixOS configuration
 
-1. Run `sudo nixos-rebuild switch --flake /tmp/dotfiles/.#<HOSTNAME>` to apply your system configuration.
-    - **Note:** If you encounter an error, you may need to append the `--impure` flag
+### Update from a running NixOS system:
+
+1. Change directory into the configuration repo:
+   - `cd nixos-config`
+2. Run `sudo nixos-rebuild switch --flake ./.#<HOSTNAME>` to apply your system configuration.
+   - **Note:** If you encounter an error that your  config is "dirty", you may need to append the `--impure` flag
 
 
 ## Secret Management with Sops-Nix
@@ -225,7 +218,7 @@ The example below is intended to get you up-and-running with sops-nix in the sim
 You are now ready to deploy your secrets to your machine. If you are satisfied using the local-repository to store your (encrypted) secrets, proceed as follows:
 
 5. To deploy your secrets, simply run a rebuild!
-   1. `sudo nixos-rebuild switch --flake /tmp/dotfiles/.#<HOSTNAME>`
+   1. `sudo nixos-rebuild switch --flake ./nixos-config/.#<HOSTNAME>`
 
 
 ### Option 2 - Sops-Nix with Secrets Stored in a Private Repo
