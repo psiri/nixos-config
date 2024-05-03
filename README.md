@@ -45,7 +45,7 @@ Shared modules / components can be pulled-in at various levels as-appropriate:
    * Applies to all systems which import the respective template - ex: headless-systems ([servers](./hosts/server.nix)) OR "[standard](./hosts/standard.nix)" / headed-systems (desktops, laptops)
 3. Host-level (applies to a specific host)
 
-```shell
+```bash
 .
 ├── flake.lock
 ├── flake.nix                          # Flake definition
