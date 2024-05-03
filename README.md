@@ -339,12 +339,12 @@ To configure impermanence, you will need need the following, at minimum:
 2. At least one of the modules in the disko repository, which take care of linking or bind mounting files between the persistent storage mount point and the root file system
    * In our case, we will import the disko flake. Configuration details are provided in the next section.
 3. A root filesystem which somehow gets wiped on reboot.
-   * :warning: The method by which the deletion or rollback happens depends on your filesystem and hardware configuration.
-   1. Ensure your host automatically revert its root filesystem (at minimum) every boot.  Refer to the examples below depending on your filesystem:
+   * :warning: The method of deletion / rollback depends on your filesystem and hardware configuration.
+   1. Ensure your host automatically wipes or reverts its root filesystem (at minimum) every boot.  Refer to the examples below depending on your filesystem:
         * [BTRFS using subvolumes](https://github.com/nix-community/impermanence?tab=readme-ov-file#btrfs-subvolumes)
         * [ZFS using snapshot rollback](./hosts/fw16-nix/hardware-configuration.nix#L17-L38) (current method employed by this repo)
           * In the examples contained within this repo, ZFS snapshot rollbacks are utilized to return the root dataset back to its initial (pristine) state. This snapshot is taken right after disko initially partitions the drives and creates filesystems, as described in [Configure Disko Step #3](#configure-disko).
-        * [root on tmpfs](https://elis.nu/blog/2020/05/nixos-tmpfs-as-root/) (Easiest implementation, but has some drawbacks. I would recommend one of the others)
+        * [root on tmpfs](https://elis.nu/blog/2020/05/nixos-tmpfs-as-root/) (Easiest implementation, but has some drawbacks - particularly on systems with limited RAM. I would recommend one of the others)
 
 
 #### Configure Impermanence
@@ -352,6 +352,7 @@ To configure impermanence, you will need need the following, at minimum:
 1. Add impermanence to your [`flake.nix` inputs and outputs:](./flake.nix#L4-L53)
       ```nix
       # ./flake.nix
+
       inputs = { 
          # ... omitted for brevity
          impermanence.url = "github:nix-community/impermanence";
@@ -366,6 +367,7 @@ To configure impermanence, you will need need the following, at minimum:
 2. Call the module from your respective [nixosConfigurations in flake.nix](./flake.nix#L88-L172)
    ```nix
    # ./flake.nix
+
    fw16-nix = nixpkgs.lib.nixosSystem {
       specialArgs = {inherit nix-colors user plymouth_theme inputs outputs;};
       system = "x86_64-Linux";
@@ -384,6 +386,7 @@ To configure impermanence, you will need need the following, at minimum:
       1. Set the path to your persistent volume.  In the example below,  the path is `/persist`, which was created by `disko` as defined in `./hosts/HOSTNAME/disko-config.nix`
       ```nix
       # ./hosts/HOSTNAME/impermanence.nix
+
       {
          system.activationScripts.createPersist = "mkdir -p /persist";
          environment.persistence."/persist" = {
@@ -399,6 +402,7 @@ To configure impermanence, you will need need the following, at minimum:
    * The example below assumes you have created a per-host `impermance.nix` file within the host-specific subdirectory.  
    ```nix
    # ./hosts/HOSTNAME/default.nix
+
    imports = [
       # ... omitted for brevity
       ./disko-config.nix
