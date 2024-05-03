@@ -263,7 +263,7 @@ This section describes how to enable impermanence.
 
 #### Setup
 
-1. Add impermanence to your `flake.nix` inputs and outputs:
+1. Add impermanence to your [`flake.nix` inputs and outputs:](./flake.nix#L88-L172)
       ```nix
       inputs = { 
          # ... omitted for brevity
