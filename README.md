@@ -305,7 +305,7 @@ Currently disko supports:
 3. Define your disk configuration declaratively. In virtually any real-world scanario, this will be done on a host-by-host basis, thus I'd recommend placing the respective configuration within the host-specific subdirectory (`./hosts/HOSTNAME/disko-config.nix`).
    * :information_source: [Disko quickstart guide](https://github.com/nix-community/disko/blob/master/docs/quickstart.md)
    * :information_source: For reference configurations specific to your selected disk layout, parition scheme, and file systems, refer to [disko's official example configurations](https://github.com/nix-community/disko/tree/master/example)
-   * For a working example of my configuration (encrypted ZFS with datasets for /, /persist, /nix, and /home) refer to: [./hosts/fw16-nix/disko-config.nix](./hosts/fw16-nix/disko-config.nix)
+   * :notebook_with_decorative_cover: For a working example of my configuration (encrypted ZFS with datasets for /, /persist, /nix, and /home) refer to: [./hosts/fw16-nix/disko-config.nix](./hosts/fw16-nix/disko-config.nix)
    * :warning: Depending on your chosen filesystem (ZFS and BTRFS specifically), you may need to take extra steps to ensure your configuration defines an initial "blank" snapshot.  The `postCreateHook` suboption can be useful for doing this declaratively: 
       ```nix
       # ./hosts/HOSTNAME/disko-config.nix
@@ -320,7 +320,6 @@ Currently disko supports:
 This section describes how to enable impermanence.  
 
 [Impermanence](https://github.com/nix-community/impermanence) is a NixOS flake which aims to make your system (_almost_ completely) ephemeral.  Impermanence is implemented in conjunction with a means of wiping or "rolling back" your system configuration such that all files and directories you don't explicitly declare as "persistent" are wiped out every reboot.
-   * :notebook_with_decorative_cover: The method by which the deletion or rollback happens depends on your filesystem and hardware configuration.  In the examples contained within this repo, ZFS snapshot rollbacks are utilized to return the root dataset back to its initial (pristine) state. This snapshot is taken right after disko initially partitions the drives and creates filesystems.
 
 
 #### Impermanence Prerequisites
@@ -338,13 +337,14 @@ To configure impermanence, you will need need the following, at minimum:
    };
    ```
 2. At least one of the modules in the disko repository, which take care of linking or bind mounting files between the persistent storage mount point and the root file system
-   1. 
+   * In our case, we will import the disko flake. Configuration details are provided in the next section.
 3. A root filesystem which somehow gets wiped on reboot. There are a few ways to achieve this:
-   1. **(Optional, if Impermanence is Desired)** Ensure your host automatically revert its root filesystem (at minimum) every boot:
+   * :notebook_with_decorative_cover: The method by which the deletion or rollback happens depends on your filesystem and hardware configuration.  In the examples contained within this repo, ZFS snapshot rollbacks are utilized to return the root dataset back to its initial (pristine) state. This snapshot is taken right after disko initially partitions the drives and creates filesystems.
+   1. Ensure your host automatically revert its root filesystem (at minimum) every boot:
       * Depending on your selected filesystem, the means to accomplish this varies:
         * [BTRFS using subvolumes](https://github.com/nix-community/impermanence?tab=readme-ov-file#btrfs-subvolumes)
-        * [ZFS using snapshot rollback](./hosts/fw16-nix/hardware-configuration.nix#L17-L38)
-        * [root on tmpfs](https://elis.nu/blog/2020/05/nixos-tmpfs-as-root/)
+        * [ZFS using snapshot rollback](./hosts/fw16-nix/hardware-configuration.nix#L17-L38) (current method employed by this repo)
+        * [root on tmpfs](https://elis.nu/blog/2020/05/nixos-tmpfs-as-root/) (Has some drawbacks, would recommend one of the others)
 
 
 #### Configure Impermanence
