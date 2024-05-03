@@ -45,7 +45,7 @@ Shared modules / components can be pulled-in at various levels as-appropriate:
    * Applies to all systems which import the respective template - ex: headless-systems ([servers](./hosts/server.nix)) OR "[standard](./hosts/standard.nix)" / headed-systems (desktops, laptops)
 3. Host-level (applies to a specific host)
 
-```
+```shell
 .
 ├── flake.lock
 ├── flake.nix                          # Flake definition
@@ -240,7 +240,7 @@ The following steps describe how deploy secrets stored in a (separate) private r
     └── .sops.yaml
     ```
 7. Add the following lines to `inputs` within `flake.nix` to tell NixOS where to pull your private secrets from:
-   ```
+   ```nix
     private-secrets = {
       url = "git+https://github.com/psiri/nixos-secrets.git?ref=main&shallow=1"; # Private repo used to store secrets separately with an added layer of protection. Replace with your respective repo URL. "&shallow=1" is added to ensure Nix only grabs the latest commit.
       # url = "git+ssh://github.com/psiri/nixos-secrets.git?ref=main&shallow=1"; # Alternatively, you can clone using SSH
