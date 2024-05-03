@@ -327,7 +327,7 @@ This section describes how to enable impermanence.
 To configure impermanence, you will need need the following, at minimum:
 
 1. At least one mounted volume where the files and directories you want to keep are stored permanently.
-   * In our case, the ZFS dataset (encrypted/persist) mounted at `/persist` will satisfy this requirement. Reference config: [./hosts/fw16-nix/disko-config.nix#L59-L63]
+   * In our case, the ZFS dataset (encrypted/persist) mounted at `/persist` will satisfy this requirement. Reference config: [./hosts/fw16-nix/disko-config.nix](./hosts/fw16-nix/disko-config.nix#L59-L63)
    ```nix
    # ./hosts/HOSTNAME/disko-config.nix
 
