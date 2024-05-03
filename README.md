@@ -242,6 +242,7 @@ The following steps describe how deploy secrets stored in a (separate) private r
 7. Add the following lines to `inputs` within `flake.nix` to tell NixOS where to pull your private secrets from:
    ```nix
    # ./flake.nix
+
    private-secrets = {
       url = "git+https://github.com/psiri/nixos-secrets.git?ref=main&shallow=1"; # Private repo used to store secrets separately with an added layer of protection. Replace with your respective repo URL. "&shallow=1" is added to ensure Nix only grabs the latest commit.
       # url = "git+ssh://github.com/psiri/nixos-secrets.git?ref=main&shallow=1"; # Alternatively, you can clone using SSH
@@ -273,6 +274,7 @@ Currently disko supports:
 1. Add disko to your [`flake.nix` inputs and outputs:](./flake.nix#L4-L53)
    ```nix
    # ./flake.nix
+
    inputs = { 
       # ... omitted for brevity
       disko = {
@@ -290,6 +292,7 @@ Currently disko supports:
 2. Call the disko module from your respective [nixosConfigurations in flake.nix](./flake.nix#L88-L172)
    ```nix
    # ./flake.nix
+
    fw16-nix = nixpkgs.lib.nixosSystem {
       specialArgs = {inherit nix-colors user plymouth_theme inputs outputs;};
       system = "x86_64-Linux";
