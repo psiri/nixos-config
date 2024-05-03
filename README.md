@@ -295,7 +295,21 @@ This section describes how to enable impermanence.
    ```
 3. Define the directories and files which will be marked as persistent
    * While you could technically define a single impermanence configuration to be used across multiple hosts (for example, at the template level), unless the software setup is identical on each, it's more practical to define an individual config for each host.
-   1. 
+   1. Create an `impermanence.nix` file to define persistent files and directories:
+      1. Set the path to your persistent volume.  In the example below,  the path is `/persist`, which was created by `disko` as defined in `./hosts/HOSTNAME/disko-config.nix`
+      ```nix
+      # ./hosts/HOSTNAME/impermanence.nix
+      {
+         system.activationScripts.createPersist = "mkdir -p /persist";
+         environment.persistence."/persist" = {
+         # ... omitted 
+         };
+      }
+      ```
+      2. Within the `environment.persistence."<YOUR-PERSIST-PATH>"` value, you can now declare which directories and files will persist (survive the data wipe / rollback). 
+         * The `environment.persistence."<YOUR-PERSIST-PATH>".users.<USERNAME>` option also allows you to set persistence for the user's home directory. Paths defined under this option are automatically prefixed with with the user’s home directory.
+             * For a working example, refer to [impermanence.nix](./hosts/fw16-nix/impermanence.nix.nix)
+         * :information_source: Refer to the [official impermanence module documentatio](https://github.com/nix-community/impermanence?tab=readme-ov-file#module-usage) for additional details
 4. Whever appropriate, import the [impermanence.nix](./hosts/fw16-nix/impermanence.nix.nix) config file you just created.
    * The example below assumes you have created a per-host `impermance.nix` file within the host-specific subdirectory.  
    ```nix
@@ -303,7 +317,7 @@ This section describes how to enable impermanence.
    imports = [
       # ... omitted for brevity
       ./disko-config.nix
-      ./impermanence.nix
+      ./impermanence.nix # host-specific impermanence config. Located at ./hosts/HOSTNAME/impermanence.nix
    ];
    ```
 
