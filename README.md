@@ -190,10 +190,10 @@ The example below is intended to get you up-and-running with sops-nix in the sim
 2. Copy your age PUBLIC key into a `.sops.yaml` file
    1. Paste your PUBLIC key under the `keys` list.  For a user with name `bob`, an example would be:
     ```yaml
-    # This example uses YAML anchors which allows reuse of multiple keys 
-    # without having to repeat yourself.
-    # Also see https://github.com/Mic92/dotfiles/blob/master/nixos/.sops.yaml
-    # for a more complex example.
+    # .sops.yaml
+    #
+    # This example uses YAML anchors which allows reuse of multiple keys without having to repeat yourself.
+    # Also see https://github.com/Mic92/dotfiles/blob/master/nixos/.sops.yaml for a more complex example.
     keys:
       - &bob 2504791468b153b8a3963cc97ba53d1919c5dfd4
     creation_rules:
@@ -241,12 +241,13 @@ The following steps describe how deploy secrets stored in a (separate) private r
     ```
 7. Add the following lines to `inputs` within `flake.nix` to tell NixOS where to pull your private secrets from:
    ```nix
-    private-secrets = {
+   # ./flake.nix
+   private-secrets = {
       url = "git+https://github.com/psiri/nixos-secrets.git?ref=main&shallow=1"; # Private repo used to store secrets separately with an added layer of protection. Replace with your respective repo URL. "&shallow=1" is added to ensure Nix only grabs the latest commit.
       # url = "git+ssh://github.com/psiri/nixos-secrets.git?ref=main&shallow=1"; # Alternatively, you can clone using SSH
       flake = false;
-    };
-    ```
+   };
+   ```
     * For a working reference example, refer to: [flake.nix](./flake.nix#L33-L37)
 8. Update the `sops.defaultSopsFile` setting to point to the private repository
    1. ```sops.defaultSopsFile = "${builtins.toString inputs.private-secrets}/secrets.yaml";```
@@ -261,10 +262,11 @@ This section describes how to enable impermanence.
 [Impermanence](https://github.com/nix-community/impermanence) is a NixOS flake which aims to make your system (_almost_ completely) ephemeral.  Impermanence is implemented in conjunction with a means of wiping or "rolling back" your system configuration such that all files and directories you don't explicitly declare as "persistent" are wiped out every reboot.
    * :notebook_with_decorative_cover: The method by which the deletion or rollback happens depends on your filesystem and hardware configuration.  In the examples contained within this repo, ZFS snapshot rollbacks are utilized to return the root dataset back to its initial (pristine) state. This snapshot is taken right after disko initially partitions the drives and creates filesystems.
 
-#### Setup
+#### Configure Impermanence
 
-1. Add impermanence to your [`flake.nix` inputs and outputs:](./flake.nix#L88-L172)
+1. Add impermanence to your [`flake.nix` inputs and outputs:](./flake.nix#L4-L53)
       ```nix
+      # ./flake.nix
       inputs = { 
          # ... omitted for brevity
          impermanence.url = "github:nix-community/impermanence";
@@ -278,6 +280,7 @@ This section describes how to enable impermanence.
       ```
 2. Call the module from your respective [nixosConfigurations in flake.nix](./flake.nix#L88-L172)
    ```nix
+   # ./flake.nix
    fw16-nix = nixpkgs.lib.nixosSystem {
       specialArgs = {inherit nix-colors user plymouth_theme inputs outputs;};
       system = "x86_64-Linux";
@@ -289,6 +292,19 @@ This section describes how to enable impermanence.
          impermanence.nixosModules.impermanence       # Calls the impermanence module
       ];
    };
+   ```
+3. Define the directories and files which will be marked as persistent
+   * While you could technically define a single impermanence configuration to be used across multiple hosts (for example, at the template level), unless the software setup is identical on each, it's more practical to define an individual config for each host.
+   1. 
+4. Whever appropriate, import the [impermanence.nix](./hosts/fw16-nix/impermanence.nix.nix) config file you just created.
+   * The example below assumes you have created a per-host `impermance.nix` file within the host-specific subdirectory.  
+   ```nix
+   # ./hosts/HOSTNAME/default.nix
+   imports = [
+      # ... omitted for brevity
+      ./disko-config.nix
+      ./impermanence.nix
+   ];
    ```
 
 ## Credits
