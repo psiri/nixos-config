@@ -338,13 +338,13 @@ To configure impermanence, you will need need the following, at minimum:
    ```
 2. At least one of the modules in the disko repository, which take care of linking or bind mounting files between the persistent storage mount point and the root file system
    * In our case, we will import the disko flake. Configuration details are provided in the next section.
-3. A root filesystem which somehow gets wiped on reboot. There are a few ways to achieve this:
-   * :notebook_with_decorative_cover: The method by which the deletion or rollback happens depends on your filesystem and hardware configuration.  In the examples contained within this repo, ZFS snapshot rollbacks are utilized to return the root dataset back to its initial (pristine) state. This snapshot is taken right after disko initially partitions the drives and creates filesystems.
-   1. Ensure your host automatically revert its root filesystem (at minimum) every boot:
-      * Depending on your selected filesystem, the means to accomplish this varies:
+3. A root filesystem which somehow gets wiped on reboot.
+   * :warning: The method by which the deletion or rollback happens depends on your filesystem and hardware configuration.
+   1. Ensure your host automatically revert its root filesystem (at minimum) every boot.  Refer to the examples below depending on your filesystem:
         * [BTRFS using subvolumes](https://github.com/nix-community/impermanence?tab=readme-ov-file#btrfs-subvolumes)
         * [ZFS using snapshot rollback](./hosts/fw16-nix/hardware-configuration.nix#L17-L38) (current method employed by this repo)
-        * [root on tmpfs](https://elis.nu/blog/2020/05/nixos-tmpfs-as-root/) (Has some drawbacks, would recommend one of the others)
+          * In the examples contained within this repo, ZFS snapshot rollbacks are utilized to return the root dataset back to its initial (pristine) state. This snapshot is taken right after disko initially partitions the drives and creates filesystems, as described in [Configure Disko Step #3](#configure-disko).
+        * [root on tmpfs](https://elis.nu/blog/2020/05/nixos-tmpfs-as-root/) (Easiest implementation, but has some drawbacks. I would recommend one of the others)
 
 
 #### Configure Impermanence
