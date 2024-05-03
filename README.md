@@ -307,9 +307,10 @@ Currently disko supports:
    * :information_source: For reference configurations specific to your selected disk layout, parition scheme, and file systems, refer to [disko's official example configurations](https://github.com/nix-community/disko/tree/master/example)
    * For a working example of my configuration (encrypted ZFS with datasets for /, /persist, /nix, and /home) refer to: [./hosts/fw16-nix/disko-config.nix](./hosts/fw16-nix/disko-config.nix)
    * :warning: Depending on your chosen filesystem (ZFS and BTRFS specifically), you may need to take extra steps to ensure your configuration defines an initial "blank" snapshot.  The `postCreateHook` suboption can be useful for doing this declaratively: 
-      ```
+      ```nix
+      # ./hosts/HOSTNAME/disko-config.nix
+
       psstCreateHook = "(zfs list -t snapshot -H -o name | grep -E '^zroot/encrypted/root@blank$' || zfs snapshot zroot/encrypted/root@blank) && (zfs list -t snapshot -H -o name | grep -E '^zroot/encrypted/home@blank$' || zfs snapshot zroot/encrypted/home@blank)";
-         }
       ``` 
 4. **(Optional, if Impermanence is Desired)** Ensure your host automatically revert its root filesystem (at minimum) every boot:
       * Although the above solution enables disko to automatically create the blank snapshot(s), for non-tmpfs filesystems you will also need a means by which to ensure the filesystem(s) are reverted to this blank snapshot every boot. Depending on your selected filesystem, the means to accomplish this varies:
