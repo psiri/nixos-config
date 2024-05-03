@@ -426,14 +426,14 @@ After configuring impermanence and rebuilding, you can validate impermanence is 
 #### Troubleshooting Impermanence
 If your validation test failed, try validating the following:
 * (ZFS) Ensure that disko successfully created the blank root snapshot:
-  * `zfs list -t snapshot` should display (at least) the blank root snapshot created by the disko-config.nix we created in [Configure Disko Step #3](#configure-disko):
+  * `zfs list -t snapshot` should display (at least) the blank root snapshot created by the `disko-config.nix` we created in [Configure Disko Step #3](#configure-disko):
   ```bash
    NAME                         USED  AVAIL  REFER  MOUNTPOINT
    zroot/encrypted/home@blank    95K      -    98K  -
    zroot/encrypted/root@blank    95K      -    98K  -
   ```
 * (ZFS / BTRFS) Ensure that your configuration contains the necessary customization for automatically rolling-back your snapshot / deleting root.
-  * :information_source: I personally had the config defined, but initially missed the simple `boot.initrd.systemd.enable = lib.mkDefault true;` option, so systemd never actually ran the rollback script 
+  * :information_source: I personally had the config defined, but initially missed the simple `boot.initrd.systemd.enable = lib.mkDefault true;` option, so systemd never actually ran the rollback script!
 
 ## Credits
 

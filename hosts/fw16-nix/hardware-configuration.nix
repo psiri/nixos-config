@@ -33,7 +33,7 @@
     script = ''
       zfs rollback -r zroot/encrypted/root@blank && echo "  >> >> rollback complete << <<"
     '';
-      # zfs rollback -r zroot/encrypted/home@blank
+      # zfs rollback -r zroot/encrypted/home@blank # (Optionally) move this into the script to also rollback /home
       # FIXME - IMPORTANT - change "zroot" to the name of your specific zpool. Defined in "disko-config.nix".
   };
 
