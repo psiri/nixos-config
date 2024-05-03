@@ -387,18 +387,18 @@ This section describes how to enable impermanence.
 
 Although I have finally taken the full Nix plunge (converting all my systems over to NixOs), I am still new and tweaking my config daily.  Along the way I took inspiration (and referenced code) from the following resources:
 
-* [Misterio77](https://github.com/Misterio77/nix-starter-configs) - Fantastic resource for starting out with Nixos flakes.  Well documented with many helpful inline-comments.
-* [kye](https://codeberg.org/kye/nixos) - Absolutely beautiful Hyprland config with an intuitive, modular repo layout that can easily be adapted to your needs.
+* :link: [Misterio77](https://github.com/Misterio77/nix-starter-configs) - Fantastic resource for starting out with Nixos flakes.  Well documented with many helpful inline-comments.
+* :link: [kye](https://codeberg.org/kye/nixos) - Absolutely beautiful Hyprland config with an intuitive, modular repo layout that can easily be adapted to your needs.
 
 
 ## Resources
 
 The following are some of the NixOS resources I use constantly:
 
-* [NixOS Package Search](https://search.nixos.org/packages?channel=23.11) - The quickest way to search for packages
-* [NixOS Options Search](https://search.nixos.org/options?channel=23.11) - The quickest way to search for Nix configuration options you might care about
-* [Home Manager Configuration Options](https://nix-community.github.io/home-manager/options.xhtml) - The official Home Manager configuration options documentation.  Contains all Home Manager options.
-* [disko](https://github.com/nix-community/disko) - Official nix-community flake for declarative disk configuration with examples for virtually any disk / partition / file system combination you'd be interested in.
-* [sops-nix](https://github.com/Mic92/sops-nix) - The best option for declarative, version-control-ready secrets management on NixOS.
-* [Impermanence](https://github.com/nix-community/impermanence) - Official nix-community flake for creating ephemeral (impermanent) NixOS systems. Supports opt-in state persistence for critical files and directories.
-* [erase-your-darlings blog by grahamc](https://grahamc.com/blog/erase-your-darlings) - Fantastic blog on immpermanence with ZFS.
+* :link: [NixOS Package Search](https://search.nixos.org/packages?channel=23.11) - The quickest way to search for packages
+* :link: [NixOS Options Search](https://search.nixos.org/options?channel=23.11) - The quickest way to search for Nix configuration options you might care about
+* :link: [Home Manager Configuration Options](https://nix-community.github.io/home-manager/options.xhtml) - The official Home Manager configuration options documentation.  Contains all Home Manager options.
+* :link: [disko](https://github.com/nix-community/disko) - Official nix-community flake for declarative disk configuration with examples for virtually any disk / partition / file system combination you'd be interested in.
+* :link: [sops-nix](https://github.com/Mic92/sops-nix) - The best option for declarative, version-control-ready secrets management on NixOS.
+* :link: [Impermanence](https://github.com/nix-community/impermanence) - Official nix-community flake for creating ephemeral (impermanent) NixOS systems. Supports opt-in state persistence for critical files and directories.
+* :link: [erase-your-darlings blog by grahamc](https://grahamc.com/blog/erase-your-darlings) - Fantastic blog on immpermanence with ZFS.
