@@ -259,10 +259,37 @@ The following steps describe how deploy secrets stored in a (separate) private r
 This section describes how to enable impermanence.  
 
 [Impermanence](https://github.com/nix-community/impermanence) is a NixOS flake which aims to make your system (_almost_ completely) ephemeral.  Impermanence is implemented in conjunction with a means of wiping or "rolling back" your system configuration such that all files and directories you don't explicitly declare as "persistent" are wiped out every reboot.
-   * :notebook: The method by which the deletion or rollback happens depends on your filesystem and hardware configuration.  In the examples contained within this repo, ZFS snapshot rollbacks are utilized to return the root dataset back to its initial (pristine) state.
+   * :notebook_with_decorative_cover: The method by which the deletion or rollback happens depends on your filesystem and hardware configuration.  In the examples contained within this repo, ZFS snapshot rollbacks are utilized to return the root dataset back to its initial (pristine) state. This snapshot is taken right after disko initially partitions the drives and creates filesystems.
 
 #### Setup
 
+1. Add impermanence to your `flake.nix` inputs and outputs:
+      ```nix
+      inputs = { 
+         # ... omitted for brevity
+         impermanence.url = "github:nix-community/impermanence";
+      }
+
+      outputs = {
+         # ... omitted for brevity
+         impermanence,
+         ...
+      }
+      ```
+2. Call the module from your respective nixosConfigurations
+   ```nix
+   fw16-nix = nixpkgs.lib.nixosSystem {
+      specialArgs = {inherit nix-colors user plymouth_theme inputs outputs;};
+      system = "x86_64-Linux";
+      modules = [
+         ./hosts/fw16-nix                             # > Our host-specific nixos configuration file <
+         disko.nixosModules.disko                     
+         sops-nix.nixosModules.sops
+         hardware.nixosModules.framework-16-7040-amd
+         impermanence.nixosModules.impermanence       # Calls the impermanence module
+      ];
+   };
+   ```
 
 ## Credits
 

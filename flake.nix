@@ -49,7 +49,6 @@
     sops-nix,
     hardware,
     impermanence,
-    #private-secrets,
     ...
   } @ inputs: let
     user = "psiri"; # FIXME set your username
@@ -114,7 +113,7 @@
         specialArgs = {inherit nix-colors user plymouth_theme inputs outputs;};
         system = "x86_64-Linux";
         modules = [
-          ./hosts/fw16-nix                           # > Our host-specific nixos configuration file <
+          ./hosts/fw16-nix                          # > Our host-specific nixos configuration file <
           ./modules/audio/default.nix               # Standard audio module using pipewire
           ./modules/security-hardening/default.nix  # Security hardening module
           disko.nixosModules.disko
@@ -136,7 +135,7 @@
       desktop-nix = nixpkgs.lib.nixosSystem {
         specialArgs = {inherit nix-colors user plymouth_theme inputs outputs;};
         modules = [
-          ./hosts/desktop-nix                        # > Our host-specific nixos configuration file <
+          ./hosts/desktop-nix                       # > Our host-specific nixos configuration file <
           ./modules/audio/default.nix               # Standard audio module using pipewire
           ./modules/security-hardening/default.nix  # Security hardening module
 
