@@ -255,6 +255,58 @@ The following steps describe how deploy secrets stored in a (separate) private r
    * **Note:** When building for the first time, you will be prompted for authentication to the private repo.  While you can use basic authentication, a PAT is recommended.  Alternatively, you can also clone using SSH.
 
 
+## Disko
+
+This section describes how to use disko for declarative disk layout, partitioning, and file system configuration.  
+
+[Disko](https://github.com/nix-community/disko) is a NixOS flake aimed at closing the gaps in what Nix does not natively manage declaratively - disk partitioning and formatting.  Disko is especially useful for enabling fully-automated, unattended installations where no human interraction is possible.
+
+Currently disko supports:
+
+   * **Disk layouts:** GPT, MBR, and mixed.
+   * **Partition tools:** LVM, mdadm, LUKS, and more.
+   * **Filesystems:** ext4, btrfs, ZFS, bcachefs, tmpfs, and others.
+
+
+#### Configure Disko
+
+1. Add disko to your [`flake.nix` inputs and outputs:](./flake.nix#L4-L53)
+   ```nix
+   # ./flake.nix
+   inputs = { 
+      # ... omitted for brevity
+      disko = {
+         url = "github:nix-community/disko";
+         inputs.nixpkgs.follows = "nixpkgs";
+      };
+   }
+
+   outputs = {
+      # ... omitted for brevity
+      disko,
+      ...
+   }
+   ```
+2. Call the disko module from your respective [nixosConfigurations in flake.nix](./flake.nix#L88-L172)
+   ```nix
+   # ./flake.nix
+   fw16-nix = nixpkgs.lib.nixosSystem {
+      specialArgs = {inherit nix-colors user plymouth_theme inputs outputs;};
+      system = "x86_64-Linux";
+      modules = [
+         ./hosts/fw16-nix                             # > Our host-specific nixos configuration file <
+         disko.nixosModules.disko                     # Calls the disko module
+         sops-nix.nixosModules.sops
+         hardware.nixosModules.framework-16-7040-amd
+         impermanence.nixosModules.impermanence       
+      ];
+   };
+   ```
+3. Define your disk configuration declaratively. In virtually any real-world scanario, this will be done on a host-by-host basis, thus I'd recommend placing the respective configuration within the host-specific subdirectory (`./hosts/HOSTNAME/disko-config.nix`).
+   * :information_source: [Disko quickstart guide](https://github.com/nix-community/disko/blob/master/docs/quickstart.md)
+   * :information_source: For reference configurations specific to your selected disk layout, parition scheme, and file systems, refer to [disko's official example configurations](https://github.com/nix-community/disko/tree/master/example)
+   * For a working example of my configuration (encrypted ZFS with datasets for /, /persist, /nix, and /home) refer to: [./hosts/fw16-nix/disko-config.nix](./hosts/fw16-nix/disko-config.nix)
+
 ## Impermanence
 
 This section describes how to enable impermanence.  
@@ -309,7 +361,7 @@ This section describes how to enable impermanence.
       2. Within the `environment.persistence."<YOUR-PERSIST-PATH>"` value, you can now declare which directories and files will persist (survive the data wipe / rollback). 
          * The `environment.persistence."<YOUR-PERSIST-PATH>".users.<USERNAME>` option also allows you to set persistence for the user's home directory. Paths defined under this option are automatically prefixed with with the user’s home directory.
              * For a working example, refer to [impermanence.nix](./hosts/fw16-nix/impermanence.nix.nix)
-         * :information_source: Refer to the [official impermanence module documentatio](https://github.com/nix-community/impermanence?tab=readme-ov-file#module-usage) for additional details
+         * :information_source: Refer to the [official impermanence module documentation](https://github.com/nix-community/impermanence?tab=readme-ov-file#module-usage) for additional details
 4. Whever appropriate, import the [impermanence.nix](./hosts/fw16-nix/impermanence.nix.nix) config file you just created.
    * The example below assumes you have created a per-host `impermance.nix` file within the host-specific subdirectory.  
    ```nix
@@ -336,7 +388,7 @@ The following are some of the NixOS resources I use constantly:
 * [NixOS Package Search](https://search.nixos.org/packages?channel=23.11) - The quickest way to search for packages
 * [NixOS Options Search](https://search.nixos.org/options?channel=23.11) - The quickest way to search for Nix configuration options you might care about
 * [Home Manager Configuration Options](https://nix-community.github.io/home-manager/options.xhtml) - The official Home Manager configuration options documentation.  Contains all Home Manager options.
-* [disko](https://github.com/nix-community/disko) - Official nix-community flake for declarative disk partioning, with examples for virtually any disk / partition / file system combination you'd be interested in.
+* [disko](https://github.com/nix-community/disko) - Official nix-community flake for declarative disk configuration with examples for virtually any disk / partition / file system combination you'd be interested in.
 * [sops-nix](https://github.com/Mic92/sops-nix) - The best option for declarative, version-control-ready secrets management on NixOS.
 * [Impermanence](https://github.com/nix-community/impermanence) - Official nix-community flake for creating ephemeral (impermanent) NixOS systems. Supports opt-in state persistence for critical files and directories.
 * [erase-your-darlings blog by grahamc](https://grahamc.com/blog/erase-your-darlings) - Fantastic blog on immpermanence with ZFS.
