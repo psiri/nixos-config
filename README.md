@@ -424,7 +424,7 @@ After configuring impermanence and rebuilding, you can validate impermanence is 
    1. ls / 
 
 #### Troubleshooting Impermanence
-If your validation test failed, try validating the following:
+If your validation test failed, try the following:
 * (ZFS) Ensure that disko successfully created the blank root snapshot:
   * `zfs list -t snapshot` should display (at least) the blank root snapshot created by the `disko-config.nix` we created in [Configure Disko Step #3](#configure-disko):
   ```bash
@@ -434,6 +434,17 @@ If your validation test failed, try validating the following:
   ```
 * (ZFS / BTRFS) Ensure that your configuration contains the necessary customization for automatically rolling-back your snapshot / deleting root, as covered in [Impermanence Prerequisites](#impermanence-prerequisites).
   * :information_source: I personally had the config defined, but initially missed the simple `boot.initrd.systemd.enable = lib.mkDefault true;` option, so systemd never actually ran the rollback script!
+* (ZFS / BTRFS) Ensure that your rollback / root-wipe script is successfully executed at boot:
+  * 
+    ```
+   psiri@fw16-nix  ~  sudo journalctl
+   # ... omitted
+   May 02 14:50:14 localhost systemd[1]: Starting Rollback root filesystem to a pristine state on boot...
+   May 02 14:50:14 localhost rollback-start[668]:   >> >> rollback complete << <<
+   May 02 14:50:14 localhost systemd[1]: rollback.service: Deactivated successfully.
+   May 02 14:50:14 localhost systemd[1]: Finished Rollback root filesystem to a pristine state on boot.
+    ```
+  * :notebook_with_decorative_cover: If your rollback script contians a message or description, you can simply grep for that. Otherwise it's easiest to look for `rollback.service: Deactivated successfully`.
 
 ## Credits
 
