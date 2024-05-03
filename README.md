@@ -432,7 +432,7 @@ If your validation test failed, try validating the following:
    zroot/encrypted/home@blank    95K      -    98K  -
    zroot/encrypted/root@blank    95K      -    98K  -
   ```
-* (ZFS / BTRFS) Ensure that your configuration contains the necessary customization for automatically rolling-back your snapshot / deleting root.
+* (ZFS / BTRFS) Ensure that your configuration contains the necessary customization for automatically rolling-back your snapshot / deleting root, as covered in [Impermanence Prerequisites](#impermanence-prerequisites).
   * :information_source: I personally had the config defined, but initially missed the simple `boot.initrd.systemd.enable = lib.mkDefault true;` option, so systemd never actually ran the rollback script!
 
 ## Credits
