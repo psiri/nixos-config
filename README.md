@@ -276,7 +276,7 @@ This section describes how to enable impermanence.
          ...
       }
       ```
-2. Call the module from your respective nixosConfigurations
+2. Call the module from your respective [nixosConfigurations in flake.nix](./flake.nix#L88-L172)
    ```nix
    fw16-nix = nixpkgs.lib.nixosSystem {
       specialArgs = {inherit nix-colors user plymouth_theme inputs outputs;};
