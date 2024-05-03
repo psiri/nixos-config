@@ -189,7 +189,7 @@ The example below is intended to get you up-and-running with sops-nix in the sim
       1. When using age, the public key will be output from this command.  This will be required for the next step.
 2. Copy your age PUBLIC key into a `.sops.yaml` file
    1. Paste your PUBLIC key under the `keys` list.  For a user with name `bob`, an example would be:
-    ```
+    ```yaml
     # This example uses YAML anchors which allows reuse of multiple keys 
     # without having to repeat yourself.
     # Also see https://github.com/Mic92/dotfiles/blob/master/nixos/.sops.yaml
@@ -233,7 +233,7 @@ The following steps describe how deploy secrets stored in a (separate) private r
    * In my case, I created the following repo: `https://github.com/psiri/nixos-secrets`
 6. The repository needs only contain the `.sops.yaml` and `secrets.yaml` files generated in the prerequisites steps above.  
    1. Move the `.sops.yaml` and (encrypted) `secrets.yaml` files into the private repo.  The most basic repo structure may look as follows:
-    ```
+    ```bash
     .
     ├── README.md
     ├── secrets.yaml
