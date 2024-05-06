@@ -1,39 +1,43 @@
-## Applications
-| Function             | App                 |
-| -------------------- | ------------------- |
-| Application Launcher | ulauncher           |
-| Archive Manager      | File-Roller         |
-| Audio                | Pipewire            |
-| Browser              | Chromium + Firefox  |
-| Compositor           | Hyprland            |
-| Display Server       | Wayland             |
-| File Manager         | Thunar              |
-| IDE                  | Codium (VS Code OSS)  |
-| Idle Daemon          | hypridle            |
-| Notes                | joplin-desktop      |
-| Notifications        | dunst               |
-| Screen Lock          | hyprlock            |
-| Screen Recording     | OBS Studio          |
-| Screenshots          | grim + slurp        |
-| Session Management   | wlogout             |
-| Shell                | zsh                 |
-| Status Bar           | Waybar              |
-| System Monitor       | bashtop + bottom + htop |
-| Terminal             | Kitty               |
-| Text Editor          | nano                |
-| Virtualization       | KVM + QEMU + vert-manager |
-| Window Manager       | Hyprland            |
-
 ## Hosts
 
 The following table breaks down the respective hardware and software / feature configuration of systems managed by this repo:
 
-| Hostname                           |  Disko  | sops-nix | Impermanence | Home-Manager | Base Template                    | Hardware                              |
-| ---------------------------------- | :-----: | :------: | :----------: | :----------: | -------------------------------- | ------------------------------------- |
-| [fw16-nix](./hosts/fw16-nix)       | :white_check_mark: | :white_check_mark:  |   :white_check_mark:    |   :white_check_mark:    | [standard](./hosts/standard.nix) | Framework Laptop 16 (AMD, iGPU-only)  |
-| [ll-nix1](./hosts/ll-nix1)         | :white_check_mark: | :white_check_mark:  |   :white_check_mark:    |   :white_check_mark:    | [standard](./hosts/standard.nix) | Dell Latitude (Intel, iGPU-only)      |
-| [desktop-nix](./hosts/desktop-nix) | :white_check_mark: | :white_check_mark:  |   :white_check_mark:    |   :white_check_mark:    | [standard](./hosts/standard.nix) | AMD Ryzen + AMD dGPU (custom build)   |
-| [server-nix](./hosts/server-nix)   | :x: | :white_check_mark:  |   :x:    |   :white_check_mark:    | [server](./hosts/server.nix)     | Intended for VMs (KVM, AWS, GCP, etc) |
+| Hostname                           |       Disko        |      sops-nix      |    Impermanence    |    Home-Manager    | Base Template                    | Hardware                              |
+| ---------------------------------- | :----------------: | :----------------: | :----------------: | :----------------: | -------------------------------- | ------------------------------------- |
+| [fw16-nix](./hosts/fw16-nix)       | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | [standard](./hosts/standard.nix) | Framework Laptop 16 (AMD, iGPU-only)  |
+| [ll-nix1](./hosts/ll-nix1)         | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | [standard](./hosts/standard.nix) | Dell Latitude (Intel, iGPU-only)      |
+| [desktop-nix](./hosts/desktop-nix) | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | [standard](./hosts/standard.nix) | AMD Ryzen + AMD dGPU (custom build)   |
+| [server-nix](./hosts/server-nix)   |        :x:         | :white_check_mark: |        :x:         | :white_check_mark: | [server](./hosts/server.nix)     | Intended for VMs (KVM, AWS, GCP, etc) |
+
+## Applications
+| Function             | App                                                        | Source Template(s) | Host(s)                                    |
+| -------------------- | ---------------------------------------------------------- | ------------------ | ------------------------------------------ |
+| Application Launcher | ulauncher                                                  |                    | fw16-nix, ll-nix1, desktop-nix             |
+| Archive Manager      | File-Roller                                                |                    | fw16-nix, ll-nix1, desktop-nix             |
+| Audio                | Pipewire                                                   |                    | fw16-nix, ll-nix1, desktop-nix             |
+| Automation & IaC     | Ansible, Terraform                                         |                    | fw16-nix, ll-nix1, desktop-nix, server-nix |
+| Browser              | Chromium, Firefox                                          | standard, server   | fw16-nix, ll-nix1, desktop-nix, server-nix |
+| Compositor           | Hyprland                                                   |                    | fw16-nix, ll-nix1, desktop-nix             |
+| CSP Tools            | AWS CLI (v2), google-cloud-sdk, SSM Session Manager plugin |                    | fw16-nix, ll-nix1, desktop-nix, server-nix |
+| Display Server       | Wayland                                                    |                    | fw16-nix, ll-nix1, desktop-nix             |
+| File Manager         | Thunar                                                     |                    | fw16-nix, ll-nix1, desktop-nix             |
+| IDE                  | Codium (VS Code OSS)                                       |                    | fw16-nix, ll-nix1, desktop-nix             |
+| Idle Daemon          | hypridle                                                   |                    | fw16-nix, ll-nix1, desktop-nix             |
+| Network Tools        | dig, dnsutils, iputils, mtr, netcat, nmap, ntp, wireshark  |                    | fw16-nix, ll-nix1, desktop-nix             |
+| Notes                | joplin-desktop                                             |                    | fw16-nix, ll-nix1, desktop-nix             |
+| Notifications        | dunst                                                      |                    | fw16-nix, ll-nix1, desktop-nix             |
+| Screen Lock          | hyprlock                                                   |                    | fw16-nix, ll-nix1, desktop-nix             |
+| Screen Recording     | OBS Studio                                                 |                    | fw16-nix, ll-nix1, desktop-nix             |
+| Screenshots          | grim, slurp                                                |                    | fw16-nix, ll-nix1, desktop-nix             |
+| Session Management   | wlogout                                                    |                    | fw16-nix, ll-nix1, desktop-nix             |
+| Shell                | zsh                                                        |                    | fw16-nix, ll-nix1, desktop-nix, server-nix |
+| Status Bar           | Waybar                                                     |                    | fw16-nix, ll-nix1, desktop-nix             |
+| System Monitor       | bashtop, bottom, htop                                      |                    | fw16-nix, ll-nix1, desktop-nix, server-nix |
+| Terminal             | Kitty                                                      |                    | fw16-nix, ll-nix1, desktop-nix             |
+| Text Editor          | nano                                                       |                    | fw16-nix, ll-nix1, desktop-nix, server-nix |
+| Virtualization       | KVM, QEMU, vert-manager                                    |                    | fw16-nix, ll-nix1, desktop-nix, server-nix |
+| Window Manager       | Hyprland                                                   |                    | fw16-nix, ll-nix1, desktop-nix             |
+
 
 #### Repo Layout
 
