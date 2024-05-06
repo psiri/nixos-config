@@ -444,7 +444,7 @@ If your validation test failed, try the following:
    May 02 19:50:14 localhost systemd[1]: rollback.service: Deactivated successfully.
    May 02 19:50:14 localhost systemd[1]: Finished Rollback root filesystem to a pristine state on boot.
    ```
-  * :notebook_with_decorative_cover: If your rollback script contians a message or description, you can simply grep for that. Otherwise it's easiest to use `sudo journalctl | grep "rollback.service: Deactivated successfully"` or `sudo journalctl | grep "Finished Rollback"`
+  * :notebook_with_decorative_cover: If your rollback script contians a message or description, you can simply grep for that. Otherwise it's easiest to use `sudo journalctl | grep "rollback.service"` or `sudo journalctl | grep "Finished Rollback"` to confirm.
 
 ## Credits
 
