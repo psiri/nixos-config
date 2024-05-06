@@ -13,47 +13,21 @@ in
   }: {
     imports = [
       nix-colors.homeManagerModules.default
-      ./per-device.nix # per device hypr configuration
-
-      #./hardware-configuration.nix # machine hardware config
-      ./hardware-configuration.nix
-      ../standard.nix # standard or server configs
-
-      ../../modules/virt
-      #../../hardware/audio # change to pipewire, move to home
-      #../../hardware/bluetooth
-      #../../hardware/nvidia
-      #../../hardware/rgb
-      #../../hardware/wireless
-
-      ../../home
-      #../../home/barrier # Does not support Wayland
-      ../../home/bottom
+      ./per-device.nix             # per device hypr configuration
+      ./hardware-configuration.nix # device-specific hardware configuration
+      ../standard.nix              # standard or server config template
+      #../../home/barrier          # Does not support Wayland
       #../../home/codium
       #../../home/copyq
-      ../../home/dunst
-      #../../home/flameshot # Broken :(
-      ../../home/firefox
-      ../../home/git
-      ../../home/gpg
-      ../../home/gtk
-      ../../home/hypr
       #../../home/input-leap
-      #../../home/kde
-      ../../home/kitty
       #../../home/rkvm
-      ../../home/ulauncher
-      ../../home/waybar
-      ../../home/wlogout
-
-
-      ./disko-config.nix
-      ./impermanence.nix
+      ./disko-config.nix           # device-specific declarative disk partitioning and file system configuration
+      ./impermanence.nix           # device-specific impermanence config
     ];
 
 
 
-    sops.age.keyFile = "/nix/persist/var/lib/sops-nix/key.txt"; # This is using an age key that is expected to already be in the filesystem
+    sops.age.keyFile = "/persist/var/lib/sops-nix/key.txt"; # This is using an age key that is expected to already be in the filesystem
     sops.defaultSopsFormat = "yaml";
     sops.secrets.user_password_hashed.neededForUsers = true;
     sops.secrets."hello_world" = { }; # Example secret. Will be mounted at /run/secrets/hello_world

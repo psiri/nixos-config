@@ -21,16 +21,28 @@
     # You can also split up your configuration and import pieces of it here:
     # ./users.nix
 
-    # Import your generated (nixos-generate-config) hardware configuration
-    # /etc/nixos/hardware-configuration.nix
+    ../home
+    ../home/bottom
     ../home/chrome
-    ../modules/console
+    ../home/dunst
+    ../home/firefox
+    #../home/flameshot # Broken :(
+    ../home/git
+    ../home/gpg
+    ../home/gtk
+    ../home/hypr
+    ../home/kitty
     ../home/obs-studio
     #../pkgs/pan-python
     #../home/swaylock # replacing with hyprlock
     ../home/thunar # file manager
+    ../home/ulauncher
     ../home/vscode
+    ../home/waybar
+    ../home/wlogout
     ../home/zsh
+    ../modules/console
+    ../modules/virt
   ];
 
   nixpkgs = {
