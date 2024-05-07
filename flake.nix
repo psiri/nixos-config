@@ -43,7 +43,6 @@
     nixpkgs,
     nixpkgs-unstable,
     home-manager,
-    #hyprland,
     nix-colors,
     disko,
     sops-nix,

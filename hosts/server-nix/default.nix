@@ -29,7 +29,7 @@ in
 
 
 
-    sops.age.keyFile = "/nix/persist/var/lib/sops-nix/key.txt"; # This is using an age key that is expected to already be in the filesystem
+    sops.age.keyFile = "/persist/var/lib/sops-nix/key.txt"; # This is using an age key that is expected to already be in the filesystem
     sops.defaultSopsFormat = "yaml";
     sops.secrets.user_password_hashed.neededForUsers = true;
     sops.secrets."hello_world" = { }; # Example secret. Will be mounted at /run/secrets/hello_world
@@ -49,6 +49,7 @@ in
 
     networking = {
       hostName = "server-nix";
+      hostId = "62ca471b"; # FIXME required for ZFS. Should be unique.
       firewall.enable = true;
       networkmanager.enable = true;
     };

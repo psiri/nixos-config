@@ -1,7 +1,7 @@
 {
   #security.sudo.extraConfig = "Defaults lecture=never";
-  system.activationScripts.createPersist = "mkdir -p /nix/persist";
-  environment.persistence."/nix/persist" = {
+  system.activationScripts.createPersist = "mkdir -p /persist";
+  environment.persistence."/persist" = {
     hideMounts = true;
     directories = [
       "/etc/nixos"

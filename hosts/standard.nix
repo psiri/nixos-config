@@ -96,7 +96,6 @@
     auto-optimise-store = true;
   };
 
-  # FIXME: Add the rest of the configuration that should be common across all hosts
   networking.firewall.enable = true;
   programs.mtr.enable = true;
   services.ntp.enable = true; # Enable NTP
@@ -194,10 +193,10 @@
         spotify
         # teams-for-linux # UNOFFICIAL MS Teams client, dropping this in favor of browser-based client
         # teamviewer
-        vlc
+        vlc               # media player
         wl-clipboard      # tool for accessing Wayland clipboards
         zoom-us
-        # TODO script SecureCRT install
+        # TODO script SecureCRT install 
       ];
     };
   };
@@ -205,7 +204,7 @@
   programs.htop.enable = true;
   # programs.htop.settings = {} # TODO - automatically configure htop
   # programs.virt-manager.enable
-  programs.waybar.enable = true;
+  #programs.waybar.enable = true;
   programs.wireshark.enable = true;
 
   environment = {
@@ -245,7 +244,7 @@
       jq
       libsecret
       lshw # list hardware
-      mtr
+      mtr  # better traceroute
       nano
       neofetch
       netcat

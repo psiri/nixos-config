@@ -51,7 +51,7 @@ in
       ./impermanence.nix
     ];
 
-    sops.age.keyFile = "/nix/persist/var/lib/sops-nix/key.txt"; # This is using an age key that is expected to already be in the filesystem
+    sops.age.keyFile = "/persist/var/lib/sops-nix/key.txt"; # This is using an age key that is expected to already be in the filesystem
     sops.defaultSopsFormat = "yaml";
     sops.secrets.user_password_hashed.neededForUsers = true;
     sops.secrets."hello_world" = { }; # Example secret. Will be mounted at /run/secrets/hello_world
@@ -86,12 +86,9 @@ in
         qmk-udev-rules
         sops
         # Necessary for Gnome to use the ambient light sensor
-        iio-sensor-proxy
-        # Framework specific bits
-        framework-tool
-        linuxKernel.packages.linux_zen.framework-laptop-kmod
+        #iio-sensor-proxy
       ];
-      shellAliases.rebuild = "sudo rm -rf /tmp/dotfiles && sudo git clone --branch 0.0.5 https://github.com/psiri/nixos-config /tmp/dotfiles && sudo nixos-rebuild switch --flake /tmp/dotfiles/.#ll-nix1 --impure";
+      shellAliases.rebuild = "sudo rm -rf /tmp/dotfiles && sudo git clone --branch main https://github.com/psiri/nixos-config /tmp/dotfiles && sudo nixos-rebuild switch --flake /tmp/dotfiles/.#ll-nix1 --impure";
     };
 
     services = {
