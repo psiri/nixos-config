@@ -22,7 +22,7 @@
               type = "8200";
               content = {
                 type = "swap";
-                resumeDevice = "true"; # resume from hibernation on this device
+                resumeDevice = true; # resume from hibernation on this device
               };
             };
             zroot = {
