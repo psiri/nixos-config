@@ -26,7 +26,7 @@ in
 
 
 
-    sops.age.keyFile = "/home/psiri/.config/sops/age/key.txt"; # This is using an age key that is expected to already be in the filesystem
+    sops.age.keyFile = "/home/psiri/.config/sops/age/keys.txt"; # This is using an age key that is expected to already be in the filesystem
     sops.defaultSopsFormat = "yaml";
     sops.secrets.user_password_hashed.neededForUsers = true;
     sops.secrets."hello_world" = { }; # Example secret. Will be mounted at /run/secrets/hello_world

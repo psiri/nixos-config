@@ -260,6 +260,7 @@
       nix-zsh-completions
       nmap
       openssl
+      pinentry-all # needed for GPG
       pipewire
       polkit_gnome
       python3

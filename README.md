@@ -166,7 +166,7 @@ The instructions below assume you will be using flakes, [disko](https://github.c
        1. run `mount | grep /mnt` and validate that the output shows your partitions as defined within the respective `disko-config.nix` file
     3. :bangbang: :construction: :bangbang:**(REQUIRED IF USING SOPS SECRETS FOR INITIAL USER PASSWORDS)**: Ensure the sops-nix (private) key is imported to the target path.
         1. The specific location depends on what you've defined for sops in the `sops.age.keyFile` option. 
-           1. Ex: `~/.config/sops/age/key.txt`
+           1. Ex: `~/.config/sops/age/keys.txt`
            2. Ex (with impermanence): ```/persist/var/lib/sops-nix/key.txt```
 3.  Complete the NixOS installation:
     1.  Run `sudo nixos-install --flake ./nixos-config/.#<HOSTNAME>` and reboot when the installation is complete
@@ -215,7 +215,7 @@ The example below is intended to get you up-and-running with sops-nix in the sim
       * For an example of the resulting file using local encryption, see [.sops.yaml](.sops.yaml)
       * For details on using a separate private repo, see [Option 2 - Sops-Nix with Secrets Stored in a Private Repo](#option-2---sops-nix-with-secrets-stored-in-a-private-repo)
 3. After configuring .sops.yaml, you can open a new secrets file with sops:
-   1. `nix-shell -p sops --run "sops secrets/example.yaml"`
+   1. `nix-shell -p sops --run "sops secrets/secrets.yaml"`
       1. Define the secrets (optionally with a hierarchy). Once saved, the contents will be encrypted with sops-nix and safe for commitment to VCS.
       * For an example of the resulting encrypted file, see [./secrets/secrets.yaml](secrets/secrets.yaml)
 4. For _each_ secret the host requires, you will need a corresponding secret declaration in the form of `sops.secrets."SECRET-NAME" = { };`
@@ -241,12 +241,13 @@ The following steps describe how deploy secrets stored in a (separate) private r
 5. Create a private repository to store your secrets.
    * In my case, I created the following repo: `https://github.com/psiri/nixos-secrets`
 6. The repository needs only contain the `.sops.yaml` and `secrets.yaml` files generated in the prerequisites steps above.  
-   1. Move the `.sops.yaml` and (encrypted) `secrets.yaml` files into the private repo.  The most basic repo structure may look as follows:
+   1. Move the `.sops.yaml` and (encrypted) `secrets.yaml` files into the private repo.  A basic repo structure may look as follows:
     ```bash
-    .
-    ├── README.md
-    ├── secrets.yaml
-    └── .sops.yaml
+   .
+   ├── README.md
+   ├── secrets
+   │   └── secrets.yaml
+   └── .sops.yaml
     ```
 7. Add the following lines to `inputs` within `flake.nix` to tell NixOS where to pull your private secrets from:
    ```nix
