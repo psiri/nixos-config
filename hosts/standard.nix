@@ -170,8 +170,8 @@
       # TODO: You can set an initial password for your user.
       # If you do, you can skip setting a root password by passing '--no-root-passwd' to nixos-install.
       # Be sure to change it (using passwd) after rebooting!
-      initialPassword = "this-password-should-be-changed-as-soon-as-possible!";
-      #hashedPasswordFile = config.sops.secrets.user_password_hashed.path;
+      #nitialPassword = "this-password-should-be-changed-as-soon-as-possible!";
+      hashedPasswordFile = config.sops.secrets.user_password_hashed.path;
       isNormalUser = true;
       shell = pkgs.zsh;
       openssh.authorizedKeys.keys = [
