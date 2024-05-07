@@ -115,7 +115,7 @@
           ./modules/security-hardening/default.nix  # Security hardening module
           disko.nixosModules.disko
           sops-nix.nixosModules.sops
-          impermanence.nixosModules.impermanence
+          #impermanence.nixosModules.impermanence
           hardware.nixosModules.framework-16-7040-amd
 
 

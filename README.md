@@ -4,7 +4,7 @@ The following table breaks down the respective hardware and software / feature c
 
 | Hostname                           |       Disko        |      sops-nix      |    Impermanence    |    Home-Manager    | Base Template                    | Hardware                              |
 | ---------------------------------- | :----------------: | :----------------: | :----------------: | :----------------: | -------------------------------- | ------------------------------------- |
-| [fw16-nix](./hosts/fw16-nix)       | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | [standard](./hosts/standard.nix) | Framework Laptop 16 (AMD, iGPU-only)  |
+| [fw16-nix](./hosts/fw16-nix)       | :white_check_mark: | :white_check_mark: | :x:                | :white_check_mark: | [standard](./hosts/standard.nix) | Framework Laptop 16 (AMD, iGPU-only)  |
 | [ll-nix1](./hosts/ll-nix1)         | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | [standard](./hosts/standard.nix) | Dell Latitude (Intel, iGPU-only)      |
 | [desktop-nix](./hosts/desktop-nix) | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | [standard](./hosts/standard.nix) | AMD Ryzen + AMD dGPU (custom build)   |
 | [server-nix](./hosts/server-nix)   |        :x:         | :white_check_mark: |        :x:         | :white_check_mark: | [server](./hosts/server.nix)     | Intended for VMs (KVM, AWS, GCP, etc) |
@@ -71,13 +71,12 @@ Shared modules / components can be pulled-in at various levels as-appropriate:
 │   │   ├── default.nix                # Defines host-specific config & imports the respective "template" (ex: "standard") + all host-specific config files (hardware-configuration.nix, per-device.nix, etc.)
 │   │   ├── disko-config.nix           # Disko disk partitioning. Declares how disko will perform disk partitioning & file system config
 │   │   ├── hardware-configuration.nix # Contains host-specific hardware configs. Ex: boot options, kernel modules, etc.
-│   │   ├── impermanence.nix           # Impermanence configuration. Defines which files and folders will persist
 │   │   └── per-device.nix             # Per-host config customizations for hyprland (ex: monitor layouts, keybinds).
 │   ├── your-new-host                  # Host-specific subdirectory for your new host would go here
 │   │   ├── default.nix
 │   │   ├── disko-config.nix
 │   │   ├── hardware-configuration.nix
-│   │   ├── impermanence.nix
+│   │   ├── impermanence.nix           # Impermanence configuration. Defines which files and folders will persist
 │   │   └── per-device.nix
 │   ├── server-nix                     # "server-nix" host directory
 │   │   └── default.nix
@@ -406,9 +405,9 @@ With the prerequisites satisfied, perform the following steps to configure imper
       ```
       2. Within the `environment.persistence."<YOUR-PERSIST-PATH>"` value, you can now declare which directories and files will persist (survive the data wipe / rollback). 
          * The `environment.persistence."<YOUR-PERSIST-PATH>".users.<USERNAME>` option also allows you to set persistence for the user's home directory. Paths defined under this option are automatically prefixed with with the user’s home directory.
-             * For a working example, refer to [impermanence.nix](./hosts/fw16-nix/impermanence.nix.nix)
+             * For a working example, refer to [impermanence.nix](./hosts/desktop-nix/impermanence.nix.nix)
          * :information_source: Refer to the [official impermanence module documentation](https://github.com/nix-community/impermanence?tab=readme-ov-file#module-usage) for additional details
-4. Whever appropriate, import the [impermanence.nix](./hosts/fw16-nix/impermanence.nix.nix) config file you just created.
+4. Whever appropriate, import the [impermanence.nix](./hosts/desktop-nix/impermanence.nix.nix) config file you just created.
    * The example below assumes you have created a per-host `impermance.nix` file within the host-specific subdirectory.  
    ```nix
    # ./hosts/HOSTNAME/default.nix

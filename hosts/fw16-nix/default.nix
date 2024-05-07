@@ -22,7 +22,6 @@ in
       #../../home/input-leap
       #../../home/rkvm
       ./disko-config.nix           # device-specific declarative disk partitioning and file system configuration
-      ./impermanence.nix           # device-specific impermanence config
     ];
 
 

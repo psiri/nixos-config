@@ -97,6 +97,13 @@
     auto-optimise-store = true;
   };
 
+  # Run garbage-collection weekly
+  nix.gc = {
+    automatic = true;
+    dates = "weekly";
+    options = "--delete-older-than 30d";
+  };
+
   networking.firewall.enable = true;
   programs.mtr.enable = true;
   services.ntp.enable = true; # Enable NTP
