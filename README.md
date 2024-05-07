@@ -164,6 +164,8 @@ The instructions below assume you will be using flakes, [disko](https://github.c
        * **Note:** if you did not specify a key file for disk encryption, you may be prompted to specify your encryption passphrase 
     2. (Optional, recommended) Validate the partitioning
        1. run `mount | grep /mnt` and validate that the output shows your partitions as defined within the respective `disko-config.nix` file
+    3. **(REQUIRED IF USING SOPS SECRETS FOR INITIAL USER PASSWORDS)**: Ensure the sops-nix (private) key is imported to the target path.
+        1. The specific location depends on what you've defined for sops. Ex: ```/persist/var/lib/sops-nix/key.txt```
 3.  Complete the NixOS installation:
     1.  Run `sudo nixos-install --flake ./nixos-config/.#<HOSTNAME>` and reboot when the installation is complete
         * **Note:** Depending whether you opted to store secrets locally or in a private get repo, you may be prompted for authentication to the private repo
