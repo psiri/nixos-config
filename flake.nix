@@ -92,7 +92,6 @@
         specialArgs = {inherit nix-colors user plymouth_theme inputs outputs;};
         modules = [
           ./hosts/ll-nix1                           # > Our host-specific nixos configuration file <
-          ./modules/audio/default.nix               # Standard audio module using pipewire
           ./modules/security-hardening/default.nix  # Security hardening module
           disko.nixosModules.disko
           sops-nix.nixosModules.sops
@@ -113,12 +112,11 @@
         system = "x86_64-Linux";
         modules = [
           ./hosts/fw16-nix                          # > Our host-specific nixos configuration file <
-          ./modules/audio/default.nix               # Standard audio module using pipewire
           ./modules/security-hardening/default.nix  # Security hardening module
           disko.nixosModules.disko
           sops-nix.nixosModules.sops
-          hardware.nixosModules.framework-16-7040-amd
           impermanence.nixosModules.impermanence
+          hardware.nixosModules.framework-16-7040-amd
 
 
           home-manager.nixosModules.home-manager {
@@ -135,8 +133,10 @@
         specialArgs = {inherit nix-colors user plymouth_theme inputs outputs;};
         modules = [
           ./hosts/desktop-nix                       # > Our host-specific nixos configuration file <
-          ./modules/audio/default.nix               # Standard audio module using pipewire
           ./modules/security-hardening/default.nix  # Security hardening module
+          disko.nixosModules.disko
+          sops-nix.nixosModules.sops
+          impermanence.nixosModules.impermanence
 
           home-manager.nixosModules.home-manager {
             home-manager = {
@@ -152,7 +152,6 @@
         specialArgs = {inherit nix-colors user plymouth_theme inputs outputs;};
         modules = [
           ./hosts/server-nix                        # > Our host-specific nixos configuration file <
-          ./modules/audio/disable.nix               # disable audio
           ./modules/security-hardening/default.nix  # Security hardening module
           #disko.nixosModules.disko
           sops-nix.nixosModules.sops

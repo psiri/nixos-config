@@ -9,9 +9,10 @@
   ...
 }: {
   imports = [
-    ../modules/console
     ../home/vscode
     ../home/zsh
+    ../modules/audio/disable.nix   # disable audio
+    ../modules/console
   ];
 
   nixpkgs = {

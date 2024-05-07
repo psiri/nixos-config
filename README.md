@@ -14,7 +14,7 @@ The following table breaks down the respective hardware and software / feature c
 | -------------------- | ---------------------------------------------------------- | ------------------ | ------------------------------------------ |
 | Application Launcher | ulauncher                                                  |                    | fw16-nix, ll-nix1, desktop-nix             |
 | Archive Manager      | File-Roller                                                |                    | fw16-nix, ll-nix1, desktop-nix             |
-| Audio                | Pipewire, wireplumber                                      |                    | fw16-nix, ll-nix1, desktop-nix             |
+| Audio                | Pipewire, wireplumber                                      | standard           | fw16-nix, ll-nix1, desktop-nix             |
 | Automation & IaC     | Ansible, Terraform                                         |                    | fw16-nix, ll-nix1, desktop-nix, server-nix |
 | Browser              | Chromium, Firefox                                          | standard, server   | fw16-nix, ll-nix1, desktop-nix             |
 | Collaboration Tools  | Slack, Zoom                                                | standard           | fw16-nix, ll-nix1, desktop-nix             |

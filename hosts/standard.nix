@@ -26,7 +26,7 @@
     ../home/chrome
     ../home/dunst
     ../home/firefox
-    #../home/flameshot # Broken :(
+    #../home/flameshot            # Tested version broken on wayland :(
     ../home/git
     ../home/gpg
     ../home/gtk
@@ -34,13 +34,14 @@
     ../home/kitty
     ../home/obs-studio
     #../pkgs/pan-python
-    #../home/swaylock # replacing with hyprlock
-    ../home/thunar # file manager
+    #../home/swaylock             # replacing with hyprlock
+    ../home/thunar                # file manager
     ../home/ulauncher
     ../home/vscode
     ../home/waybar
     ../home/wlogout
     ../home/zsh
+    ../modules/audio/default.nix  # Standard audio module using pipewire
     ../modules/console
     ../modules/virt
   ];
@@ -293,15 +294,6 @@
   #   };
   # };
 
-  services.pipewire = {
-    enable = true;
-    alsa.enable = true;
-    alsa.support32Bit = true;
-    audio.enable = true;
-    # jack.enable = true;
-    pulse.enable = true;
-    wireplumber.enable = true;
-  };
 
   services.teamviewer.enable = false;
 
