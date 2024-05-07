@@ -227,6 +227,7 @@
     systemPackages = with pkgs; [
       ansible
       awscli2 # AWS CLI v2
+      brightnessctl
       cifs-utils
       curl
       dig

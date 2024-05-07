@@ -14,7 +14,7 @@ The following table breaks down the respective hardware and software / feature c
 | -------------------- | ---------------------------------------------------------- | ------------------ | ------------------------------------------ |
 | Application Launcher | ulauncher                                                  |                    | fw16-nix, ll-nix1, desktop-nix             |
 | Archive Manager      | File-Roller                                                |                    | fw16-nix, ll-nix1, desktop-nix             |
-| Audio                | Pipewire                                                   |                    | fw16-nix, ll-nix1, desktop-nix             |
+| Audio                | Pipewire, wireplumber                                      |                    | fw16-nix, ll-nix1, desktop-nix             |
 | Automation & IaC     | Ansible, Terraform                                         |                    | fw16-nix, ll-nix1, desktop-nix, server-nix |
 | Browser              | Chromium, Firefox                                          | standard, server   | fw16-nix, ll-nix1, desktop-nix             |
 | Collaboration Tools  | Slack, Zoom                                                | standard           | fw16-nix, ll-nix1, desktop-nix             |
@@ -37,8 +37,8 @@ The following table breaks down the respective hardware and software / feature c
 | System Monitor       | bashtop, bottom, htop                                      |                    | fw16-nix, ll-nix1, desktop-nix, server-nix |
 | Terminal             | Kitty                                                      |                    | fw16-nix, ll-nix1, desktop-nix             |
 | Text Editor          | nano                                                       |                    | fw16-nix, ll-nix1, desktop-nix, server-nix |
-| Virtualization       | KVM, QEMU, vert-manager                                    |                    | fw16-nix, ll-nix1, desktop-nix, server-nix |
-| Window Manager       | Hyprland                                                   |                    | fw16-nix, ll-nix1, desktop-nix             |
+| Virtualization       | KVM, QEMU, vert-manager                                    | standard, server   | fw16-nix, ll-nix1, desktop-nix, server-nix |
+| Window Manager       | Hyprland                                                   | standard           | fw16-nix, ll-nix1, desktop-nix             |
 
 
 #### Repo Layout
