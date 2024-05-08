@@ -181,8 +181,9 @@ This section describes how yo update your NixOS configuration.
 
 1. Change directory into the configuration repo:
    - `cd nixos-config`
-2.  :lock: **(REQUIRED if secrets stored in a private repo have been updated):** Ensure your flake been updated to point to the latest private-secrets repo's commit.
-    1. :information_source: If you are not using secrets stored in a separate, private repo, skip this step
+2.  :lock: **(Required if secrets stored in a private repo have been updated):** Ensure your flake been updated to point to the latest private-secrets repo's commit.
+    1. :information_source: If you are not using secrets stored in a separate, private repo, OR the secrets have not been updated, skip this step
+    2. ```nix flake lock --update-input private-secrets```
 3.  Run `sudo nixos-rebuild switch --flake ./.#<HOSTNAME>` to apply your system configuration.
     - **Note:** If you encounter an error that your  config is "dirty", you may need to append the `--impure` flag
 
