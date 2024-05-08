@@ -8,7 +8,8 @@
   programs.gnupg = {
     agent = {
       enable = true;
-      pinentryPackage = pkgs.pinentry-curses;
+      pinentryPackage = pkgs.pinentry-tty;
+      #pkgs.pinentry-curses;
     };
   };
 
@@ -18,16 +19,17 @@
   home-manager.users.${user}.home.file = {
   "/.gnupg/gpg.conf" = {
       text = ''
-use-agent
-#pinentry-mode loopback
+#use-agent
+pinentry-mode loopback
       '';
     };
 "/.gnupg/gpg-agent.conf" = {
     text = ''
-pinentry-program ${pkgs.pinentry-curses}/bin/pinentry-curses
+pinentry-program ${pkgs.pinentry-tty}/bin/pinentry-tty
 default-cache-ttl 460000
 allow-preset-passphrase
     '';
   };
   };
 }
+# pinentry-program ${pkgs.pinentry-curses}/bin/pinentry-curses
