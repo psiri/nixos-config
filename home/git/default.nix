@@ -17,7 +17,7 @@
       enable = false;
     };
     signing = {
-      key = "F8B7F272F4FA425071E401E4B5BC49AAA49DB77A";  # FIXME - Change to your signing key
+      key = "B5BC49AAA49DB77A"; #"F8B7F272F4FA425071E401E4B5BC49AAA49DB77A";  # FIXME - Change to your signing key
       signByDefault = true;
     };
     userEmail = "paulsiri1@gmail.com";                   # FIXME - Change to your email
