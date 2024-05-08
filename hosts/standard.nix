@@ -31,6 +31,7 @@
     ../home/gpg
     ../home/gtk
     ../home/hypr
+    ../home/joplin
     ../home/kitty
     ../home/obs-studio
     #../pkgs/pan-python
@@ -189,7 +190,7 @@
         gnome.file-roller # archive manager
         grim              # simple screenshot tool while flameshot is broken
         #input-leap
-        joplin-desktop
+        #joplin-desktop
         kitty
         unstable.okta-aws-cli # The unstable version of okta-aws-cli, and AWS CLI client for Okta SSO
         # openconnect     # Open-source multi-VPN client supporting Cisco Anyconnect, Pulse Secure, GlobalProtect, etc
