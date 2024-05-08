@@ -160,7 +160,8 @@ The instructions below assume you will be using flakes, [disko](https://github.c
    1. `sudo git clone [--branch <YOUR-TARGET-BRANCH>] https://github.com/psiri/nixos-config`
       *   **Note:** `--branch <YOUR-TARGET-BRANCH>` is optional but useful when testing new configurations that haven't been merged into main/master. I regularly use this method to ensure the entire rebuild process can be thoroughly tested and vetted against prior to a merge into main/master.  Alternatively you can checkout your desired branch once cloned.
 2. Perform disk partitioning using disko:
-    * :warning: **WARNING: These operations are destructive!** :warning:
+    * :warning: **WARNING: These operations are destructive!** :warning:   
+      * Before proceeding, make absolutely sure the device(s) defined in `disko-config.nix` are correct, as they will be reformatted and re-partitioned
     1. `sudo nix --experimental-features "nix-command flakes" run github:nix-community/disko -- --mode disko ./nixos-config/hosts/<HOSTNAME>/disko-config.nix`
        * **Note:** if you did not specify a key file for disk encryption, you may be prompted to specify your encryption passphrase 
     2. (Optional, recommended) Validate the partitioning
