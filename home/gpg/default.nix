@@ -20,7 +20,7 @@
   "/.gnupg/gpg.conf" = {
       text = ''
 use-agent
-pinentry-mode loopback
+#pinentry-mode loopback
       '';
     };
 "/.gnupg/gpg-agent.conf" = {
