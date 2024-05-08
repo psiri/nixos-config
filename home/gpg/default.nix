@@ -8,7 +8,7 @@
   programs.gnupg = {
     agent = {
       enable = true;
-      pinentryPackage = pkgs.pinentry-tty;
+      pinentryPackage = pkgs.pinentry;
       #pkgs.pinentry-curses;
     };
   };
@@ -25,7 +25,7 @@ pinentry-mode loopback
     };
 "/.gnupg/gpg-agent.conf" = {
     text = ''
-pinentry-program ${pkgs.pinentry-tty}/bin/pinentry-tty
+pinentry-program ${pkgs.pinentry-tty}/bin/pinentry
 default-cache-ttl 460000
 allow-preset-passphrase
     '';
