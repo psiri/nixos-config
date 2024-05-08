@@ -171,7 +171,7 @@ The instructions below assume you will be using flakes, [disko](https://github.c
            2. Ex (with impermanence): ```/persist/var/lib/sops-nix/key.txt```
 3.  Complete the NixOS installation:
     1.  Run `sudo nixos-install --flake ./nixos-config/.#<HOSTNAME>` and reboot when the installation is complete
-        * **Note:** Depending whether you opted to store secrets locally or in a private get repo, you may be prompted for authentication to the private repo
+        * :warning: **Note:** Depending whether you opted to store secrets locally or in a private get repo, you may be prompted for authentication to the private repo
    
 
 ## Updates
@@ -265,6 +265,7 @@ The following steps describe how deploy secrets stored in a (separate) private r
    1. ```sops.defaultSopsFile = "${builtins.toString inputs.private-secrets}/secrets.yaml";```
       1. For a working reference example, refer to: [hosts/fw16-nix/default.nix](./hosts/fw16-nix/default.nix#L61-L68)
    * **Note:** When building for the first time, you will be prompted for authentication to the private repo.  While you can use basic authentication, a PAT is recommended.  Alternatively, you can also clone using SSH.
+   * **Note:** If there are changes to the repo, run `nix flake lock --update-input private-secrets` to ensure the flake is update to point to the latest commit
 
 
 ## Disko

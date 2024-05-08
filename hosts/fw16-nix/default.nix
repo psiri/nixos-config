@@ -34,6 +34,7 @@ in
     sops.secrets."joplin_sync_url" = { };
     sops.secrets."joplin_sync_region" = { };
     sops.secrets."joplin_sync_username" = { };
+    sops.secrets."joplin_sync_api_token" = { };
 
     ################# LOCAL SECRETS MANAGEMENT ################################
     # uncomment this line to use sops secrets within the local repo
@@ -43,6 +44,7 @@ in
     # this will attempt to clone the (private) repo at the path defined 
     # in the "private-secrets" input defined within flake.nix
     sops.defaultSopsFile = "${builtins.toString inputs.private-secrets}/secrets/secrets.yaml";
+    # NOTE: If there are changes to the repo, run "nix flake lock --update-input private-secrets"
 
 
     colorscheme = inputs.nix-colors.colorSchemes.${scheme};
