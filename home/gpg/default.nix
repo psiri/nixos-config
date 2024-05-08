@@ -12,6 +12,8 @@
     };
   };
 
+  # NOTE: IF not working, run export GPG_TTY=$(tty)
+
   home-manager.users.${user}.home.file = {
   "/.gnupg/gpg.conf" = {
       text = ''
