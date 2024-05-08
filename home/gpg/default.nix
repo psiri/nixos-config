@@ -13,6 +13,7 @@
   };
 
   # NOTE: IF not working, run export GPG_TTY=$(tty)
+  # or 'echo "test" | gpg --clearsign' and enter your credentials to unlock
 
   home-manager.users.${user}.home.file = {
   "/.gnupg/gpg.conf" = {
@@ -24,6 +25,8 @@ use-agent
 "/.gnupg/gpg-agent.conf" = {
     text = ''
 pinentry-program ${pkgs.pinentry-curses}/bin/pinentry-curses
+default-cache-ttl 460000
+allow-preset-passphrase
     '';
   };
   };
