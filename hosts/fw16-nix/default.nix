@@ -30,6 +30,10 @@ in
     sops.defaultSopsFormat = "yaml";
     sops.secrets.user_password_hashed.neededForUsers = true;
     sops.secrets."hello_world" = { }; # Example secret. Will be mounted at /run/secrets/hello_world
+    sops.secrets."joplin_sync_path" = { };
+    sops.secrets."joplin_sync_url" = { };
+    sops.secrets."joplin_sync_region" = { };
+    sops.secrets."joplin_sync_username" = { };
 
     ################# LOCAL SECRETS MANAGEMENT ################################
     # uncomment this line to use sops secrets within the local repo
@@ -38,7 +42,7 @@ in
     # uncomment this line to use sops secrets stores within a private repo
     # this will attempt to clone the (private) repo at the path defined 
     # in the "private-secrets" input defined within flake.nix
-    sops.defaultSopsFile = "${builtins.toString inputs.private-secrets}/secrets.yaml";
+    sops.defaultSopsFile = "${builtins.toString inputs.private-secrets}/secrets/secrets.yaml";
 
 
     colorscheme = inputs.nix-colors.colorSchemes.${scheme};
