@@ -19,7 +19,7 @@
   home-manager.users.${user}.home.file = {
   "/.gnupg/gpg.conf" = {
       text = ''
-#use-agent
+use-agent
 pinentry-mode loopback
       '';
     };
