@@ -181,7 +181,7 @@ This section describes how yo update your NixOS configuration.
 
 1. Change directory into the configuration repo:
    - `cd nixos-config`
-2.  :lock: **(Required if secrets stored in a private repo have been updated):** Ensure your flake's lock is updated to point to the latest private-secrets repo's commit:
+2.  :lock: **(Required only when secrets stored in a private repo have been updated):** Ensure your flake's lock is updated to point to the latest private-secrets repo's commit:
     1. :information_source: If you are not using secrets stored in a separate, private repo, OR these secrets have not been updated, you may skip this step
     2. Run the following command to ensure `flake.lock` points to the latest commit in your private secrets repo.  In the exmaple below, it is assumed your private-secrets input matches the example created in [Option 2 - Sops-Nix with Secrets Stored in a Private Repo](#option-2---sops-nix-with-secrets-stored-in-a-private-repo)
        1. ```nix flake lock --update-input private-secrets```
