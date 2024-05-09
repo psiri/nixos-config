@@ -36,16 +36,16 @@ in
     sops.secrets."joplin_sync_region" = { };
     sops.secrets."joplin_sync_username" = { };
     sops.secrets."joplin_sync_api_token" = { };
-    sops.secrets."fw16-nix/wireguard_private_key_primary" = { };
-    sops.secrets."fw16-nix/wireguard_peer_uuid_primary" = { };
-    sops.secrets."fw16-nix/wireguard_peer_address_primary" = { };
-    sops.secrets."fw16-nix/wireguard_peer_port_primary" = { };
-    sops.secrets."fw16-nix/wireguard_psk_primary" = { };
-    sops.secrets."fw16-nix/wireguard_allowed_ips_primary" = { };
-    sops.secrets."fw16-nix/wireguard_ip_primary" = { };
-    sops.secrets."fw16-nix/wireguard_dns_primary" = { };
-    sops.secrets."fw16-nix/wireguard_search_domains_primary" = { };
-    sops.secrets."fw16-nix/wireguard_routes_primary" = { };
+    sops.secrets."fw16/wireguard_private_key_primary" = { };
+    sops.secrets."fw16/wireguard_peer_uuid_primary" = { };
+    sops.secrets."fw16/wireguard_peer_address_primary" = { };
+    sops.secrets."fw16/wireguard_peer_port_primary" = { };
+    sops.secrets."fw16/wireguard_psk_primary" = { };
+    sops.secrets."fw16/wireguard_allowed_ips_primary" = { };
+    sops.secrets."fw16/wireguard_ip_primary" = { };
+    sops.secrets."fw16/wireguard_dns_primary" = { };
+    sops.secrets."fw16/wireguard_search_domains_primary" = { };
+    sops.secrets."fw16/wireguard_routes_primary" = { };
 
     ################# LOCAL SECRETS MANAGEMENT ################################
     # uncomment this line to use sops secrets within the local repo
