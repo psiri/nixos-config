@@ -25,25 +25,25 @@ permissions=user:psiri:;
 [wireguard]
 mtu=1420
 peer-routes=false
-private-key=${config.sops.placeholder.wireguard_private_key_primary}
+private-key=${config.sops.placeholder.wireguard_connection_1_private_key}
 
-[wireguard-peer.${config.sops.placeholder.wireguard_peer_uuid_primary}]
-endpoint=${config.sops.placeholder.wireguard_peer_address_primary}:${config.sops.placeholder.wireguard_peer_port_primary}
-preshared-key=${config.sops.placeholder.wireguard_psk_primary}
+[wireguard-peer.${config.sops.placeholder.wireguard_connection_1_peer_public_key}]
+endpoint=${config.sops.placeholder.wireguard_connection_1_peer_address}:${config.sops.placeholder.wireguard_connection_1_peer_port}
+preshared-key=${config.sops.placeholder.wireguard_connection_1_psk}
 preshared-key-flags=0
 persistent-keepalive=25
-allowed-ips=${config.sops.placeholder.wireguard_allowed_ips_primary}
+allowed-ips=${config.sops.placeholder.wireguard_connection_1_allowed_ips}
 
 [ipv4]
-address1=${config.sops.placeholder.wireguard_ip_primary}
-dns=${config.sops.placeholder.wireguard_dns_primary}
-dns-search=${config.sops.placeholder.wireguard_search_domains_primary}
+address1=${config.sops.placeholder.wireguard_connection_1_ip}
+dns=${config.sops.placeholder.wireguard_connection_1_dns}
+dns-search=${config.sops.placeholder.wireguard_connection_1_search_domains}
 ignore-auto-dns=true
 ignore-auto-routes=true
 may-fail=false
 method=manual
 never-default=true
-${config.sops.placeholder.wireguard_routes_primary}
+${config.sops.placeholder.wireguard_connection_1_routes}
 
 [ipv6]
 addr-gen-mode=default
@@ -69,25 +69,25 @@ permissions=user:psiri:;
 [wireguard]
 mtu=1420
 peer-routes=false
-private-key=${config.sops.placeholder.wireguard_private_key_secondary}
+private-key=${config.sops.placeholder.wireguard_connection_2_private_key}
 
-[wireguard-peer.7f0076aa-36f5-4cf8-97c0-945dcb087698]
-endpoint=${config.sops.placeholder.wireguard_peer_address_secondary}:${config.sops.placeholder.wireguard_peer_port_secondary}
-preshared-key=${config.sops.placeholder.wireguard_psk_secondary}
+[wireguard-peer.${config.sops.placeholder.wireguard_connection_2_peer_public_key}]
+endpoint=${config.sops.placeholder.wireguard_connection_2_peer_address}:${config.sops.placeholder.wireguard_connection_2_peer_port}
+preshared-key=${config.sops.placeholder.wireguard_connection_2_psk}
 preshared-key-flags=0
 persistent-keepalive=25
-allowed-ips=${config.sops.placeholder.wireguard_allowed_ips_secondary}
+allowed-ips=${config.sops.placeholder.wireguard_connection_2_allowed_ips}
 
 [ipv4]
-address1=${config.sops.placeholder.wireguard_ip_secondary}
-dns=${config.sops.placeholder.wireguard_dns_secondary}
-dns-search=${config.sops.placeholder.wireguard_search_domains_secondary}
+address1=${config.sops.placeholder.wireguard_connection_2_ip}
+dns=${config.sops.placeholder.wireguard_connection_2_dns}
+dns-search=${config.sops.placeholder.wireguard_connection_2_search_domains}
 ignore-auto-dns=true
 ignore-auto-routes=true
 may-fail=false
 method=manual
 never-default=true
-${config.sops.placeholder.wireguard_routes_secondary}
+${config.sops.placeholder.wireguard_connection_2_routes}
 
 [ipv6]
 addr-gen-mode=default

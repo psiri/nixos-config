@@ -46,26 +46,27 @@ in
     sops.secrets."wireless_connection_1_identity" = { };
     sops.secrets."wireless_connection_1_password" = { };
     # Wireguard Network Connection 1:
-    sops.secrets."wireguard_private_key_primary" = { };
-    sops.secrets."wireguard_peer_uuid_primary" = { };
-    sops.secrets."wireguard_peer_address_primary" = { };
-    sops.secrets."wireguard_peer_port_primary" = { };
-    sops.secrets."wireguard_psk_primary" = { };
-    sops.secrets."wireguard_allowed_ips_primary" = { };
-    sops.secrets."wireguard_ip_primary" = { };
-    sops.secrets."wireguard_dns_primary" = { };
-    sops.secrets."wireguard_search_domains_primary" = { };
-    sops.secrets."wireguard_routes_primary" = { };
+    sops.secrets."wireguard_connection_1_private_key" = { };
+    sops.secrets."wireguard_connection_1_peer_public_key" = { };
+    sops.secrets."wireguard_connection_1_peer_address" = { };
+    sops.secrets."wireguard_connection_1_peer_port" = { };
+    sops.secrets."wireguard_connection_1_psk" = { };
+    sops.secrets."wireguard_connection_1_allowed_ips" = { };
+    sops.secrets."wireguard_connection_1_ip" = { };
+    sops.secrets."wireguard_connection_1_dns" = { };
+    sops.secrets."wireguard_connection_1_search_domains" = { };
+    sops.secrets."wireguard_connection_1_routes" = { };
     # Wireguard Network Connection 2:
-    sops.secrets."wireguard_private_key_secondary" = { };
-    sops.secrets."wireguard_peer_address_secondary" = { };
-    sops.secrets."wireguard_peer_port_secondary" = { };
-    sops.secrets."wireguard_psk_secondary" = { };
-    sops.secrets."wireguard_allowed_ips_secondary" = { };
-    sops.secrets."wireguard_ip_secondary" = { };
-    sops.secrets."wireguard_dns_secondary" = { };
-    sops.secrets."wireguard_search_domains_secondary" = { };
-    sops.secrets."wireguard_routes_secondary" = { };
+    sops.secrets."wireguard_connection_2_private_key" = { };
+    sops.secrets."wireguard_connection_2_peer_public_key" = { };
+    sops.secrets."wireguard_connection_2_peer_address" = { };
+    sops.secrets."wireguard_connection_2_peer_port" = { };
+    sops.secrets."wireguard_connection_2_psk" = { };
+    sops.secrets."wireguard_connection_2_allowed_ips" = { };
+    sops.secrets."wireguard_connection_2_ip" = { };
+    sops.secrets."wireguard_connection_2_dns" = { };
+    sops.secrets."wireguard_connection_2_search_domains" = { };
+    sops.secrets."wireguard_connection_2_routes" = { };
 
     ################# LOCAL SECRETS MANAGEMENT ################################
     # uncomment this line to use sops secrets within the local repo
