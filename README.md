@@ -4,7 +4,7 @@ The following table breaks down the respective hardware and software / feature c
 
 | Hostname                           |       Disko        |      sops-nix      |    Impermanence    |    Home-Manager    | Base Template                    | Hardware                              |
 | ---------------------------------- | :----------------: | :----------------: | :----------------: | :----------------: | -------------------------------- | ------------------------------------- |
-| [fw16-nix](./hosts/fw16-nix)       | :white_check_mark: | :white_check_mark: | :x:                | :white_check_mark: | [standard](./hosts/standard.nix) | Framework Laptop 16 (AMD, iGPU-only)  |
+| [fw16-nix](./hosts/fw16-nix)       | :white_check_mark: | :white_check_mark: | :ballot_box_with_check: (root only)                | :white_check_mark: | [standard](./hosts/standard.nix) | Framework Laptop 16 (AMD, iGPU-only)  |
 | [ll-nix1](./hosts/ll-nix1)         | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | [standard](./hosts/standard.nix) | Dell Latitude (Intel, iGPU-only)      |
 | [desktop-nix](./hosts/desktop-nix) | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | [standard](./hosts/standard.nix) | AMD Ryzen + AMD dGPU (custom build)   |
 | [server-nix](./hosts/server-nix)   |        :x:         | :white_check_mark: |        :x:         | :white_check_mark: | [server](./hosts/server.nix)     | Intended for VMs (KVM, AWS, GCP, etc) |
