@@ -36,6 +36,16 @@ in
     sops.secrets."joplin_sync_region" = { };
     sops.secrets."joplin_sync_username" = { };
     sops.secrets."joplin_sync_api_token" = { };
+    # Wired Network Connection 1:
+    sops.secrets."wired_connection_1_ip" = { };
+    sops.secrets."wired_connection_1_dns" = { };
+    sops.secrets."wired_connection_1_search_domains" = { };
+    # Wireless Network Connection 1:
+    sops.secrets."wireless_connection_1_ssid" = { };
+    sops.secrets."wireless_connection_1_anonymous_identity" = { };
+    sops.secrets."wireless_connection_1_identity" = { };
+    sops.secrets."wireless_connection_1_password" = { };
+    # Wireguard Network Connection 1:
     sops.secrets."wireguard_private_key_primary" = { };
     sops.secrets."wireguard_peer_uuid_primary" = { };
     sops.secrets."wireguard_peer_address_primary" = { };
@@ -46,6 +56,17 @@ in
     sops.secrets."wireguard_dns_primary" = { };
     sops.secrets."wireguard_search_domains_primary" = { };
     sops.secrets."wireguard_routes_primary" = { };
+    # Wireguard Network Connection 2:
+    sops.secrets."wireguard_private_key_secondary" = { };
+    sops.secrets."wireguard_peer_uuid_secondary" = { };
+    sops.secrets."wireguard_peer_address_secondary" = { };
+    sops.secrets."wireguard_peer_port_secondary" = { };
+    sops.secrets."wireguard_psk_secondary" = { };
+    sops.secrets."wireguard_allowed_ips_secondary" = { };
+    sops.secrets."wireguard_ip_secondary" = { };
+    sops.secrets."wireguard_dns_secondary" = { };
+    sops.secrets."wireguard_search_domains_secondary" = { };
+    sops.secrets."wireguard_routes_secondary" = { };
 
     ################# LOCAL SECRETS MANAGEMENT ################################
     # uncomment this line to use sops secrets within the local repo
