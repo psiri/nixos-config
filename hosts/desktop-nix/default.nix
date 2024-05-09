@@ -65,7 +65,8 @@ in
     # uncomment this line to use sops secrets stores within a private repo
     # this will attempt to clone the (private) repo at the path defined 
     # in the "private-secrets" input defined within flake.nix
-    sops.defaultSopsFile = "${builtins.toString inputs.private-secrets}/secrets.yaml";
+    sops.defaultSopsFile = "${builtins.toString inputs.private-secrets}/secrets/secrets.yaml";
+    # NOTE: If there are changes to the repo, run "nix flake lock --update-input private-secrets"
 
 
     colorscheme = inputs.nix-colors.colorSchemes.${scheme};

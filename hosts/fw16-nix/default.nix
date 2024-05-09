@@ -16,6 +16,7 @@ in
       ./per-device.nix             # per device hypr configuration
       ./hardware-configuration.nix # device-specific hardware configuration
       ../standard.nix              # standard or server config template
+      ./network-manager.nix        # device-specific configurations for networkmanager with rendered secrets
       #../../home/barrier          # Does not support Wayland
       #../../home/codium
       #../../home/copyq
@@ -35,6 +36,16 @@ in
     sops.secrets."joplin_sync_region" = { };
     sops.secrets."joplin_sync_username" = { };
     sops.secrets."joplin_sync_api_token" = { };
+    sops.secrets."fw16-nix/wireguard_private_key_primary" = { };
+    sops.secrets."fw16-nix/wireguard_peer_uuid_primary" = { };
+    sops.secrets."fw16-nix/wireguard_peer_address_primary" = { };
+    sops.secrets."fw16-nix/wireguard_peer_port_primary" = { };
+    sops.secrets."fw16-nix/wireguard_psk_primary" = { };
+    sops.secrets."fw16-nix/wireguard_allowed_ips_primary" = { };
+    sops.secrets."fw16-nix/wireguard_ip_primary" = { };
+    sops.secrets."fw16-nix/wireguard_dns_primary" = { };
+    sops.secrets."fw16-nix/wireguard_search_domains_primary" = { };
+    sops.secrets."fw16-nix/wireguard_routes_primary" = { };
 
     ################# LOCAL SECRETS MANAGEMENT ################################
     # uncomment this line to use sops secrets within the local repo
