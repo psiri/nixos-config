@@ -106,8 +106,8 @@ method=disabled
 [connection]
 id=BBG-WIRED-1
 type=ethernet
-autoconnect-priority=-999
-interface-name=enp193s0f3u2u1
+autoconnect-priority=999
+autoconnect=true
 
 [ethernet]
 
