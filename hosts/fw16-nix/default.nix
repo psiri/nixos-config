@@ -56,6 +56,7 @@ in
     sops.secrets."wireguard_connection_1_dns" = { };
     sops.secrets."wireguard_connection_1_search_domains" = { };
     sops.secrets."wireguard_connection_1_routes" = { };
+    sops.secrets."wireguard_connection_1_routes_full" = { };
     # Wireguard Network Connection 2:
     sops.secrets."wireguard_connection_2_private_key" = { };
     sops.secrets."wireguard_connection_2_peer_public_key" = { };
@@ -67,6 +68,7 @@ in
     sops.secrets."wireguard_connection_2_dns" = { };
     sops.secrets."wireguard_connection_2_search_domains" = { };
     sops.secrets."wireguard_connection_2_routes" = { };
+    sops.secrets."wireguard_connection_2_route_full" = { };
 
     ################# LOCAL SECRETS MANAGEMENT ################################
     # uncomment this line to use sops secrets within the local repo
