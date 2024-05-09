@@ -71,7 +71,7 @@ mtu=1420
 peer-routes=false
 private-key=${config.sops.placeholder.wireguard_private_key_secondary}
 
-[wireguard-peer.${config.sops.placeholder.wireguard_peer_uuid_secondary}]
+[wireguard-peer.7f0076aa-36f5-4cf8-97c0-945dcb087698]
 endpoint=${config.sops.placeholder.wireguard_peer_address_secondary}:${config.sops.placeholder.wireguard_peer_port_secondary}
 preshared-key=${config.sops.placeholder.wireguard_psk_secondary}
 preshared-key-flags=0

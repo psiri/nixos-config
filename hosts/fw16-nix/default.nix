@@ -58,7 +58,6 @@ in
     sops.secrets."wireguard_routes_primary" = { };
     # Wireguard Network Connection 2:
     sops.secrets."wireguard_private_key_secondary" = { };
-    sops.secrets."wireguard_peer_uuid_secondary" = { };
     sops.secrets."wireguard_peer_address_secondary" = { };
     sops.secrets."wireguard_peer_port_secondary" = { };
     sops.secrets."wireguard_psk_secondary" = { };
