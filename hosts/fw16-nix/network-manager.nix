@@ -8,7 +8,7 @@
 }: {
 
   sops.templates."nm-wireguard-primary".path = "/etc/NetworkManager/system-connections/BBG-WIREGUARD-PRIMARY.nmconnection";
-  #sops.templates."nm-wireguard-primary".owner = "${user}";
+  sops.templates."nm-wireguard-primary".owner = "root";
   sops.templates."nm-wireguard-primary".mode = "0600";
   sops.templates."nm-wireguard-primary".content = ''
 [connection]
@@ -22,25 +22,25 @@ permissions=user:psiri:;
 [wireguard]
 mtu=1420
 peer-routes=false
-private-key=${config.sops.placeholder.fw16-nix/wireguard_private_key_primary}
+private-key=${config.sops.placeholder."fw16-nix/wireguard_private_key_primary"}
 
-[wireguard-peer.${config.sops.placeholder.fw16-nix/wireguard_peer_uuid_primary}]
-endpoint=${config.sops.placeholder.fw16-nix/wireguard_peer_address_primary}:${config.sops.placeholder.fw16-nix/wireguard_peer_port_primary}
-preshared-key=${config.sops.placeholder.fw16-nix/wireguard_psk_primary}
+[wireguard-peer.${config.sops.placeholder."fw16-nix/wireguard_peer_uuid_primary"}]
+endpoint=${config.sops.placeholder."fw16-nix/wireguard_peer_address_primary"}:${config.sops.placeholder."fw16-nix/wireguard_peer_port_primary"}
+preshared-key=${config.sops.placeholder."fw16-nix/wireguard_psk_primary"}
 preshared-key-flags=0
 persistent-keepalive=25
-allowed-ips=${config.sops.placeholder.fw16-nix/wireguard_allowed_ips_primary}
+allowed-ips=${config.sops.placeholder."fw16-nix/wireguard_allowed_ips_primary"}
 
 [ipv4]
-address1=${config.sops.placeholder.fw16-nix/wireguard_ip_primary}
-dns=${config.sops.placeholder.fw16-nix/wireguard_dns_primary}
-dns-search=${config.sops.placeholder.fw16-nix/wireguard_search_domains_primary}
+address1=${config.sops.placeholder."fw16-nix/wireguard_ip_primary"}
+dns=${config.sops.placeholder."fw16-nix/wireguard_dns_primary"}
+dns-search=${config.sops.placeholder."fw16-nix/wireguard_search_domains_primary"}
 ignore-auto-dns=true
 ignore-auto-routes=true
 may-fail=false
 method=manual
 never-default=true
-${config.sops.placeholder.fw16-nix/wireguard_allowed_routes_primary}
+${config.sops.placeholder."fw16-nix/wireguard_allowed_routes_primary"}
 
 [ipv6]
 addr-gen-mode=default
