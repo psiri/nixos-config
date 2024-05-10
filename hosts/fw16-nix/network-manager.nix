@@ -70,13 +70,14 @@ permissions=user:psiri:;
 mtu=1420
 peer-routes=false
 private-key=${config.sops.placeholder.wireguard_connection_1_private_key}
+ip4-auto-default-route=true
 
 [wireguard-peer.${config.sops.placeholder.wireguard_connection_1_peer_public_key}]
 endpoint=${config.sops.placeholder.wireguard_connection_1_peer_address}:${config.sops.placeholder.wireguard_connection_1_peer_port}
 preshared-key=${config.sops.placeholder.wireguard_connection_1_psk}
 preshared-key-flags=0
 persistent-keepalive=25
-allowed-ips=${config.sops.placeholder.wireguard_connection_1_allowed_ips}
+allowed-ips=0.0.0.0/0;::/0;
 
 [ipv4]
 address1=${config.sops.placeholder.wireguard_connection_1_ip}
@@ -86,7 +87,7 @@ ignore-auto-dns=true
 ignore-auto-routes=true
 may-fail=false
 method=manual
-never-default=true
+never-default=false
 ${config.sops.placeholder.wireguard_connection_1_routes_full}
 
 [ipv6]
@@ -158,13 +159,14 @@ permissions=user:psiri:;
 mtu=1420
 peer-routes=false
 private-key=${config.sops.placeholder.wireguard_connection_2_private_key}
+ip4-auto-default-route=true
 
 [wireguard-peer.${config.sops.placeholder.wireguard_connection_2_peer_public_key}]
 endpoint=${config.sops.placeholder.wireguard_connection_2_peer_address}:${config.sops.placeholder.wireguard_connection_2_peer_port}
 preshared-key=${config.sops.placeholder.wireguard_connection_2_psk}
 preshared-key-flags=0
 persistent-keepalive=25
-allowed-ips=${config.sops.placeholder.wireguard_connection_2_allowed_ips}
+allowed-ips=0.0.0.0/0;::/0;
 
 [ipv4]
 address1=${config.sops.placeholder.wireguard_connection_2_ip}
@@ -174,7 +176,7 @@ ignore-auto-dns=true
 ignore-auto-routes=true
 may-fail=false
 method=manual
-never-default=true
+never-default=false
 ${config.sops.placeholder.wireguard_connection_2_routes_full}
 
 [ipv6]
