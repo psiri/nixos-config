@@ -69,7 +69,8 @@ in
     sops.secrets."wireguard_connection_2_search_domains" = { };
     sops.secrets."wireguard_connection_2_routes" = { };
     sops.secrets."wireguard_connection_2_routes_full" = { };
-
+    # user-specific .gitconfig:
+    sops.secrets."psiri_gitconfig" = { };
     ################# LOCAL SECRETS MANAGEMENT ################################
     # uncomment this line to use sops secrets within the local repo
     #sops.defaultSopsFile = ../../secrets/secrets.yaml;

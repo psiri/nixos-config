@@ -23,4 +23,17 @@
     userEmail = "paulsiri1@gmail.com";                   # FIXME - Change to your email
     userName = "Paul Siri";                              # FIXME - Change to your name
   };
+
+  #####################################################
+  # USER-SPECIFIC .gitconfig POPULATED BY SOPS SECRET #
+  #####################################################
+
+  sops.templates."personal-gitconfig".path = "/home/psiri/.gitconfig";
+  sops.templates."personal-gitconfig".owner = "psiri";
+  sops.templates."personal-gitconfig".mode = "0400"; # read by owner
+  sops.templates."personal-gitconfig".content = ''
+  ${config.sops.placeholder.psiri_gitconfig}
+  '';
+  # The tempalte above expects the entire .gitconfig to be pulled from a sops secret named "psiri_gitconfig"
+
 }

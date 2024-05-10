@@ -23,7 +23,10 @@
         background_opacity = "1.0";
         background_blur = "1";
         tab_bar_style = "powerline";
-        tab_powerline_style = "round";
+        tab_bar_edge = "top";
+        tab_bar_margin_height = "3 3";
+        tab_powerline_style = "angled";
+        tab_activity_symbol = "@@";
         font_family = "Hack Nerd Font Mono";
         bold_font = "auto";
         italic_font = "auto";
@@ -33,6 +36,9 @@
         cursor_beam_thickness = "2.0";
         cursor_blink_interval = "0.5";
         strip_trailing_spaces = "always";
+        extraCofig = ''
+          symbol_map U+E0A0-U+E0A3,U+E0C0-U+E0C7 PowerlineSymbols
+        '';
       };
     };
     home.file.".config/hypr/per-app/kitty.conf" = {

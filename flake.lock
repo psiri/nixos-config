@@ -187,10 +187,10 @@
     "private-secrets": {
       "flake": false,
       "locked": {
-        "lastModified": 1715296125,
-        "narHash": "sha256-FhfBBXoaPlSusvJF6PIcDWe0NmMW7K75uGK5giORs5E=",
+        "lastModified": 1715357096,
+        "narHash": "sha256-yBwGF99LDHW75ow/T0jmDRzuzc68PpZ6rFivMg5fxj0=",
         "ref": "main",
-        "rev": "4f2a83dea8d8af9d61b180dc7913d12b7ac734ae",
+        "rev": "4484b9c4f7ec021505205099785c3b8363f9133b",
         "shallow": true,
         "type": "git",
         "url": "https://github.com/psiri/nixos-secrets.git"
