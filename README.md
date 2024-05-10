@@ -225,9 +225,9 @@ The example below is intended to get you up-and-running with sops-nix in the sim
       1. Define the secrets (optionally with a hierarchy). Once saved, the contents will be encrypted with sops-nix and safe for commitment to VCS.
       * For an example of the resulting encrypted file, see [./secrets/secrets.yaml](secrets/secrets.yaml)
 4. For _each_ secret the host requires, you will need a corresponding secret declaration in the form of `sops.secrets."SECRET-NAME" = { };`
-     * [Example:](./hosts/fw16-nix/default.nix#L58) ```sops.secrets."hello_world" = { }; # Example secret. Will be mounted at /run/secrets/hello_world```
+     * [Example:](./hosts/fw16-nix/default.nix#L33-L71) ```sops.secrets."hello_world" = { }; # Example secret. Will be mounted at /run/secrets/hello_world```
      * If specifying secrets for users, the special flag `neededForUsers = true;` must be set on the corresponding secret. This will cause the secret to be mounted at `/run/secrets-for-users` such that it can be utilized during initial user creation.
-      * Example can be seen in [./hosts/fw16-nix/default.nix line 57](./hosts/fw16-nix/default.nix#L57):
+      * Example can be seen in [./hosts/fw16-nix/default.nix line 32](./hosts/fw16-nix/default.nix#L32):
          * ```sops.secrets.user_password_hashed.neededForUsers = true;```
 
 #### Option 1 - Sops-Nix with Secrets Stored Locally (In the Same Repo)
@@ -268,7 +268,7 @@ The following steps describe how deploy secrets stored in a (separate) private r
     * For a working reference example, refer to: [flake.nix](./flake.nix#L33-L37)
 8. Update the `sops.defaultSopsFile` setting to point to the private repository
    1. ```nix sops.defaultSopsFile = "${builtins.toString inputs.private-secrets}/secrets/secrets.yaml";```
-      1. For a working reference example, refer to: [hosts/fw16-nix/default.nix](./hosts/fw16-nix/default.nix#L61-L68)
+      1. For a working reference example, refer to: [hosts/fw16-nix/default.nix](./hosts/fw16-nix/default.nix#L74-L82)
    * **Note:** When building for the first time, you will be prompted for authentication to the private repo.  While you can use basic authentication, a PAT is recommended.  Alternatively, you can also clone using SSH.
    * **Note:** If there are changes to the repo, run `nix flake lock --update-input private-secrets` to ensure the flake is update to point to the latest commit
 
@@ -299,7 +299,7 @@ Currently disko supports:
 
 #### Configure Disko
 
-1. Add disko to your [`flake.nix` inputs and outputs:](./flake.nix#L4-L53)
+1. Add disko to your [`flake.nix` inputs and outputs:](./flake.nix#L4-L52)
    ```nix
    # ./flake.nix
 
@@ -317,7 +317,7 @@ Currently disko supports:
       ...
    }
    ```
-2. Call the disko module from your respective [nixosConfigurations in flake.nix](./flake.nix#L88-L172)
+2. Call the disko module from your respective [nixosConfigurations in flake.nix](./flake.nix#L89-L170)
    ```nix
    # ./flake.nix
 
@@ -381,7 +381,7 @@ To configure impermanence, you will need need the following, at minimum:
 #### Configure Impermanence
 With the prerequisites satisfied, perform the following steps to configure impermanence:
 
-1. Add impermanence to your [`flake.nix` inputs and outputs:](./flake.nix#L4-L53)
+1. Add impermanence to your [`flake.nix` inputs and outputs:](./flake.nix#L4-L52)
       ```nix
       # ./flake.nix
 
@@ -396,7 +396,7 @@ With the prerequisites satisfied, perform the following steps to configure imper
          ...
       }
       ```
-2. Call the module from your respective [nixosConfigurations in flake.nix](./flake.nix#L88-L172)
+2. Call the module from your respective [nixosConfigurations in flake.nix](./flake.nix#L89-L170)
    ```nix
    # ./flake.nix
 

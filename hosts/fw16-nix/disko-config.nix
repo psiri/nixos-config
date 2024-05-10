@@ -17,14 +17,6 @@
                 mountpoint = "/boot";
               };
             };
-            #swap = {
-            #  size = "156G";
-            #  type = "8200";
-            #  content = {
-            #    type = "swap";
-            #    resumeDevice = true; # resume from hibernation on this device
-            #  };
-            #};
             zroot = {
               size = "100%";
               content = {
