@@ -15,6 +15,6 @@
     #useXkbConfig = true;
   };
 
-  services.xserver.layout = "us";
+  services.xserver.xkb.layout = "us";
   #services.xkbVariant = "us";
 }

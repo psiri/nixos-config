@@ -9,9 +9,11 @@
   ...
 }: {
   imports = [
-    ../modules/console
     ../home/vscode
     ../home/zsh
+    ../modules/audio/disable.nix   # disable audio
+    ../modules/console
+    ../modules/virt
   ];
 
   nixpkgs = {
@@ -49,8 +51,12 @@
   services.ntp.enable = true; # Enable NTP
 
   # TODO: This is just an example, be sure to use whatever bootloader you prefer
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
+  boot.loader = {
+    systemd-boot.enable = true;
+    efi.canTouchEfiVariables = true;
+    efi.efiSysMountPoint = "/boot";
+    timeout = 3;
+  };
 
   time.timeZone="America/Los_Angeles";
   i18n = {
@@ -68,6 +74,20 @@
     };
   };
 
+  home-manager.users.${user}.xdg.userDirs = {
+    enable = true;
+    createDirectories = true;
+    desktop = "$HOME/Desktop";
+    documents = "$HOME/Documents";
+    download = "$HOME/Downloads";
+    extraConfig = {
+      XDG_SCREENSHOTS_DIR = "$HOME/Pictures/Screenshots"; # Required so that grim can successfully save screenshots if the dir does not already exist
+    };
+    music = "$HOME/Music";
+    pictures = "$HOME/Pictures";
+    videos = "$HOME/Videos";
+  };
+
   fonts = {
     fontconfig.defaultFonts.monospace = ["Hack Nerd Font Mono"];
     fontDir.enable = true;
@@ -78,6 +98,7 @@
       hack-font
       material-design-icons
       material-symbols
+      meslo-lgs-nf # powerlevel10k recommended font
       nerdfonts
       #(nerdfonts.override {fonts = ["FiraCode" "JetBrainsMono"];})
     ];
@@ -91,16 +112,18 @@
       # TODO: You can set an initial password for your user.
       # If you do, you can skip setting a root password by passing '--no-root-passwd' to nixos-install.
       # Be sure to change it (using passwd) after rebooting!
-      initialPassword = "this-password-should-be-changed-as-soon-as-possible!";
+      #initialPassword = "this-password-should-be-changed-as-soon-as-possible!";
+      hashedPasswordFile = config.sops.secrets.user_password_hashed.path;
       isNormalUser = true;
       shell = pkgs.zsh;
       openssh.authorizedKeys.keys = [
         # TODO: Add your SSH public key(s) here, if you plan on using SSH to connect
       ];
       # TODO: Be sure to add any other groups you need (such as networkmanager, audio, docker, etc)
-      extraGroups = ["wheel" "docker"];
+      extraGroups = ["wheel" "networkmanager" "docker" "libvirtd" "plugdev"];
       packages = with pkgs; [
         # docker
+        unstable.okta-aws-cli # The unstable version of okta-aws-cli, and AWS CLI client for Okta SSO
       ];
     };
   };
@@ -116,6 +139,7 @@
     systemPackages = with pkgs; [
       ansible
       awscli2 # AWS CLI v2
+      cifs-utils
       curl
       dig
       dnsutils
@@ -124,10 +148,12 @@
       fira-code-nerdfont
       git
       gnutar # tar
+      google-cloud-sdk
       hack-font
       htop
       iputils
       libsecret
+      jq
       lshw # list hardware
       mtr
       nano
@@ -142,6 +168,7 @@
       python311Packages.xmltodict
       ssm-session-manager-plugin # AWS Systems Manager Session Manager plugin
       terraform
+      terraform-docs
       tree
       unzip
       wget
@@ -168,5 +195,9 @@
   };
 
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
-  system.stateVersion = "23.11";
+  system = {
+    stateVersion = "24.05";
+    autoUpgrade.enable = true;
+    autoUpgrade.allowReboot = false;
+  };
 }

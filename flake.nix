@@ -3,7 +3,7 @@
 
   inputs = {
     # Nixpkgs
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-23.11";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     # You can access packages and modules from different nixpkgs revs
     # at the same time. Here's an working example:
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
@@ -11,12 +11,31 @@
     nix-colors.url = "github:misterio77/nix-colors";
 
     # Home manager
-    home-manager.url = "github:nix-community/home-manager/release-23.11";
-    home-manager.inputs.nixpkgs.follows = "nixpkgs";
+    home-manager = {
+      url = "github:nix-community/home-manager/master";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     # TODO: Add any other flake you might need
     hardware.url = "github:nixos/nixos-hardware";
     nixos-hardware.url = "github:nixos/nixos-hardware";
+
+    impermanence.url = "github:nix-community/impermanence";
+
+    disko = {
+      url = "github:nix-community/disko";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    sops-nix = {
+      url = "github:Mic92/sops-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    private-secrets = {
+      url = "git+https://github.com/psiri/nixos-secrets.git?ref=main&shallow=1"; # Private repo used to store secrets separately with an added layer of protection. FIXME Replace with your respective repo URL. "&shallow=1" is added to ensure Nix only grabs the latest commit.
+      # url = "git+ssh://github.com/psiri/nixos-secrets.git?ref=main&shallow=1"; # Alternatively, you can clone using SSH
+      flake = false;
+    };
+
   };
 
   outputs = {
@@ -24,8 +43,11 @@
     nixpkgs,
     nixpkgs-unstable,
     home-manager,
-    #hyprland,
     nix-colors,
+    disko,
+    sops-nix,
+    hardware,
+    impermanence,
     ...
   } @ inputs: let
     user = "psiri"; # FIXME set your username
@@ -70,8 +92,32 @@
         specialArgs = {inherit nix-colors user plymouth_theme inputs outputs;};
         modules = [
           ./hosts/ll-nix1                           # > Our host-specific nixos configuration file <
-          ./modules/audio/default.nix               # Standard audio module using pipewire
           ./modules/security-hardening/default.nix  # Security hardening module
+          disko.nixosModules.disko
+          sops-nix.nixosModules.sops
+          impermanence.nixosModules.impermanence
+
+          home-manager.nixosModules.home-manager {
+            home-manager = {
+              useGlobalPkgs = true;
+              useUserPackages = true;
+              extraSpecialArgs = {inherit nix-colors inputs;};
+              users.${user}.imports = [];
+            };
+          }
+        ];
+      };
+      fw16-nix = nixpkgs.lib.nixosSystem {
+        specialArgs = {inherit nix-colors user plymouth_theme inputs outputs;};
+        system = "x86_64-Linux";
+        modules = [
+          ./hosts/fw16-nix                          # > Our host-specific nixos configuration file <
+          ./modules/security-hardening/default.nix  # Security hardening module
+          disko.nixosModules.disko
+          sops-nix.nixosModules.sops
+          #impermanence.nixosModules.impermanence
+          hardware.nixosModules.framework-16-7040-amd
+
 
           home-manager.nixosModules.home-manager {
             home-manager = {
@@ -86,26 +132,11 @@
       desktop-nix = nixpkgs.lib.nixosSystem {
         specialArgs = {inherit nix-colors user plymouth_theme inputs outputs;};
         modules = [
-          ./hosts/desktop-nix                        # > Our host-specific nixos configuration file <
-          ./modules/audio/default.nix               # Standard audio module using pipewire
+          ./hosts/desktop-nix                       # > Our host-specific nixos configuration file <
           ./modules/security-hardening/default.nix  # Security hardening module
-
-          home-manager.nixosModules.home-manager {
-            home-manager = {
-              useGlobalPkgs = true;
-              useUserPackages = true;
-              extraSpecialArgs = {inherit nix-colors inputs;};
-              users.${user}.imports = [];
-            };
-          }
-        ];
-      };
-      unraid-nix = nixpkgs.lib.nixosSystem {
-        specialArgs = {inherit nix-colors user plymouth_theme inputs outputs;};
-        modules = [
-          ./hosts/unraid-nix                        # > Our host-specific nixos configuration file <
-          ./modules/audio/default.nix               # Standard audio module using pipewire
-          ./modules/security-hardening/default.nix  # Security hardening module
+          disko.nixosModules.disko
+          sops-nix.nixosModules.sops
+          impermanence.nixosModules.impermanence
 
           home-manager.nixosModules.home-manager {
             home-manager = {
@@ -121,8 +152,10 @@
         specialArgs = {inherit nix-colors user plymouth_theme inputs outputs;};
         modules = [
           ./hosts/server-nix                        # > Our host-specific nixos configuration file <
-          ./modules/audio/disable.nix               # disable audio
           ./modules/security-hardening/default.nix  # Security hardening module
+          #disko.nixosModules.disko
+          sops-nix.nixosModules.sops
+          #impermanence.nixosModules.impermanence
 
           home-manager.nixosModules.home-manager {
             home-manager = {

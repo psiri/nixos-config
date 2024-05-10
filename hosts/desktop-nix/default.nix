@@ -13,39 +13,35 @@ in
   }: {
     imports = [
       nix-colors.homeManagerModules.default
-      ./per-device.nix # per device hypr configuration
-
-      #./hardware-configuration.nix # machine hardware config
-      ./hardware-configuration.nix
-      ../standard.nix # standard or server configs
-
-      ../../modules/virt
-      #../../hardware/audio # change to pipewire, move to home
-      #../../hardware/bluetooth
-      #../../hardware/nvidia
-      #../../hardware/rgb
-      #../../hardware/wireless
-
-      ../../home
-      #../../home/barrier # Does not support Wayland
-      ../../home/bottom
+      ./per-device.nix             # per device hypr configuration
+      ./hardware-configuration.nix # device-specific hardware configuration
+      ../standard.nix              # standard or server config template
+      #../../home/barrier          # Does not support Wayland
       #../../home/codium
       #../../home/copyq
-      ../../home/dunst
-      #../../home/flameshot # Broken :(
-      ../../home/firefox
-      ../../home/git
-      ../../home/gpg
-      ../../home/gtk
-      ../../home/hypr
       #../../home/input-leap
-      #../../home/kde
-      ../../home/kitty
-      ../../home/rkvm
-      ../../home/ulauncher
-      ../../home/waybar
-      ../../home/wlogout
+      #../../home/rkvm
+      ./disko-config.nix           # device-specific declarative disk partitioning and file system configuration
+      ./impermanence.nix
     ];
+
+
+
+    sops.age.keyFile = "/persist/var/lib/sops-nix/key.txt"; # This is using an age key that is expected to already be in the filesystem
+    sops.defaultSopsFormat = "yaml";
+    sops.secrets.user_password_hashed.neededForUsers = true;
+    sops.secrets."hello_world" = { }; # Example secret. Will be mounted at /run/secrets/hello_world
+
+    ################# LOCAL SECRETS MANAGEMENT ################################
+    # uncomment this line to use sops secrets within the local repo
+    #sops.defaultSopsFile = ../../secrets/secrets.yaml;
+    ################# PRIVATE SECRETS MANAGEMENT ##############################
+    # uncomment this line to use sops secrets stores within a private repo
+    # this will attempt to clone the (private) repo at the path defined 
+    # in the "private-secrets" input defined within flake.nix
+    sops.defaultSopsFile = "${builtins.toString inputs.private-secrets}/secrets/secrets.yaml";
+    # NOTE: If there are changes to the repo, run "nix flake lock --update-input private-secrets"
+
 
     colorscheme = inputs.nix-colors.colorSchemes.${scheme};
     home-manager.users.${user}.colorscheme = inputs.nix-colors.colorSchemes.${scheme};
@@ -53,6 +49,7 @@ in
     networking = {
       enableIPv6 = false;
       hostName = "desktop-nix";
+      hostId = "70b9a734"; # FIXME required for ZFS. Should be unique.
       firewall.enable = true;
       networkmanager.enable = true;
     };
@@ -66,7 +63,12 @@ in
     # };
 
     environment = {
-      #systemPackages = with pkgs; [pciutils];
+      systemPackages = with pkgs; [
+        age
+        qmk
+        qmk-udev-rules
+        sops
+      ];
       shellAliases.rebuild = "sudo rm -rf /tmp/dotfiles && sudo git clone --branch main https://github.com/psiri/nixos-config /tmp/dotfiles && sudo nixos-rebuild switch --flake /tmp/dotfiles/.#desktop-nix --impure";
     };
   }

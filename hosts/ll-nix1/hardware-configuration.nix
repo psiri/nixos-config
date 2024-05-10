@@ -5,15 +5,15 @@
     [ (modulesPath + "/installer/scan/not-detected.nix")
     ];
 
-  boot.initrd.availableKernelModules = [ "amdgpu" "nvme" "xhci_pci" "thunderbolt" "ahci" "usbhid" "usb_storage" "uas" "sd_mod" "pci_stub" "vfio" "vfio-pci" "vfio_iommu_type1" "virtio_net" "virtio_pci" "virtio_mmio" "virtio_blk" "virtio_scsi" "9p" "9pnet_virtio" ];
-  boot.initrd.kernelModules = [ "vfio" "vfio-pci" "amdgpu" ]; 
+  boot.initrd.availableKernelModules = [ "nvme" "xhci_pci" "thunderbolt" "ahci" "usbhid" "usb_storage" "uas" "sd_mod" "pci_stub" "vfio" "vfio-pci" "vfio_iommu_type1" "virtio_net" "virtio_pci" "virtio_mmio" "virtio_blk" "virtio_scsi" "9p" "9pnet_virtio" ];
+  boot.initrd.kernelModules = [ "vfio" "vfio-pci" ]; 
 
 # The following section handles automatically "destroying" the  root filesystem every boot
 # by rolling-back to the initial blank zfs snapshot created during initial configuration (by disko via "disko-config.nix" in our case)
 #
 # Note: if you set a temporary password for your user (or root), for example with the "initialPassword" parameter
 #       then the rollback will also restore these to their initial values!
-  boot.initrd.systemd.enable = lib.mkDefault true;
+  #boot.initrd.systemd.enable = lib.mkDefault true;
   boot.initrd.systemd.services.rollback = {
     description = "Rollback root filesystem to a pristine state on boot";
     wantedBy = [
@@ -51,7 +51,6 @@
   };
 
   boot.kernelModules = [ 
-    "kvm-amd"
     "pci_stub"
     "vfio_pci"
     "vfio"
@@ -61,7 +60,7 @@
   boot.kernelParams = [
     #"iommu=pt" # Required if doing passthrough to VMs / Docker
     # "pcie_aspm=off"
-    "amd_iommu=on"
+    # "amd_iommu=on"
     #"vfio-pci.ids=1002:7480,1002:ab30"
     #"pci-stub.ids=1002:7480,1002:ab30"
     "mem_sleep_default=deep" # Fix for AMD-related power-draw while syspended/sleeping
@@ -84,24 +83,13 @@
   };
 
   hardware = {
-    cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
+    cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
     keyboard.qmk.enable = true;
     opengl = {
       driSupport = true;
       driSupport32Bit = true;
       enable = true;
-      extraPackages = with pkgs; [
-        amdvlk
-        libva
-        libvdpau
-        libvdpau-va-gl
-        vaapiVdpau
-      ];
-      extraPackages32 = [
-        pkgs.driversi686Linux.amdvlk
-      ];
     };
-    # steam-hardware.enable = true;
   };
 
 }

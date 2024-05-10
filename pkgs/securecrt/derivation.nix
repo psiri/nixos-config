@@ -4,11 +4,11 @@ let
 
   # Please keep the version x.y.0.z and do not update to x.y.76.z because the
   # source of the latter disappears much faster.
-  version = "9.5.0-3241";
+  version = "9.5.2-3325";
   allowUnfree = true;
   nixpkgs.config.allowUnfree = true;
   autoPatchelfIgnoreMissingDeps = true;
-  src = ./scrt-sfx-9.5.0-3241.ubuntu22-64.x86_64.deb;
+  src = ./scrt-sfx-9.5.2-3325.ubuntu22-64.x86_64.deb;
 
 in stdenv.mkDerivation {
   name = "scrt-sfx-${version}";

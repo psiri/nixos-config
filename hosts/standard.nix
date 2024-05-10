@@ -21,16 +21,30 @@
     # You can also split up your configuration and import pieces of it here:
     # ./users.nix
 
-    # Import your generated (nixos-generate-config) hardware configuration
-    # /etc/nixos/hardware-configuration.nix
+    ../home
+    ../home/bottom
     ../home/chrome
-    ../modules/console
+    ../home/dunst
+    ../home/firefox
+    #../home/flameshot            # Tested version broken on wayland :(
+    ../home/git
+    ../home/gpg
+    ../home/gtk
+    ../home/hypr
+    ../home/joplin
+    ../home/kitty
     ../home/obs-studio
     #../pkgs/pan-python
-    #../home/swaylock # replacing with hyprlock
-    ../home/thunar # file manager
+    #../home/swaylock             # replacing with hyprlock
+    ../home/thunar                # file manager
+    ../home/ulauncher
     ../home/vscode
+    ../home/waybar
+    ../home/wlogout
     ../home/zsh
+    ../modules/audio/default.nix  # Standard audio module using pipewire
+    ../modules/console
+    ../modules/virt
   ];
 
   nixpkgs = {
@@ -84,14 +98,24 @@
     auto-optimise-store = true;
   };
 
-  # FIXME: Add the rest of the configuration that should be common across all hosts
+  # Run garbage-collection weekly
+  nix.gc = {
+    automatic = true;
+    dates = "weekly";
+    options = "--delete-older-than 30d";
+  };
+
   networking.firewall.enable = true;
   programs.mtr.enable = true;
   services.ntp.enable = true; # Enable NTP
 
   # TODO: This is just an example, be sure to use whatever bootloader you prefer
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
+  boot.loader = {
+    systemd-boot.enable = true;
+    efi.canTouchEfiVariables = true;
+    efi.efiSysMountPoint = "/boot";
+    timeout = 3;
+  };
 
   time.timeZone="America/Los_Angeles";
   i18n = {
@@ -147,14 +171,15 @@
       # TODO: You can set an initial password for your user.
       # If you do, you can skip setting a root password by passing '--no-root-passwd' to nixos-install.
       # Be sure to change it (using passwd) after rebooting!
-      initialPassword = "this-password-should-be-changed-as-soon-as-possible!";
+      #initialPassword = "this-password-should-be-changed-as-soon-as-possible!";
+      hashedPasswordFile = config.sops.secrets.user_password_hashed.path;
       isNormalUser = true;
       shell = pkgs.zsh;
       openssh.authorizedKeys.keys = [
         # TODO: Add your SSH public key(s) here, if you plan on using SSH to connect
       ];
       # TODO: Be sure to add any other groups you need (such as networkmanager, audio, docker, etc)
-      extraGroups = ["wheel" "networkmanager" "docker"];
+      extraGroups = ["wheel" "networkmanager" "docker" "libvirtd" "plugdev"];
       packages = with pkgs; [
         # discord
         # docker
@@ -165,7 +190,7 @@
         gnome.file-roller # archive manager
         grim              # simple screenshot tool while flameshot is broken
         #input-leap
-        joplin-desktop
+        #joplin-desktop
         kitty
         unstable.okta-aws-cli # The unstable version of okta-aws-cli, and AWS CLI client for Okta SSO
         # openconnect     # Open-source multi-VPN client supporting Cisco Anyconnect, Pulse Secure, GlobalProtect, etc
@@ -177,10 +202,10 @@
         spotify
         # teams-for-linux # UNOFFICIAL MS Teams client, dropping this in favor of browser-based client
         # teamviewer
-        vlc
+        vlc               # media player
         wl-clipboard      # tool for accessing Wayland clipboards
         zoom-us
-        # TODO script SecureCRT install
+        # TODO script SecureCRT install 
       ];
     };
   };
@@ -188,7 +213,7 @@
   programs.htop.enable = true;
   # programs.htop.settings = {} # TODO - automatically configure htop
   # programs.virt-manager.enable
-  programs.waybar.enable = true;
+  #programs.waybar.enable = true;
   programs.wireshark.enable = true;
 
   environment = {
@@ -211,6 +236,7 @@
     systemPackages = with pkgs; [
       ansible
       awscli2 # AWS CLI v2
+      brightnessctl
       cifs-utils
       curl
       dig
@@ -228,13 +254,14 @@
       jq
       libsecret
       lshw # list hardware
-      mtr
+      mtr  # better traceroute
       nano
       neofetch
       netcat
       nix-zsh-completions
       nmap
       openssl
+      pinentry-all # needed for GPG
       pipewire
       polkit_gnome
       python3
@@ -276,20 +303,16 @@
   #   };
   # };
 
-  services.pipewire = {
-    enable = true;
-    alsa.enable = true;
-    alsa.support32Bit = true;
-    audio.enable = true;
-    # jack.enable = true;
-    pulse.enable = true;
-    wireplumber.enable = true;
-  };
 
   services.teamviewer.enable = false;
 
 
 
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
-  system.stateVersion = "23.11";
+  #system.stateVersion = "23.11";
+  system = {
+    stateVersion = "24.05";
+    autoUpgrade.enable = true;
+    autoUpgrade.allowReboot = false;
+  };
 }

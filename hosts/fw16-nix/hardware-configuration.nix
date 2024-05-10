@@ -33,7 +33,7 @@
     script = ''
       zfs rollback -r zroot/encrypted/root@blank && echo "  >> >> rollback complete << <<"
     '';
-      # zfs rollback -r zroot/encrypted/home@blank
+      # zfs rollback -r zroot/encrypted/home@blank # (Optionally) move this into the script to also rollback /home
       # FIXME - IMPORTANT - change "zroot" to the name of your specific zpool. Defined in "disko-config.nix".
   };
 
@@ -78,6 +78,15 @@
   networking.useDHCP = lib.mkDefault true;
   # networking.interfaces.enp4s0.useDHCP = lib.mkDefault true;
   # networking.interfaces.wlp5s0.useDHCP = lib.mkDefault true;
+
+
+  # Fixes for Mediatek wifi cards on F13/F16:. Without the following,
+  # Mediatek cards have been limited to 802.11n networks & speeds:
+  hardware.wirelessRegulatoryDatabase = true;
+  boot.extraModprobeConfig = ''
+    options cfg80211 ieee80211_regdom="US"
+  '';
+  # End Mediatek wifi fixes
 
   nixpkgs.hostPlatform = {
     system = "x86_64-linux";
