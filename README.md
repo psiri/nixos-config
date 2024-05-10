@@ -12,31 +12,31 @@ The following table breaks down the respective hardware and software / feature c
 ## Applications
 | Function             | App                                                        | Source Template(s) | Host(s)                                    |
 | -------------------- | ---------------------------------------------------------- | ------------------ | ------------------------------------------ |
-| Application Launcher | ulauncher                                                  |                    | fw16-nix, ll-nix1, desktop-nix             |
-| Archive Manager      | File-Roller                                                |                    | fw16-nix, ll-nix1, desktop-nix             |
+| Application Launcher | ulauncher                                                  | standard           | fw16-nix, ll-nix1, desktop-nix             |
+| Archive Manager      | File-Roller                                                | standard           | fw16-nix, ll-nix1, desktop-nix             |
 | Audio                | Pipewire, wireplumber                                      | standard           | fw16-nix, ll-nix1, desktop-nix             |
-| Automation & IaC     | Ansible, Terraform                                         |                    | fw16-nix, ll-nix1, desktop-nix, server-nix |
-| Browser              | Chromium, Firefox                                          | standard, server   | fw16-nix, ll-nix1, desktop-nix             |
+| Automation & IaC     | Ansible, Terraform                                         | standard, server   | fw16-nix, ll-nix1, desktop-nix, server-nix |
+| Browser              | Chromium, Firefox                                          | standard, server   | fw16-nix, ll-nix1, desktop-nix, server-nix |
 | Collaboration Tools  | Slack, Zoom                                                | standard           | fw16-nix, ll-nix1, desktop-nix             |
-| Compositor           | Hyprland                                                   |                    | fw16-nix, ll-nix1, desktop-nix             |
+| Compositor           | Hyprland                                                   | standard           | fw16-nix, ll-nix1, desktop-nix             |
 | CSP Tools            | AWS CLI (v2), google-cloud-sdk, SSM Session Manager plugin | standard, server   | fw16-nix, ll-nix1, desktop-nix, server-nix |
-| Display Server       | Wayland                                                    |                    | fw16-nix, ll-nix1, desktop-nix             |
-| File Manager         | Thunar                                                     |                    | fw16-nix, ll-nix1, desktop-nix             |
-| IDE                  | Codium (VS Code OSS)                                       |                    | fw16-nix, ll-nix1, desktop-nix             |
-| Idle Daemon          | hypridle                                                   |                    | fw16-nix, ll-nix1, desktop-nix             |
+| Display Server       | Wayland                                                    | standard           | fw16-nix, ll-nix1, desktop-nix             |
+| File Manager         | Thunar                                                     | standard           | fw16-nix, ll-nix1, desktop-nix             |
+| IDE                  | Codium (VS Code OSS)                                       | standard           | fw16-nix, ll-nix1, desktop-nix             |
+| Idle Daemon          | hypridle                                                   | standard           | fw16-nix, ll-nix1, desktop-nix             |
 | Media Player         | spotify, vlc                                               | standard           | fw16-nix, ll-nix1, desktop-nix             |
-| Network Tools        | dig, dnsutils, iputils, mtr, netcat, nmap, ntp, wireshark  |                    | fw16-nix, ll-nix1, desktop-nix             |
+| Network Tools        | dig, dnsutils, iputils, mtr, netcat, nmap, ntp, wireshark  | standard, server   | fw16-nix, ll-nix1, desktop-nix, server-nix |
 | Notes                | joplin-desktop                                             | standard           | fw16-nix, ll-nix1, desktop-nix             |
-| Notifications        | dunst                                                      |                    | fw16-nix, ll-nix1, desktop-nix             |
-| Screen Lock          | hyprlock                                                   |                    | fw16-nix, ll-nix1, desktop-nix             |
-| Screen Recording     | OBS Studio                                                 |                    | fw16-nix, ll-nix1, desktop-nix             |
+| Notifications        | dunst                                                      | standard           | fw16-nix, ll-nix1, desktop-nix             |
+| Screen Lock          | hyprlock                                                   | standard           | fw16-nix, ll-nix1, desktop-nix             |
+| Screen Recording     | OBS Studio                                                 | standard           | fw16-nix, ll-nix1, desktop-nix             |
 | Screenshots          | grim, slurp                                                | standard           | fw16-nix, ll-nix1, desktop-nix             |
-| Session Management   | wlogout                                                    |                    | fw16-nix, ll-nix1, desktop-nix             |
-| Shell                | zsh                                                        |                    | fw16-nix, ll-nix1, desktop-nix, server-nix |
-| Status Bar           | Waybar                                                     |                    | fw16-nix, ll-nix1, desktop-nix             |
-| System Monitor       | bashtop, bottom, htop                                      |                    | fw16-nix, ll-nix1, desktop-nix, server-nix |
-| Terminal             | Kitty                                                      |                    | fw16-nix, ll-nix1, desktop-nix             |
-| Text Editor          | nano                                                       |                    | fw16-nix, ll-nix1, desktop-nix, server-nix |
+| Session Management   | wlogout                                                    | standard           | fw16-nix, ll-nix1, desktop-nix             |
+| Shell                | zsh                                                        | standard, server   | fw16-nix, ll-nix1, desktop-nix, server-nix |
+| Status Bar           | Waybar                                                     | standard           | fw16-nix, ll-nix1, desktop-nix             |
+| System Monitor       | bashtop, bottom, htop                                      | standard, server   | fw16-nix, ll-nix1, desktop-nix, server-nix |
+| Terminal             | Kitty                                                      | standard           | fw16-nix, ll-nix1, desktop-nix             |
+| Text Editor          | nano                                                       | standard, server   | fw16-nix, ll-nix1, desktop-nix, server-nix |
 | Virtualization       | KVM, QEMU, vert-manager                                    | standard, server   | fw16-nix, ll-nix1, desktop-nix, server-nix |
 | Window Manager       | Hyprland                                                   | standard           | fw16-nix, ll-nix1, desktop-nix             |
 

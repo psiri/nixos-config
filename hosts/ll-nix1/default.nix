@@ -13,41 +13,15 @@ in
   }: {
     imports = [
       nix-colors.homeManagerModules.default
-      ./per-device.nix # per device hypr configuration
-
-      #./hardware-configuration.nix # machine hardware config
-      ./hardware-configuration.nix
-      ../standard.nix # standard or server configs
-
-      ../../modules/virt
-      #../../hardware/audio # change to pipewire, move to home
-      #../../hardware/bluetooth
-      #../../hardware/nvidia
-      #../../hardware/rgb
-      #../../hardware/wireless
-
-      ../../home
-      #../../home/barrier # Does not support Wayland
-      ../../home/bottom
+      ./per-device.nix             # per device hypr configuration
+      ./hardware-configuration.nix # device-specific hardware configuration
+      ../standard.nix              # standard or server config template
+      #../../home/barrier          # Does not support Wayland
       #../../home/codium
       #../../home/copyq
-      ../../home/dunst
-      #../../home/flameshot # Broken :(
-      ../../home/firefox
-      ../../home/git
-      ../../home/gpg
-      ../../home/gtk
-      ../../home/hypr
       #../../home/input-leap
-      #../../home/kde
-      ../../home/kitty
       #../../home/rkvm
-      ../../home/ulauncher
-      ../../home/waybar
-      ../../home/wlogout
-
-
-      ./disko-config.nix
+      ./disko-config.nix           # device-specific declarative disk partitioning and file system configuration
       ./impermanence.nix
     ];
 
@@ -63,7 +37,8 @@ in
     # uncomment this line to use sops secrets stores within a private repo
     # this will attempt to clone the (private) repo at the path defined 
     # in the "private-secrets" input defined within flake.nix
-    sops.defaultSopsFile = "${builtins.toString inputs.private-secrets}/secrets.yaml";
+    sops.defaultSopsFile = "${builtins.toString inputs.private-secrets}/secrets/secrets.yaml";
+    # NOTE: If there are changes to the repo, run "nix flake lock --update-input private-secrets"
 
 
     colorscheme = inputs.nix-colors.colorSchemes.${scheme};

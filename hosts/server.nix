@@ -13,6 +13,7 @@
     ../home/zsh
     ../modules/audio/disable.nix   # disable audio
     ../modules/console
+    ../modules/virt
   ];
 
   nixpkgs = {
