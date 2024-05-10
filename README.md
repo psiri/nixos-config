@@ -226,9 +226,9 @@ The example below is intended to get you up-and-running with sops-nix in the sim
       1. Define the secrets (optionally with a hierarchy). Once saved, the contents will be encrypted with sops-nix and safe for commitment to VCS.
       * For an example of the resulting encrypted file, see [./secrets/secrets.yaml](secrets/secrets.yaml)
 4. For _each_ secret the host requires, you will need a corresponding secret declaration in the form of `sops.secrets."SECRET-NAME" = { };`
-     * [Example:](./hosts/fw16-nix/default.nix#L33-L71) ```sops.secrets."hello_world" = { }; # Example secret. Will be mounted at /run/secrets/hello_world```
+     * [Example:](./hosts/desktop-nix/default.nix#L33) ```sops.secrets."hello_world" = { }; # Example secret. Will be mounted at /run/secrets/hello_world```
      * If specifying secrets for users, the special flag `neededForUsers = true;` must be set on the corresponding secret. This will cause the secret to be mounted at `/run/secrets-for-users` such that it can be utilized during initial user creation.
-      * Example can be seen in [./hosts/fw16-nix/default.nix line 32](./hosts/fw16-nix/default.nix#L32):
+      * Example can be seen in [./hosts/desktop-nix/default.nix line 33](./hosts/desktop-nix/default.nix#L33):
          * ```sops.secrets.user_password_hashed.neededForUsers = true;```
 
 #### Option 1 - Sops-Nix with Secrets Stored Locally (In the Same Repo)
