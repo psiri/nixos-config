@@ -10,35 +10,35 @@ The following table breaks down the respective hardware and software / feature c
 | [server-nix](./hosts/server-nix)   |        :x:         | :white_check_mark: |        :x:         | :white_check_mark: | [server](./hosts/server.nix)     | Intended for VMs (KVM, AWS, GCP, etc) |
 
 ## Applications
-| Function             | App                                                        | Source Template(s) | Host(s)                                    |
-| -------------------- | ---------------------------------------------------------- | ------------------ | ------------------------------------------ |
-| Application Launcher | ulauncher                                                  | standard           | fw16-nix, ll-nix1, desktop-nix             |
-| Archive Manager      | File-Roller                                                | standard           | fw16-nix, ll-nix1, desktop-nix             |
-| Audio                | Pipewire, wireplumber                                      | standard           | fw16-nix, ll-nix1, desktop-nix             |
-| Automation & IaC     | Ansible, Terraform                                         | standard, server   | fw16-nix, ll-nix1, desktop-nix, server-nix |
-| Browser              | Chromium, Firefox                                          | standard, server   | fw16-nix, ll-nix1, desktop-nix, server-nix |
-| Collaboration Tools  | Slack, Zoom                                                | standard           | fw16-nix, ll-nix1, desktop-nix             |
-| Compositor           | Hyprland                                                   | standard           | fw16-nix, ll-nix1, desktop-nix             |
-| CSP Tools            | AWS CLI (v2), google-cloud-sdk, SSM Session Manager plugin | standard, server   | fw16-nix, ll-nix1, desktop-nix, server-nix |
-| Display Server       | Wayland                                                    | standard           | fw16-nix, ll-nix1, desktop-nix             |
-| File Manager         | Thunar                                                     | standard           | fw16-nix, ll-nix1, desktop-nix             |
-| IDE                  | Codium (VS Code OSS)                                       | standard           | fw16-nix, ll-nix1, desktop-nix             |
-| Idle Daemon          | hypridle                                                   | standard           | fw16-nix, ll-nix1, desktop-nix             |
-| Media Player         | spotify, vlc                                               | standard           | fw16-nix, ll-nix1, desktop-nix             |
-| Network Tools        | dig, dnsutils, iputils, mtr, netcat, nmap, ntp, wireshark  | standard, server   | fw16-nix, ll-nix1, desktop-nix, server-nix |
-| Notes                | joplin-desktop                                             | standard           | fw16-nix, ll-nix1, desktop-nix             |
-| Notifications        | dunst                                                      | standard           | fw16-nix, ll-nix1, desktop-nix             |
-| Screen Lock          | hyprlock                                                   | standard           | fw16-nix, ll-nix1, desktop-nix             |
-| Screen Recording     | OBS Studio                                                 | standard           | fw16-nix, ll-nix1, desktop-nix             |
-| Screenshots          | grim, slurp                                                | standard           | fw16-nix, ll-nix1, desktop-nix             |
-| Session Management   | wlogout                                                    | standard           | fw16-nix, ll-nix1, desktop-nix             |
-| Shell                | zsh                                                        | standard, server   | fw16-nix, ll-nix1, desktop-nix, server-nix |
-| Status Bar           | Waybar                                                     | standard           | fw16-nix, ll-nix1, desktop-nix             |
-| System Monitor       | bashtop, bottom, htop                                      | standard, server   | fw16-nix, ll-nix1, desktop-nix, server-nix |
-| Terminal             | Kitty                                                      | standard           | fw16-nix, ll-nix1, desktop-nix             |
-| Text Editor          | nano                                                       | standard, server   | fw16-nix, ll-nix1, desktop-nix, server-nix |
-| Virtualization       | KVM, QEMU, vert-manager                                    | standard, server   | fw16-nix, ll-nix1, desktop-nix, server-nix |
-| Window Manager       | Hyprland                                                   | standard           | fw16-nix, ll-nix1, desktop-nix             |
+| Function             | App                                                        | Source Template(s) | Package Type |
+| -------------------- | ---------------------------------------------------------- | ------------------ | :----------: |
+| Application Launcher | ulauncher                                                  | standard           |     user     |
+| Archive Manager      | File-Roller                                                | standard           |     user     |
+| Audio                | Pipewire, wireplumber                                      | standard           |    system    |
+| Automation & IaC     | Ansible, Terraform                                         | standard, server   |    system    |
+| Browser              | Chromium, Firefox                                          | standard, server   |    system    |
+| Collaboration Tools  | Slack, Zoom                                                | standard           |     user     |
+| Compositor           | Hyprland                                                   | standard           |    system    |
+| CSP Tools            | AWS CLI (v2), google-cloud-sdk, SSM Session Manager plugin | standard, server   |    system    |
+| Display Server       | Wayland                                                    | standard           |    system    |
+| File Manager         | Thunar                                                     | standard           |    system    |
+| IDE                  | Codium (VS Code OSS)                                       | standard           |     user     |
+| Idle Daemon          | hypridle                                                   | standard           |     user     |
+| Media Player         | spotify, vlc                                               | standard           |     user     |
+| Network Tools        | dig, dnsutils, iputils, mtr, netcat, nmap, ntp, wireshark  | standard, server   |    system    |
+| Notes                | joplin-desktop                                             | standard           |     user     |
+| Notifications        | dunst                                                      | standard           |    system    |
+| Screen Lock          | hyprlock                                                   | standard           |     user     |
+| Screen Recording     | OBS Studio                                                 | standard           |     user     |
+| Screenshots          | grim, slurp                                                | standard           |     user     |
+| Session Management   | wlogout                                                    | standard           |              |
+| Shell                | zsh                                                        | standard, server   |     both     |
+| Status Bar           | Waybar                                                     | standard           |     user     |
+| System Monitor       | bashtop, bottom, htop                                      | standard, server   |     both     |
+| Terminal             | Kitty                                                      | standard           |     user     |
+| Text Editor          | nano                                                       | standard, server   |    system    |
+| Virtualization       | KVM, QEMU, vert-manager                                    | standard, server   |    system    |
+| Window Manager       | Hyprland                                                   | standard           |    system    |
 
 
 #### Repo Layout
