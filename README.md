@@ -10,7 +10,7 @@ The following table breaks down the respective hardware and software / feature c
 | [server-nix](./hosts/server-nix)   |        :x:         | :white_check_mark: |        :x:         | :white_check_mark: | [server](./hosts/server.nix)     | Intended for VMs (KVM, AWS, GCP, etc) |
 
 ## Applications
-| Function             | App                                                        | Source Template(s) | Package Type |
+| **Function**             | **App**                                                        | **Source Template(s)** | **Package** Type |
 | -------------------- | ---------------------------------------------------------- | ------------------ | :----------: |
 | Application Launcher | ulauncher                                                  | standard           |     user     |
 | Archive Manager      | File-Roller                                                | standard           |     user     |
