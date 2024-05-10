@@ -272,6 +272,17 @@ The following steps describe how deploy secrets stored in a (separate) private r
    * **Note:** When building for the first time, you will be prompted for authentication to the private repo.  While you can use basic authentication, a PAT is recommended.  Alternatively, you can also clone using SSH.
    * **Note:** If there are changes to the repo, run `nix flake lock --update-input private-secrets` to ensure the flake is update to point to the latest commit
 
+### Sops-Nix Useful Examples:
+
+The following are real-world examples of using sops-nix to inject secrets at build time.  I am including them here, as documentation and examples of these solutions were tough to come by in my research.
+
+* Managing network configurations without exposing any network details, credentials, routes, or metadata. Ex: [./hosts/fw16-nix/network-manager.nix](./hosts/fw16-nix/network-manager.nix)
+  * Includes wired connections, wireless connections (WPA2/3 with 802.11X), and Wireguard connections. 
+  * Strategy: Each networkmanager connection profile is configured using a unique sops-nix template.  The template is rendered during build time with the required credentials, and given the appropriate ownership / permissions via explicit sops-nix template settings.
+* `.gitconfig` management. Ex: [./home/git/default.nix](./home/git/default.nix)
+  * Strategy: Manages the entire `.gitconfig` file as a single secret within sops-nix.  A sops template is then used to deploy the `.gitconfig` file with appropriate ownership and permissions.
+    * As opposed the the first example, you can also treat the entire configuration file as a single secret if you prefer to minimize the number of secrets.
+
 
 ## Disko
 
