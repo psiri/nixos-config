@@ -249,6 +249,7 @@ The following steps describe how deploy secrets stored in a (separate) private r
 6. The repository needs only contain the `.sops.yaml` and `secrets.yaml` files generated in the prerequisites steps above.  
    1. Move the `.sops.yaml` and (encrypted) `secrets.yaml` files into the private repo.  A basic repo structure may look as follows:
     ```bash
+   # Example repo for private secrets management
    .
    ├── README.md
    ├── secrets
