@@ -258,6 +258,8 @@ method=disabled
   sops.templates."work-wireless-1".path = "/etc/NetworkManager/system-connections/WORK-1.nmconnection";
   sops.templates."work-wireless-1".owner = "root";
   sops.templates."work-wireless-1".mode = "0600";
-  sops.templates."work-wireless-1".content = ${config.sops.placeholder.wireless_connection_2};
+  sops.templates."work-wireless-1".content = ''
+  ${config.sops.placeholder.wireless_connection_2}
+  '';
 
 }

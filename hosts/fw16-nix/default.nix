@@ -71,6 +71,8 @@ in
     sops.secrets."wireguard_connection_2_routes_full" = { };
     # user-specific .gitconfig:
     sops.secrets."psiri_gitconfig" = { };
+    # Work wireless connection:
+    sops.secrets."wireless_connection_2" = { };
     ################# LOCAL SECRETS MANAGEMENT ################################
     # uncomment this line to use sops secrets within the local repo
     #sops.defaultSopsFile = ../../secrets/secrets.yaml;
