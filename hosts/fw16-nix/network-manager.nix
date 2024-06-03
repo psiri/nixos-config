@@ -225,6 +225,7 @@ method=disabled
 [connection]
 id=HOME-WIRELESS
 type=wifi
+interface-name=wlp1s0
 permissions=user:psiri:;
 
 [wifi]
