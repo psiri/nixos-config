@@ -4,38 +4,38 @@
       {
           "label" : "lock",
           "action" : "pidof hyprlock || hyprlock",
-          "text" : "",
+          "text" : " Lock",
           "keybind" : "l"
       }
       {
           "label" : "reboot",
           "action" : "systemctl reboot",
-          "text" : "󰜉",
+          "text" : "󰜉 Reboot",
           "keybind" : "r"
       }
       {
           "label" : "shutdown",
           "action" : "systemctl poweroff",
-          "text" : "󰐥",
+          "text" : "󰐥 Shutdown",
           "keybind" : "s"
       }
       {
           "label" : "logout",
           "action" : "hyprctl dispatch exit 0",
-          "text" : "󰍃",
+          "text" : "󰍃 Logout",
           "keybind" : "e"
       }
       {
           "label" : "suspend",
           "action" : "systemctl suspend",
-          "text" : "󱖒",
+          "text" : "󱖒 Suspend",
           "keybind" : "u"
       }
       {
-          "label" : "gem",
-          "action" : "dunstify -a wlogout Gem_Activated",
-          "text" : "󰮋",
-          "keybind" : "q"
+          "label" : "hibernate",
+          "action" : "systemctl hibernate",
+          "text" : "Hibernate",
+          "keybind" : "h"
       }
     '';
   };

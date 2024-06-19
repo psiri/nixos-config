@@ -242,6 +242,7 @@
       dig
       dnsutils
       dunst
+      fastfetch
       fira-code
       fira-code-symbols
       fira-code-nerdfont
@@ -256,7 +257,6 @@
       lshw # list hardware
       mtr  # better traceroute
       nano
-      neofetch
       netcat
       nix-zsh-completions
       nmap

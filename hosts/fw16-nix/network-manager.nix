@@ -218,13 +218,14 @@ method=disabled
   #######################################
   # PRIMARY WIRELESS CONNECTION PROFILE #
   #######################################
-  sops.templates."bbg-wireless".path = "/etc/NetworkManager/system-connections/BBG-WIRELESS.nmconnection";
-  sops.templates."bbg-wireless".owner = "root";
-  sops.templates."bbg-wireless".mode = "0600";
-  sops.templates."bbg-wireless".content = ''
+  sops.templates."home-wireless".path = "/etc/NetworkManager/system-connections/HOME-WIRELESS.nmconnection";
+  sops.templates."home-wireless".owner = "root";
+  sops.templates."home-wireless".mode = "0600";
+  sops.templates."home-wireless".content = ''
 [connection]
-id=BBG-WIRELESS
+id=HOME-WIRELESS
 type=wifi
+interface-name=wlp1s0
 permissions=user:psiri:;
 
 [wifi]
@@ -232,14 +233,9 @@ mode=infrastructure
 ssid=${config.sops.placeholder.wireless_connection_1_ssid}
 
 [wifi-security]
-key-mgmt=wpa-eap
+key-mgmt=sae
+psk=${config.sops.placeholder.wireless_connection_1_password}
 
-[802-1x]
-anonymous-identity=${config.sops.placeholder.wireless_connection_1_anonymous_identity}
-eap=peap;
-identity=${config.sops.placeholder.wireless_connection_1_identity}
-password=${config.sops.placeholder.wireless_connection_1_password}
-phase2-auth=mschapv2
 
 [ipv4]
 method=auto
@@ -250,4 +246,16 @@ method=disabled
 
 [proxy]
   '';
+
+  ####################################
+  # WORK WIRELESS CONNECTION PROFILE #
+  ####################################
+  # This example treats the entire connection profile config as a single secret
+  sops.templates."work-wireless-1".path = "/etc/NetworkManager/system-connections/WORK-1.nmconnection";
+  sops.templates."work-wireless-1".owner = "root";
+  sops.templates."work-wireless-1".mode = "0600";
+  sops.templates."work-wireless-1".content = ''
+  ${config.sops.placeholder.wireless_connection_2}
+  '';
+
 }

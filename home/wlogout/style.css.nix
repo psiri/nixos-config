@@ -12,18 +12,21 @@
 
       window {
           font-family: Hack Nerd Font Mono;
-          font-size: 200pt;
+          font-size: 72pt;
           color: #${config.colorscheme.colors.base06}; /* text */
           background-color: #${config.colorscheme.colors.base00};
       }
 
       button {
-          color: #${config.colorscheme.colors.base05}; /* text / nerdfont */
-          background-color: #${config.colorscheme.colors.base01};
-          border-style: none;
-          border-width: 10px;
-          margin: 20px;
-          border-radius: 10px;
+          color: #${config.colorscheme.colors.base05}; /*  text / nerdfont */
+            background-color: #${config.colorscheme.colors.base01};
+            border-style: solid;
+            border-width: 3px;
+            margin: 10px;
+            border-radius: 10px;
+            background-position: center;
+          border-color: black;
+            text-decoration-color: #FFFFFF;
           transition: box-shadow 0.2s ease-in-out, background-color 0.2s ease-in-out;
       }
 
@@ -50,8 +53,6 @@
       #reboot {
       }
 
-      #gem {
-      }
 
     '';
   };
