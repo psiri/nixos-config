@@ -6,6 +6,8 @@
   ...
 }: {
   virtualisation = {
+    docker.enable = true;
+    docker.extraOptions = ''--insecure-registry "http://registry.bitbodyguard.local:5000"'';
     libvirtd = {
       enable = true;
       onBoot = "start";
