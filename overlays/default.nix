@@ -1,4 +1,4 @@
-{inputs, ...}: {
+{inputs, system ...}: {
   # When applied, the unstable nixpkgs set (declared in flake.nix inputs) will
   # be accessible through 'pkgs.unstable'
   # unstable-packages = final: _prev: {
