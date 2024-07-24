@@ -58,7 +58,7 @@
       outputs.overlays.pipewireOverlay
 
       # import from ../overlays files
-      #(import ../overlays/zoom)
+      (import ../overlays/zoom)
       
 
       # You can also add overlays exported from other flakes:

@@ -1,4 +1,4 @@
-{inputs, system }: {
+{inputs, ... }: {
   # When applied, the unstable nixpkgs set (declared in flake.nix inputs) will
   # be accessible through 'pkgs.unstable'
   # unstable-packages = final: _prev: {
@@ -11,6 +11,7 @@
 
   # pipewire overlay for broken zoom-us
   pipewireOverlay = f: p: {
-    pipewire-zoom = inputs.nixpkgs.legacyPackages.pipewire;
+    pipewire-zoom = inputs.nixpkgs.legacyPackages.x86_64-linux.pipewire;
   };
+
 }
