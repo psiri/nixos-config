@@ -266,7 +266,7 @@
       nmap
       openssl
       pinentry-all # needed for GPG
-      pipewire
+      pipewire-zoom
       polkit_gnome
       python3
       python311Packages.boto3
