@@ -14,7 +14,7 @@
 
     # pipewire overlay for broken zoom-us
     pipewireOverlay = f: p: {
-      pipewire-zoom = inputs.nixpkgs-zoom.legacyPackages.${system}.pipewire;
+      pipewire-zoom = inputs.nixpkgs.legacyPackages.${system}.pipewire;
     };
 
   in
