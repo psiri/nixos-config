@@ -19,5 +19,6 @@
 
   in
   [
+    pipewireOverlay
     (import ./zoom)
   ]
