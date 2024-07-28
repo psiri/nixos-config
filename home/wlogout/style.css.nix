@@ -13,13 +13,13 @@
       window {
           font-family: Hack Nerd Font Mono;
           font-size: 72pt;
-          color: #${config.colorscheme.colors.base06}; /* text */
-          background-color: #${config.colorscheme.colors.base00};
+          color: #${config.colorScheme.palette.base06}; /* text */
+          background-color: #${config.colorScheme.palette.base00};
       }
 
       button {
-          color: #${config.colorscheme.colors.base05}; /*  text / nerdfont */
-            background-color: #${config.colorscheme.colors.base01};
+          color: #${config.colorScheme.palette.base05}; /*  text / nerdfont */
+            background-color: #${config.colorScheme.palette.base01};
             border-style: solid;
             border-width: 3px;
             margin: 10px;
@@ -31,7 +31,7 @@
       }
 
       button:focus, button:active, button:hover {
-          background-color: #${config.colorscheme.colors.base02};
+          background-color: #${config.colorScheme.palette.base02};
           outline-style: none;
       }
 

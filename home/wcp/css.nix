@@ -9,7 +9,7 @@
     text = ''
       #main {
           border-radius: 10px;
-          background-color: #${config.colorScheme.colors.base01}FF;
+          background-color: #${config.colorScheme.palette.base01}FF;
       }
 
       .fullscaleview {
@@ -47,7 +47,7 @@
           width: 100%;
           height: 30px;
           border-radius: 5px;
-          background-color: #${config.colorScheme.colors.base02}FF;
+          background-color: #${config.colorScheme.palette.base02}FF;
       }
 
       .label {
@@ -56,7 +56,7 @@
           background-color: #00000000;
           margin-left: 5px;
           line-height: 25px;
-          color: #${config.colorScheme.colors.base02}FF;
+          color: #${config.colorScheme.palette.base02}FF;
           font-size: 16px;
           font-family: "Terminus (TTF):style=Bold";
       }
@@ -79,14 +79,14 @@
       .slider {
           width: 100%;
           height: 30px;
-          background-color: #${config.colorScheme.colors.base04}DD;
+          background-color: #${config.colorScheme.palette.base04}DD;
           border-radius: 5px;
       }
 
       .sliderbar {
           width: 1%;
           height: 30px;
-          background-color: #${config.colorScheme.colors.base06}DD;
+          background-color: #${config.colorScheme.palette.base06}DD;
           border-radius: 5px;
       }
 

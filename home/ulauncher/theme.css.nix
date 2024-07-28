@@ -33,32 +33,32 @@
 
   home-manager.users.${user}.home.file.".config/ulauncher/user-themes/TokyoNight/theme.css" = {
     text = ''
-      @define-color bg_color #${config.colorscheme.colors.base00};
+      @define-color bg_color #${config.colorScheme.palette.base00};
       @define-color window_bg @bg_color;
-      @define-color window_border_color #${config.colorscheme.colors.base0A};
-      @define-color prefs_backgroud #${config.colorscheme.colors.base0E};
+      @define-color window_border_color #${config.colorScheme.palette.base0A};
+      @define-color prefs_backgroud #${config.colorScheme.palette.base0E};
 
       /**
        * Input
        */
-      @define-color selected_bg_color #${config.colorscheme.colors.base02};
-      @define-color selected_fg_color #${config.colorscheme.colors.base06};
-      @define-color input_color #${config.colorscheme.colors.base0E};
+      @define-color selected_bg_color #${config.colorScheme.palette.base02};
+      @define-color selected_fg_color #${config.colorScheme.palette.base06};
+      @define-color input_color #${config.colorScheme.palette.base0E};
       @define-color caret_color darker(@input_color);
 
       /**
        * Result items
        */
-      @define-color item_name #${config.colorscheme.colors.base08};
+      @define-color item_name #${config.colorScheme.palette.base08};
       @define-color item_text @selected_fg_color;
 
-      @define-color item_box_selected #${config.colorscheme.colors.base03};
-      @define-color item_text_selected #${config.colorscheme.colors.base0B};
-      @define-color item_name_selected #${config.colorscheme.colors.base0D};
+      @define-color item_box_selected #${config.colorScheme.palette.base03};
+      @define-color item_text_selected #${config.colorScheme.palette.base0B};
+      @define-color item_name_selected #${config.colorScheme.palette.base0D};
 
-      @define-color item_shortcut_color #${config.colorscheme.colors.base0B};
+      @define-color item_shortcut_color #${config.colorScheme.palette.base0B};
       @define-color item_shortcut_shadow darker(@bg_color);
-      @define-color item_shortcut_color_sel #${config.colorscheme.colors.base0F};
+      @define-color item_shortcut_color_sel #${config.colorScheme.palette.base0F};
       @define-color item_shortcut_shadow_sel darker(@item_box_selected);
 
       .app {

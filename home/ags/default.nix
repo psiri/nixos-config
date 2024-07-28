@@ -25,16 +25,16 @@
         }
 
         .workspaces button.focused {
-            border-bottom: 3px solid #${config.colorscheme.colors.base05};
+            border-bottom: 3px solid #${config.colorScheme.palette.base05};
         }
 
         .client-title {
             margin-left: 1em;
-            color: #${config.colorscheme.colors.base05};
+            color: #${config.colorScheme.palette.base05};
         }
 
         .notification image {
-            color: #${config.colorscheme.colors.base0F};
+            color: #${config.colorScheme.palette.base0F};
             margin-left: 1em;
         }
 
@@ -48,7 +48,7 @@
         }
 
         progress, highlight {
-            background-color: #${config.colorscheme.colors.base05};
+            background-color: #${config.colorScheme.palette.base05};
             min-height: 8px;
         }
       '';
@@ -57,18 +57,18 @@
 }
 #      .workspaces button,
 #      .media {
-#          background-color: #${config.colorscheme.colors.base00};
-#          color: #${config.colorscheme.colors.base05};
+#          background-color: #${config.colorScheme.palette.base00};
+#          color: #${config.colorScheme.palette.base05};
 #      }
 #
 #      .workspaces button:hover,
 #      .media:hover {
-#          background-color: #${config.colorscheme.colors.base01};
-#          color: #${config.colorscheme.colors.base05};
+#          background-color: #${config.colorScheme.palette.base01};
+#          color: #${config.colorScheme.palette.base05};
 #      }
 #      .workspaces button:active,
 #      .media:active {
-#          background-color: #${config.colorscheme.colors.base04};
-#          color: #${config.colorscheme.colors.base05};
+#          background-color: #${config.colorScheme.palette.base04};
+#          color: #${config.colorScheme.palette.base05};
 #      }
 
