@@ -33,7 +33,7 @@
             "mode": "year",
             "mode-mon-col": 3,
             "format": {
-              "today": "<span color='#${config.colorScheme.colors.base0F}'>{}</span>"
+              "today": "<span color='#${config.colorScheme.palette.base0F}'>{}</span>"
             }
           }
         },

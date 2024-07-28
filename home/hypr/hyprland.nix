@@ -37,22 +37,22 @@ $w6 = hyprctl hyprpaper wallpaper "DP-1, /home/${user}/Pictures/Wallpaper/6.jpg"
 $w7 = hyprctl hyprpaper wallpaper "DP-1, /home/${user}/Pictures/Wallpaper/7.jpg"
 $w8 = hyprctl hyprpaper wallpaper "DP-1, /home/${user}/Pictures/Wallpaper/8.jpg"
 
-$c0 = rgba(${config.colorscheme.colors.base00}FF)
-$c1 = rgba(${config.colorscheme.colors.base01}FF)
-$c2 = rgba(${config.colorscheme.colors.base02}FF)
-$c3 = rgba(${config.colorscheme.colors.base03}FF)
-$c4 = rgba(${config.colorscheme.colors.base04}FF)
-$c5 = rgba(${config.colorscheme.colors.base05}FF)
-$c6 = rgba(${config.colorscheme.colors.base06}FF)
-$c7 = rgba(${config.colorscheme.colors.base07}FF)
-$c8 = rgba(${config.colorscheme.colors.base08}FF)
-$c9 = rgba(${config.colorscheme.colors.base09}FF)
-$ca = rgba(${config.colorscheme.colors.base0A}FF)
-$cb = rgba(${config.colorscheme.colors.base0B}FF)
-$cc = rgba(${config.colorscheme.colors.base0C}FF)
-$cd = rgba(${config.colorscheme.colors.base0D}FF)
-$ce = rgba(${config.colorscheme.colors.base0E}FF)
-$cf = rgba(${config.colorscheme.colors.base0F}FF)
+$c0 = rgba(${config.colorScheme.palette.base00}FF)
+$c1 = rgba(${config.colorScheme.palette.base01}FF)
+$c2 = rgba(${config.colorScheme.palette.base02}FF)
+$c3 = rgba(${config.colorScheme.palette.base03}FF)
+$c4 = rgba(${config.colorScheme.palette.base04}FF)
+$c5 = rgba(${config.colorScheme.palette.base05}FF)
+$c6 = rgba(${config.colorScheme.palette.base06}FF)
+$c7 = rgba(${config.colorScheme.palette.base07}FF)
+$c8 = rgba(${config.colorScheme.palette.base08}FF)
+$c9 = rgba(${config.colorScheme.palette.base09}FF)
+$ca = rgba(${config.colorScheme.palette.base0A}FF)
+$cb = rgba(${config.colorScheme.palette.base0B}FF)
+$cc = rgba(${config.colorScheme.palette.base0C}FF)
+$cd = rgba(${config.colorScheme.palette.base0D}FF)
+$ce = rgba(${config.colorScheme.palette.base0E}FF)
+$cf = rgba(${config.colorScheme.palette.base0F}FF)
 
 ## exec-once ##
 

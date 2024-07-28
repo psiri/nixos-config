@@ -14,8 +14,8 @@
         "css_file": "theme.css",
         "css_file_gtk_3.20+": "theme-gtk-3.20.css",
         "matched_text_hl_colors": {
-        "when_selected": "#${config.colorscheme.colors.base06}",
-        "when_not_selected": "#${config.colorscheme.colors.base07}"
+        "when_selected": "#${config.colorScheme.palette.base06}",
+        "when_not_selected": "#${config.colorScheme.palette.base07}"
         }
       }
     '';
