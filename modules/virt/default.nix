@@ -34,7 +34,7 @@
     virt-viewer
     virtio-win
     win-spice
-    gnome.adwaita-icon-theme
+    adwaita-icon-theme
   ];
   programs.virt-manager.enable = true;
 

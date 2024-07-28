@@ -51,12 +51,12 @@
     # You can add overlays here
     overlays = [
       # Add overlays your own flake exports (from overlays and pkgs dir):
-      # outputs.overlays.additions
-      # outputs.overlays.modifications
-      outputs.overlays.unstable-packages
+
+      #outputs.overlays.unstable-packages
+      outputs.overlays.pipewireOverlay
 
       # import from ../overlays files
-      #(import ../overlays/python)
+      (import ../overlays/zoom)
       
 
       # You can also add overlays exported from other flakes:
@@ -187,16 +187,17 @@
         # flameshot       # ! Not yet working on Wayland :( TODO - revisit future release
         # gimme-aws-creds # CLI wrapper for Okta/ SAML2.0 IDPs and AWS
         # github-desktop
-        gnome.file-roller # archive manager
+        file-roller       # archive manager
+        go                # go programming language
         grim              # simple screenshot tool while flameshot is broken
         #input-leap
         #joplin-desktop
         kitty
-        unstable.okta-aws-cli # The unstable version of okta-aws-cli, and AWS CLI client for Okta SSO
+        okta-aws-cli # okta-aws-cli - AWS CLI client for Okta SSO
         # openconnect     # Open-source multi-VPN client supporting Cisco Anyconnect, Pulse Secure, GlobalProtect, etc
         # opensnitch      # Open-source application firewall
         remmina           # Open-source remote desktop client
-        gnome.seahorse    # encryption key and password manager
+        seahorse          # encryption key and password manager
         slack
         slurp             # used in conjunction with grim for screenshotting while flameshot is broken
         spotify
@@ -237,6 +238,7 @@
       ansible
       awscli2 # AWS CLI v2
       brightnessctl
+      btop
       cifs-utils
       curl
       dig
@@ -262,7 +264,7 @@
       nmap
       openssl
       pinentry-all # needed for GPG
-      pipewire
+      pipewire-zoom
       polkit_gnome
       python3
       python311Packages.boto3

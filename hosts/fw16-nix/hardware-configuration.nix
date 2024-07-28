@@ -95,9 +95,8 @@
   hardware = {
     cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
     keyboard.qmk.enable = true;
-    opengl = {
-      driSupport = true;
-      driSupport32Bit = true;
+    graphics = {
+      enable32Bit = true;
       enable = true;
       extraPackages = with pkgs; [
         amdvlk

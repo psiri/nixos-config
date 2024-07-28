@@ -11,8 +11,8 @@
 
   users.users.${user}.packages = with pkgs; [
     hyprpaper
-    unstable.hypridle
-    unstable.hyprlock
+    hypridle
+    hyprlock
   ];
 
   imports = [
