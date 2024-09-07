@@ -17,11 +17,11 @@ in
       hash = "sha256-ip+BpBy6RxMgbu/OlMEEB2l42cTyxobR5FbCEz8uOz4=";
     };
 
-    patchPhase = '' '';
+    #patchPhase = '' '';
 
-    # patchPhase = ''
-    #   substituteInPlace /globalprotect-openconnect-${version}/CMakeLists.txt \
-    #     --replace-quiet /etc/gpservice $out/etc/gpservice;
-    # '';
+    patchPhase = ''
+      substituteInPlace /globalprotect-openconnect-${version}/CMakeLists.txt \
+        --replace-quiet /etc/gpservice $out/etc/gpservice;
+    '';
   });
 }
