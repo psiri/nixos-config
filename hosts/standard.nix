@@ -57,7 +57,7 @@
 
       # import from ../overlays files
       (import ../overlays/zoom)
-      (import ../overlays/globalprotect-openconnect)
+      (import ../overlays/globalprotect)
 
       # You can also add overlays exported from other flakes:
       # neovim-nightly-overlay.overlays.default
@@ -188,8 +188,6 @@
         # gimme-aws-creds # CLI wrapper for Okta/ SAML2.0 IDPs and AWS
         # github-desktop
         file-roller       # archive manager
-        globalprotect     # overlay'd version of globalprotect-openconnect
-        globalprotect-openconnect # GlobalProtect VPN
         go                # go programming language
         grim              # simple screenshot tool while flameshot is broken
         #input-leap
@@ -251,6 +249,8 @@
       fira-code-symbols
       fira-code-nerdfont
       git
+      #globalprotect
+      globalprotect-openconnect # GlobalProtect VPN
       gnutar # tar
       google-cloud-sdk
       hack-font
@@ -264,6 +264,7 @@
       netcat
       nix-zsh-completions
       nmap
+      openconnect
       openssl
       pinentry-all # needed for GPG
       pipewire-zoom
@@ -310,7 +311,11 @@
 
   services.teamviewer.enable = false;
 
-
+  services.globalprotect = {
+    enable = true;
+    # if you need a Host Integrity Protection report
+    csdWrapper = "${pkgs.openconnect}/libexec/openconnect/hipreport.sh";
+  };
 
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
   #system.stateVersion = "23.11";
