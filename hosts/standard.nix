@@ -57,7 +57,7 @@
 
       # import from ../overlays files
       (import ../overlays/zoom)
-      
+      (import ../overlays/globalprotect-openconnect)
 
       # You can also add overlays exported from other flakes:
       # neovim-nightly-overlay.overlays.default
@@ -188,6 +188,8 @@
         # gimme-aws-creds # CLI wrapper for Okta/ SAML2.0 IDPs and AWS
         # github-desktop
         file-roller       # archive manager
+        globalprotect     # overlay'd version of globalprotect-openconnect
+        globalprotect-openconnect # GlobalProtect VPN
         go                # go programming language
         grim              # simple screenshot tool while flameshot is broken
         #input-leap
