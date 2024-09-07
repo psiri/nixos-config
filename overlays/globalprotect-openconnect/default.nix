@@ -7,7 +7,7 @@ let
 in
 {
   # globalprotect-openconnect = globalprotect-openconnect v2.3.7
-  zoom-us = (super.globalprotect-openconnect { globalprotect = super.globalprotect-openconnect; }).overrideAttrs (old: {
+  globalprotect-openconnect = (super.globalprotect-openconnect { globalprotect = super.globalprotect-openconnect; }).overrideAttrs (old: {
     inherit version;
 
     src = super.fetchurl {
