@@ -39,6 +39,7 @@ The following table breaks down the respective hardware and software / feature c
 | Terminal             | Kitty                                                      | standard           |     user     |
 | Text Editor          | nano                                                       | standard, server   |    system    |
 | Virtualization       | KVM, QEMU, vert-manager                                    | standard, server   |    system    |
+| VPN       | globalprotect-openconnect, openconnect, networkmanager-openconnect    | standard           |    system    |
 | Window Manager       | Hyprland                                                   | standard           |    system    |
 
 
@@ -91,7 +92,11 @@ Shared modules / components can be pulled-in at various levels as-appropriate:
 ├── overlays                           # Overlay directory
 │   └── default.nix                    # Default overlay allows for use of "unstable" packages when running "stable" channels, when required
 ├── pkgs                               # Custom package builds
-│   └── securecrt
+│   ├── globalprotect                  # Custom build of networkmanager-openconnect (2.3.7)
+│   │   ├── default.nix                #   to support Palo Alto Networks' GlobalProtect VPN client
+│   │   ├── gpauth.nix                 #   on Nix until pending PRs are merged into upstream nixpkgs
+│   │   ├── gpclient.nix
+│   └── securecrt                      # Vandyke SecureCRT installed from Vandyke's official debian package
 │       ├── default.nix
 │       └── derivation.nix
 ├── README.md
