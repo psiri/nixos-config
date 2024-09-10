@@ -58,6 +58,7 @@
       # import from ../overlays files
       (import ../overlays/zoom)
 
+
       # You can also add overlays exported from other flakes:
       # neovim-nightly-overlay.overlays.default
 
@@ -311,11 +312,6 @@
 
   services.teamviewer.enable = false;
 
-  # services.globalprotect = {
-  #   enable = true;
-  #   # if you need a Host Integrity Protection report
-  #   csdWrapper = "${pkgs.openconnect}/libexec/openconnect/hipreport.sh";
-  # };
 
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
   #system.stateVersion = "23.11";
