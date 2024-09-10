@@ -57,7 +57,6 @@
 
       # import from ../overlays files
       (import ../overlays/zoom)
-      (import ../overlays/globalprotect)
 
       # You can also add overlays exported from other flakes:
       # neovim-nightly-overlay.overlays.default
@@ -249,8 +248,8 @@
       fira-code-symbols
       fira-code-nerdfont
       git
-      #globalprotect
-      globalprotect-openconnect # GlobalProtect VPN
+      # globalprotect using globalprotect-vpn 2.3.7 installed from source (not yet available on official nixpkgs). callPackage should point to the full-path location of the package definition files (repo path: /pkgs/globalprotect/gpauth.nix and /pkgs/globalprotect/gpclient.nix)
+      (callPackage /home/psiri/Documents/github/psiri/nixos-config/pkgs/globalprotect/gpclient.nix { gpauth = (callPackage /home/psiri/Documents/github/psiri/nixos-config/pkgs/globalprotect/gpauth.nix {}); })
       gnutar # tar
       google-cloud-sdk
       hack-font
@@ -265,6 +264,7 @@
       nix-zsh-completions
       nmap
       openconnect
+      networkmanager-openconnect
       openssl
       pinentry-all # needed for GPG
       pipewire-zoom
@@ -311,11 +311,11 @@
 
   services.teamviewer.enable = false;
 
-  services.globalprotect = {
-    enable = true;
-    # if you need a Host Integrity Protection report
-    csdWrapper = "${pkgs.openconnect}/libexec/openconnect/hipreport.sh";
-  };
+  # services.globalprotect = {
+  #   enable = true;
+  #   # if you need a Host Integrity Protection report
+  #   csdWrapper = "${pkgs.openconnect}/libexec/openconnect/hipreport.sh";
+  # };
 
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
   #system.stateVersion = "23.11";
