@@ -92,7 +92,7 @@ Shared modules / components can be pulled-in at various levels as-appropriate:
 ├── overlays                           # Overlay directory
 │   └── default.nix                    # Default overlay allows for use of "unstable" packages when running "stable" channels, when required
 ├── pkgs                               # Custom package builds
-│   ├── globalprotect                  # Custom build of networkmanager-openconnect (2.3.7)
+│   ├── globalprotect                  # Build globalprotect-openconnect (2.3.7) from source
 │   │   ├── default.nix                #   to support Palo Alto Networks' GlobalProtect VPN client
 │   │   ├── gpauth.nix                 #   on Nix until pending PRs are merged into upstream nixpkgs
 │   │   ├── gpclient.nix
