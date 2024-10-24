@@ -24,6 +24,7 @@
     ../home
     ../home/bottom
     ../home/chrome
+    ../home/clients
     ../home/dunst
     ../home/firefox
     #../home/flameshot            # Tested version broken on wayland :(
@@ -36,6 +37,7 @@
     ../home/obs-studio
     #../pkgs/pan-python
     #../home/swaylock             # replacing with hyprlock
+    #../home/tailscale
     ../home/thunar                # file manager
     ../home/ulauncher
     ../home/vscode
@@ -53,7 +55,7 @@
       # Add overlays your own flake exports (from overlays and pkgs dir):
 
       #outputs.overlays.unstable-packages
-      outputs.overlays.pipewireOverlay
+      #outputs.overlays.pipewireOverlay
 
       # import from ../overlays files
       (import ../overlays/zoom)
@@ -190,6 +192,7 @@
         file-roller       # archive manager
         go                # go programming language
         grim              # simple screenshot tool while flameshot is broken
+        hyprshot
         #input-leap
         #joplin-desktop
         kitty
@@ -267,8 +270,9 @@
       openconnect
       networkmanager-openconnect
       openssl
-      pinentry-all # needed for GPG
-      pipewire-zoom
+      pinentry-all # needed for GPG key signing
+      pipewire
+      #pipewire-zoom
       polkit_gnome
       python3
       python311Packages.boto3
@@ -281,6 +285,7 @@
       ssm-session-manager-plugin # AWS Systems Manager Session Manager plugin
       #swayidle # Replaced with hyprlock
       #swaylock # Replaced with hypridle
+      tailscale
       terraform
       terraform-docs
       tree
@@ -320,4 +325,10 @@
     autoUpgrade.enable = true;
     autoUpgrade.allowReboot = false;
   };
+
+  services.tailscale = {
+    enable = true;
+    useRoutingFeatures = "client";
+  };
+
 }

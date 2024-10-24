@@ -66,7 +66,7 @@
     #"pci-stub.ids=1002:7480,1002:ab30"
     "mem_sleep_default=deep" # Fix for AMD-related power-draw while syspended/sleeping
   ];
-  boot.kernelPackages = config.boot.zfs.package.latestCompatibleLinuxPackages;
+  boot.kernelPackages = pkgs.linuxPackages_6_10; #config.boot.zfs.package.latestCompatibleLinuxPackages; 
   boot.extraModulePackages = [ ];
 
   swapDevices = [ ];

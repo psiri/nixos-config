@@ -203,9 +203,11 @@ windowrulev2 = opacity 1.0 1.0 override,title:^(.*)( Twitch - )(.*)$  # Disables
 windowrulev2 = nodim,title:^(.*)( Twitch - )(.*)$                     # Disables dimming of any Twitch windows (regardless what browser they're running in)
 
 # Screenshots
-bind = , print, exec, grim $HOME/Pictures/Screenshots/$(date +'%b-%d-%Y_%H-%M-%S_%p.png')
-bind = CTRL, print, exec, grim -g "$(slurp -o)" $HOME/Pictures/Screenshots/$(date +'%b-%d-%Y_%H-%M-%S_%p.png')
-bind = CTRL SHIFT, P, exec, grim -g "$(slurp)" $HOME/Pictures/Screenshots/$(date +'%b-%d-%Y_%H-%M-%S_%p.png')
+# Screenshot a region
+bind = CTRL SHIFT, P, exec, hyprshot -m region --clipboard-only
+#bind = , print, exec, grim $HOME/Pictures/Screenshots/$(date +'%b-%d-%Y_%H-%M-%S_%p.png')
+#bind = CTRL, print, exec, grim -g "$(slurp -o)" $HOME/Pictures/Screenshots/$(date +'%b-%d-%Y_%H-%M-%S_%p.png')
+#bind = CTRL SHIFT, P, exec, grim -g "$(slurp)" $HOME/Pictures/Screenshots/$(date +'%b-%d-%Y_%H-%M-%S_%p.png')
 
 # sound
 binde = , xf86audioraisevolume, exec, ~/nixos/scripts/dunst/pipewire.sh up
