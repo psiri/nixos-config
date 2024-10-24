@@ -303,6 +303,8 @@
     ];
   };
 
+  systemd.services.NetworkManager-wait-online.enable = lib.mkForce false; 
+
   # services.opensnitch = {
   #   enable = false;
   #   # rules = {}
