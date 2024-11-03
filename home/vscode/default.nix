@@ -13,13 +13,14 @@
     extensions = [
       pkgs.vscode-extensions.bbenoist.nix
       #pkgs.vscode-extensions.bridgecrew.checkov                   # Does not exist, using workaround solution below
+      pkgs.vscode-extensions.continue.continue
       pkgs.vscode-extensions.esbenp.prettier-vscode
       pkgs.vscode-extensions.equinusocio.vsc-material-theme
       #pkgs.vscode-extensions.equinusocio.vsc-material-theme-icons # Does not exist
       pkgs.vscode-extensions.golang.go
       pkgs.vscode-extensions.hashicorp.terraform
       pkgs.vscode-extensions.ms-azuretools.vscode-docker
-      pkgs.vscode-extensions.ms-python.python
+      #pkgs.vscode-extensions.ms-python.python
       pkgs.vscode-extensions.ms-python.vscode-pylance
       pkgs.vscode-extensions.oderwat.indent-rainbow
       pkgs.vscode-extensions.pkief.material-icon-theme
@@ -32,16 +33,46 @@
     ] ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
       # Use below example solution for installing other missing extensions
       # TODO - Material Theme Icons (using another icon pack in the meantime)
-      {
-        name = "checkov";
-        publisher = "bridgecrew";
-        version = "1.0.98";
-        sha256 = "38e1311f2cc71197d8a4dab9d36d9d53e19d9fb79b0c0df1737babbe253fd00c";
-        # ! IMPORTANT ! The sha256 checksum is matched against the packages from the official visual studio marketplace
-        # Download from https://marketplace.visualstudio.com/items?itemName=Bridgecrew.checkov (or your desired extension)
-        # Then run the following command to determine the sha256 checksum:
-        # sha256sum Bridgecrew.checkov-1.0.98.vsix 
-      }
+      # {
+      #   name = "checkov";
+      #   publisher = "bridgecrew";
+      #   version = "1.0.98";
+      #   sha256 = "38e1311f2cc71197d8a4dab9d36d9d53e19d9fb79b0c0df1737babbe253fd00c";
+      #   # ! IMPORTANT ! The sha256 checksum is matched against the packages from the official visual studio marketplace
+      #   # Download from https://marketplace.visualstudio.com/items?itemName=Bridgecrew.checkov (or your desired extension)
+      #   # Then run the following command to determine the sha256 checksum:
+      #   # sha256sum Bridgecrew.checkov-1.0.98.vsix 
+      # }
+      # {
+      #   name = "wiz-vscode";
+      #   publisher = "WizCloud";
+      #   version = "1.7.5";
+      #   sha256 = "6bbfd12432a1d070075e31bd0ed0591641bc8db49d506becf5c45b0db37d1310";
+      #   # ! IMPORTANT ! The sha256 checksum is matched against the packages from the official visual studio marketplace
+      #   # Download from https://marketplace.visualstudio.com/items?itemName=WizCloud.wiz-vscode (or your desired extension)
+      #   # Then run the following command to determine the sha256 checksum:
+      #   # sha256sum WizCloud.wiz-vscode-1.7.5.vsix 
+      # }
+      # {
+      #   name = "claude-dev";
+      #   publisher = "saoudrizwan";
+      #   version = "1.9.4";
+      #   sha256 = "0a05879cd803d06b97a6a8e253c39694684a18102a2ca61287dceb7dd2158deb";
+      #   # ! IMPORTANT ! The sha256 checksum is matched against the packages from the official visual studio marketplace
+      #   # Download from https://marketplace.visualstudio.com/items?itemName=saoudrizwan.claude-dev (or your desired extension)
+      #   # Then run the following command to determine the sha256 checksum:
+      #   # sha256sum saoudrizwan.claude-dev-1.9.4.vsix
+      # }
+      # {
+      #   name = "continue";
+      #   publisher = "Continue";
+      #   version = "0.9.211";
+      #   sha256 = "a35571928a60837db039ad7f3a5151ce50bea49a0a9bfd912e340f4c3d599aca";
+      #   # ! IMPORTANT ! The sha256 checksum is matched against the packages from the official visual studio marketplace
+      #   # Download from https://marketplace.visualstudio.com/items?itemName=Continue.continue (or your desired extension)
+      #   # Then run the following command to determine the sha256 checksum:
+      #   # sha256sum Continue.continue-0.9.211@linux-x64.vsix
+      # }
     ];
     globalSnippets = {};
     haskell.enable = false;
@@ -54,6 +85,9 @@
         token = "";
         useBridgecrewIDs = true;
         useDebugLogs = true;
+      };
+      continue = {
+        telemetryEnabled = false;
       };
       debug = {
         console = {
@@ -291,6 +325,12 @@
       window = {
         zoomLevel = 1;
         #titleBarStyle = "custom";  # ! IMPORTANT ! - this setting fixed vscode/codium crashing on launch under Wayland / Hyprland
+      };
+      wiz = {
+        autoDownloadWizCli = true;
+        scanSensitiveData = false;
+        scanOnSave = false;
+        debug = true;
       };
       workbench = {
         colorCustomizations = {

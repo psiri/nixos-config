@@ -24,6 +24,7 @@
     ../home
     ../home/bottom
     ../home/chrome
+    ../home/clients
     ../home/dunst
     ../home/firefox
     #../home/flameshot            # Tested version broken on wayland :(
@@ -36,6 +37,7 @@
     ../home/obs-studio
     #../pkgs/pan-python
     #../home/swaylock             # replacing with hyprlock
+    #../home/tailscale
     ../home/thunar                # file manager
     ../home/ulauncher
     ../home/vscode
@@ -53,7 +55,7 @@
       # Add overlays your own flake exports (from overlays and pkgs dir):
 
       #outputs.overlays.unstable-packages
-      outputs.overlays.pipewireOverlay
+      #outputs.overlays.pipewireOverlay
 
       # import from ../overlays files
       (import ../overlays/zoom)
@@ -190,10 +192,11 @@
         file-roller       # archive manager
         go                # go programming language
         grim              # simple screenshot tool while flameshot is broken
+        hyprshot
         #input-leap
         #joplin-desktop
         kitty
-        okta-aws-cli # okta-aws-cli - AWS CLI client for Okta SSO
+        okta-aws-cli      # okta-aws-cli - AWS CLI client for Okta SSO
         # openconnect     # Open-source multi-VPN client supporting Cisco Anyconnect, Pulse Secure, GlobalProtect, etc
         # opensnitch      # Open-source application firewall
         remmina           # Open-source remote desktop client
@@ -267,22 +270,34 @@
       openconnect
       networkmanager-openconnect
       openssl
-      pinentry-all # needed for GPG
-      pipewire-zoom
+      pinentry-all # needed for GPG key signing
+      pipewire
+      #pipewire-zoom
       polkit_gnome
       python3
-      python311Packages.boto3
-      python311Packages.pip
+      python312Packages.boto3
+      python312Packages.boto3-stubs
+      python312Packages.botocore
+      python312Packages.jinja2-ansible-filters
+      python312Packages.pip
       #python311Packages.setuptools
       #python311Packages.virtualenv
-      python311Packages.xmltodict
+      python312Packages.xmltodict
+      (python3.withPackages(ps: with ps; [
+        jq pip requests docker botocore boto3
+      ]))
+      (python312.withPackages(ps: with ps; [
+        jq pip requests docker botocore boto3
+      ]))
       #python311Packages.wheel
       #qt6.qtwayland # SecureCRT dependency
       ssm-session-manager-plugin # AWS Systems Manager Session Manager plugin
       #swayidle # Replaced with hyprlock
       #swaylock # Replaced with hypridle
+      tailscale
       terraform
       terraform-docs
+      tfsec
       tree
       unzip
       usbutils # usb thing
@@ -297,6 +312,8 @@
       zsh-powerlevel10k
     ];
   };
+
+  systemd.services.NetworkManager-wait-online.enable = lib.mkForce false; 
 
   # services.opensnitch = {
   #   enable = false;
@@ -320,4 +337,10 @@
     autoUpgrade.enable = true;
     autoUpgrade.allowReboot = false;
   };
+
+  services.tailscale = {
+    enable = true;
+    useRoutingFeatures = "client";
+  };
+
 }

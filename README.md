@@ -92,7 +92,7 @@ Shared modules / components can be pulled-in at various levels as-appropriate:
 ├── overlays                           # Overlay directory
 │   └── default.nix                    # Default overlay allows for use of "unstable" packages when running "stable" channels, when required
 ├── pkgs                               # Custom package builds
-│   ├── globalprotect                  # Custom build of networkmanager-openconnect (2.3.7)
+│   ├── globalprotect                  # Build globalprotect-openconnect (2.3.7) from source
 │   │   ├── default.nix                #   to support Palo Alto Networks' GlobalProtect VPN client
 │   │   ├── gpauth.nix                 #   on Nix until pending PRs are merged into upstream nixpkgs
 │   │   ├── gpclient.nix
@@ -500,3 +500,8 @@ The following are some of the NixOS resources I use constantly:
 * :link: [sops-nix](https://github.com/Mic92/sops-nix) - The best option for declarative, version-control-ready secrets management on NixOS.
 * :link: [Impermanence](https://github.com/nix-community/impermanence) - Official nix-community flake for creating ephemeral (impermanent) NixOS systems. Supports opt-in state persistence for critical files and directories.
 * :link: [erase-your-darlings blog by grahamc](https://grahamc.com/blog/erase-your-darlings) - Fantastic blog on immpermanence with ZFS.
+
+
+## Other Tips
+
+* [Zoom screen-sharing guide](./overlays/zoom/README.md): A guide for reliably getting screen-sharing to work under Zoom (and other collaboration apps). Applicable to both NixOS and other Wayland-based distros.

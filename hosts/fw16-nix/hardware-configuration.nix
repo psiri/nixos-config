@@ -57,6 +57,7 @@
     "vfio"
     "vfio_iommu_type1"
     "kvmfr"
+    "v4l2loopback" # Used for OBS virtual cameras as Zoom screen sharing workaround
   ];
   boot.kernelParams = [
     #"iommu=pt" # Required if doing passthrough to VMs / Docker
@@ -66,8 +67,8 @@
     #"pci-stub.ids=1002:7480,1002:ab30"
     "mem_sleep_default=deep" # Fix for AMD-related power-draw while syspended/sleeping
   ];
-  boot.kernelPackages = config.boot.zfs.package.latestCompatibleLinuxPackages;
-  boot.extraModulePackages = [ ];
+  boot.kernelPackages = pkgs.linuxPackages_6_10; #config.boot.zfs.package.latestCompatibleLinuxPackages; 
+  boot.extraModulePackages = with config.boot.kernelPackages; [ v4l2loopback ];# Used for OBS virtual cameras as Zoom screen sharing workaround
 
   swapDevices = [ ];
 
