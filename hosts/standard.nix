@@ -196,7 +196,7 @@
         #input-leap
         #joplin-desktop
         kitty
-        okta-aws-cli # okta-aws-cli - AWS CLI client for Okta SSO
+        okta-aws-cli      # okta-aws-cli - AWS CLI client for Okta SSO
         # openconnect     # Open-source multi-VPN client supporting Cisco Anyconnect, Pulse Secure, GlobalProtect, etc
         # opensnitch      # Open-source application firewall
         remmina           # Open-source remote desktop client
@@ -275,11 +275,20 @@
       #pipewire-zoom
       polkit_gnome
       python3
-      python311Packages.boto3
-      python311Packages.pip
+      python312Packages.boto3
+      python312Packages.boto3-stubs
+      python312Packages.botocore
+      python312Packages.jinja2-ansible-filters
+      python312Packages.pip
       #python311Packages.setuptools
       #python311Packages.virtualenv
-      python311Packages.xmltodict
+      python312Packages.xmltodict
+      (python3.withPackages(ps: with ps; [
+        jq pip requests docker botocore boto3
+      ]))
+      (python312.withPackages(ps: with ps; [
+        jq pip requests docker botocore boto3
+      ]))
       #python311Packages.wheel
       #qt6.qtwayland # SecureCRT dependency
       ssm-session-manager-plugin # AWS Systems Manager Session Manager plugin
@@ -288,6 +297,7 @@
       tailscale
       terraform
       terraform-docs
+      tfsec
       tree
       unzip
       usbutils # usb thing

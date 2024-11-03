@@ -43,16 +43,16 @@
       #   # Then run the following command to determine the sha256 checksum:
       #   # sha256sum Bridgecrew.checkov-1.0.98.vsix 
       # }
-      {
-        name = "wiz-vscode";
-        publisher = "WizCloud";
-        version = "1.7.5";
-        sha256 = "6bbfd12432a1d070075e31bd0ed0591641bc8db49d506becf5c45b0db37d1310";
-        # ! IMPORTANT ! The sha256 checksum is matched against the packages from the official visual studio marketplace
-        # Download from https://marketplace.visualstudio.com/items?itemName=WizCloud.wiz-vscode (or your desired extension)
-        # Then run the following command to determine the sha256 checksum:
-        # sha256sum WizCloud.wiz-vscode-1.7.5.vsix 
-      }
+      # {
+      #   name = "wiz-vscode";
+      #   publisher = "WizCloud";
+      #   version = "1.7.5";
+      #   sha256 = "6bbfd12432a1d070075e31bd0ed0591641bc8db49d506becf5c45b0db37d1310";
+      #   # ! IMPORTANT ! The sha256 checksum is matched against the packages from the official visual studio marketplace
+      #   # Download from https://marketplace.visualstudio.com/items?itemName=WizCloud.wiz-vscode (or your desired extension)
+      #   # Then run the following command to determine the sha256 checksum:
+      #   # sha256sum WizCloud.wiz-vscode-1.7.5.vsix 
+      # }
       # {
       #   name = "claude-dev";
       #   publisher = "saoudrizwan";
