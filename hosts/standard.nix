@@ -155,12 +155,13 @@
     packages = with pkgs; [
       fira-code
       fira-code-symbols
-      fira-code-nerdfont
       hack-font
       material-design-icons
       material-symbols
       meslo-lgs-nf # powerlevel10k recommended font
-      nerdfonts
+      nerd-fonts.hack
+      nerd-fonts.fira-code
+      nerd-fonts.inconsolata
       #(nerdfonts.override {fonts = ["FiraCode" "JetBrainsMono"];})
     ];
   };
@@ -204,7 +205,7 @@
         slack
         slurp             # used in conjunction with grim for screenshotting while flameshot is broken
         spotify
-        # teams-for-linux # UNOFFICIAL MS Teams client, dropping this in favor of browser-based client
+        teams-for-linux # UNOFFICIAL MS Teams client, dropping this in favor of browser-based client
         # teamviewer
         vlc               # media player
         wl-clipboard      # tool for accessing Wayland clipboards
@@ -328,6 +329,8 @@
 
 
   services.teamviewer.enable = false;
+
+  services.hardware.bolt.enable = true; # Thunderbolt support:  https://nixos.wiki/wiki/Thunderbolt
 
 
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
