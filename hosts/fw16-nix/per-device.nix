@@ -20,7 +20,7 @@
 
 
       # Any other random monitor default settings
-      monitor = , 3840x2160@60.00, auto, 1
+      monitor = , 3840x2160@30.00, auto, 1
 
       # trigger when the Lid Switch is turning on (lid closed)
       bindl = , switch:on:Lid Switch,exec,hyprctl keyword monitor "eDP-1, disable"
