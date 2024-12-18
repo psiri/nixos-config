@@ -96,6 +96,7 @@ input {
     repeat_rate = 50
     sensitivity = 0
     # fixed touchpad, needed indentation to work correctly :)
+    scroll_factor = 7.0
     touchpad {
         natural_scroll = yes
         disable_while_typing = true
@@ -114,11 +115,11 @@ general {
 
 decoration {
     rounding = 10
-    drop_shadow = 1
-    shadow_range = 30
-    shadow_render_power = 3
-    col.shadow = $ca
-    col.shadow_inactive= $c0
+    #drop_shadow = 1
+    #shadow_range = 30
+    #shadow_render_power = 3
+    #col.shadow = $ca
+    #col.shadow_inactive= $c0
     active_opacity = 1
     inactive_opacity = .90
     dim_inactive = true
@@ -156,7 +157,7 @@ animations {
 ############################################ Layouts ###################################################
 
 dwindle {
-    no_gaps_when_only = false
+    #no_gaps_when_only = false
     pseudotile = true # master switch for pseudotiling. Enabling is bound to mainMod + P in the keybinds section below
     preserve_split = true # you probably want this
     smart_resizing = true

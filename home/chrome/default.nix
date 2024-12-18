@@ -43,7 +43,7 @@
       "eimadpbcbfnmbkopoojfekhnkhdbieeh" # Dark Reader
       "ponfpcnoihfmfllpaingbgckeeldkhle" # Enhancer for YouTube
       #"callobklhcbilhphinckomhgkigmfocg" # Google Endpoint Verification
-      "pkehgijcmpdhfbdbbnkijodmdjhbjlgp" # Privacy Badger
+      #"pkehgijcmpdhfbdbbnkijodmdjhbjlgp" # Privacy Badger
     ];
     extraOpts = {
       "BrowserSignin" = 1;

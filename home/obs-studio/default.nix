@@ -15,9 +15,9 @@
     };
     home.file.".config/hypr/per-app/obs-studio.conf" = {
       text = ''
-        # windowrulev2 = opacity 0.8 0.8, class:^(obs-studio)$
-        # windowrulev2 = size 700 300, class:^(obs-studio)$
         # windowrulev2 = tile, class:^(obs-studio)$
+        windowrulev2 = opacity 1.0 1.0, class:^(com.obsproject.Studio)$   # Disables opacity of OBS windows
+        windowrulev2 = nodim, class:^(com.obsproject.Studio)$             # Disables dimming of OBS windows
         bind = $mainMod, O, exec, obs
       '';
     };
