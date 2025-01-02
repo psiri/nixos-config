@@ -73,6 +73,8 @@ in
     sops.secrets."psiri_gitconfig" = { };
     # Work wireless connection:
     sops.secrets."wireless_connection_2" = { };
+    # Hotspot wireless connection:
+    sops.secrets."wireless_connection_hotspot" = { };
     ################# LOCAL SECRETS MANAGEMENT ################################
     # uncomment this line to use sops secrets within the local repo
     #sops.defaultSopsFile = ../../secrets/secrets.yaml;

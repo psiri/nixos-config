@@ -23,6 +23,7 @@
 
     ../home
     ../home/bottom
+    ../home/brave
     ../home/chrome
     ../home/clients
     ../home/dunst
