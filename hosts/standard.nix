@@ -59,7 +59,7 @@
       #outputs.overlays.pipewireOverlay
 
       # import from ../overlays files
-      (import ../overlays/zoom)
+      #(import ../overlays/zoom)
 
 
       # You can also add overlays exported from other flakes:
@@ -252,7 +252,6 @@
       fastfetch
       fira-code
       fira-code-symbols
-      fira-code-nerdfont
       git
       # globalprotect using globalprotect-vpn 2.3.7 installed from source (not yet available on official nixpkgs). callPackage should point to the full-path location of the package definition files (repo path: /pkgs/globalprotect/gpauth.nix and /pkgs/globalprotect/gpclient.nix)
       (callPackage /home/psiri/Documents/github/psiri/nixos-config/pkgs/globalprotect/gpclient.nix { gpauth = (callPackage /home/psiri/Documents/github/psiri/nixos-config/pkgs/globalprotect/gpauth.nix {}); })
@@ -266,6 +265,7 @@
       lshw # list hardware
       mtr  # better traceroute
       nano
+      nerd-fonts.fira-code
       netcat
       nix-zsh-completions
       nmap

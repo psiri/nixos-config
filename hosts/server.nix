@@ -94,12 +94,12 @@
     packages = with pkgs; [
       fira-code
       fira-code-symbols
-      fira-code-nerdfont
       hack-font
       material-design-icons
       material-symbols
       meslo-lgs-nf # powerlevel10k recommended font
       nerdfonts
+      nerd-fonts.fira-code
       #(nerdfonts.override {fonts = ["FiraCode" "JetBrainsMono"];})
     ];
   };
@@ -146,7 +146,6 @@
       fastfetch
       fira-code
       fira-code-symbols
-      fira-code-nerdfont
       git
       gnutar # tar
       google-cloud-sdk
@@ -158,6 +157,7 @@
       lshw # list hardware
       mtr
       nano
+      nerd-fonts.fira-code
       netcat
       nix-zsh-completions
       nmap

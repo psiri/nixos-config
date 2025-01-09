@@ -2,7 +2,7 @@
   rustPlatform,
   lib,
   fetchFromGitHub,
-  libsoup,
+  libsoup_2_4,
   openssl,
   pkg-config,
   perl,
@@ -11,24 +11,24 @@
 
 rustPlatform.buildRustPackage rec {
   pname = "gpauth";
-  version = "2.3.7";
+  version = "2.4.1";
 
   src = fetchFromGitHub {
     owner = "yuezk";
     repo = "GlobalProtect-openconnect";
     rev = "v${version}";
-    hash = "sha256-Zr888II65bUjrbStZfD0AYCXKY6VdKVJHQhbKwaY3is=";
+    hash = "sha256-MY4JvftrC6sR8M0dFvnGZOkvHIhPRcyct9AG/8527gw=";
   };
 
   buildAndTestSubdir = "apps/gpauth";
-  cargoHash = "sha256-AuYw8CC0bMJzIJJQXhcQajQ4SACz4aKv6rG4HMq7U18=";
+  cargoHash = "sha256-bZhLSKoki9aLEG+jmieCUitvR5mIfntzi+XcMJqyv3s=";
 
   nativeBuildInputs = [
     perl
     pkg-config
   ];
   buildInputs = [
-    libsoup
+    libsoup_2_4
     openssl
     webkitgtk
   ];
