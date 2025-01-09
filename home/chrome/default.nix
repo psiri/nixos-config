@@ -160,7 +160,7 @@
       "HttpsOnlyMode" = "allowed"; # allowed = allow users to enable, disallowed = do not allow, force_enabled = force enabled
       "HttpsUpgradesEnabled" = true; # true / unset = HTTP-to-HTTPS upgrades may be applied (if able), false = disable
       "ImportAutoFillFormData" = false;
-      "ImportBookmarks" = false;
+      "ImportBookmarks" = true;
       "ImportHistory" = false;
       "ImportHomepage" = false;
       "ImportSavedPasswords" = false; # true = enable import of saved passwords on first run

@@ -6,6 +6,10 @@
   openssl,
   perl,
   vpnc-scripts,
+  jq,
+  webkitgtk_4_1,
+  libsoup_3,
+  pkg-config
 }:
 
 rustPlatform.buildRustPackage rec {
@@ -14,13 +18,15 @@ rustPlatform.buildRustPackage rec {
   inherit (gpauth) version src meta;
 
   buildAndTestSubdir = "apps/gpclient";
-  cargoHash = "sha256-aJYFBvVrj1n2+9WLLBH5WTRRzTle19LsdJ2DielJYik=";
+  cargoHash = "sha256-aanC0iwitvpKWCZSyaGVIkrWo/Hi1gjS19t3PfW+w4U=";
 
-  nativeBuildInputs = [ perl ];
+  nativeBuildInputs = [ perl jq webkitgtk_4_1 libsoup_3 pkg-config ];
+  PKG_CONFIG_PATH = "${openssl.dev}/lib/pkgconfig";
   buildInputs = [
     gpauth
     openconnect
     openssl
+    webkitgtk_4_1
   ];
 
   preConfigure = ''

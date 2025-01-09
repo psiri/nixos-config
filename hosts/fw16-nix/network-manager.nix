@@ -258,4 +258,15 @@ method=disabled
   ${config.sops.placeholder.wireless_connection_2}
   '';
 
+  #######################################
+  # HOTSPOT WIRELESS CONNECTION PROFILE #
+  #######################################
+  # This example treats the entire connection profile config as a single secret
+  sops.templates."hotspot-wireless".path = "/etc/NetworkManager/system-connections/HOTSPOT.nmconnection";
+  sops.templates."hotspot-wireless".owner = "root";
+  sops.templates."hotspot-wireless".mode = "0600";
+  sops.templates."hotspot-wireless".content = ''
+  ${config.sops.placeholder.wireless_connection_hotspot}
+  '';
+
 }
