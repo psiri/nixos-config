@@ -17,7 +17,7 @@ The following table breaks down the respective hardware and software / feature c
 | Audio                | Pipewire, wireplumber                                      | standard           |    system    |
 | Automation & IaC     | Ansible, Terraform, terraform-docs                         | standard, server   |    system    |
 | Browser              | Chromium, Firefox, Brave                                   | standard, server   |    system    |
-| Collaboration Tools  | Slack, Zoom                                                | standard           |     user     |
+| Collaboration Tools  | Slack, Zoom, Teams (taeams-for-linux)                      | standard           |     user     |
 | Compositor           | Hyprland                                                   | standard           |    system    |
 | CSP Tools            | AWS CLI (v2), google-cloud-sdk, SSM Session Manager plugin | standard, server   |    system    |
 | Developer Tools      | jq                                                         | standard, server   |    system    |
