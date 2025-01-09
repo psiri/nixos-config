@@ -2,11 +2,12 @@
   rustPlatform,
   lib,
   fetchFromGitHub,
-  libsoup_2_4,
-  openssl,
   pkg-config,
   perl,
-  webkitgtk,
+  jq,
+  webkitgtk_4_1,
+  libsoup_3,
+  openssl,
 }:
 
 rustPlatform.buildRustPackage rec {
@@ -28,10 +29,12 @@ rustPlatform.buildRustPackage rec {
     pkg-config
   ];
   buildInputs = [
-    libsoup_2_4
+    libsoup_3
+    webkitgtk_4_1
     openssl
-    webkitgtk
+    pkg-config
   ];
+  PKG_CONFIG_PATH = "${openssl.dev}/lib/pkgconfig";
 
   meta = with lib; {
     changelog = "https://github.com/${src.owner}/${src.repo}/blob/${src.rev}/changelog.md";
