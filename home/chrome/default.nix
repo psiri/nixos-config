@@ -103,7 +103,7 @@
       #                 KERBEROS                #
       ###########################################
       "KerberosAccounts" = [];
-      "KerberosAddAccountsAllowed" = false;  # true = Allow users to add Kerberos accoutns
+      "KerberosAddAccountsAllowed" = false;  # true = Allow users to add Kerberos accounts
       "KerberosEnabled" = false;             # true = Enable Kerberos, false = disable
       "KerberosRememberPasswordEnabled" = false; # true = Allow users to remember Kerberos passwords
       ###########################################
