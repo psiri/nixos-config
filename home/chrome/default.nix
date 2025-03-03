@@ -103,7 +103,7 @@
       #                 KERBEROS                #
       ###########################################
       "KerberosAccounts" = [];
-      "KerberosAddAccountsAllowed" = false;  # true = Allow users to add Kerberos accoutns
+      "KerberosAddAccountsAllowed" = false;  # true = Allow users to add Kerberos accounts
       "KerberosEnabled" = false;             # true = Enable Kerberos, false = disable
       "KerberosRememberPasswordEnabled" = false; # true = Allow users to remember Kerberos passwords
       ###########################################
@@ -131,6 +131,10 @@
       "AudioOutputAllowed" = true;      # true = enable audio output
       "AudioSandboxEnabled" = null;     # true = Always sandbox the process, false = never, not set = use default
       "BlockThirdPartyCookies" = true;  # true = Block 3rd party cookies
+      "CookiesAllowedForUrls" = [       # NOTE: With BlockThirdPartyCookies = true, you must explicitly authorize cookies
+        "[*.]oktacdn.com"               #       for certain sites (like Otka), or functionalities like MFA / TOIP / FIDO auth will break.
+        "[*.]okta.com"                  # These two entries fix MFA issues with Otka
+      ];
       "BrowserAddPersonEnabled" = true; # true = Allows adding a person to the user manager
       "BrowserLabsEnabled" = false;     # true = Users can access browser experimental features
       "BrowserSignIn" = 1;              # 0 = Disable, 1=Enable, 2=Force sign-in
@@ -145,7 +149,7 @@
         "hosted_app_data"
       ];
       "CommandLineFlagSecurityWarningsEnabled" = true; # true = show securitry warnings when potentially dangerous command-line flags are used
-      "DefaultBwoeserSettingEnabled" = false;          # true = Enable default browser check on startup
+      "DefaultBrowserSettingEnabled" = false;          # true = Enable default browser check on startup
       #"DefaultDownloadDirectory"     = "$HOME/Downloads" # unset = use platform-specific defaults
       "DnsOverHttpsMode" = "automatic";  # off = disable DoH, automatic = Enable with insecure fallback, secure = force DoH only
       #DnsOverHttpsTemplates = 

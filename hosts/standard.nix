@@ -192,6 +192,7 @@
         # gimme-aws-creds # CLI wrapper for Okta/ SAML2.0 IDPs and AWS
         # github-desktop
         file-roller       # archive manager
+        gimp
         go                # go programming language
         grim              # simple screenshot tool while flameshot is broken
         hyprshot

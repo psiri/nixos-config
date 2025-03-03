@@ -8,12 +8,15 @@
       monitor=DP-3,3840x2160@30.00,6400x0,1
       # Primary monitor when run through TB3 dock
       monitor=DP-7,3840x2160@60.00,6400x0,1
-      monitor=DP-8,3840x2160@60.00,6400x0,1
+
+      # Secondary monitor (LEFT) when run through TB3 dock
+      monitor=DP-8,3840x2160@60.00,2560x0,1
 
       # Secondary external monitor. Place it to the right of primary & rotate 90 deg
-      #monitor=DP-2,3840x2160@60.00, 2560x0, 1, transform, 1
+      #monitor=DP-2,3840x2160@30.00, 2560x0, 1, transform, 1
       # Secondary external monitor. Place it to the right of primary (without rotation)
-      monitor=DP-2,3840x2160@60.00,2560x0, 1
+      monitor=DP-2,3840x2160@30.00,10240x0, 1
+      #monitor=DP-2,1920x1080@60.00,10240x0, 1
 
       # Tertiary external monitor. Place it using auto-layout
       monitor=DP-4,3840x2160@60.00, auto, 1

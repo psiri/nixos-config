@@ -25,6 +25,7 @@ The following table breaks down the respective hardware and software / feature c
 | File Manager         | Thunar                                                     | standard           |    system    |
 | IDE                  | Codium (VS Code OSS)                                       | standard           |     user     |
 | Idle Daemon          | hypridle                                                   | standard           |     user     |
+| Image Editor         | gimp                                                       | standard           |     user     |
 | Media Player         | spotify, vlc                                               | standard           |     user     |
 | Network Tools        | curl, dig, dnsutils, iputils, mtr, netcat, nmap, ntp, openssl, wget, wireshark  | standard, server   |  system    |
 | Notes                | joplin-desktop                                             | standard           |     user     |
@@ -39,7 +40,7 @@ The following table breaks down the respective hardware and software / feature c
 | Terminal             | Kitty                                                      | standard           |     user     |
 | Text Editor          | nano                                                       | standard, server   |    system    |
 | Virtualization       | KVM, QEMU, vert-manager                                    | standard, server   |    system    |
-| VPN       | globalprotect-openconnect, openconnect, networkmanager-openconnect    | standard           |    system    |
+| VPN       | globalprotect-openconnect, openconnect, networkmanager-openconnect, tailscale    | standard           |    system    |
 | Window Manager       | Hyprland                                                   | standard           |    system    |
 
 
