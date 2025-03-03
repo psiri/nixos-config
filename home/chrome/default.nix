@@ -149,7 +149,7 @@
         "hosted_app_data"
       ];
       "CommandLineFlagSecurityWarningsEnabled" = true; # true = show securitry warnings when potentially dangerous command-line flags are used
-      "DefaultBwoeserSettingEnabled" = false;          # true = Enable default browser check on startup
+      "DefaultBrowserSettingEnabled" = false;          # true = Enable default browser check on startup
       #"DefaultDownloadDirectory"     = "$HOME/Downloads" # unset = use platform-specific defaults
       "DnsOverHttpsMode" = "automatic";  # off = disable DoH, automatic = Enable with insecure fallback, secure = force DoH only
       #DnsOverHttpsTemplates = 
