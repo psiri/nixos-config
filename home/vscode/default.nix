@@ -6,16 +6,16 @@
 }: {
   home-manager.users.${user}.programs.vscode = {
     enable = true;
-    enableExtensionUpdateCheck = true;
-    enableUpdateCheck = true;
+    profiles.default.enableExtensionUpdateCheck = true;
+    profiles.default.enableUpdateCheck = true;
     package = pkgs.vscodium; # pkgs.vscodium or pkgs.vscode (default)
 
-    extensions = [
+    profiles.default.extensions = [
       pkgs.vscode-extensions.bbenoist.nix
       #pkgs.vscode-extensions.bridgecrew.checkov                   # Does not exist, using workaround solution below
       pkgs.vscode-extensions.continue.continue
       pkgs.vscode-extensions.esbenp.prettier-vscode
-      pkgs.vscode-extensions.equinusocio.vsc-material-theme
+      #pkgs.vscode-extensions.equinusocio.vsc-material-theme # SOME CONCERN ABOUT COMPROMISE - DISABLING UNTIL CONFIRMED
       #pkgs.vscode-extensions.equinusocio.vsc-material-theme-icons # Does not exist
       pkgs.vscode-extensions.golang.go
       pkgs.vscode-extensions.hashicorp.terraform
@@ -74,11 +74,11 @@
       #   # sha256sum Continue.continue-0.9.211@linux-x64.vsix
       # }
     ];
-    globalSnippets = {};
+    profiles.default.globalSnippets = {};
     haskell.enable = false;
-    keybindings = [];
+    profiles.default.keybindings = [];
     mutableExtensionsDir = false; # Whether extensions can be installed or updated manually or by VS Code
-    userSettings = {
+    profiles.default.userSettings = {
       checkov = {
         checkovVersion = "latest";
         prismaURL = "https://api4.prismacloud.io";

@@ -130,11 +130,8 @@
       #"AudioCaptureAllowedUrls" = [];     # true = Specific URLs/patterns granting access to audio capture devices without prompt
       "AudioOutputAllowed" = true;      # true = enable audio output
       "AudioSandboxEnabled" = null;     # true = Always sandbox the process, false = never, not set = use default
-      "BlockThirdPartyCookies" = true;  # true = Block 3rd party cookies
-      "CookiesAllowedForUrls" = [       # NOTE: With BlockThirdPartyCookies = true, you must explicitly authorize cookies
-        "[*.]oktacdn.com"               #       for certain sites (like Otka), or functionalities like MFA / TOIP / FIDO auth will break.
-        "[*.]okta.com"                  # These two entries fix MFA issues with Otka
-      ];
+      "BlockThirdPartyCookies" = false;  # true = Block 3rd party cookies
+      "CookiesAllowedForUrls" = [];
       "BrowserAddPersonEnabled" = true; # true = Allows adding a person to the user manager
       "BrowserLabsEnabled" = false;     # true = Users can access browser experimental features
       "BrowserSignIn" = 1;              # 0 = Disable, 1=Enable, 2=Force sign-in
