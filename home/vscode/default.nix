@@ -15,8 +15,8 @@
       #pkgs.vscode-extensions.bridgecrew.checkov                   # Does not exist, using workaround solution below
       pkgs.vscode-extensions.continue.continue
       pkgs.vscode-extensions.esbenp.prettier-vscode
-      #pkgs.vscode-extensions.equinusocio.vsc-material-theme # SOME CONCERN ABOUT COMPROMISE - DISABLING UNTIL CONFIRMED
-      #pkgs.vscode-extensions.equinusocio.vsc-material-theme-icons # Does not exist
+      #pkgs.vscode-extensions.equinusocio.vsc-material-theme       # SOME CONCERN ABOUT DEPENDENCY COMPROMISE - DISABLING
+      #pkgs.vscode-extensions.equinusocio.vsc-material-theme-icons # SOME CONCERN ABOUT DEPENDENCY COMPROMISE - DISABLING
       pkgs.vscode-extensions.golang.go
       pkgs.vscode-extensions.hashicorp.terraform
       pkgs.vscode-extensions.ms-azuretools.vscode-docker
@@ -112,7 +112,7 @@
         renderControlCharacters = false;
         tabSize = 2;
         tokenColorCustomizations = {
-          "[Material Theme Ocean High Contrast]" = {
+          "[Dark Modern]" = {
             comments = "#5a5a5a";
             functions = "#b300ea";
             strings = "#19c1db";
@@ -395,7 +395,7 @@
           textLink = {
             foreground = "#80CBC4";
           };
-          "[Material Theme Ocean High Contrast]" = {
+          "[Dark Modern]" = {
             activityBar = {
               activeBackground = "#081a1b";
               background = "#000000";
@@ -439,9 +439,9 @@
           };
         };
         closeOnFileDelete = true;
-        colorTheme = "Material Theme Ocean High Contrast";
+        colorTheme = "Dark Modern";
         iconTheme = "vscode-icons";
-        preferredDarkColorTheme = "Material Theme Ocean High Contrast";
+        preferredDarkColorTheme = "Dark Modern";
         statusBar = {
           visible = true;
         };
