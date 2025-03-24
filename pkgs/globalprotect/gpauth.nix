@@ -12,7 +12,7 @@
 
 rustPlatform.buildRustPackage rec {
   pname = "gpauth";
-  version = "2.4.1";
+  version = "2.4.4";
 
   src = fetchFromGitHub {
     owner = "yuezk";
@@ -22,7 +22,7 @@ rustPlatform.buildRustPackage rec {
   };
 
   buildAndTestSubdir = "apps/gpauth";
-  cargoHash = "sha256-bZhLSKoki9aLEG+jmieCUitvR5mIfntzi+XcMJqyv3s=";
+  cargoHash = "sha256-JR7COu/xbpO43cJ25MvQ0qT1hovY+VT8LeqZiizJims=";
 
   nativeBuildInputs = [
     perl
