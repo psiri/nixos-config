@@ -22,7 +22,7 @@ rustPlatform.buildRustPackage rec {
   };
 
   buildAndTestSubdir = "apps/gpauth";
-  cargoHash = "sha256-JR7COu/xbpO43cJ25MvQ0qT1hovY+VT8LeqZiizJims=";
+  cargoHash = "sha256-8LSGuRnWRWeaY6t25GdZ2y4hGIJ+mP3UBXRjcvPuD6U=";
 
   nativeBuildInputs = [
     perl

@@ -13,7 +13,8 @@
     profiles.default.extensions = [
       pkgs.vscode-extensions.bbenoist.nix
       #pkgs.vscode-extensions.bridgecrew.checkov                   # Does not exist, using workaround solution below
-      pkgs.vscode-extensions.continue.continue
+      pkgs.vscode-extensions.saoudrizwan.claude-dev
+      #pkgs.vscode-extensions.continue.continue                    # REPLACED WITH CLAUDE-DEV (CLINE)
       pkgs.vscode-extensions.esbenp.prettier-vscode
       #pkgs.vscode-extensions.equinusocio.vsc-material-theme       # SOME CONCERN ABOUT DEPENDENCY COMPROMISE - DISABLING
       #pkgs.vscode-extensions.equinusocio.vsc-material-theme-icons # SOME CONCERN ABOUT DEPENDENCY COMPROMISE - DISABLING
@@ -321,6 +322,9 @@
       };
       update = {
         showReleaseNotes = false;
+      };
+      vsicons = {
+        dontShowNewVersionMessage = true;
       };
       window = {
         zoomLevel = 1;
