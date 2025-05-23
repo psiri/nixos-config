@@ -48,9 +48,9 @@
         windowrulev2 = tile, class:^(kitty)$
         bind = $mainMod, Q, exec, kitty
         bind = control, escape, exec, kitty -e btm
-        windowrule = tile, title:zsh
-        windowrule=tile,^(kitty)$
-        windowrule=tile,title:^(kitty)(.*)$
+        #windowrule = tile, title:zsh
+        #windowrule=tile,^(kitty)$
+        #windowrule=tile,title:^(kitty)(.*)$
       '';
     };
   };

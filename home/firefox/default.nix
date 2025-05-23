@@ -81,6 +81,11 @@
           install_url = "https://addons.mozilla.org/firefox/downloads/latest/privacy-badger17/latest.xpi";
           installation_mode = "force_installed";
         };
+        # SAML-tracer:
+        "{d3e01ff2-9a3a-4007-8f6e-7acd9a5de263}" = {
+          install_url = "https://addons.mozilla.org/firefox/downloads/latest/saml-tracer/latest.xpi";
+          installation_mode = "force_installed";
+        };
       };
       FirefoxHome = {
         Search = true;

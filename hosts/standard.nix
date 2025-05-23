@@ -278,25 +278,11 @@
       #pipewire-zoom
       polkit_gnome
       python3
-      python312Packages.boto3
-      python312Packages.boto3-stubs
-      python312Packages.botocore
-      python312Packages.jinja2-ansible-filters
-      python312Packages.pip
-      #python311Packages.setuptools
-      #python311Packages.virtualenv
-      python312Packages.xmltodict
       (python3.withPackages(ps: with ps; [
-        jq pip requests docker botocore boto3
+        jq pip requests docker botocore boto3 boto3-stubs jinja2-ansible-filters xmltodict
       ]))
-      (python312.withPackages(ps: with ps; [
-        jq pip requests docker botocore boto3
-      ]))
-      #python311Packages.wheel
       #qt6.qtwayland # SecureCRT dependency
       ssm-session-manager-plugin # AWS Systems Manager Session Manager plugin
-      #swayidle # Replaced with hyprlock
-      #swaylock # Replaced with hypridle
       tailscale
       terraform
       terraform-docs

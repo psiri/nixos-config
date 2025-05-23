@@ -6,17 +6,18 @@
 }: {
   home-manager.users.${user}.programs.vscode = {
     enable = true;
-    enableExtensionUpdateCheck = true;
-    enableUpdateCheck = true;
+    profiles.default.enableExtensionUpdateCheck = true;
+    profiles.default.enableUpdateCheck = true;
     package = pkgs.vscodium; # pkgs.vscodium or pkgs.vscode (default)
 
-    extensions = [
+    profiles.default.extensions = [
       pkgs.vscode-extensions.bbenoist.nix
       #pkgs.vscode-extensions.bridgecrew.checkov                   # Does not exist, using workaround solution below
-      pkgs.vscode-extensions.continue.continue
+      pkgs.vscode-extensions.saoudrizwan.claude-dev
+      #pkgs.vscode-extensions.continue.continue                    # REPLACED WITH CLAUDE-DEV (CLINE)
       pkgs.vscode-extensions.esbenp.prettier-vscode
-      pkgs.vscode-extensions.equinusocio.vsc-material-theme
-      #pkgs.vscode-extensions.equinusocio.vsc-material-theme-icons # Does not exist
+      #pkgs.vscode-extensions.equinusocio.vsc-material-theme       # SOME CONCERN ABOUT DEPENDENCY COMPROMISE - DISABLING
+      #pkgs.vscode-extensions.equinusocio.vsc-material-theme-icons # SOME CONCERN ABOUT DEPENDENCY COMPROMISE - DISABLING
       pkgs.vscode-extensions.golang.go
       pkgs.vscode-extensions.hashicorp.terraform
       pkgs.vscode-extensions.ms-azuretools.vscode-docker
@@ -74,11 +75,11 @@
       #   # sha256sum Continue.continue-0.9.211@linux-x64.vsix
       # }
     ];
-    globalSnippets = {};
+    profiles.default.globalSnippets = {};
     haskell.enable = false;
-    keybindings = [];
+    profiles.default.keybindings = [];
     mutableExtensionsDir = false; # Whether extensions can be installed or updated manually or by VS Code
-    userSettings = {
+    profiles.default.userSettings = {
       checkov = {
         checkovVersion = "latest";
         prismaURL = "https://api4.prismacloud.io";
@@ -112,7 +113,7 @@
         renderControlCharacters = false;
         tabSize = 2;
         tokenColorCustomizations = {
-          "[Material Theme Ocean High Contrast]" = {
+          "[Dark Modern]" = {
             comments = "#5a5a5a";
             functions = "#b300ea";
             strings = "#19c1db";
@@ -322,6 +323,9 @@
       update = {
         showReleaseNotes = false;
       };
+      vsicons = {
+        dontShowNewVersionMessage = true;
+      };
       window = {
         zoomLevel = 1;
         #titleBarStyle = "custom";  # ! IMPORTANT ! - this setting fixed vscode/codium crashing on launch under Wayland / Hyprland
@@ -395,7 +399,7 @@
           textLink = {
             foreground = "#80CBC4";
           };
-          "[Material Theme Ocean High Contrast]" = {
+          "[Dark Modern]" = {
             activityBar = {
               activeBackground = "#081a1b";
               background = "#000000";
@@ -439,9 +443,9 @@
           };
         };
         closeOnFileDelete = true;
-        colorTheme = "Material Theme Ocean High Contrast";
+        colorTheme = "Dark Modern";
         iconTheme = "vscode-icons";
-        preferredDarkColorTheme = "Material Theme Ocean High Contrast";
+        preferredDarkColorTheme = "Dark Modern";
         statusBar = {
           visible = true;
         };

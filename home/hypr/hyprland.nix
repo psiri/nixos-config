@@ -174,7 +174,7 @@ master {
 ## not working, check script TODO
 
 # bind = $mainMod, F, exec, firefox                      # imported from ../firefox
-bind = $mainMod, J, exec, joplin-desktop --enable-features=UseOzonePlatform --ozone-platform=wayland       # TODO - move to home
+bind = $mainMod, J, exec, env -u NIXOS_OZONE_WL joplin-desktop --enable-features=UseOzonePlatform --ozone-platform=wayland       # TODO - move to home
 bind = $mainMod, L, exec, pidof hyprlock || hyprlock
 # bind = $mainMod, L, exec, swaylock                     # imported from ../swaylock
 # bind = $mainMod, O, exec, obs                          # imported from ../obs-studio
