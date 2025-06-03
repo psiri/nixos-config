@@ -43,7 +43,7 @@
     autosuggestion.enable  = true;
     enableCompletion = true;
     historySubstringSearch.enable = true;
-    initExtra = ''
+    initContent = ''
       POWERLEVEL9K_DISABLE_CONFIGURATION_WIZARD=true
       bindkey '^[OA' history-substring-search-up
       bindkey '^[[A' history-substring-search-up
