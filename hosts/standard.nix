@@ -241,6 +241,7 @@
     };
     shells = with pkgs; [zsh]; # default shell to zsh
     systemPackages = with pkgs; [
+      #amass
       ansible
       awscli2 # AWS CLI v2
       brightnessctl
@@ -286,6 +287,7 @@
       tailscale
       terraform
       terraform-docs
+      terraform-ls
       tfsec
       tree
       unzip
