@@ -76,6 +76,9 @@
     config = {
       # Disable if you don't want unfree packages
       allowUnfree = true;
+      permittedInsecurePackages = [
+        "libsoup-2.74.3"
+      ];
     };
   };
 

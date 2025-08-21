@@ -90,7 +90,7 @@ in
     home-manager.users.${user}.colorscheme = inputs.nix-colors.colorSchemes.${scheme};
 
     networking = {
-      enableIPv6 = false;
+      enableIPv6 = true;
       hostName = "fw16-nix";
       hostId = "36a96503"; # FIXME required for ZFS. Should be unique.
       firewall.enable = true;

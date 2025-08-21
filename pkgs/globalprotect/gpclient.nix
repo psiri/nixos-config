@@ -18,7 +18,7 @@ rustPlatform.buildRustPackage rec {
   inherit (gpauth) version src meta;
 
   buildAndTestSubdir = "apps/gpclient";
-  cargoHash = "sha256-8LSGuRnWRWeaY6t25GdZ2y4hGIJ+mP3UBXRjcvPuD6U=";
+  cargoHash = "sha256-vSb5Thv3mEp/gp4/I3WWF/aGfTEKj9+8Mdw6E39YGl4=";
 
   nativeBuildInputs = [ perl jq webkitgtk_4_1 libsoup_3 pkg-config ];
   PKG_CONFIG_PATH = "${openssl.dev}/lib/pkgconfig";
