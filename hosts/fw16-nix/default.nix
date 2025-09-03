@@ -36,6 +36,8 @@ in
     sops.secrets."joplin_sync_region" = { };
     sops.secrets."joplin_sync_username" = { };
     sops.secrets."joplin_sync_api_token" = { };
+    # Tailscale Authkey:
+    sops.secrets."tailscale_auth_key" = { };
     # Wired Network Connection 1:
     sops.secrets."wired_connection_1_ip" = { };
     sops.secrets."wired_connection_1_dns" = { };

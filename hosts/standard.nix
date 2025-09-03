@@ -241,6 +241,7 @@
       NIXOS_OZONE_WL = "1"; # fixes electron apps in Wayland?
       XDG_SESSION_TYPE = "wayland";
       GIO_EXTRA_MODULES= lib.mkForce "${pkgs.gvfs}/lib/gio/modules:${pkgs.dconf.lib}/lib/gio/modules"; # Fix to get file managers (thunar, etc) to be able to mount SMB / CIFS / NFS and trash locations using gvfs
+      TS_AUTH_KEY = "file:/run/secrets/tailscale_auth_key";
     };
     shells = with pkgs; [zsh]; # default shell to zsh
     systemPackages = with pkgs; [

@@ -7,6 +7,12 @@
       "/etc/nixos"
       "/etc/NetworkManager"
       "/var/lib/bluetooth"
+      # State: UEFI NVRAM, dnsmasq leases, snapshots, swtpm state, etc.
+      # (also covers /var/lib/libvirt/images if you use the default pool)
+      "/var/lib/libvirt"
+      # vTPM Local CA (only if you’ve enabled it)
+      "/var/lib/swtpm"
+      "/var/lib/swtpm-localca"
     ];
     files = [
       "/etc/machine-id"

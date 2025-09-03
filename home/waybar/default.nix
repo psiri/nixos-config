@@ -18,5 +18,10 @@
         exec-once = waybar
       '';
     };
+    home.file.".config/hypr/per-app/waybar-reload.conf" = {
+      text = ''
+        bind = $mainMod CTRL SHIFT, R, exec, pkill waybar && hyprctl dispatch exec waybar
+      '';
+    };
   };
 }

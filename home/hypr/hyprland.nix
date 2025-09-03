@@ -184,6 +184,7 @@ bind = $mainMod SHIFT, S, exec, env QT_QPA_PLATFORM_PLUGIN_PATH="/home/psiri/Doc
 # bind = $mainMod, SPACE, exec, $menu                    # imported from ../ulauncher
 # bind = $mainMod, W, exec, chromium                     # imported from ../chrome
 bind = $mainMod, R, exec, remmina
+# bind = $mainMod CTRL SHIFT, R, exec, pkill waybar && hyprctl dispatch exec waybar # imported from ../waybar
 bind = $mainMod, S, exec, slack
 bind = $mainMod, T, exec, teams-for-linux
 bind = $mainMod, V, exec, $VSCODE_APP
