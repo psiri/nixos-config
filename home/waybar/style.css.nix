@@ -115,22 +115,14 @@
 
       /* -------------------------------------------------------------------------------- */
 
-      #custom-launcher,
-      /* #window, */
-      #submap
-      #mode,
-      /* #tray, */
-      #cpu { background-color: #${config.colorScheme.palette.base00}; }
-      #memory { background-color: #${config.colorScheme.palette.base00}; }
-      #backlight,
-      #window  { background-color: #${config.colorScheme.palette.base00}; }
-      #pulseaudio.audio { background-color: #${config.colorScheme.palette.base00}; }
-      #pulseaudio.microphone,
-      #network { background-color: #${config.colorScheme.palette.base00}; }
-      #bluetooth  { background-color: #${config.colorScheme.palette.base00}; }
-      #battery  { background-color: #${config.colorScheme.palette.base00}; }
-      #clock { background-color: #${config.colorScheme.palette.base00}; }
-      #custom-powermenu,
+      #cpu, #memory, #backlight, #window, #pulseaudio, #network, #bluetooth, #battery, #power-profiles-daemon, #clock, #submap, #mode, #custom-launcher, #custom-powermenu {
+        background-color: #${config.colorScheme.palette.base00};
+      }
+
+      #cpu:hover, #memory:hover, #backlight:hover, #window:hover, #pulseaudio:hover, #network:hover, #bluetooth:hover, #battery:hover, #power-profiles-daemon:hover, #clock:hover, #submap:hover, #mode:hover, #custom-launcher:hover, #custom-powermenu:hover {
+        background-color: #${config.colorScheme.palette.base04};
+        color: #${config.colorScheme.palette.base09};
+      }
 
       #custom-notification {
         background-color: transparent;
@@ -164,6 +156,7 @@
       .modules-left > widget:first-child > #network,
       .modules-left > widget:first-child > #bluetooth,
       .modules-left > widget:first-child > #battery,
+      .modules-left > widget:first-child > #power-profiles-daemon,
       .modules-left > widget:first-child > #clock,
       .modules-left > widget:first-child > #custom-powermenu,
       .modules-left > widget:first-child > #custom-notification {
@@ -186,6 +179,7 @@
       .modules-right > widget:last-child > #pulseaudio.microphone,
       .modules-right > widget:last-child > #bluetooth,
       .modules-right > widget:last-child > #battery,
+      .modules-right > widget:last-child > #power-profiles-daemon,
       .modules-right > widget:last-child > #clock,
       .modules-right > widget:last-child > #custom-powermenu,
       .modules-right > widget:last-child > #custom-notification {
@@ -197,6 +191,10 @@
       #tray {
         background-color: #${config.colorScheme.palette.base00};
         padding: 1px 8px;
+      }
+      #tray:hover {
+        background-color: #${config.colorScheme.palette.base04};
+        color: #${config.colorScheme.palette.base09};
       }
       #tray > .passive {
         -gtk-icon-effect: dim;

@@ -19,7 +19,7 @@
       #pkgs.vscode-extensions.equinusocio.vsc-material-theme       # SOME CONCERN ABOUT DEPENDENCY COMPROMISE - DISABLING
       #pkgs.vscode-extensions.equinusocio.vsc-material-theme-icons # SOME CONCERN ABOUT DEPENDENCY COMPROMISE - DISABLING
       pkgs.vscode-extensions.golang.go
-      pkgs.vscode-extensions.hashicorp.terraform
+      #pkgs.vscode-extensions.hashicorp.terraform
       pkgs.vscode-extensions.ms-azuretools.vscode-docker
       #pkgs.vscode-extensions.ms-python.python
       pkgs.vscode-extensions.ms-python.vscode-pylance
@@ -74,6 +74,17 @@
       #   # Then run the following command to determine the sha256 checksum:
       #   # sha256sum Continue.continue-0.9.211@linux-x64.vsix
       # }
+      {
+        name = "terraform";
+        publisher = "hashicorp";
+        version = "2.34.5";
+        sha256 = "b7950b781d23be4b7d6b59b7800e43bb42a5d4523566772ac804255c1c32c9f1";
+        # ! IMPORTANT ! The sha256 checksum is matched against the packages from the official visual studio marketplace
+        # Download from https://marketplace.visualstudio.com/items?itemName=hashicorp.terraform (or your desired extension)
+        # Then run the following command to determine the sha256 checksum:
+        # sha256sum hashicorp.terraform-2.34.5.vsix
+        # https://open-vsx.org/api/hashicorp/terraform
+      }
     ];
     profiles.default.globalSnippets = {};
     haskell.enable = false;
@@ -102,11 +113,12 @@
       editor = {
         accessibilitySupport = "off";
         cursorWidth = 2;
+        defaultFormatter= "esbenp.prettier-vscode";
         fontFamily = "Hack Nerd Font";     
         fontLigatures = true;
         fontSize = 11;
         formatOnSave = true;
-        formatOnSaveMode = "modificationsIfAvailable";
+        formatOnSaveMode = "file";
         minimap = {
           enabled = false;
         };
@@ -228,6 +240,10 @@
         confirmDelete = false;
         confirmDragAndDrop = false;
       };
+      files.associations = {
+        "*.hcl" = "terraform";
+        "*.tf" = "terraform";
+      };
       git = {
         autofetch = true;
         confirmSync = false;
@@ -286,17 +302,64 @@
           scrollback = 3000;
         };
       };
+      scm.repositories.visible = 50;
+      terraform = {
+        editor = {
+          defaultFormatter = "hashicorp.terraform";
+          formatOnSave = true;
+          formatOnSaveMode = "file";
+          codeActionsOnSave = {
+            source.formatAll.terraform = true;
+          };
+        };
+        languageServer = {
+          enable = true;
+          path = "/run/current-system/sw/bin/terraform-ls";
+        };
+        experimentalFeatures = {
+          validateOnSave = false;
+        };
+        telemetry = {
+          enabled = false;
+          telemetryLevel = "off";
+        };
+      };
+      terraform-vars = {
+        editor = {
+          defaultFormatter = "hashicorp.terraform";
+          formatOnSave = true;
+          formatOnSaveMode = "file";
+          codeActionsOnSave = {
+            source.formatAll.terraform = true;
+          };
+        };
+        languageServer = {
+          enable = true;
+          path = "/run/current-system/sw/bin/terraform-ls";
+        };
+        experimentalFeatures = {
+          validateOnSave = false;
+        };
+        telemetry = {
+          enabled = false;
+          telemetryLevel = "off";
+        };
+      };
       "[terraform]" = {
         editor = {
           defaultFormatter = "hashicorp.terraform";
           formatOnSave = true;
           formatOnSaveMode = "file";
+          codeActionsOnSave = {
+            source.formatAll.terraform = true;
+          };
         };
         languageServer = {
           enable = true;
+          path = "/run/current-system/sw/bin/terraform-ls";
         };
         experimentalFeatures = {
-          validateOnSave = true;
+          validateOnSave = false;
         };
         telemetry = {
           enabled = false;
@@ -308,12 +371,16 @@
           defaultFormatter = "hashicorp.terraform";
           formatOnSave = true;
           formatOnSaveMode = "file";
+          codeActionsOnSave = {
+            source.formatAll.terraform = true;
+          };
         };
         languageServer = {
           enable = true;
+          path = "/run/current-system/sw/bin/terraform-ls";
         };
         experimentalFeatures = {
-          validateOnSave = true;
+          validateOnSave = false;
         };
         telemetry = {
           enabled = false;

@@ -55,6 +55,7 @@
           // "pulseaudio#microphone",
           "pulseaudio#audio",
           "battery",
+          "power-profiles-daemon",
           "tray"
         ],
 
@@ -96,7 +97,7 @@
           "interval": 1,
           "on-click": "",
           "tooltip": true,
-          "tooltip-format": "Used: {used} GiB ({percentage}%) / {total} GiB\nAvailable: {avail} GiB / {total} GiB\n Swap: {swapUsed} GiB ({swapPercentage}%) / {swapAvail} GiB"
+          "tooltip-format": "Used: {used} GiB ({percentage}%) / {total} GiB\nAvailable: {avail} GiB / {total} GiB\nSwap: {swapUsed} GiB ({swapPercentage}%) / {swapAvail} GiB"
         },
 
         "backlight": {
@@ -128,48 +129,59 @@
 
         "network": {
           "interval": 1,
-          // use auto-detection "interface": "wlp5s0",
-          "format-icons": [
-            "󰤯",
-            "󰤟",
-            "󰤢",
-            "󰤥",
-            "󰤨"
-          ],
-          "format-wifi": "󰞒 {bandwidthDownBytes} | 󰞕 {bandwidthUpBytes} {icon} {essid} ({signalStrength}%)",
-          "format-disconnected": "", // empty format hides the module
+          // use auto-detection. uncomment and specify to override "interface": "",
+          "family": "ipv4_6",
+          "format-wifi": "󰞒 {bandwidthDownBits} | 󰞕 {bandwidthUpBits} {icon} {essid} ({signalStrength}%)",
+          "format-ethernet": "󰞒 {bandwidthDownBits} | 󰞕 {bandwidthUpBits} {icon} {ifname} ",
+          "format-linked": "󰞒 {bandwidthDownBits} | 󰞕 {bandwidthUpBits} {icon} {ifname}",
           "format-disconnected": "󰤮",
-          "format-ethernet": "󰞒 {bandwidthDownBytes} | 󰞕 {bandwidthUpBytes} {icon} {ifname} ", 
+          "format-disabled": "", // hide module
+          "format-icons": {
+            "wifi": [
+              "󰤯",
+              "󰤟",
+              "󰤢",
+              "󰤥",
+              "󰤨"
+            ],
+            "ethernet": [
+              "󰈀",
+              "󰈀"
+            ]
+          },
           "on-click": "kitty --class nmwui nmtui",
           "tooltip": true,
-          "tooltip-format": "󰢮 {ifname}\n󰩟 {ipaddr}/{cidr}\n󰩟 Gateway: {gwaddr}\nNetmask: {netmask}\n{icon} {essid}\n󱑽 {signalStrength}% {signaldBm} dBm {frequency} MHz\n󰞒 {bandwidthDownBytes}\n󰞕 {bandwidthUpBytes}",
-          "tooltip-format-disconnected": "Disconnected",
-          "tooltip-format-disabled": "Disabled",
-          "tooltip-format-ethernet": "󰢮 {ifname}\n󰩟 {ipaddr}/{cidr}\n󰩟 Gateway: {gwaddr}\nNetmask: {netmask}\n󰞒 {bandwidthDownBytes}\n󰞕 {bandwidthUpBytes}",
-          "tooltip-format-wifi": "󰢮 {ifname}\n󰩟 {ipaddr}/{cidr}\n󰩟 Gateway: {gwaddr}\nNetmask: {netmask}\n{icon} {essid}\n󱑽 {signalStrength}% {signaldBm} dBm {frequency} MHz\n󰞒 {bandwidthDownBytes}\n󰞕 {bandwidthUpBytes}"
+          "tooltip-format-disconnected": "{icon} {ifname}\nStatus: Disconnected",
+          "tooltip-format-disabled": "{icon} {ifname}\nStatus: Disabled",
+          "tooltip-format": "{icon} {ifname}\nIPv4: {ipaddr}IPv4 CIDR: /{cidr}\nIPv4 Netmask: {netmask}\nIPv6 CIDR: {cidr6}\nIPv6 Netmask: /{netmask6}\nGateway: {gwaddr}\n{icon} {essid}\n󱑽 {signalStrength}% {signaldBm} dBm {frequency} GHz\n󰞒 {bandwidthDownBits}\n󰞕 {bandwidthUpBits}",
+          "tooltip-format-ethernet": "{icon} {ifname}\nIPv4: {ipaddr}IPv4 CIDR: /{cidr}\nIPv4 Netmask: {netmask}\nIPv6 CIDR: {cidr6}\nIPv6 Netmask: /{netmask6}\nGateway: {gwaddr}\n󰞒 {bandwidthDownBits}\n󰞕 {bandwidthUpBits}",
+          "tooltip-format-wifi": "{icon} {ifname}\nIPv4: {ipaddr}IPv4 CIDR: /{cidr}\nIPv4 Netmask: {netmask}\nIPv6 CIDR: {cidr6}\nIPv6 Netmask: /{netmask6}\nGateway: {gwaddr}\n{icon} {essid}\n󱑽 {signalStrength}% {signaldBm} dBm {frequency} GHz\n󰞒 {bandwidthDownBits}\n󰞕 {bandwidthUpBits}"
         },
 
         "bluetooth": {
-          "format-disabled": " 󰂲 ",
-          "format-off": " 󰂲 ",
-          "format-on": " 󰂯 ",
-          "format-connected": " 󰂯 ",
-          "format-connected-battery": " 󰂯 ",
-          "format-no-controller": "",
-          "tooltip-format-connected": " {device_alias} 󰂄{device_battery_percentage} ",
+          "format": "󰂲 {status}",
+          "format-disabled": "󰂲 sw-disabled",
+          "format-off": "󰂲 off",
+          "format-on": "󰂯",
+          "format-connected": "󰂯",
+          "format-connected-battery": "󰂯",
+          "format-no-controller": "󰂲 hw-disabled",
+          "tooltip-format-connected": "{device_alias} 󰂄{device_battery_percentage}",
           "on-click": "bluez",
-          "tooltip": true
+          "tooltip": false
         },
 
         "battery": {
+          "interval": 60,
           "states": {
-            "warning": 20,
-            "critical": 10
+            "warning": 25,
+            "critical": 15
           },
 
-          "format": " {icon} {capacity} ",
-          "format-charging": " 󰂄 {capacity} ",
-          "format-plugged": " 󱘖 {capacity} ",
+          "format": "{icon} {capacity}%",
+          "format-charging": "󰂄 {capacity}% {time}",
+          "format-plugged": "󱘖 {capacity}% {time}",
+          "format-time": "{H} h {M} min",
           "format-icons": [
             "󰁺",
             "󰁻",
@@ -183,8 +195,22 @@
             "󰁹"
           ],
           "on-click": "",
-          "tooltip": false
+          "tooltip": false,
+          "tooltip-format": "{icon}\nCapacity: {capacity}\nTime to Full/Empty: {time}\nPower Draw (w): {power}\nCycles: {cycles}"
+        },
+
+        "power-profiles-daemon": {
+          "format": "{icon}",
+          "tooltip-format": "Power profile: {profile}\nDriver: {driver}",
+          "tooltip": true,
+          "format-icons": {
+            "default": "",
+            "performance": "",
+            "balanced": "",
+            "power-saver": ""
+          }
         }
+
       }
 
     '';
