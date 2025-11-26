@@ -7,14 +7,7 @@
   lib,
   ...
 }: {
-  # sops.secrets.tailscale_auth_key = {
-  #   #sopsFile = ./secrets.yaml; # Path to your encrypted secrets file
-  #   key = "tailscale_auth_key"; # The key within your YAML file holding the auth key
-  #   owner = "root";
-  #   mode = "0400"; # Read-only for the owner
-  # };
-
-  #sops.templates."tailscale_auth_key".path = "/etc/tailscale/tskey-reusable";
+  # Create an auth key file containing the SOPS secret "tailscale_auth_key"
   sops.templates."tailscale_auth_key".owner = "root";
   sops.templates."tailscale_auth_key".mode = "0600";
   sops.templates."tailscale_auth_key".content = ''
@@ -24,6 +17,7 @@
   services.tailscale = {
     enable = true;
     disableTaildrop = false;
+    interfaceName = "tailscale0";
     openFirewall = false;
     useRoutingFeatures = "client";
     # Use the path to the decrypted secret provided by sops-nix

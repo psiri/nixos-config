@@ -61,7 +61,6 @@
       # import from ../overlays files
       #(import ../overlays/zoom)
 
-
       # You can also add overlays exported from other flakes:
       # neovim-nightly-overlay.overlays.default
 
@@ -188,17 +187,30 @@
       # TODO: Be sure to add any other groups you need (such as networkmanager, audio, docker, etc)
       extraGroups = ["wheel" "networkmanager" "docker" "libvirtd" "plugdev"];
       packages = with pkgs; [
+        aws-workspaces
         # discord
         # docker
         # etcher          # Belena Etcher
-        # flameshot       # ! Not yet working on Wayland :( TODO - revisit future release
+        #flameshot         # Screenshot tool with editing features
+        #Flameshot pinning - fixes multi-monitor capture issue broken on 13.0+
+        (let
+          nixpkgs-pinned-flameshot = builtins.fetchTarball {
+            url = "https://github.com/NixOS/nixpkgs/archive/5a0711127cd8b916c3d3128f473388c8c79df0da.tar.gz";
+            sha256 = "14gklyvgr2zv05z47sa03iwn6zcjqmi32s7fl3npyhq9q08j5sr7";
+          };
+          # Import the package set from that pinned revision.
+          pkgs-pinned-flameshot = import nixpkgs-pinned-flameshot {
+            config = config.nixpkgs.config;
+          };
+        in
+          (pkgs-pinned-flameshot.flameshot.overrideAttrs (old: {cmakeFlags = old.cmakeFlags or [ ] ++ ["enableWlrSupport = true"] ++ [ "-DUSE_WAYLAND_GRIM=ON" ];})) # Workaround no longer required - Note: only do this for wayland config
+        )
         # gimme-aws-creds # CLI wrapper for Okta/ SAML2.0 IDPs and AWS
         # github-desktop
         file-roller       # archive manager
         gimp
         go                # go programming language
         grim              # simple screenshot tool while flameshot is broken
-        hyprshot
         #input-leap
         #joplin-desktop
         kitty
@@ -208,13 +220,12 @@
         remmina           # Open-source remote desktop client
         seahorse          # encryption key and password manager
         slack
-        slurp             # used in conjunction with grim for screenshotting while flameshot is broken
         spotify
         teams-for-linux # UNOFFICIAL MS Teams client, dropping this in favor of browser-based client
         # teamviewer
         vlc               # media player
-        wl-clipboard      # tool for accessing Wayland clipboards
-        zoom-us
+        #wl-clipboard      # tool for accessing Wayland clipboards
+        #zoom-us
         # TODO script SecureCRT install 
       ];
     };
@@ -248,6 +259,7 @@
       #amass
       ansible
       awscli2 # AWS CLI v2
+      azure-cli
       brightnessctl
       btop
       cifs-utils
@@ -278,7 +290,7 @@
       openconnect
       networkmanager-openconnect
       openssl
-      pinentry-all # needed for GPG key signing
+      pinentry-tty # needed for GPG key signing
       pipewire
       #pipewire-zoom
       polkit_gnome

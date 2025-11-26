@@ -53,7 +53,9 @@
     "sync.maxConcurrentConnections": 30,
     "timeFormat": "h:mm A",
     "dateFormat": "MM/DD/YYYY",
-    "theme": 22,
+    "theme": 5,
+    "preferredLightTheme": 5,
+    "preferredDarkTheme": 5,
     "showTrayIcon": true,
     "editor.codeView": false
   }

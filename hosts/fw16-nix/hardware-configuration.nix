@@ -67,7 +67,7 @@
     #"pci-stub.ids=1002:7480,1002:ab30"
     "mem_sleep_default=deep" # Fix for AMD-related power-draw while syspended/sleeping
   ];
-  boot.kernelPackages = pkgs.linuxPackages_6_16; #config.boot.zfs.package.latestCompatibleLinuxPackages; 
+  boot.kernelPackages = pkgs.linuxPackages_6_17; #config.boot.zfs.package.latestCompatibleLinuxPackages; 
   boot.extraModulePackages = with config.boot.kernelPackages; [ v4l2loopback ];# Used for OBS virtual cameras as Zoom screen sharing workaround
 
   swapDevices = [ ];
@@ -100,14 +100,14 @@
       enable32Bit = true;
       enable = true;
       extraPackages = with pkgs; [
-        amdvlk
+        #amdvlk # Deprecated and replaced by RADV, which is enabled by default
         libva
         libvdpau
         libvdpau-va-gl
-        vaapiVdpau
+        libva-vdpau-driver
       ];
       extraPackages32 = [
-        pkgs.driversi686Linux.amdvlk
+        #pkgs.driversi686Linux.amdvlk # Deprecated and replaced by RADV, which is enabled by default
       ];
     };
     # steam-hardware.enable = true;

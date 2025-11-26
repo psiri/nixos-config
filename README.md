@@ -2,56 +2,57 @@
 
 The following table breaks down the respective hardware and software / feature configuration of systems managed by this repo:
 
-| Hostname                           |       Disko        |      sops-nix      |    Impermanence    |    Home-Manager    | Base Template                    | Hardware                              |
-| ---------------------------------- | :----------------: | :----------------: | :----------------: | :----------------: | -------------------------------- | ------------------------------------- |
-| [fw16-nix](./hosts/fw16-nix)       | :white_check_mark: | :white_check_mark: | :ballot_box_with_check: (root only)                | :white_check_mark: | [standard](./hosts/standard.nix) | Framework Laptop 16 (AMD, iGPU-only)  |
-| [ll-nix1](./hosts/ll-nix1)         | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | [standard](./hosts/standard.nix) | Dell Latitude (Intel, iGPU-only)      |
-| [desktop-nix](./hosts/desktop-nix) | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | [standard](./hosts/standard.nix) | AMD Ryzen + AMD dGPU (custom build)   |
-| [server-nix](./hosts/server-nix)   |        :x:         | :white_check_mark: |        :x:         | :white_check_mark: | [server](./hosts/server.nix)     | Intended for VMs (KVM, AWS, GCP, etc) |
+| Hostname                           |       Disko        |      sops-nix      |            Impermanence             |    Home-Manager    | Base Template                    | Hardware                              |
+| ---------------------------------- | :----------------: | :----------------: | :---------------------------------: | :----------------: | -------------------------------- | ------------------------------------- |
+| [fw16-nix](./hosts/fw16-nix)       | :white_check_mark: | :white_check_mark: | :ballot_box_with_check: (root only) | :white_check_mark: | [standard](./hosts/standard.nix) | Framework Laptop 16 (AMD, iGPU-only)  |
+| [ll-nix1](./hosts/ll-nix1)         | :white_check_mark: | :white_check_mark: |         :white_check_mark:          | :white_check_mark: | [standard](./hosts/standard.nix) | Dell Latitude (Intel, iGPU-only)      |
+| [desktop-nix](./hosts/desktop-nix) | :white_check_mark: | :white_check_mark: |         :white_check_mark:          | :white_check_mark: | [standard](./hosts/standard.nix) | AMD Ryzen + AMD dGPU (custom build)   |
+| [server-nix](./hosts/server-nix)   |        :x:         | :white_check_mark: |                 :x:                 | :white_check_mark: | [server](./hosts/server.nix)     | Intended for VMs (KVM, AWS, GCP, etc) |
 
 ## Applications
-| Function             | App                                                        | Source Template(s) | Package Type |
-| -------------------- | ---------------------------------------------------------- | ------------------ | :----------: |
-| Application Launcher | ulauncher                                                  | standard           |     user     |
-| Archive Manager      | File-Roller                                                | standard           |     user     |
-| Audio                | Pipewire, wireplumber                                      | standard           |    system    |
-| Automation & IaC     | Ansible, Terraform, terraform-docs                         | standard, server   |    system    |
-| Browser              | Chromium, Firefox, Brave                                   | standard, server   |     user     |
-| Collaboration Tools  | Slack, Zoom, Teams (taeams-for-linux)                      | standard           |     user     |
-| Compositor           | Hyprland                                                   | standard           |    system    |
-| CSP Tools            | AWS CLI (v2), google-cloud-sdk, SSM Session Manager plugin | standard, server   |    system    |
-| Developer Tools      | jq                                                         | standard, server   |    system    |
-| Display Server       | Wayland                                                    | standard           |    system    |
-| File Manager         | Thunar                                                     | standard           |    system    |
-| IDE                  | Codium (VS Code OSS)                                       | standard           |     user     |
-| Idle Daemon          | hypridle                                                   | standard           |     user     |
-| Image Editor         | gimp                                                       | standard           |     user     |
-| Media Player         | spotify, vlc                                               | standard           |     user     |
-| Network Tools        | curl, dig, dnsutils, iputils, mtr, netcat, nmap, ntp, openssl, wget, wireshark  | standard, server   |  system    |
-| Notes                | joplin-desktop                                             | standard           |     user     |
-| Notifications        | dunst                                                      | standard           |    system    |
-| Screen Lock          | hyprlock                                                   | standard           |     user     |
-| Screen Recording     | OBS Studio                                                 | standard           |     user     |
-| Screenshots          | grim, slurp                                                | standard           |     user     |
-| Session Management   | wlogout                                                    | standard           |              |
-| Shell                | zsh                                                        | standard, server   |     both     |
-| Status Bar           | Waybar                                                     | standard           |     user     |
-| System Monitor       | bashtop, bottom, htop                                      | standard, server   |     both     |
-| Terminal             | Kitty                                                      | standard           |     user     |
-| Text Editor          | nano                                                       | standard, server   |    system    |
-| Virtualization       | KVM, QEMU, vert-manager                                    | standard, server   |    system    |
-| VPN       | globalprotect-openconnect, openconnect, networkmanager-openconnect, tailscale    | standard           |    system    |
-| Window Manager       | Hyprland                                                   | standard           |    system    |
 
+| Function             | App                                                                            | Source Template(s) | Package Type |
+| -------------------- | ------------------------------------------------------------------------------ | ------------------ | :----------: |
+| Application Launcher | ulauncher                                                                      | standard           |     user     |
+| Archive Manager      | File-Roller                                                                    | standard           |     user     |
+| Audio                | Pipewire, wireplumber                                                          | standard           |    system    |
+| Automation & IaC     | Ansible, Terraform, terraform-docs                                             | standard, server   |    system    |
+| Browser              | Chromium, Firefox, Brave                                                       | standard, server   |     user     |
+| Collaboration Tools  | Slack, Zoom, Teams (taeams-for-linux)                                          | standard           |     user     |
+| Compositor           | Hyprland                                                                       | standard           |    system    |
+| CSP Tools            | AWS CLI (v2), google-cloud-sdk, SSM Session Manager plugin                     | standard, server   |    system    |
+| Developer Tools      | jq                                                                             | standard, server   |    system    |
+| Display Server       | Wayland                                                                        | standard           |    system    |
+| File Manager         | Thunar                                                                         | standard           |    system    |
+| IDE                  | Codium (VS Code OSS)                                                           | standard           |     user     |
+| Idle Daemon          | hypridle                                                                       | standard           |     user     |
+| Image Editor         | gimp                                                                           | standard           |     user     |
+| Media Player         | spotify, vlc                                                                   | standard           |     user     |
+| Network Tools        | curl, dig, dnsutils, iputils, mtr, netcat, nmap, ntp, openssl, wget, wireshark | standard, server   |    system    |
+| Notes                | joplin-desktop                                                                 | standard           |     user     |
+| Notifications        | dunst                                                                          | standard           |    system    |
+| Screen Lock          | hyprlock                                                                       | standard           |     user     |
+| Screen Recording     | OBS Studio                                                                     | standard           |     user     |
+| Screenshots          | grim, Flameshot                                                                | standard           |     user     |
+| Session Management   | wlogout                                                                        | standard           |              |
+| Shell                | zsh                                                                            | standard, server   |     both     |
+| Status Bar           | Waybar                                                                         | standard           |     user     |
+| System Monitor       | bashtop, bottom, htop                                                          | standard, server   |     both     |
+| Terminal             | Kitty                                                                          | standard           |     user     |
+| Text Editor          | nano                                                                           | standard, server   |    system    |
+| Virtualization       | KVM, QEMU, vert-manager                                                        | standard, server   |    system    |
+| VPN                  | globalprotect-openconnect, openconnect, networkmanager-openconnect, tailscale  | standard           |    system    |
+| Window Manager       | Hyprland                                                                       | standard           |    system    |
 
 #### Repo Layout
 
 The project blends some of the community's best-practices for repo layouts with lessons-learned from working with other modular automation tools (Ansible, Terraform, etc). It's layout is intended to enable systems to be configured in a flexible manner while minimizing code re-use and ensuring the end-state system isn't bloated.
 
 Shared modules / components can be pulled-in at various levels as-appropriate:
+
 1. Flake-level (applies to all systems)
 2. Template-level
-   * Applies to all systems which import the respective template - ex: headless-systems ([servers](./hosts/server.nix)) OR "[standard](./hosts/standard.nix)" / headed-systems (desktops, laptops)
+   - Applies to all systems which import the respective template - ex: headless-systems ([servers](./hosts/server.nix)) OR "[standard](./hosts/standard.nix)" / headed-systems (desktops, laptops)
 3. Host-level (applies to a specific host)
 
 ```bash
@@ -69,7 +70,7 @@ Shared modules / components can be pulled-in at various levels as-appropriate:
 │   │   └── hyprpaper.nix
 │   └── example-app-3                  # Example - your additional apps would go here
 │       └── default.nix
-├── hosts                              # Directory containing templates (for server/headless and standard/headed) as well as per-host subdirectories           
+├── hosts                              # Directory containing templates (for server/headless and standard/headed) as well as per-host subdirectories
 │   ├── fw16-nix                       # Framework 16 host directory
 │   │   ├── default.nix                # Defines host-specific config & imports the respective "template" (ex: "standard") + all host-specific config files (hardware-configuration.nix, per-device.nix, etc.)
 │   │   ├── disko-config.nix           # Disko disk partitioning. Declares how disko will perform disk partitioning & file system config
@@ -106,55 +107,54 @@ Shared modules / components can be pulled-in at various levels as-appropriate:
 └── .sops.yaml                         # Location of sops-nix configuration file (when using locally-managed secrets)
 ```
 
-
 ## Background
 
-As a security / DevSecOps professional, I can't even begin to fathom the ammount of time I've wasted setting up systems for various clients or engagements, and how much collective effort I've invested into other "declarative" automation tools (Ansible, Chef, GCP "OS Config", AWS Systems Manager, etc.) trying to automate and scale both the build  and maintenance processes.  Over the course of my career I've ran numerous Professional Services (PS) teams, built and ran security-focused Managed Service (MS) offerings, and operated large-scale enterprise cloud platforms, but one of the toughest recurring challenges has always been management of hosts / endpoints - particularly in environments with strict security and/or compliance requirements.  
+As a security / DevSecOps professional, I can't even begin to fathom the ammount of time I've wasted setting up systems for various clients or engagements, and how much collective effort I've invested into other "declarative" automation tools (Ansible, Chef, GCP "OS Config", AWS Systems Manager, etc.) trying to automate and scale both the build and maintenance processes. Over the course of my career I've ran numerous Professional Services (PS) teams, built and ran security-focused Managed Service (MS) offerings, and operated large-scale enterprise cloud platforms, but one of the toughest recurring challenges has always been management of hosts / endpoints - particularly in environments with strict security and/or compliance requirements.
 
-No matter how good our imperative toolsets were (and we've done some incredible things with Packer, Ansible, GitHub Actions, SSM, GCP OS Config, and the like), configuration drift of the hosts was inevitable (particularly after clients / end-users got ahold of these systems at runtime). Packer, GHA/Jenkins, and Ansible are great tools for AMI builds and initial configuration, but painfully slow (especially at scale), and (due to the nature of the tools being imperative) all have significant weaknesses when it comes to software they're not explicitly-instructed to manage. Extra software users manually-installed wouldn't be removed, and rectifying configuration drift between thse running (user-modified) systems' actual state and a desired ("golden") state was a constant struggle, especially when the goal is to ensure a host contains *only your specified/scanctioned/approved software*.
+No matter how good our imperative toolsets were (and we've done some incredible things with Packer, Ansible, GitHub Actions, SSM, GCP OS Config, and the like), configuration drift of the hosts was inevitable (particularly after clients / end-users got ahold of these systems at runtime). Packer, GHA/Jenkins, and Ansible are great tools for AMI builds and initial configuration, but painfully slow (especially at scale), and (due to the nature of the tools being imperative) all have significant weaknesses when it comes to software they're not explicitly-instructed to manage. Extra software users manually-installed wouldn't be removed, and rectifying configuration drift between thse running (user-modified) systems' actual state and a desired ("golden") state was a constant struggle, especially when the goal is to ensure a host contains _only your specified/scanctioned/approved software_.
 
-Beyond the day-0 image build, we had no way to guarantee *an entire system* was still in its desired state. Sure, tools like these let us ensure *specified* packages, services, or agents were installed/removed, but everything else without one of these dedicated workflows fell into a grey area. No matter how tightly we locked-down the environment, it was virtually impossible to eliminate these problems without forcing users into something truly immutable - like Docker - and then shifting our security efforts "left".  While Docker is ideal for many production workloads/applications, it simply isn't a feasible replacement for user desktops / laptops / workstations. [WebTops](https://docs.linuxserver.io/images/docker-webtop/) come close, but still require a host system which in-turn must be built and maintained as well (making them better suited as a VDI alternative).
+Beyond the day-0 image build, we had no way to guarantee _an entire system_ was still in its desired state. Sure, tools like these let us ensure _specified_ packages, services, or agents were installed/removed, but everything else without one of these dedicated workflows fell into a grey area. No matter how tightly we locked-down the environment, it was virtually impossible to eliminate these problems without forcing users into something truly immutable - like Docker - and then shifting our security efforts "left". While Docker is ideal for many production workloads/applications, it simply isn't a feasible replacement for user desktops / laptops / workstations. [WebTops](https://docs.linuxserver.io/images/docker-webtop/) come close, but still require a host system which in-turn must be built and maintained as well (making them better suited as a VDI alternative).
 
 ### NixOS Journey
 
-Along this journey I've spent ~30 years with Windows, 12+ years with MacOS, and 10+ years with Linux.  About 4 years ago I went all-in on Linux for my personal desktops / laptops (servers were already running linux). Initially I switched to Ubuntu (which I had worked with extensively, particulraly in the cloud), then to PopOS! (an Ubuntu-based distro by System76), then to Arch. In the case of both Ubuntu/Pop and Arch, I had also used Ansible for configuration management, but I could never quite get to the "ideal state" that I was looking for - *a declarative system backed by Infrastructure as Code (IaC) that ensured rock-solid stability, guaranteed reproducibility, and (ideally) immutability*. In addition, all these OSes had some issues with dependency conflicts, particularly when it became necessary to run multiple versions of software for development/testing purposes. I appreciated Debian-based distros' stability, software availability, and documentation, but frequently needed more up-to-date packages.  Arch checked the recent-software-availability box without sacrificing package availability or documentation quality, but being on the bleeding edge meant apps or system functionality would occasionally break during an update, and over time these stability issue collectively cost me a significant ammount of time as well.
+Along this journey I've spent ~30 years with Windows, 12+ years with MacOS, and 10+ years with Linux. About 4 years ago I went all-in on Linux for my personal desktops / laptops (servers were already running linux). Initially I switched to Ubuntu (which I had worked with extensively, particulraly in the cloud), then to PopOS! (an Ubuntu-based distro by System76), then to Arch. In the case of both Ubuntu/Pop and Arch, I had also used Ansible for configuration management, but I could never quite get to the "ideal state" that I was looking for - _a declarative system backed by Infrastructure as Code (IaC) that ensured rock-solid stability, guaranteed reproducibility, and (ideally) immutability_. In addition, all these OSes had some issues with dependency conflicts, particularly when it became necessary to run multiple versions of software for development/testing purposes. I appreciated Debian-based distros' stability, software availability, and documentation, but frequently needed more up-to-date packages. Arch checked the recent-software-availability box without sacrificing package availability or documentation quality, but being on the bleeding edge meant apps or system functionality would occasionally break during an update, and over time these stability issue collectively cost me a significant ammount of time as well.
 
-In 2023 I discovered NixOS. NixOS promised to be the answer that I was looking for - it's declarative, code-driven, very hard to break (thanks to "generations" and its atomic operations), capable of adressing differing dependency issues seamlessly, and immutable (dev's claims - I'd actually argue it's not really "immutable" in the Docker sense, but in practice its atomic approach comes close enough while still maintaning usability). While I'm a security professional and not a software developer, I regularly work with enough Python, JSON, Terraform, etc. to quickly pick up the gist of the Nix language and hack together a working configuration.  I played around with NixOS in a few different "flavors" of VMs simulating servers, desktops, etc. (I would **strongly encourage** anyone looking to try NixOS to go this route before baremetal) until I had a fairly functional configuration, and then went about modularizing it using Nix flakes.
+In 2023 I discovered NixOS. NixOS promised to be the answer that I was looking for - it's declarative, code-driven, very hard to break (thanks to "generations" and its atomic operations), capable of adressing differing dependency issues seamlessly, and immutable (dev's claims - I'd actually argue it's not really "immutable" in the Docker sense, but in practice its atomic approach comes close enough while still maintaning usability). While I'm a security professional and not a software developer, I regularly work with enough Python, JSON, Terraform, etc. to quickly pick up the gist of the Nix language and hack together a working configuration. I played around with NixOS in a few different "flavors" of VMs simulating servers, desktops, etc. (I would **strongly encourage** anyone looking to try NixOS to go this route before baremetal) until I had a fairly functional configuration, and then went about modularizing it using Nix flakes.
 
 ### This Project
 
-This repo represents the continuiously-evolving state of my _personal_ NixOS systems.  This project uses the modern NixOS "flakes" approach to modularize system and software configurations.  At this time, the configuration is intended for single-user systems, though I have attempted to varibleize the user-specific elements / home-manager components for future support of multi-user systems.
-NixOS has a pretty steep learning curve, and along my joruney I've leaned heavily on the great work of others to get to this point.  I fully support/encourage anyone looking for NixOS reference configurations to borrow code from this project (if you do, please just reference me).
-
+This repo represents the continuiously-evolving state of my _personal_ NixOS systems. This project uses the modern NixOS "flakes" approach to modularize system and software configurations. At this time, the configuration is intended for single-user systems, though I have attempted to varibleize the user-specific elements / home-manager components for future support of multi-user systems.
+NixOS has a pretty steep learning curve, and along my joruney I've leaned heavily on the great work of others to get to this point. I fully support/encourage anyone looking for NixOS reference configurations to borrow code from this project (if you do, please just reference me).
 
 ### Project Goals
 
-* **Modular / Multi-Purpose:**
-  * Servers / headless systems (both physical and cloud-hosted)
-  * Desktops
-  * Laptops
-* **Minimal:**
-  * Keep the total package count as low as possible; strip out everything that isn't required
-  * Minimize vulnerabilities
-  * Keep attack surface as small as possible
-  * Remain lightweight (a nice side-effect but not the main focus)
-* **Hardened:**
-  * Strong network-security
-    * Host-firewall enabled. Explicit ingress firewall rules, and *only* when absolutely necessary (server deployments, etc)
-    * TO-DO: Application firewall (opensnitch or similar)
-  * TO-DO: CIS benchmark hardening (level 1 + 2 if possible)
-  * Long-term desire for high-degree of DISA STIG compliance
-    * Note: Until there are NixOS-specific STIGs, map to generic Linux controls
+- **Modular / Multi-Purpose:**
+  - Servers / headless systems (both physical and cloud-hosted)
+  - Desktops
+  - Laptops
+- **Minimal:**
+  - Keep the total package count as low as possible; strip out everything that isn't required
+  - Minimize vulnerabilities
+  - Keep attack surface as small as possible
+  - Remain lightweight (a nice side-effect but not the main focus)
+- **Hardened:**
+  - Strong network-security
+    - Host-firewall enabled. Explicit ingress firewall rules, and _only_ when absolutely necessary (server deployments, etc)
+    - TO-DO: Application firewall (opensnitch or similar)
+  - TO-DO: CIS benchmark hardening (level 1 + 2 if possible)
+  - Long-term desire for high-degree of DISA STIG compliance
+    - Note: Until there are NixOS-specific STIGs, map to generic Linux controls
 
 ## Instructions
 
 ### Prerequisites
+
 1. Requirements: Nix 2.4+
 2. The experimental `flakes` and `nix-command` features
 3. `git`
 
-
 ## Installation
+
 This section describes how to install NixOS.
 
 ### Install From a Boot ISO:
@@ -165,41 +165,40 @@ The instructions below assume you will be using flakes, [disko](https://github.c
 
 1. Clone the repo (optionally selecting target branch):
    1. `sudo git clone [--branch <YOUR-TARGET-BRANCH>] https://github.com/psiri/nixos-config`
-      *   **Note:** `--branch <YOUR-TARGET-BRANCH>` is optional but useful when testing new configurations that haven't been merged into main/master. I regularly use this method to ensure the entire rebuild process can be thoroughly tested and vetted against prior to a merge into main/master.  Alternatively you can checkout your desired branch once cloned.
+      - **Note:** `--branch <YOUR-TARGET-BRANCH>` is optional but useful when testing new configurations that haven't been merged into main/master. I regularly use this method to ensure the entire rebuild process can be thoroughly tested and vetted against prior to a merge into main/master. Alternatively you can checkout your desired branch once cloned.
 2. Perform disk partitioning using disko:
-    * :warning: **WARNING: These operations are destructive!** :warning:   
-      * Before proceeding, make absolutely sure the device(s) defined in `disko-config.nix` are correct, as they will be reformatted and re-partitioned
-    1. `sudo nix --experimental-features "nix-command flakes" run github:nix-community/disko -- --mode disko ./nixos-config/hosts/<HOSTNAME>/disko-config.nix`
-       * **Note:** if you did not specify a key file for disk encryption, you may be prompted to specify your encryption passphrase 
-    2. (Optional, recommended) Validate the partitioning
-       1. run `mount | grep /mnt` and validate that the output shows your partitions as defined within the respective `disko-config.nix` file
-    3. :bangbang: :construction: :bangbang:**(REQUIRED IF USING SOPS SECRETS FOR INITIAL USER PASSWORDS)**: Ensure the sops-nix (private) key is imported to the target path.
-        1. The specific location depends on what you've defined for sops in the `sops.age.keyFile` option. 
-           1. Ex: `~/.config/sops/age/keys.txt`
-           2. Ex (with impermanence): ```/persist/var/lib/sops-nix/key.txt```
-3.  Complete the NixOS installation:
-    1.  Run `sudo nixos-install --flake ./nixos-config/.#<HOSTNAME>` and reboot when the installation is complete
-        * :notebook_with_decorative_cover: **Note:** Depending whether you opted to store secrets locally or in a private get repo, you may be prompted for authentication to the private repo
-   
+   - :warning: **WARNING: These operations are destructive!** :warning:
+     - Before proceeding, make absolutely sure the device(s) defined in `disko-config.nix` are correct, as they will be reformatted and re-partitioned
+   1. `sudo nix --experimental-features "nix-command flakes" run github:nix-community/disko -- --mode disko ./nixos-config/hosts/<HOSTNAME>/disko-config.nix`
+      - **Note:** if you did not specify a key file for disk encryption, you may be prompted to specify your encryption passphrase
+   2. (Optional, recommended) Validate the partitioning
+      1. run `mount | grep /mnt` and validate that the output shows your partitions as defined within the respective `disko-config.nix` file
+   3. :bangbang: :construction: :bangbang:**(REQUIRED IF USING SOPS SECRETS FOR INITIAL USER PASSWORDS)**: Ensure the sops-nix (private) key is imported to the target path.
+      1. The specific location depends on what you've defined for sops in the `sops.age.keyFile` option.
+         1. Ex: `~/.config/sops/age/keys.txt`
+         2. Ex (with impermanence): `/persist/var/lib/sops-nix/key.txt`
+3. Complete the NixOS installation:
+   1. Run `sudo nixos-install --flake ./nixos-config/.#<HOSTNAME>` and reboot when the installation is complete
+      - :notebook_with_decorative_cover: **Note:** Depending whether you opted to store secrets locally or in a private get repo, you may be prompted for authentication to the private repo
 
 ## Updates
+
 This section describes how yo update your NixOS configuration.
 
 ### Update from a running NixOS system:
 
 1. Change directory into the configuration repo:
    - `cd nixos-config`
-2.  :lock: **(Required only when secrets stored in a private repo have been updated):** Ensure your flake's lock is updated to point to the latest private-secrets repo's commit:
-    1. :information_source: If you are not using secrets stored in a separate, private repo, OR these secrets have not been updated, you may skip this step
-    2. Run the following command to ensure `flake.lock` points to the latest commit in your private secrets repo.  In the exmaple below, it is assumed your private-secrets input matches the example created in [Option 2 - Sops-Nix with Secrets Stored in a Private Repo](#option-2---sops-nix-with-secrets-stored-in-a-private-repo)
-       1. ```sudo nix flake lock --update-input private-secrets```
-3.  Run `sudo nixos-rebuild switch --flake ./.#<HOSTNAME>` to apply your system configuration.
-    - **Note:** If you encounter an error that your  config is "dirty", you may need to append the `--impure` flag
-
+2. :lock: **(Required only when secrets stored in a private repo have been updated):** Ensure your flake's lock is updated to point to the latest private-secrets repo's commit:
+   1. :information_source: If you are not using secrets stored in a separate, private repo, OR these secrets have not been updated, you may skip this step
+   2. Run the following command to ensure `flake.lock` points to the latest commit in your private secrets repo. In the exmaple below, it is assumed your private-secrets input matches the example created in [Option 2 - Sops-Nix with Secrets Stored in a Private Repo](#option-2---sops-nix-with-secrets-stored-in-a-private-repo)
+      1. `sudo nix flake lock --update-input private-secrets`
+3. Run `sudo nixos-rebuild switch --flake ./.#<HOSTNAME>` to apply your system configuration.
+   - **Note:** If you encounter an error that your config is "dirty", you may need to append the `--impure` flag
 
 ## Secret Management with Sops-Nix
 
-This section describes how to (safely) manage secrets declaratively using sops-nix, and provides examples for both managing secrets in a public repository (along with your configuration) or separately in a private repository (my personal recommendation for added security). 
+This section describes how to (safely) manage secrets declaratively using sops-nix, and provides examples for both managing secrets in a public repository (along with your configuration) or separately in a private repository (my personal recommendation for added security).
 
 ### Sops-Nix Prerequisites
 
@@ -208,34 +207,34 @@ The example below is intended to get you up-and-running with sops-nix in the sim
 1. (If necessary) Generate a key using age:
    1. `mkdir -p ~/.config/sops/age`
    2. `age-keygen -o ~/.config/sops/age/keys.txt`
-      1. When using age, the public key will be output from this command.  This will be required for the next step.
+      1. When using age, the public key will be output from this command. This will be required for the next step.
 2. Copy your age PUBLIC key into a `.sops.yaml` file
-   1. Paste your PUBLIC key under the `keys` list.  For a user with name `bob`, an example would be:
-    ```yaml
-    # .sops.yaml
-    #
-    # This example uses YAML anchors which allows reuse of multiple keys without having to repeat yourself.
-    # Also see https://github.com/Mic92/dotfiles/blob/master/nixos/.sops.yaml for a more complex example.
-    keys:
-      - &bob 2504791468b153b8a3963cc97ba53d1919c5dfd4
-    creation_rules:
-      - path_regex: secrets/[^/]+\.(yaml|json|env|ini)$
-        key_groups:
-        - age:
-          - *bob
-    ```
-    * **Note:** the location of this file will depend on whether you are storing secrets locally (in the same repo as your config), or in a separate private repository (as described in the following section).
-      * For an example of the resulting file using local encryption, see [.sops.yaml](.sops.yaml)
-      * For details on using a separate private repo, see [Option 2 - Sops-Nix with Secrets Stored in a Private Repo](#option-2---sops-nix-with-secrets-stored-in-a-private-repo)
+   1. Paste your PUBLIC key under the `keys` list. For a user with name `bob`, an example would be:
+   ```yaml
+   # .sops.yaml
+   #
+   # This example uses YAML anchors which allows reuse of multiple keys without having to repeat yourself.
+   # Also see https://github.com/Mic92/dotfiles/blob/master/nixos/.sops.yaml for a more complex example.
+   keys:
+     - &bob 2504791468b153b8a3963cc97ba53d1919c5dfd4
+   creation_rules:
+     - path_regex: secrets/[^/]+\.(yaml|json|env|ini)$
+       key_groups:
+         - age:
+             - *bob
+   ```
+   - **Note:** the location of this file will depend on whether you are storing secrets locally (in the same repo as your config), or in a separate private repository (as described in the following section).
+     - For an example of the resulting file using local encryption, see [.sops.yaml](.sops.yaml)
+     - For details on using a separate private repo, see [Option 2 - Sops-Nix with Secrets Stored in a Private Repo](#option-2---sops-nix-with-secrets-stored-in-a-private-repo)
 3. After configuring .sops.yaml, you can open a new secrets file with sops:
    1. `nix-shell -p sops --run "sops secrets/secrets.yaml"`
       1. Define the secrets (optionally with a hierarchy). Once saved, the contents will be encrypted with sops-nix and safe for commitment to VCS.
-      * For an example of the resulting encrypted file, see [./secrets/secrets.yaml](secrets/secrets.yaml)
+      - For an example of the resulting encrypted file, see [./secrets/secrets.yaml](secrets/secrets.yaml)
 4. For _each_ secret the host requires, you will need a corresponding secret declaration in the form of `sops.secrets."SECRET-NAME" = { };`
-     * [Example:](./hosts/desktop-nix/default.nix#L33) ```sops.secrets."hello_world" = { }; # Example secret. Will be mounted at /run/secrets/hello_world```
-     * If specifying secrets for users, the special flag `neededForUsers = true;` must be set on the corresponding secret. This will cause the secret to be mounted at `/run/secrets-for-users` such that it can be utilized during initial user creation.
-      * Example can be seen in [./hosts/desktop-nix/default.nix line 33](./hosts/desktop-nix/default.nix#L33):
-         * ```sops.secrets.user_password_hashed.neededForUsers = true;```
+   - [Example:](./hosts/desktop-nix/default.nix#L33) `sops.secrets."hello_world" = { }; # Example secret. Will be mounted at /run/secrets/hello_world`
+   - If specifying secrets for users, the special flag `neededForUsers = true;` must be set on the corresponding secret. This will cause the secret to be mounted at `/run/secrets-for-users` such that it can be utilized during initial user creation.
+   - Example can be seen in [./hosts/desktop-nix/default.nix line 33](./hosts/desktop-nix/default.nix#L33):
+     - `sops.secrets.user_password_hashed.neededForUsers = true;`
 
 #### Option 1 - Sops-Nix with Secrets Stored Locally (In the Same Repo)
 
@@ -244,26 +243,26 @@ You are now ready to deploy your secrets to your machine. If you are satisfied u
 5. To deploy your secrets, simply run a rebuild!
    1. `sudo nixos-rebuild switch --flake ./nixos-config/.#<HOSTNAME>`
 
-
 #### Option 2 - Sops-Nix with Secrets Stored in a Private Repo
 
-You are now ready to deploy your secrets to your machine.  If you are particularly security-conscious (like me), or your organization has secutiy and/or compliance standards prohibiting storage of secrets in VCS (even if they are encrypted), you can store sops-nix secrets in a separate private repository.  
+You are now ready to deploy your secrets to your machine. If you are particularly security-conscious (like me), or your organization has secutiy and/or compliance standards prohibiting storage of secrets in VCS (even if they are encrypted), you can store sops-nix secrets in a separate private repository.
 
 The following steps describe how deploy secrets stored in a (separate) private repo. It is assumed that you have completed the [Sops-Nix Prerequisites](#sops-nix-prerequisites) and already generated your `.sops.yaml` and `secrets.yaml` files:
 
 5. Create a private repository to store your secrets.
-   * In my case, I created the following repo: `https://github.com/psiri/nixos-secrets`
-6. The repository needs only contain the `.sops.yaml` and `secrets.yaml` files generated in the prerequisites steps above.  
-   1. Move the `.sops.yaml` and (encrypted) `secrets.yaml` files into the private repo.  A basic repo structure may look as follows:
-    ```bash
+   - In my case, I created the following repo: `https://github.com/psiri/nixos-secrets`
+6. The repository needs only contain the `.sops.yaml` and `secrets.yaml` files generated in the prerequisites steps above.
+   1. Move the `.sops.yaml` and (encrypted) `secrets.yaml` files into the private repo. A basic repo structure may look as follows:
+   ```bash
    # Example repo for private secrets management
    .
    ├── README.md
    ├── secrets
    │   └── secrets.yaml
    └── .sops.yaml
-    ```
+   ```
 7. Add the following lines to `inputs` within `flake.nix` to tell NixOS where to pull your private secrets from:
+
    ```nix
    # ./flake.nix
 
@@ -273,45 +272,46 @@ The following steps describe how deploy secrets stored in a (separate) private r
       flake = false;
    };
    ```
-    * For a working reference example, refer to: [flake.nix](./flake.nix#L33-L37)
+
+   - For a working reference example, refer to: [flake.nix](./flake.nix#L33-L37)
+
 8. Update the `sops.defaultSopsFile` setting to point to the private repository
-   1. ```nix sops.defaultSopsFile = "${builtins.toString inputs.private-secrets}/secrets/secrets.yaml";```
+   1. `nix sops.defaultSopsFile = "${builtins.toString inputs.private-secrets}/secrets/secrets.yaml";`
       1. For a working reference example, refer to: [hosts/fw16-nix/default.nix](./hosts/fw16-nix/default.nix#L74-L82)
-   * **Note:** When building for the first time, you will be prompted for authentication to the private repo.  While you can use basic authentication, a PAT is recommended.  Alternatively, you can also clone using SSH.
-   * **Note:** If there are changes to the repo, run `nix flake lock --update-input private-secrets` to ensure the flake is update to point to the latest commit
+   - **Note:** When building for the first time, you will be prompted for authentication to the private repo. While you can use basic authentication, a PAT is recommended. Alternatively, you can also clone using SSH.
+   - **Note:** If there are changes to the repo, run `nix flake lock --update-input private-secrets` to ensure the flake is update to point to the latest commit
 
 ### Sops-Nix Useful Examples:
 
-The following are real-world examples of using sops-nix to inject secrets at build time.  I am including them here, as documentation and examples of these solutions were tough to come by in my research.
+The following are real-world examples of using sops-nix to inject secrets at build time. I am including them here, as documentation and examples of these solutions were tough to come by in my research.
 
-* Managing network configurations without exposing any network details, credentials, routes, or metadata. Ex: [./hosts/fw16-nix/network-manager.nix](./hosts/fw16-nix/network-manager.nix)
-  * Includes wired connections, wireless connections (WPA2/3 with 802.11X), and Wireguard connections. 
-  * Strategy: Each networkmanager connection profile is configured using a unique sops-nix template.  The template is rendered during build time with the required credentials, and given the appropriate ownership / permissions via explicit sops-nix template settings.
-* `.gitconfig` management. Ex: [./home/git/default.nix](./home/git/default.nix)
-  * Strategy: Manages the entire `.gitconfig` file as a single secret within sops-nix.  A sops template is then used to deploy the `.gitconfig` file with appropriate ownership and permissions.
-    * As opposed the the first example, you can also treat the entire configuration file as a single secret if you prefer to minimize the number of secrets.
-
+- Managing network configurations without exposing any network details, credentials, routes, or metadata. Ex: [./hosts/fw16-nix/network-manager.nix](./hosts/fw16-nix/network-manager.nix)
+  - Includes wired connections, wireless connections (WPA2/3 with 802.11X), and Wireguard connections.
+  - Strategy: Each networkmanager connection profile is configured using a unique sops-nix template. The template is rendered during build time with the required credentials, and given the appropriate ownership / permissions via explicit sops-nix template settings.
+- `.gitconfig` management. Ex: [./home/git/default.nix](./home/git/default.nix)
+  - Strategy: Manages the entire `.gitconfig` file as a single secret within sops-nix. A sops template is then used to deploy the `.gitconfig` file with appropriate ownership and permissions.
+    - As opposed the the first example, you can also treat the entire configuration file as a single secret if you prefer to minimize the number of secrets.
 
 ## Disko
 
-This section describes how to use disko for declarative disk layout, partitioning, and file system configuration.  
+This section describes how to use disko for declarative disk layout, partitioning, and file system configuration.
 
-[Disko](https://github.com/nix-community/disko) is a NixOS flake aimed at closing the gaps in what Nix does not natively manage declaratively - disk partitioning and formatting.  Disko is especially useful for enabling fully-automated, unattended installations where no human interraction is possible.
+[Disko](https://github.com/nix-community/disko) is a NixOS flake aimed at closing the gaps in what Nix does not natively manage declaratively - disk partitioning and formatting. Disko is especially useful for enabling fully-automated, unattended installations where no human interraction is possible.
 
 Currently disko supports:
 
-   * **Disk layouts:** GPT, MBR, and mixed.
-   * **Partition tools:** LVM, mdadm, LUKS, and more.
-   * **Filesystems:** ext4, btrfs, ZFS, bcachefs, tmpfs, and others.
-
+- **Disk layouts:** GPT, MBR, and mixed.
+- **Partition tools:** LVM, mdadm, LUKS, and more.
+- **Filesystems:** ext4, btrfs, ZFS, bcachefs, tmpfs, and others.
 
 #### Configure Disko
 
 1. Add disko to your [`flake.nix` inputs and outputs:](./flake.nix#L4-L52)
+
    ```nix
    # ./flake.nix
 
-   inputs = { 
+   inputs = {
       # ... omitted for brevity
       disko = {
          url = "github:nix-community/disko";
@@ -325,7 +325,9 @@ Currently disko supports:
       ...
    }
    ```
+
 2. Call the disko module from your respective [nixosConfigurations in flake.nix](./flake.nix#L89-L170)
+
    ```nix
    # ./flake.nix
 
@@ -337,35 +339,40 @@ Currently disko supports:
          disko.nixosModules.disko                     # Calls the disko module
          sops-nix.nixosModules.sops
          hardware.nixosModules.framework-16-7040-amd
-         impermanence.nixosModules.impermanence       
+         impermanence.nixosModules.impermanence
       ];
    };
    ```
+
 3. Define your disk configuration declaratively. In virtually any real-world scanario, this will be done on a host-by-host basis, thus I'd recommend placing the respective configuration within the host-specific subdirectory (`./hosts/HOSTNAME/disko-config.nix`).
-   * :information_source: [Disko quickstart guide](https://github.com/nix-community/disko/blob/master/docs/quickstart.md)
-   * :information_source: For reference configurations specific to your selected disk layout, parition scheme, and file systems, refer to [disko's official example configurations](https://github.com/nix-community/disko/tree/master/example)
-   * :notebook_with_decorative_cover: For a working example of my configuration (encrypted ZFS with datasets for /, /persist, /nix, and /home) refer to: [./hosts/fw16-nix/disko-config.nix](./hosts/fw16-nix/disko-config.nix)
-   * :warning: Depending on your chosen filesystem (ZFS and BTRFS specifically), you may need to take extra steps to ensure your configuration defines an initial "blank" snapshot.  The `postCreateHook` suboption can be useful for doing this declaratively: 
-      ```nix
-      # ./hosts/HOSTNAME/disko-config.nix
 
-      psstCreateHook = "(zfs list -t snapshot -H -o name | grep -E '^zroot/encrypted/root@blank$' || zfs snapshot zroot/encrypted/root@blank) && (zfs list -t snapshot -H -o name | grep -E '^zroot/encrypted/home@blank$' || zfs snapshot zroot/encrypted/home@blank)";
-      ``` 
-   * :exclamation: Although the above solution enables disko to automatically create the blank snapshot(s), for non-tmpfs filesystems you will also need a means by which to ensure the filesystem(s) are reverted to this blank snapshot every boot. If you are interested in configuring impermanence, see [Impermanence Prerequisites](#impermanence-prerequisites) below for details on how to achieve root filesystem wipes. 
+   - :information_source: [Disko quickstart guide](https://github.com/nix-community/disko/blob/master/docs/quickstart.md)
+   - :information_source: For reference configurations specific to your selected disk layout, parition scheme, and file systems, refer to [disko's official example configurations](https://github.com/nix-community/disko/tree/master/example)
+   - :notebook_with_decorative_cover: For a working example of my configuration (encrypted ZFS with datasets for /, /persist, /nix, and /home) refer to: [./hosts/fw16-nix/disko-config.nix](./hosts/fw16-nix/disko-config.nix)
+   - :warning: Depending on your chosen filesystem (ZFS and BTRFS specifically), you may need to take extra steps to ensure your configuration defines an initial "blank" snapshot. The `postCreateHook` suboption can be useful for doing this declaratively:
 
+     ```nix
+     # ./hosts/HOSTNAME/disko-config.nix
+
+     psstCreateHook = "(zfs list -t snapshot -H -o name | grep -E '^zroot/encrypted/root@blank$' || zfs snapshot zroot/encrypted/root@blank) && (zfs list -t snapshot -H -o name | grep -E '^zroot/encrypted/home@blank$' || zfs snapshot zroot/encrypted/home@blank)";
+     ```
+
+   - :exclamation: Although the above solution enables disko to automatically create the blank snapshot(s), for non-tmpfs filesystems you will also need a means by which to ensure the filesystem(s) are reverted to this blank snapshot every boot. If you are interested in configuring impermanence, see [Impermanence Prerequisites](#impermanence-prerequisites) below for details on how to achieve root filesystem wipes.
 
 ## Impermanence
 
-This section describes how to enable impermanence.  
+This section describes how to enable impermanence.
 
-[Impermanence](https://github.com/nix-community/impermanence) is a NixOS flake which aims to make your system (_almost_ completely) ephemeral.  Impermanence is implemented in conjunction with a means of wiping or "rolling back" your system configuration such that all files and directories you don't explicitly declare as "persistent" are wiped out every reboot.
-
+[Impermanence](https://github.com/nix-community/impermanence) is a NixOS flake which aims to make your system (_almost_ completely) ephemeral. Impermanence is implemented in conjunction with a means of wiping or "rolling back" your system configuration such that all files and directories you don't explicitly declare as "persistent" are wiped out every reboot.
 
 #### Impermanence Prerequisites
+
 To configure impermanence, you will need need the following, at minimum:
 
 1. At least one mounted volume where the files and directories you want to keep are stored permanently.
-   * In our case, the ZFS dataset (encrypted/persist) mounted at `/persist` will satisfy this requirement. Reference config: [./hosts/fw16-nix/disko-config.nix](./hosts/fw16-nix/disko-config.nix#L59-L63)
+
+   - In our case, the ZFS dataset (encrypted/persist) mounted at `/persist` will satisfy this requirement. Reference config: [./hosts/fw16-nix/disko-config.nix](./hosts/fw16-nix/disko-config.nix#L59-L63)
+
    ```nix
    # ./hosts/HOSTNAME/disko-config.nix
 
@@ -375,36 +382,40 @@ To configure impermanence, you will need need the following, at minimum:
       mountpoint = "/persist";
    };
    ```
-2. At least one of the modules in the disko repository, which take care of linking or bind mounting files between the persistent storage mount point and the root file system
-   * In our case, we will import the disko flake. Configuration details are provided in the next section.
-3. A root filesystem which somehow gets wiped on reboot.
-   * :warning: The method of deletion / rollback depends on your filesystem and hardware configuration.
-   1. Ensure your host automatically wipes or reverts its root filesystem (at minimum) every boot.  Refer to the examples below depending on your filesystem:
-        * [BTRFS using subvolumes](https://github.com/nix-community/impermanence?tab=readme-ov-file#btrfs-subvolumes)
-        * [ZFS using snapshot rollback](./hosts/fw16-nix/hardware-configuration.nix#L17-L38) (current method employed by this repo)
-          * In the examples contained within this repo, ZFS snapshot rollbacks are utilized to return the root dataset back to its initial (pristine) state. This snapshot is taken right after disko initially partitions the drives and creates filesystems, as described in [Configure Disko Step #3](#configure-disko).
-        * [root on tmpfs](https://elis.nu/blog/2020/05/nixos-tmpfs-as-root/) (Easiest implementation, but has some drawbacks - particularly on systems with limited RAM. I would recommend one of the others)
 
+2. At least one of the modules in the disko repository, which take care of linking or bind mounting files between the persistent storage mount point and the root file system
+   - In our case, we will import the disko flake. Configuration details are provided in the next section.
+3. A root filesystem which somehow gets wiped on reboot.
+   - :warning: The method of deletion / rollback depends on your filesystem and hardware configuration.
+   1. Ensure your host automatically wipes or reverts its root filesystem (at minimum) every boot. Refer to the examples below depending on your filesystem:
+      - [BTRFS using subvolumes](https://github.com/nix-community/impermanence?tab=readme-ov-file#btrfs-subvolumes)
+      - [ZFS using snapshot rollback](./hosts/fw16-nix/hardware-configuration.nix#L17-L38) (current method employed by this repo)
+        - In the examples contained within this repo, ZFS snapshot rollbacks are utilized to return the root dataset back to its initial (pristine) state. This snapshot is taken right after disko initially partitions the drives and creates filesystems, as described in [Configure Disko Step #3](#configure-disko).
+      - [root on tmpfs](https://elis.nu/blog/2020/05/nixos-tmpfs-as-root/) (Easiest implementation, but has some drawbacks - particularly on systems with limited RAM. I would recommend one of the others)
 
 #### Configure Impermanence
+
 With the prerequisites satisfied, perform the following steps to configure impermanence:
 
 1. Add impermanence to your [`flake.nix` inputs and outputs:](./flake.nix#L4-L52)
-      ```nix
-      # ./flake.nix
 
-      inputs = { 
-         # ... omitted for brevity
-         impermanence.url = "github:nix-community/impermanence";
-      }
+   ```nix
+   # ./flake.nix
 
-      outputs = {
-         # ... omitted for brevity
-         impermanence,
-         ...
-      }
-      ```
+   inputs = {
+      # ... omitted for brevity
+      impermanence.url = "github:nix-community/impermanence";
+   }
+
+   outputs = {
+      # ... omitted for brevity
+      impermanence,
+      ...
+   }
+   ```
+
 2. Call the module from your respective [nixosConfigurations in flake.nix](./flake.nix#L89-L170)
+
    ```nix
    # ./flake.nix
 
@@ -413,33 +424,42 @@ With the prerequisites satisfied, perform the following steps to configure imper
       system = "x86_64-Linux";
       modules = [
          ./hosts/fw16-nix                             # > Our host-specific nixos configuration file <
-         disko.nixosModules.disko                     
+         disko.nixosModules.disko
          sops-nix.nixosModules.sops
          hardware.nixosModules.framework-16-7040-amd
          impermanence.nixosModules.impermanence       # Calls the impermanence module
       ];
    };
    ```
+
 3. Define the directories and files which will be marked as persistent
-   * While you could technically define a single impermanence configuration to be used across multiple hosts (for example, at the template level), unless the software setup is identical on each, it's more practical to define an individual config for each host.
+
+   - While you could technically define a single impermanence configuration to be used across multiple hosts (for example, at the template level), unless the software setup is identical on each, it's more practical to define an individual config for each host.
+
    1. Create an `impermanence.nix` file to define persistent files and directories:
-      1. Set the path to your persistent volume.  In the example below,  the path is `/persist`, which was created by `disko` as defined in `./hosts/HOSTNAME/disko-config.nix`
+
+      1. Set the path to your persistent volume. In the example below, the path is `/persist`, which was created by `disko` as defined in `./hosts/HOSTNAME/disko-config.nix`
+
       ```nix
       # ./hosts/HOSTNAME/impermanence.nix
 
       {
          system.activationScripts.createPersist = "mkdir -p /persist";
          environment.persistence."/persist" = {
-         # ... omitted 
+         # ... omitted
          };
       }
       ```
-      2. Within the `environment.persistence."<YOUR-PERSIST-PATH>"` value, you can now declare which directories and files will persist (survive the data wipe / rollback). 
-         * The `environment.persistence."<YOUR-PERSIST-PATH>".users.<USERNAME>` option also allows you to set persistence for the user's home directory. Paths defined under this option are automatically prefixed with with the user’s home directory.
-             * For a working example, refer to [impermanence.nix](./hosts/desktop-nix/impermanence.nix.nix)
-         * :information_source: Refer to the [official impermanence module documentation](https://github.com/nix-community/impermanence?tab=readme-ov-file#module-usage) for additional details
+
+      2. Within the `environment.persistence."<YOUR-PERSIST-PATH>"` value, you can now declare which directories and files will persist (survive the data wipe / rollback).
+         - The `environment.persistence."<YOUR-PERSIST-PATH>".users.<USERNAME>` option also allows you to set persistence for the user's home directory. Paths defined under this option are automatically prefixed with with the user’s home directory.
+           - For a working example, refer to [impermanence.nix](./hosts/desktop-nix/impermanence.nix.nix)
+         - :information_source: Refer to the [official impermanence module documentation](https://github.com/nix-community/impermanence?tab=readme-ov-file#module-usage) for additional details
+
 4. Whever appropriate, import the [impermanence.nix](./hosts/desktop-nix/impermanence.nix.nix) config file you just created.
-   * The example below assumes you have created a per-host `impermance.nix` file within the host-specific subdirectory.  
+
+   - The example below assumes you have created a per-host `impermance.nix` file within the host-specific subdirectory.
+
    ```nix
    # ./hosts/HOSTNAME/default.nix
 
@@ -451,58 +471,59 @@ With the prerequisites satisfied, perform the following steps to configure imper
    ```
 
 #### Test / Validate Impermanence
+
 After configuring impermanence and rebuilding, you can validate impermanence is functioning properly with the following simple test:
 
 1. Create (any) dummy / test file within the root filesystem
-   1. ```sudo touch /impermanence-validation-test.txt```
+   1. `sudo touch /impermanence-validation-test.txt`
 2. Reboot your system
 3. Ensure the dummy / test file has been deleted
-   1. ls / 
+   1. ls /
 
 #### Troubleshooting Impermanence
+
 If your validation test failed, try the following:
-* (ZFS) Ensure that disko successfully created the blank root snapshot:
-  * `zfs list -t snapshot` should display (at least) the blank root snapshot created by the `disko-config.nix` we created in [Configure Disko Step #3](#configure-disko):
+
+- (ZFS) Ensure that disko successfully created the blank root snapshot:
+  - `zfs list -t snapshot` should display (at least) the blank root snapshot created by the `disko-config.nix` we created in [Configure Disko Step #3](#configure-disko):
   ```bash
    NAME                         USED  AVAIL  REFER  MOUNTPOINT
    zroot/encrypted/home@blank    95K      -    98K  -
    zroot/encrypted/root@blank    95K      -    98K  -
   ```
-* (ZFS / BTRFS) Ensure that your configuration contains the necessary customization for automatically rolling-back your snapshot / deleting root, as covered in [Impermanence Prerequisites](#impermanence-prerequisites).
-  * :information_source: I personally had the config defined, but initially missed the simple `boot.initrd.systemd.enable = lib.mkDefault true;` option, so systemd never actually ran the rollback script!
-* (ZFS / BTRFS) Ensure that your rollback / root-wipe script is successfully executed at boot:
-  * Examine journalctl logs.
-   ```
-   psiri@fw16-nix  ~  sudo journalctl
-   # ... omitted
-   May 02 19:50:14 localhost systemd[1]: Starting Rollback root filesystem to a pristine state on boot...
-   May 02 19:50:14 localhost rollback-start[668]:   >> >> rollback complete << <<
-   May 02 19:50:14 localhost systemd[1]: rollback.service: Deactivated successfully.
-   May 02 19:50:14 localhost systemd[1]: Finished Rollback root filesystem to a pristine state on boot.
-   ```
-  * :notebook_with_decorative_cover: If your rollback script contians a message or description, you can simply grep for that. Otherwise it's easiest to use `sudo journalctl | grep "rollback.service"` or `sudo journalctl | grep "Finished Rollback"` to confirm.
+- (ZFS / BTRFS) Ensure that your configuration contains the necessary customization for automatically rolling-back your snapshot / deleting root, as covered in [Impermanence Prerequisites](#impermanence-prerequisites).
+  - :information_source: I personally had the config defined, but initially missed the simple `boot.initrd.systemd.enable = lib.mkDefault true;` option, so systemd never actually ran the rollback script!
+- (ZFS / BTRFS) Ensure that your rollback / root-wipe script is successfully executed at boot:
+  - Examine journalctl logs.
+  ```
+  psiri@fw16-nix  ~  sudo journalctl
+  # ... omitted
+  May 02 19:50:14 localhost systemd[1]: Starting Rollback root filesystem to a pristine state on boot...
+  May 02 19:50:14 localhost rollback-start[668]:   >> >> rollback complete << <<
+  May 02 19:50:14 localhost systemd[1]: rollback.service: Deactivated successfully.
+  May 02 19:50:14 localhost systemd[1]: Finished Rollback root filesystem to a pristine state on boot.
+  ```
+  - :notebook_with_decorative_cover: If your rollback script contians a message or description, you can simply grep for that. Otherwise it's easiest to use `sudo journalctl | grep "rollback.service"` or `sudo journalctl | grep "Finished Rollback"` to confirm.
 
 ## Credits
 
-Although I have finally taken the full Nix plunge (converting all my systems over to NixOs), I am still new and tweaking my config daily.  Along the way I took inspiration (and referenced code) from the following resources:
+Although I have finally taken the full Nix plunge (converting all my systems over to NixOs), I am still new and tweaking my config daily. Along the way I took inspiration (and referenced code) from the following resources:
 
-* :link: [Misterio77](https://github.com/Misterio77/nix-starter-configs) - Fantastic resource for starting out with Nixos flakes.  Well documented with many helpful inline-comments.
-* :link: [kye](https://codeberg.org/kye/nixos) - Absolutely beautiful Hyprland config with an intuitive, modular repo layout that can easily be adapted to your needs.
-
+- :link: [Misterio77](https://github.com/Misterio77/nix-starter-configs) - Fantastic resource for starting out with Nixos flakes. Well documented with many helpful inline-comments.
+- :link: [kye](https://codeberg.org/kye/nixos) - Absolutely beautiful Hyprland config with an intuitive, modular repo layout that can easily be adapted to your needs.
 
 ## Resources
 
 The following are some of the NixOS resources I use constantly:
 
-* :link: [NixOS Package Search](https://search.nixos.org/packages?channel=23.11) - The quickest way to search for packages
-* :link: [NixOS Options Search](https://search.nixos.org/options?channel=23.11) - The quickest way to search for Nix configuration options you might care about
-* :link: [Home Manager Configuration Options](https://nix-community.github.io/home-manager/options.xhtml) - The official Home Manager configuration options documentation.  Contains all Home Manager options.
-* :link: [disko](https://github.com/nix-community/disko) - Official nix-community flake for declarative disk configuration with examples for virtually any disk / partition / file system combination you'd be interested in.
-* :link: [sops-nix](https://github.com/Mic92/sops-nix) - The best option for declarative, version-control-ready secrets management on NixOS.
-* :link: [Impermanence](https://github.com/nix-community/impermanence) - Official nix-community flake for creating ephemeral (impermanent) NixOS systems. Supports opt-in state persistence for critical files and directories.
-* :link: [erase-your-darlings blog by grahamc](https://grahamc.com/blog/erase-your-darlings) - Fantastic blog on immpermanence with ZFS.
-
+- :link: [NixOS Package Search](https://search.nixos.org/packages?channel=23.11) - The quickest way to search for packages
+- :link: [NixOS Options Search](https://search.nixos.org/options?channel=23.11) - The quickest way to search for Nix configuration options you might care about
+- :link: [Home Manager Configuration Options](https://nix-community.github.io/home-manager/options.xhtml) - The official Home Manager configuration options documentation. Contains all Home Manager options.
+- :link: [disko](https://github.com/nix-community/disko) - Official nix-community flake for declarative disk configuration with examples for virtually any disk / partition / file system combination you'd be interested in.
+- :link: [sops-nix](https://github.com/Mic92/sops-nix) - The best option for declarative, version-control-ready secrets management on NixOS.
+- :link: [Impermanence](https://github.com/nix-community/impermanence) - Official nix-community flake for creating ephemeral (impermanent) NixOS systems. Supports opt-in state persistence for critical files and directories.
+- :link: [erase-your-darlings blog by grahamc](https://grahamc.com/blog/erase-your-darlings) - Fantastic blog on immpermanence with ZFS.
 
 ## Other Tips
 
-* [Zoom screen-sharing guide](./overlays/zoom/README.md): A guide for reliably getting screen-sharing to work under Zoom (and other collaboration apps). Applicable to both NixOS and other Wayland-based distros.
+- [Zoom screen-sharing guide](./overlays/zoom/README.md): A guide for reliably getting screen-sharing to work under Zoom (and other collaboration apps). Applicable to both NixOS and other Wayland-based distros.

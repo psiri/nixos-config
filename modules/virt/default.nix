@@ -15,8 +15,8 @@
         package = pkgs.qemu_kvm;
         swtpm.enable = true;
         swtpm.package = pkgs.swtpm;
-        ovmf.enable = true;
-        ovmf.packages = [ pkgs.OVMFFull.fd ];
+        #ovmf.enable = true; # No longer required, bundled with QEMU
+        #ovmf.packages = [ pkgs.OVMFFull.fd ];
       };
     };
     spiceUSBRedirection.enable = true;

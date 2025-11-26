@@ -203,10 +203,19 @@ windowrulev2 = opacity 1.0 1.0 override,title:^(.*)( - Netflix)(.*)$  # Disables
 windowrulev2 = nodim,title:^(.*)( - Netflix)(.*)$                     # Disables dimming of any Netflix windows (regardless what browser they're running in)
 windowrulev2 = opacity 1.0 1.0 override,title:^(.*)( Twitch - )(.*)$  # Disables opacity of any Twitch windows (regardless what browser they're running in)
 windowrulev2 = nodim,title:^(.*)( Twitch - )(.*)$                     # Disables dimming of any Twitch windows (regardless what browser they're running in)
+# flameshot multi-display fix
+# moves the window to x0, y0 on the screen
+windowrulev2=move 0 0,class:(flameshot),title:(flameshot)
+# shows the window on all workspaces
+windowrulev2=pin,class:(flameshot),title:(flameshot)
+# tell the application it's in fullscreen mode
+windowrulev2=fullscreenstate,class:(flameshot),title:(flameshot)
+# force the window to be floating ( not in a tiled pane )
+windowrulev2=float,class:(flameshot),title:(flameshot)
 
 # Screenshots
-# Screenshot a region
-bind = CTRL SHIFT, P, exec, hyprshot -m region --clipboard-only
+bind = CTRL SHIFT, P, exec, flameshot gui 
+#bind = CTRL SHIFT, P, exec, hyprshot -m region --clipboard-only
 #bind = , print, exec, grim $HOME/Pictures/Screenshots/$(date +'%b-%d-%Y_%H-%M-%S_%p.png')
 #bind = CTRL, print, exec, grim -g "$(slurp -o)" $HOME/Pictures/Screenshots/$(date +'%b-%d-%Y_%H-%M-%S_%p.png')
 #bind = CTRL SHIFT, P, exec, grim -g "$(slurp)" $HOME/Pictures/Screenshots/$(date +'%b-%d-%Y_%H-%M-%S_%p.png')
