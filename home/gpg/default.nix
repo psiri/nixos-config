@@ -8,7 +8,7 @@
   programs.gnupg = {
     agent = {
       enable = true;
-      pinentryPackage = pkgs.pinentry; # Note: Tried specifying different packages, but this was the only method I could get the GPG password prompt to reliably appear under apps like VS Code
+      pinentryPackage = pkgs.pinentry-tty; # Note: Tried specifying different packages, but this was the only method I could get the GPG password prompt to reliably appear under apps like VS Code
     };
   };
 
