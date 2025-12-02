@@ -35,12 +35,28 @@
         cursor_shape = "beam";
         cursor_beam_thickness = "2.0";
         cursor_blink_interval = "0.5";
+        startup_session = "startup.session";
         strip_trailing_spaces = "always";
-        extraCofig = ''
+        extraConfig = ''
           symbol_map U+E0A0-U+E0A3,U+E0C0-U+E0C7 PowerlineSymbols
         '';
       };
     };
+    xdg.configFile."kitty/startup.session".text = ''
+      # Tab 1: Home
+      cd ~
+      launch 
+
+      # Tab 2: Downloads
+      new_tab Downloads
+      cd ~/Downloads
+      launch
+
+      # Tab 3: Documents
+      new_tab Documents
+      cd ~/Documents
+      launch
+    '';
     home.file.".config/hypr/per-app/kitty.conf" = {
       text = ''
         windowrulev2 = opacity 0.8 0.8, class:^(kitty)$
