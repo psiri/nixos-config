@@ -21,8 +21,8 @@ let
           <feature enabled="no" name="enrolled-keys"/>
           <feature enabled="yes" name="secure-boot"/>
         </firmware>
-        <loader readonly="yes" secure="yes" type="pflash" format="raw">${ovmfPackage.fd}/FV/OVMF_CODE.fd</loader>
-        <nvram template="${ovmfPackage.fd}/FV/OVMF_VARS.fd" templateFormat="raw" format="raw">/var/lib/libvirt/qemu/nvram/win11_VARS.fd</nvram>
+        <loader readonly="yes" secure="yes" type="pflash" format="raw">${pkgs.OVMFFull.fd}/FV/OVMF_CODE.fd</loader>
+        <nvram template="${pkgs.OVMFFull.fd}/FV/OVMF_VARS.fd" templateFormat="raw" format="raw">/var/lib/libvirt/qemu/nvram/win11_VARS.fd</nvram>
         <boot dev="hd"/>
       </os>
       <features>
