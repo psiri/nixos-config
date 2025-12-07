@@ -8,7 +8,7 @@
     enable = true;
     settings = {
       color.ui = true;
-      #credential.helper = "libsecret";   # OR "store"  # What is the most secure option?
+      credential.helper = "store     ";   # libsecret OR "store"  # What is the most secure option?
       core.askPass = "";                  # "" = use terminal to ask pass
       github.user = "psiri";              # FIXME - Change to your Git username
       init.defaultBranch = "main";

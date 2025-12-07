@@ -15,6 +15,7 @@ in
       nix-colors.homeManagerModules.default
       ./per-device.nix             # per device hypr configuration
       ./hardware-configuration.nix # device-specific hardware configuration
+      ./vms.nix                    # device-specific VM and Container configs
       ../standard.nix              # standard or server config template
       ./network-manager.nix        # device-specific configurations for networkmanager with rendered secrets
       #../../home/barrier          # Does not support Wayland
