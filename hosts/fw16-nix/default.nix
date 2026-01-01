@@ -105,15 +105,15 @@ in
     environment = {
       systemPackages = with pkgs; [
         age
-        qmk
-        qmk-udev-rules
+        #qmk # temporarily comment-out due to dfu-programmer dependency issue preventing builds
+        #qmk-udev-rules
         sops
 
         # Framework specific packages
         framework-tool
         linuxKernel.packages.linux_zen.framework-laptop-kmod
       ];
-      shellAliases.rebuild = "sudo rm -rf /tmp/dotfiles && sudo git clone --branch 0.0.5 https://github.com/psiri/nixos-config /tmp/dotfiles && sudo nixos-rebuild switch --flake /tmp/dotfiles/.#fw16-nix --impure";
+      shellAliases.rebuild = "sudo rm -rf /tmp/dotfiles && sudo git clone --branch 0.2.1 https://github.com/psiri/nixos-config /tmp/dotfiles && sudo nixos-rebuild switch --flake /tmp/dotfiles/.#fw16-nix --impure";
     };
 
     services = {
