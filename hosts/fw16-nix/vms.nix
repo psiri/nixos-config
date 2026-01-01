@@ -1,6 +1,20 @@
 { config, pkgs, ... }:
 
 let
+  # Define Network XML
+  netXml = pkgs.writeText "wired.xml" ''
+    <network>
+      <name>wired</name>
+      <forward mode='nat'/>
+      <bridge name='virbr-wired' stp='on' delay='0'/>
+      <ip address='10.0.250.1' netmask='255.255.255.0'>
+        <dhcp>
+          <range start='10.0.250.101' end='10.0.250.250'/>
+        </dhcp>
+      </ip>
+    </network>
+  '';
+
   # Define VM XML file with nix interpolations for store paths
   #   then use pkgs.writeText to create the XML file in the Nix store.
   vmXml = pkgs.writeText "win11.xml" ''
@@ -15,12 +29,8 @@ let
       <memory unit="KiB">16777216</memory>
       <currentMemory unit="KiB">16777216</currentMemory>
       <vcpu placement="static">4</vcpu>
-      <os firmware="efi">
-        <type arch="x86_64" machine="pc-q35-9.2">hvm</type>
-        <firmware>
-          <feature enabled="no" name="enrolled-keys"/>
-          <feature enabled="yes" name="secure-boot"/>
-        </firmware>
+      <os>
+        <type arch="x86_64" machine="q35">hvm</type>
         <loader readonly="yes" secure="yes" type="pflash" format="raw">${pkgs.OVMFFull.fd}/FV/OVMF_CODE.fd</loader>
         <nvram template="${pkgs.OVMFFull.fd}/FV/OVMF_VARS.fd" templateFormat="raw" format="raw">/var/lib/libvirt/qemu/nvram/win11_VARS.fd</nvram>
         <boot dev="hd"/>
@@ -98,7 +108,14 @@ in
     serviceConfig = {
       Type = "oneshot";
       # Define the VM. If it exists, it updates the config.
-      ExecStart = "${pkgs.libvirt}/bin/virsh define ${vmXml}";
+      ExecStart = let
+        setupScript = pkgs.writeShellScript "define-vms" ''
+          ${pkgs.libvirt}/bin/virsh net-define ${netXml}
+          ${pkgs.libvirt}/bin/virsh net-autostart wired
+          ${pkgs.libvirt}/bin/virsh net-start wired || true
+          ${pkgs.libvirt}/bin/virsh define ${vmXml}
+        '';
+      in "${setupScript}";
     };
   };
 }

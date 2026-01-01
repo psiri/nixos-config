@@ -10,6 +10,7 @@
   # ZSH with powerlevel10k plugin
 
   programs.zsh = {
+    dotDir = config.home.homeDirectory;
     enable = true;
     enableBashCompletion = true;
     enableCompletion = true;

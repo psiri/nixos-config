@@ -75,10 +75,20 @@
       cd ~/.aws
       launch --env KITTY_TAB_HISTORY=${histPath}/ssm-history
 
-      # Tab 5: TFL
+      # Tab 5: TS
+      new_tab TS
+      cd ~
+      launch --env KITTY_TAB_HISTORY=${histPath}/ts-history
+
+      # Tab 6: TFL
       new_tab TFL
       cd ~
       launch --env KITTY_TAB_HISTORY=${histPath}/tfl-history
+
+      # Tab 7: VPN
+      new_tab VPN
+      cd ~
+      launch --env KITTY_TAB_HISTORY=${histPath}/vpn-history
     '';
     home.file.".config/hypr/per-app/kitty.conf" = {
       text = ''
