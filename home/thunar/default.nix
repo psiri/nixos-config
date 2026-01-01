@@ -9,10 +9,10 @@
 }: {
   programs.thunar = {
     enable = true;
-    plugins = with pkgs.xfce; [
-      thunar-archive-plugin
-      thunar-volman
-    ];
+    # plugins = with pkgs.xfce; [
+    #   thunar-archive-plugin # moved to top-level package "thunar-archive-plugin"
+    #   thunar-volman         # moved to top-level package "thunar-volman"
+    # ];
   };
   services = {
     gvfs = {

@@ -10,7 +10,7 @@
   # ZSH with powerlevel10k plugin
 
   programs.zsh = {
-    dotDir = config.home.homeDirectory;
+    #dotDir = "${config.xdg.configHome}/zsh";
     enable = true;
     enableBashCompletion = true;
     enableCompletion = true;

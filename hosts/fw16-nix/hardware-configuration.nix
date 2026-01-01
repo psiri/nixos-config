@@ -67,8 +67,9 @@
     #"pci-stub.ids=1002:7480,1002:ab30"
     "mem_sleep_default=deep" # Fix for AMD-related power-draw while syspended/sleeping
   ];
-  boot.kernelPackages = pkgs.linuxPackages_6_17; #config.boot.zfs.package.latestCompatibleLinuxPackages; 
+  boot.kernelPackages = pkgs.linuxPackages_6_18;
   boot.extraModulePackages = with config.boot.kernelPackages; [ v4l2loopback ];# Used for OBS virtual cameras as Zoom screen sharing workaround
+  boot.zfs.package = pkgs.zfs_2_4; # Explicitly specify kernel 6.18-compatible ZFS package
 
   swapDevices = [ ];
 

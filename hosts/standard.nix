@@ -305,6 +305,8 @@
       terraform-docs
       terraform-ls
       tfsec
+      thunar-archive-plugin
+      thunar-volman
       tree
       unzip
       usbutils # usb thing
