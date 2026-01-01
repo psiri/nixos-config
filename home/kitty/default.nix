@@ -8,6 +8,11 @@
   ...
 }: {
   home-manager.users.${user} = {
+
+    # Ensure the history directory exists
+    xdg.configFile."kitty/history/.keep".text = "";
+
+
     programs.kitty = {
       enable = true;
       settings = {
@@ -35,12 +40,56 @@
         cursor_shape = "beam";
         cursor_beam_thickness = "2.0";
         cursor_blink_interval = "0.5";
+        startup_session = "startup.session";
         strip_trailing_spaces = "always";
-        extraCofig = ''
+        extraConfig = ''
           symbol_map U+E0A0-U+E0A3,U+E0C0-U+E0C7 PowerlineSymbols
         '';
+
+        # INCREASED SCROLLBACK: Keep 100,000 lines in memory (approx 10MB)
+        scrollback_lines = 100000;
       };
     };
+    # --- SESSION CONFIGURATION ---
+    # Set per-tab session history using individual history files.
+    # zsh programs.zsh.initContent script is responsible for automatically switching to the respective hitory file
+    xdg.configFile."kitty/startup.session".text = let
+      histPath = "/home/${user}/.config/kitty/history";
+    in ''
+      # Tab 1: Home
+      cd ~
+      launch
+
+      # Tab 2: Downloads
+      new_tab Downloads
+      cd ~/Downloads
+      launch --env KITTY_TAB_HISTORY=${histPath}/downloads-history
+
+      # Tab 3: Documents
+      new_tab Documents
+      cd ~/Documents
+      launch --env KITTY_TAB_HISTORY=${histPath}/documents-history
+
+      # Tab 4: SSM
+      new_tab SSM
+      cd ~/.aws
+      launch --env KITTY_TAB_HISTORY=${histPath}/ssm-history
+
+      # Tab 5: TS
+      new_tab TS
+      cd ~
+      launch --env KITTY_TAB_HISTORY=${histPath}/ts-history
+
+      # Tab 6: TFL
+      new_tab TFL
+      cd ~
+      launch --env KITTY_TAB_HISTORY=${histPath}/tfl-history
+
+      # Tab 7: VPN
+      new_tab VPN
+      cd ~
+      launch --env KITTY_TAB_HISTORY=${histPath}/vpn-history
+    '';
     home.file.".config/hypr/per-app/kitty.conf" = {
       text = ''
         windowrulev2 = opacity 0.8 0.8, class:^(kitty)$

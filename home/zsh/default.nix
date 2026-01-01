@@ -10,6 +10,7 @@
   # ZSH with powerlevel10k plugin
 
   programs.zsh = {
+    #dotDir = "${config.xdg.configHome}/zsh";
     enable = true;
     enableBashCompletion = true;
     enableCompletion = true;
@@ -49,6 +50,22 @@
       bindkey '^[[A' history-substring-search-up
       bindkey '^[OB' history-substring-search-down
       bindkey '^[[B' history-substring-search-down
+
+      # If Kitty passed a specific history file, switch to it now
+      if [[ -n "$KITTY_TAB_HISTORY" ]]; then
+        # Ensure the custom history file exists
+        if [[ ! -f "$KITTY_TAB_HISTORY" ]]; then
+          touch "$KITTY_TAB_HISTORY"
+        fi
+        
+        # 'fc -p' switches history to the new file and clears the previous (global) history from memory.
+        # Usage: fc -p [file] [histsize] [savehist]
+        fc -p "$KITTY_TAB_HISTORY" 50000 50000
+        
+        # Ensure commands are written immediately, not just on exit
+        setopt INC_APPEND_HISTORY
+        setopt SHARE_HISTORY
+      fi
     '';
     plugins = [
       {

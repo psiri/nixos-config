@@ -15,6 +15,7 @@ in
       nix-colors.homeManagerModules.default
       ./per-device.nix             # per device hypr configuration
       ./hardware-configuration.nix # device-specific hardware configuration
+      ./vms.nix                    # device-specific VM and Container configs
       ../standard.nix              # standard or server config template
       ./network-manager.nix        # device-specific configurations for networkmanager with rendered secrets
       #../../home/barrier          # Does not support Wayland
@@ -104,15 +105,15 @@ in
     environment = {
       systemPackages = with pkgs; [
         age
-        qmk
-        qmk-udev-rules
+        #qmk # temporarily comment-out due to dfu-programmer dependency issue preventing builds
+        #qmk-udev-rules
         sops
 
         # Framework specific packages
         framework-tool
         linuxKernel.packages.linux_zen.framework-laptop-kmod
       ];
-      shellAliases.rebuild = "sudo rm -rf /tmp/dotfiles && sudo git clone --branch 0.0.5 https://github.com/psiri/nixos-config /tmp/dotfiles && sudo nixos-rebuild switch --flake /tmp/dotfiles/.#fw16-nix --impure";
+      shellAliases.rebuild = "sudo rm -rf /tmp/dotfiles && sudo git clone --branch 0.2.1 https://github.com/psiri/nixos-config /tmp/dotfiles && sudo nixos-rebuild switch --flake /tmp/dotfiles/.#fw16-nix --impure";
     };
 
     services = {
