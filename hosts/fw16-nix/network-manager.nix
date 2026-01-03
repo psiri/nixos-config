@@ -209,8 +209,15 @@ may-fail=false
 method=manual
 
 [ipv6]
-addr-gen-mode=default
-method=disabled
+dns=${config.sops.placeholder.wired_connection_1_dns_v6}
+# ENABLE PRIVACY: Prefer temporary addresses for outgoing traffic
+ip6-privacy=2
+# STABILITY: Use a stable secret for the permanent address (RFC 7217)
+addr-gen-mode=stable-privacy
+method=auto
+dns-search=${config.sops.placeholder.wired_connection_1_search_domains}
+# Allow connection to succeed even if IPv6 fails (Dual Stack safety)
+may-fail=true
 
 [proxy]
   '';
@@ -235,7 +242,6 @@ ssid=${config.sops.placeholder.wireless_connection_1_ssid}
 [wifi-security]
 key-mgmt=sae
 psk=${config.sops.placeholder.wireless_connection_1_password}
-
 
 [ipv4]
 method=auto

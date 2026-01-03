@@ -42,6 +42,7 @@ in
     # Wired Network Connection 1:
     sops.secrets."wired_connection_1_ip" = { };
     sops.secrets."wired_connection_1_dns" = { };
+    sops.secrets."wired_connection_1_dns_v6" = { };
     sops.secrets."wired_connection_1_search_domains" = { };
     # Wireless Network Connection 1:
     sops.secrets."wireless_connection_1_ssid" = { };
