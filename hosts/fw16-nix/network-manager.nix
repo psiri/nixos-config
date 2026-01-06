@@ -209,12 +209,18 @@ may-fail=false
 method=manual
 
 [ipv6]
+# Reference documentation: https://www.networkmanager.dev/docs/api/1.32.8/settings-ipv6.html
+# Set internal DNS server IPv6 address:
 dns=${config.sops.placeholder.wired_connection_1_dns_v6}
-# ENABLE PRIVACY: Prefer temporary addresses for outgoing traffic
-ip6-privacy=2
-# STABILITY: Use a stable secret for the permanent address (RFC 7217)
-addr-gen-mode=stable-privacy
+ignore-auto-dns=true
+# IPv6 PRIVACY: Intentionally set stable address for use with internal upstream firewall rules
+# possible values: 0 (disabled), 1 (enabled), 2 (prefer temporary address)
+ip6-privacy=0
+# IPv6 Address Generation Mode: Use a stable secret for the permanent address (RFC 7217)
+# possible values: 0 (NM_SETTING_IP6_CONFIG_ADDR_GEN_MODE_EUI64) or 1 (NM_SETTING_IP6_CONFIG_ADDR_GEN_MODE_STABLE_PRIVACY)
+addr-gen-mode=1
 method=auto
+dhcp-send-hostname=TRUE
 dns-search=${config.sops.placeholder.wired_connection_1_search_domains}
 # Allow connection to succeed even if IPv6 fails (Dual Stack safety)
 may-fail=true
