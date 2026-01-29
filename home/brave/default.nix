@@ -12,8 +12,8 @@
   home-manager.users.${user}.home.file.".config/hypr/per-app/brave.conf" = {
     text = ''
       bind = $mainMod, B, exec, brave
-      windowrulev2 = opacity 1.0 1.0, class:^(brave-browser)$   # Disables opacity of Brave windows
-      windowrulev2 = nodim, class:^(brave-browser)$             # Disables dimming of Brave windows
+      windowrule = opacity 1.0 1.0, match:class ^(brave-browser)$   # Disables opacity of Brave windows
+      windowrule = no_dim on, match:class ^(brave-browser)$             # Disables dimming of Brave windows
     '';
   };
 

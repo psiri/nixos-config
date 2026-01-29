@@ -20,8 +20,8 @@
   home-manager.users.${user}.home.file.".config/hypr/per-app/firefox.conf" = {
     text = ''
       bind = $mainMod, F, exec, firefox
-      windowrulev2 = opacity 1.0 1.0, class:^(firefox)$   # Disables opacity of FireFox windows
-      windowrulev2 = nodim, class:^(firefox)$             # Disables dimming of FireFox windows
+      windowrule = opacity 1.0 1.0, match:class ^(firefox)$   # Disables opacity of FireFox windows
+      windowrule = no_dim on, match:class ^(firefox)$         # Disables dimming of FireFox windows
     '';
   };
 

@@ -92,14 +92,11 @@
     '';
     home.file.".config/hypr/per-app/kitty.conf" = {
       text = ''
-        windowrulev2 = opacity 0.8 0.8, class:^(kitty)$
-        windowrulev2 = size 700 300, class:^(kitty)$
-        windowrulev2 = tile, class:^(kitty)$
+        windowrule = opacity 0.8 0.8, match:class ^(kitty)$
+        windowrule = size 700 300, match:class ^(kitty)$
+        windowrule = tile on, match:class ^(kitty)$
         bind = $mainMod, Q, exec, kitty
         bind = control, escape, exec, kitty -e btm
-        #windowrule = tile, title:zsh
-        #windowrule=tile,^(kitty)$
-        #windowrule=tile,title:^(kitty)(.*)$
       '';
     };
   };

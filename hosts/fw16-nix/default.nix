@@ -44,6 +44,8 @@ in
     sops.secrets."wired_connection_1_dns" = { };
     sops.secrets."wired_connection_1_dns_v6" = { };
     sops.secrets."wired_connection_1_search_domains" = { };
+    # Wired Network Connection 2:
+    sops.secrets."wired_connection_2" = { };
     # Wireless Network Connection 1:
     sops.secrets."wireless_connection_1_ssid" = { };
     sops.secrets."wireless_connection_1_anonymous_identity" = { };
