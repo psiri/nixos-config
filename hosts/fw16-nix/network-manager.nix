@@ -226,12 +226,12 @@ may-fail=true
   # SECONDARY WIRED CONNECTION PROFILE #
   ######################################
   # This example treats the entire connection profile config as a single secret
-  sops.templates."bbg-wired-2".path = "/etc/NetworkManager/system-connections/BBG-WIRED-2.nmconnection";
-  sops.templates."bbg-wired-2".owner = "root";
-  sops.templates."bbg-wired-2".mode = "0600";
-  sops.templates."bbg-wired-2".content = ''
-  ${config.sops.placeholder.wired_connection_2}
-  '';
+  # sops.templates."bbg-wired-2".path = "/etc/NetworkManager/system-connections/BBG-WIRED-2.nmconnection";
+  # sops.templates."bbg-wired-2".owner = "root";
+  # sops.templates."bbg-wired-2".mode = "0600";
+  # sops.templates."bbg-wired-2".content = ''
+  # ${config.sops.placeholder.wired_connection_2}
+  # '';
 
   #######################################
   # PRIMARY WIRELESS CONNECTION PROFILE #

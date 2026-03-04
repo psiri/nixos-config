@@ -22,6 +22,10 @@ $menu = ulauncher-toggle
 $VSCODE_APP = codium
 $lockimg =~/Pictures/Wallpaper/4.jpg
 
+ecosystem {
+    no_update_news = true
+}
+
 ############################################# hyprpaper #############################################
 
 # move to wallpaper per device and import

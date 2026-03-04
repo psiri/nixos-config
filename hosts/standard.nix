@@ -145,7 +145,7 @@
     documents = "$HOME/Documents";
     download = "$HOME/Downloads";
     extraConfig = {
-      XDG_SCREENSHOTS_DIR = "$HOME/Pictures/Screenshots"; # Required so that grim can successfully save screenshots if the dir does not already exist
+      SCREENSHOTS = "$HOME/Pictures/Screenshots"; # Required so that grim can successfully save screenshots if the dir does not already exist
     };
     music = "$HOME/Music";
     pictures = "$HOME/Pictures";
@@ -279,6 +279,7 @@
       htop
       iputils
       jq
+      lan-mouse
       libsecret
       lshw # list hardware
       mtr  # better traceroute
@@ -296,7 +297,7 @@
       polkit_gnome
       python3
       (python3.withPackages(ps: with ps; [
-        jq pip requests docker botocore boto3 boto3-stubs jinja2-ansible-filters xmltodict
+        jq pip requests docker botocore boto3 boto3-stubs jinja2-ansible-filters xmltodict pytz regex pillow markdown # lxml python-docx lark python-hcl2 fonttools defusedxml fpdf2
       ]))
       #qt6.qtwayland # SecureCRT dependency
       ssm-session-manager-plugin # AWS Systems Manager Session Manager plugin
