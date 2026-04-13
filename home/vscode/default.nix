@@ -11,6 +11,7 @@
     package = pkgs.vscodium; # pkgs.vscodium or pkgs.vscode (default)
 
     profiles.default.extensions = [
+      pkgs.vscode-extensions.anthropic.claude-code
       pkgs.vscode-extensions.bbenoist.nix
       #pkgs.vscode-extensions.bridgecrew.checkov                   # Does not exist, using workaround solution below
       pkgs.vscode-extensions.saoudrizwan.claude-dev
@@ -254,6 +255,11 @@
       };
       materialTheme = {
         accent = "Teal";
+      };
+      "[claudeCode]" = {
+        disableLoginPrompt = true;
+        preferredLocation = "sidebar";
+        useTerminal = false;
       };
       prismaCloud = {
         assetDetails.AssetName = "vscode-iac-test";
@@ -517,6 +523,9 @@
           visible = true;
         };
       };
+      claudeCode.preferredLocation = "sidebar";
+      claudeCode.disableLoginPrompt = true;
+      claudeCode.useTerminal = false;
     };
   };
 }

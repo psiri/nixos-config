@@ -150,6 +150,7 @@
     music = "$HOME/Music";
     pictures = "$HOME/Pictures";
     videos = "$HOME/Videos";
+    setSessionVariables = true;
   };
 
   fonts = {
@@ -262,7 +263,9 @@
       azure-cli
       brightnessctl
       btop
+      checkov
       cifs-utils
+      claude-code
       curl
       dig
       dnsutils
@@ -305,6 +308,7 @@
       terraform
       terraform-docs
       terraform-ls
+      terrascan
       tfsec
       thunar-archive-plugin
       thunar-volman
