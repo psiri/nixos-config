@@ -10,7 +10,6 @@
   # ZSH with powerlevel10k plugin
 
   programs.zsh = {
-    #dotDir = "${config.xdg.configHome}/zsh";
     enable = true;
     enableBashCompletion = true;
     enableCompletion = true;
@@ -40,6 +39,7 @@
   };
 
   home-manager.users.${user}.programs.zsh = {
+    dotDir = "/home/${user}";
     enable = true;
     autosuggestion.enable  = true;
     enableCompletion = true;

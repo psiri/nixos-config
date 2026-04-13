@@ -14,5 +14,6 @@ in rec {
     #   name = "${config.colorScheme.slug}";
     #   package = gtkThemeFromScheme {scheme = config.colorScheme;};
     # };
+    gtk4.theme = config.home-manager.users.${user}.gtk.theme;
   };
 }
