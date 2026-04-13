@@ -11,7 +11,7 @@
     package = pkgs.vscodium; # pkgs.vscodium or pkgs.vscode (default)
 
     profiles.default.extensions = [
-      pkgs.vscode-extensions.anthropic.claude-code
+      #pkgs.vscode-extensions.anthropic.claude-code
       pkgs.vscode-extensions.bbenoist.nix
       #pkgs.vscode-extensions.bridgecrew.checkov                   # Does not exist, using workaround solution below
       pkgs.vscode-extensions.saoudrizwan.claude-dev
@@ -33,6 +33,12 @@
       pkgs.vscode-extensions.wholroyd.jinja
       pkgs.vscode-extensions.yzhang.markdown-all-in-one
     ] ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
+      {
+        name = "claude-code";
+        publisher = "anthropic";
+        version = "2.1.92";
+        sha256 = "sha256-f+6xXZVb5sYrmrH7eoon6/QoQaTnBuTnb+YnvszqyKA=";
+      }
       # Use below example solution for installing other missing extensions
       # TODO - Material Theme Icons (using another icon pack in the meantime)
       # {

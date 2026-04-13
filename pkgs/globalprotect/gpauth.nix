@@ -12,7 +12,7 @@
 
 rustPlatform.buildRustPackage rec {
   pname = "gpauth";
-  version = "2.4.5";
+  version = "2.5.1";
 
   src = fetchFromGitHub {
     owner = "yuezk";
