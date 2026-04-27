@@ -189,6 +189,7 @@ method=disabled
   ####################################
   # PRIMARY WIRED CONNECTION PROFILE #
   ####################################
+  # Reference documentation: https://www.networkmanager.dev/docs/api/1.32.8/settings-ipv6.html
   sops.templates."bbg-wired-1".path = "/etc/NetworkManager/system-connections/BBG-WIRED-1.nmconnection";
   sops.templates."bbg-wired-1".owner = "root";
   sops.templates."bbg-wired-1".mode = "0600";
@@ -209,11 +210,28 @@ may-fail=false
 method=manual
 
 [ipv6]
-addr-gen-mode=default
-method=disabled
+addr-gen-mode=stable-privacy
+dns=${config.sops.placeholder.wired_connection_1_dns_v6}
+dns-search=${config.sops.placeholder.wired_connection_1_search_domains}
+dhcp-send-hostname=TRUE
+ignore-auto-dns=true
+ip6-privacy=0
+method=auto
+may-fail=true
 
 [proxy]
   '';
+
+  ######################################
+  # SECONDARY WIRED CONNECTION PROFILE #
+  ######################################
+  # This example treats the entire connection profile config as a single secret
+  # sops.templates."bbg-wired-2".path = "/etc/NetworkManager/system-connections/BBG-WIRED-2.nmconnection";
+  # sops.templates."bbg-wired-2".owner = "root";
+  # sops.templates."bbg-wired-2".mode = "0600";
+  # sops.templates."bbg-wired-2".content = ''
+  # ${config.sops.placeholder.wired_connection_2}
+  # '';
 
   #######################################
   # PRIMARY WIRELESS CONNECTION PROFILE #
@@ -236,9 +254,10 @@ ssid=${config.sops.placeholder.wireless_connection_1_ssid}
 key-mgmt=sae
 psk=${config.sops.placeholder.wireless_connection_1_password}
 
-
 [ipv4]
 method=auto
+dns=${config.sops.placeholder.wired_connection_1_dns}
+may-fail=false
 
 [ipv6]
 addr-gen-mode=default

@@ -22,6 +22,10 @@ $menu = ulauncher-toggle
 $VSCODE_APP = codium
 $lockimg =~/Pictures/Wallpaper/4.jpg
 
+ecosystem {
+    no_update_news = true
+}
+
 ############################################# hyprpaper #############################################
 
 # move to wallpaper per device and import
@@ -197,21 +201,21 @@ bind = $mainMod, P, pseudo, dwindle
 bind = $mainMod SHIFT, J, togglesplit, # dwindle
 
 # Window Rules
-windowrulev2 = opacity 1.0 1.0 override,title:^(.*)( - YouTube)(.*)$  # Disables opacity of any YouTube windows (regardless what browser they're running in)
-windowrulev2 = nodim,title:^(.*)( - YouTube)(.*)$                     # Disables dimming of any YouTube windows (regardless what browser they're running in)
-windowrulev2 = opacity 1.0 1.0 override,title:^(.*)( - Netflix)(.*)$  # Disables opacity of any Netflix windows (regardless what browser they're running in)
-windowrulev2 = nodim,title:^(.*)( - Netflix)(.*)$                     # Disables dimming of any Netflix windows (regardless what browser they're running in)
-windowrulev2 = opacity 1.0 1.0 override,title:^(.*)( Twitch - )(.*)$  # Disables opacity of any Twitch windows (regardless what browser they're running in)
-windowrulev2 = nodim,title:^(.*)( Twitch - )(.*)$                     # Disables dimming of any Twitch windows (regardless what browser they're running in)
+windowrule = opacity 1.0 1.0 override,match:title ^(.*)( - YouTube)(.*)$  # Disables opacity of any YouTube windows (regardless what browser they're running in)
+windowrule = no_dim on, match:title ^(.*)( - YouTube)(.*)$                     # Disables dimming of any YouTube windows (regardless what browser they're running in)
+windowrule = opacity 1.0 1.0 override,match:title ^(.*)( - Netflix)(.*)$  # Disables opacity of any Netflix windows (regardless what browser they're running in)
+windowrule = no_dim on, match:title ^(.*)( - Netflix)(.*)$                     # Disables dimming of any Netflix windows (regardless what browser they're running in)
+windowrule = opacity 1.0 1.0 override,match:title ^(.*)( Twitch - )(.*)$  # Disables opacity of any Twitch windows (regardless what browser they're running in)
+windowrule = no_dim on, match:title ^(.*)( Twitch - )(.*)$                     # Disables dimming of any Twitch windows (regardless what browser they're running in)
 # flameshot multi-display fix
 # moves the window to x0, y0 on the screen
-windowrulev2=move 0 0,class:(flameshot),title:(flameshot)
+windowrule=move 0 0, match:class (flameshot), match:title (flameshot)
 # shows the window on all workspaces
-windowrulev2=pin,class:(flameshot),title:(flameshot)
+windowrule=pin on, match:class (flameshot), match:title (flameshot)
 # tell the application it's in fullscreen mode
-windowrulev2=fullscreenstate,class:(flameshot),title:(flameshot)
+windowrule=fullscreen_state on, match:class (flameshot), match:title (flameshot)
 # force the window to be floating ( not in a tiled pane )
-windowrulev2=float,class:(flameshot),title:(flameshot)
+windowrule=float on, match:class (flameshot), match:title (flameshot)
 
 # Screenshots
 bind = CTRL SHIFT, P, exec, flameshot gui 

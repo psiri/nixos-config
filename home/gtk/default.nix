@@ -10,9 +10,10 @@
 in rec {
   home-manager.users.${user}.gtk = {
     enable = true;
-    theme = {
-      name = "${config.colorScheme.slug}";
-      package = gtkThemeFromScheme {scheme = config.colorScheme;};
-    };
+    # theme = {
+    #   name = "${config.colorScheme.slug}";
+    #   package = gtkThemeFromScheme {scheme = config.colorScheme;};
+    # };
+    gtk4.theme = config.home-manager.users.${user}.gtk.theme;
   };
 }

@@ -11,6 +11,7 @@
     package = pkgs.vscodium; # pkgs.vscodium or pkgs.vscode (default)
 
     profiles.default.extensions = [
+      #pkgs.vscode-extensions.anthropic.claude-code
       pkgs.vscode-extensions.bbenoist.nix
       #pkgs.vscode-extensions.bridgecrew.checkov                   # Does not exist, using workaround solution below
       pkgs.vscode-extensions.saoudrizwan.claude-dev
@@ -32,6 +33,17 @@
       pkgs.vscode-extensions.wholroyd.jinja
       pkgs.vscode-extensions.yzhang.markdown-all-in-one
     ] ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
+      {
+        name = "claude-code";
+        publisher = "anthropic";
+        version = "2.1.112";
+        sha256 = "sha256-9AP6DzUiUb96sSmIcCc6g6pEVhT5OP4JI73evPhWZXo=";
+      #   # ! IMPORTANT ! The sha256 checksum is matched against the packages from the official visual studio marketplace
+      #   # Download from https://marketplace.visualstudio.com/items?itemName=anthropic.claude-code (or your desired extension)
+      #   # Then run the following command to determine the sha256 checksum:
+      #   # sha256sum anthropic.claude-code-1.0.109.vsix
+      #   # https://open-vsx.org/api/Anthropic/claude-code
+      }
       # Use below example solution for installing other missing extensions
       # TODO - Material Theme Icons (using another icon pack in the meantime)
       # {
@@ -77,12 +89,12 @@
       {
         name = "terraform";
         publisher = "hashicorp";
-        version = "2.34.5";
-        sha256 = "b7950b781d23be4b7d6b59b7800e43bb42a5d4523566772ac804255c1c32c9f1";
+        version = "2.39.0";
+        sha256 = "sha256-GEeakigIY3ErXVfq0TqNw5lnL/jxoO3XtLfqnM1EfD4=";
         # ! IMPORTANT ! The sha256 checksum is matched against the packages from the official visual studio marketplace
         # Download from https://marketplace.visualstudio.com/items?itemName=hashicorp.terraform (or your desired extension)
         # Then run the following command to determine the sha256 checksum:
-        # sha256sum hashicorp.terraform-2.34.5.vsix
+        # sha256sum hashicorp.terraform-2.39.0.vsix
         # https://open-vsx.org/api/hashicorp/terraform
       }
     ];
@@ -254,6 +266,11 @@
       };
       materialTheme = {
         accent = "Teal";
+      };
+      "[claudeCode]" = {
+        disableLoginPrompt = true;
+        preferredLocation = "sidebar";
+        useTerminal = false;
       };
       prismaCloud = {
         assetDetails.AssetName = "vscode-iac-test";
@@ -517,6 +534,11 @@
           visible = true;
         };
       };
+      claudeCode.preferredLocation = "sidebar";
+      claudeCode.disableLoginPrompt = true;
+      claudeCode.useTerminal = false;
+      claudeCode.claudeProcessWrapper = "/run/current-system/sw/bin/claude";
+      claudeCode.usePythonEnvironment = false;
     };
   };
 }

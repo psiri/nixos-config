@@ -5,14 +5,14 @@
       monitor=eDP-1,2560x1600@60.00,0x0,1
 
       # Primary external monior (centered)
-      monitor=DP-3,3840x2160@30.00,6400x0,1
+      #monitor=DP-3,3840x2160@30.00,6400x0,1
       # Primary monitor when run through TB3 dock (port 1)
-      monitor=DP-8,3840x2160@60.00,6400x0,1
+      #monitor=DP-8,3840x2160@60.00,6400x0,1
       # Primary monitor when run through TB3 dock (port 4)
       monitor=DP-6,3840x2160@60.00,6400x0,1
 
       # Secondary monitor (LEFT) when run through TB3 dock (port 1)
-      monitor=DP-7,3840x2160@60.00,2560x0,1
+      #monitor=DP-7,3840x2160@60.00,2560x0,1
       # Secondary monitor (LEFT) when run through TB3 dock (port 4)
       monitor=DP-5,3840x2160@60.00,2560x0,1
 
@@ -24,7 +24,12 @@
 
       # Tertiary external monitor. Place it using auto-layout
       monitor=DP-4,3840x2160@30.00, auto, 1
+      monitor=DP-3,3840x2160@30.00,auto,1
 
+      # 3rd monitor (RIGHT) when run through TB5+ dock (DP)
+      #monitor=DP-7,3840x2160@60.00,auto,1
+      monitor=DP-8,3840x2160@60.00,auto,1
+      # 4th monitor (TOP-CENTER) when run through TB5+ dock (DP-adapter)
 
       # Any other random monitor default settings
       monitor = , 3840x2160@30.00, auto, 1

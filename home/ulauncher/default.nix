@@ -9,9 +9,9 @@
   home-manager.users.${user}.home.file.".config/hypr/per-app/ulauncher.conf" = {
     text = ''
       exec-once = sleep 1 && ulauncher --hide-window
-      windowrulev2 = noborder, class:^(ulauncher)$
-      windowrulev2 = noshadow, class:^(ulauncher)$
-      windowrulev2 = noblur, class:^(ulauncher)$
+      windowrule = border_size 0, match:class ^(ulauncher)$
+      windowrule = no_shadow on, match:class ^(ulauncher)$
+      windowrule = no_blur on, match:class ^(ulauncher)$
       bind = $mainMod, SPACE, exec, ulauncher-toggle
     '';
   };

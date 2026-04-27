@@ -7,7 +7,10 @@
 }: {
   programs.hyprland = {
     enable = true;
+    withUWSM = true;
   };
+
+  programs.uwsm.enable = true;
 
   users.users.${user}.packages = with pkgs; [
     hyprpaper
