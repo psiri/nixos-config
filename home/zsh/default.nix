@@ -21,10 +21,13 @@
       bindkey '^[OB' history-substring-search-down
       bindkey '^[[B' history-substring-search-down
     '';
-    # Automatically start Hyprland after TTY login. 
-    # Note: `exec Hyprland` is used to return user to login prompt if/when Hyprland exits.
+    # Automatically start Hyprland after TTY login via uwsm (Universal Wayland Session Manager).
+    # uwsm is the upstream-recommended launcher; bare `exec Hyprland` triggers the
+    # "Hyprland was started without UWSM" warning and skips proper systemd session integration.
     shellInit = ''
-      if [ -z "$DISPLAY" ] && [ "$XDG_VTNR" = 1 ];then exec Hyprland;fi
+      if uwsm check may-start && uwsm select; then
+        exec uwsm start default
+      fi
     '';
     syntaxHighlighting.enable = true;
     syntaxHighlighting.highlighters = ["main" "brackets" "pattern" "cursor" "line"];
@@ -79,10 +82,13 @@
         file = "p10k.zsh";
       }
     ];
-    # Automatically start Hyprland after TTY login. 
-    # Note: `exec Hyprland` is used to return user to login prompt if/when Hyprland exits.
+    # Automatically start Hyprland after TTY login via uwsm (Universal Wayland Session Manager).
+    # uwsm is the upstream-recommended launcher; bare `exec Hyprland` triggers the
+    # "Hyprland was started without UWSM" warning and skips proper systemd session integration.
     loginExtra = ''
-      if [ -z "$DISPLAY" ] && [ "$XDG_VTNR" = 1 ];then exec Hyprland;fi
+      if uwsm check may-start && uwsm select; then
+        exec uwsm start default
+      fi
     '';
     syntaxHighlighting.enable = true;
     syntaxHighlighting.highlighters = ["main" "brackets" "pattern" "cursor" "line"];

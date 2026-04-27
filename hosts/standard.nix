@@ -219,6 +219,7 @@
         # openconnect     # Open-source multi-VPN client supporting Cisco Anyconnect, Pulse Secure, GlobalProtect, etc
         # opensnitch      # Open-source application firewall
         remmina           # Open-source remote desktop client
+        saml2aws
         seahorse          # encryption key and password manager
         slack
         spotify

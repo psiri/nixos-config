@@ -36,8 +36,13 @@
       {
         name = "claude-code";
         publisher = "anthropic";
-        version = "2.1.92";
-        sha256 = "sha256-f+6xXZVb5sYrmrH7eoon6/QoQaTnBuTnb+YnvszqyKA=";
+        version = "2.1.112";
+        sha256 = "sha256-9AP6DzUiUb96sSmIcCc6g6pEVhT5OP4JI73evPhWZXo=";
+      #   # ! IMPORTANT ! The sha256 checksum is matched against the packages from the official visual studio marketplace
+      #   # Download from https://marketplace.visualstudio.com/items?itemName=anthropic.claude-code (or your desired extension)
+      #   # Then run the following command to determine the sha256 checksum:
+      #   # sha256sum anthropic.claude-code-1.0.109.vsix
+      #   # https://open-vsx.org/api/Anthropic/claude-code
       }
       # Use below example solution for installing other missing extensions
       # TODO - Material Theme Icons (using another icon pack in the meantime)
@@ -532,6 +537,8 @@
       claudeCode.preferredLocation = "sidebar";
       claudeCode.disableLoginPrompt = true;
       claudeCode.useTerminal = false;
+      claudeCode.claudeProcessWrapper = "/run/current-system/sw/bin/claude";
+      claudeCode.usePythonEnvironment = false;
     };
   };
 }
